@@ -76,6 +76,20 @@ contract Moloch {
         mapping (address => Vote) votesByMember; // the votes on this proposal by each member
     }
 
+    struct RecipientProposal {
+        address proposer; // the member who submitted the proposal
+        address recipient; // the recipient who will receive the endaoment interest
+        uint256 startingPeriod; // the period in which voting can start for this proposal
+        uint256 yesVotes; // the total number of YES votes for this proposal
+        uint256 noVotes; // the total number of NO votes for this proposal
+        bool processed; // true only if the proposal has been processed
+        bool didPass; // true only if the proposal passed
+        bool aborted; // true only if recipient calls "abort" fn before end of voting period
+        string details; // proposal details - could be IPFS hash, plaintext, or JSON
+        uint256 maxTotalSharesAtYesVote; // the maximum # of total shares encountered at a yes vote on this proposal
+        mapping (address => Vote) votesByMember; // the votes on this proposal by each member
+    }
+
     mapping (address => Member) public members;
     mapping (address => address) public memberAddressByDelegateKey;
     Proposal[] public proposalQueue;
