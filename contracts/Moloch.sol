@@ -1,11 +1,5 @@
 pragma solidity ^0.5.0;
 
-// import "@openzeppelin/upgrades/contracts/Initializable.sol";
-// import "@openzeppelin/contracts-ethereum-package/contracts/token/ERC20/IERC20.sol";
-
-// pragma solidity 0.5.3;
-
-// import "./oz/SafeMath.sol";
 import "@openzeppelin/contracts-ethereum-package/contracts/math/SafeMath.sol";
 import "@openzeppelin/contracts-ethereum-package/contracts/token/ERC20/IERC20.sol";
 import "./GuildBank.sol";
