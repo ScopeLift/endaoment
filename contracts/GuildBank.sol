@@ -15,6 +15,12 @@ contract GuildBank is Ownable {
         approvedToken = IERC20(approvedTokenAddress);
     }
 
+    function convertToInterestEarningToken() public {
+      // Check balance of Dai
+      // Mint rDAI
+      // Set rDAI hat properties?
+    }
+
     function withdraw(address receiver, uint256 shares, uint256 totalShares) public onlyOwner returns (bool) {
         uint256 amount = approvedToken.balanceOf(address(this)).mul(shares).div(totalShares);
         emit Withdrawal(receiver, amount);
