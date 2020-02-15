@@ -125,6 +125,7 @@ contract Moloch {
         approvedToken = IERC20(_approvedToken);
 
         guildBank = new GuildBank(_approvedToken);
+        recipient = address(guildBank);
 
         periodDuration = _periodDuration;
         votingPeriodLength = _votingPeriodLength;
@@ -212,7 +213,9 @@ contract Moloch {
         public
         onlyDelegate
     {
-        //require(recipient != address(0), "Moloch::submitRecipientProposal - recipient cannot be 0");
+        require(recipient != address(0), "Moloch::submitRecipientProposal - recipient cannot be 0");
+        require(recipient != _recipient, "Moloch::submitRecipientProposal - recipient must be different");
+        require(recipient != address(this), "Moloch::submitRecipientProposal - recipient cannot be this contract");
 
         address memberAddress = memberAddressByDelegateKey[msg.sender];
 
@@ -396,12 +399,10 @@ contract Moloch {
 
             proposal.didPass = true;
 
-            // Get total deposits from all users
-            // Get currennt total value of assets
-            // Calculate available interest
-            // Transfer interest to current recipient (unless 0x00)
-            // Set the new recipient
-            recipient = proposal.applicant;
+            // call guild bank function to handle interest changes
+            address _newRecipient = proposal.applicant;
+            recipient = _newRecipient;
+            guildBank.updateRecipient(_newRecipient, totalShares);
 
         // PROPOSAL FAILED OR ABORTED
         }
