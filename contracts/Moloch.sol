@@ -81,6 +81,8 @@ contract Moloch {
     mapping (address => address) public memberAddressByDelegateKey;
     Proposal[] public proposalQueue;
 
+    address public recipient;
+
     /********
     MODIFIERS
     ********/
@@ -202,13 +204,13 @@ contract Moloch {
     }
 
     function submitRecipientProposal(
-        address recipient,
+        address _recipient,
         string memory details
     )
         public
         onlyDelegate
     {
-        require(recipient != address(0), "Moloch::submitRecipientProposal - recipient cannot be 0");
+        //require(recipient != address(0), "Moloch::submitRecipientProposal - recipient cannot be 0");
 
         address memberAddress = memberAddressByDelegateKey[msg.sender];
 
@@ -224,7 +226,7 @@ contract Moloch {
         // create proposal ...
         Proposal memory proposal = Proposal({
             proposer: memberAddress,
-            applicant: recipient,
+            applicant: _recipient,
             isRecipientProposal: true,
             sharesRequested: 0,
             startingPeriod: startingPeriod,
@@ -244,7 +246,7 @@ contract Moloch {
         uint256 proposalIndex = proposalQueue.length.sub(1);
         uint256 tokenTribute = 0;
         uint256 sharesRequested = 0;
-        emit SubmitProposal(proposalIndex, msg.sender, memberAddress, recipient, tokenTribute, sharesRequested);
+        emit SubmitProposal(proposalIndex, msg.sender, memberAddress, _recipient, tokenTribute, sharesRequested);
     }
 
     function submitVote(uint256 proposalIndex, uint8 uintVote) public onlyDelegate {
@@ -290,6 +292,8 @@ contract Moloch {
     function processProposal(uint256 proposalIndex) public {
         require(proposalIndex < proposalQueue.length, "Moloch::processProposal - proposal does not exist");
         Proposal storage proposal = proposalQueue[proposalIndex];
+
+        require(!proposal.isRecipientProposal, "Endaoment:processProposal - proposal is not a member proposal");
 
         require(getCurrentPeriod() >= proposal.startingPeriod.add(votingPeriodLength).add(gracePeriodLength), "Moloch::processProposal - proposal is not ready to be processed");
         require(proposal.processed == false, "Moloch::processProposal - proposal has already been processed");
@@ -344,6 +348,57 @@ contract Moloch {
                 approvedToken.transfer(proposal.applicant, proposal.tokenTribute),
                 "Moloch::processProposal - failing vote token transfer failed"
             );
+        }
+
+        // send msg.sender the processingReward
+        require(
+            approvedToken.transfer(msg.sender, processingReward),
+            "Moloch::processProposal - failed to send processing reward to msg.sender"
+        );
+
+        // return deposit to proposer (subtract processing reward)
+        require(
+            approvedToken.transfer(proposal.proposer, proposalDeposit.sub(processingReward)),
+            "Moloch::processProposal - failed to return proposal deposit to proposer"
+        );
+
+        emit ProcessProposal(
+            proposalIndex,
+            proposal.applicant,
+            proposal.proposer,
+            proposal.tokenTribute,
+            proposal.sharesRequested,
+            didPass
+        );
+    }
+
+    function processRecipientProposal(uint256 proposalIndex) public {
+        require(proposalIndex < proposalQueue.length, "Moloch::processProposal - proposal does not exist");
+        Proposal storage proposal = proposalQueue[proposalIndex];
+
+        require(proposal.isRecipientProposal, "Endaoment:processRecipientProposal - proposal is not a recipient proposal");
+
+        require(getCurrentPeriod() >= proposal.startingPeriod.add(votingPeriodLength).add(gracePeriodLength), "Moloch::processProposal - proposal is not ready to be processed");
+        require(proposal.processed == false, "Moloch::processProposal - proposal has already been processed");
+        require(proposalIndex == 0 || proposalQueue[proposalIndex.sub(1)].processed, "Moloch::processProposal - previous proposal must be processed");
+
+        proposal.processed = true;
+
+        bool didPass = proposal.yesVotes > proposal.noVotes;
+
+        // PROPOSAL PASSED
+        if (didPass && !proposal.aborted) {
+
+            proposal.didPass = true;
+
+            // Get total deposits from all users
+            // Get currennt total value of assets
+            // Calculate available interest
+            // Transfer interest to current recipient (unless 0x00)
+            // Set the new recipient
+            recipient = proposal.applicant;
+
+        // PROPOSAL FAILED OR ABORTED
         }
 
         // send msg.sender the processingReward
