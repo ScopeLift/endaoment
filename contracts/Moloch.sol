@@ -157,6 +157,7 @@ contract Moloch {
         onlyDelegate
     {
         require(applicant != address(0), "Moloch::submitProposal - applicant cannot be 0");
+        require(sharesRequested == tokenTribute, "Endaoment::submitProposal - shares must equal tribute");
 
         // Make sure we won't run into overflows when doing calculations with shares.
         // Note that totalShares + totalSharesRequested + sharesRequested is an upper bound
