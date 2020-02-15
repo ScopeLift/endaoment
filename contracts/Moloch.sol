@@ -430,7 +430,7 @@ contract Moloch {
     }
 
     function ragequit(uint256 sharesToBurn) public onlyMember {
-        uint256 initialTotalShares = totalShares;
+        // uint256 initialTotalShares = totalShares;
 
         Member storage member = members[msg.sender];
 
@@ -444,7 +444,7 @@ contract Moloch {
 
         // instruct guildBank to transfer fair share of tokens to the ragequitter
         require(
-            guildBank.withdraw(msg.sender, sharesToBurn, initialTotalShares),
+            guildBank.withdraw(msg.sender, sharesToBurn),
             "Moloch::ragequit - withdrawal of tokens from guildBank failed"
         );
 

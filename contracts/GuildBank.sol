@@ -59,9 +59,9 @@ contract GuildBank is Ownable {
       rToken.mintWithSelectedHat(_tokenBalance, _hatId);
     }
 
-    function withdraw(address receiver, uint256 shares, uint256 totalShares) public onlyOwner returns (bool) {
-        uint256 amount = approvedToken.balanceOf(address(this)).mul(shares).div(totalShares);
+    function withdraw(address receiver, uint256 shares) public onlyOwner returns (bool) {
+        uint256 amount = shares;
         emit Withdrawal(receiver, amount);
-        return approvedToken.transfer(receiver, amount);
+        return rToken.redeemAndTransfer(receiver, shares);
     }
 }
