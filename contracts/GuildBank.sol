@@ -3,6 +3,7 @@ pragma solidity ^0.5.0;
 import "@openzeppelin/contracts-ethereum-package/contracts/ownership/Ownable.sol";
 import "@openzeppelin/contracts-ethereum-package/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts-ethereum-package/contracts/math/SafeMath.sol";
+import "./IRToken.sol";
 
 contract GuildBank is Ownable {
     using SafeMath for uint256;
@@ -17,6 +18,7 @@ contract GuildBank is Ownable {
 
     function convertToInterestEarningToken() public {
       // Check balance of Dai
+      uint256 tokenBalance = approvedToken.balanceOf(address(this));
       // Mint rDAI
       // Set rDAI hat properties?
     }
