@@ -136,6 +136,7 @@ contract Moloch {
 
         summoningTime = now;
 
+        // TODO remove initial share? add check on summoner ragequit?
         members[summoner] = Member(summoner, 1, true, 0);
         memberAddressByDelegateKey[summoner] = summoner;
         totalShares = 1;
@@ -336,28 +337,31 @@ contract Moloch {
             // mint new shares
             totalShares = totalShares.add(proposal.sharesRequested);
 
-            // transfer tokens to guild bank
+            // DONE transfer tokens to guild bank
             require(
                 approvedToken.transfer(address(guildBank), proposal.tokenTribute),
                 "Moloch::processProposal - token transfer to guild bank failed"
             );
 
+            // Call function to convert guild bank Dai to rDAI
+            guildBank.convertToInterestEarningToken();
+
         // PROPOSAL FAILED OR ABORTED
         } else {
-            // return all tokens to the applicant
+            // DONE return all tokens to the applicant
             require(
                 approvedToken.transfer(proposal.applicant, proposal.tokenTribute),
                 "Moloch::processProposal - failing vote token transfer failed"
             );
         }
 
-        // send msg.sender the processingReward
+        // DONE send msg.sender the processingReward
         require(
             approvedToken.transfer(msg.sender, processingReward),
             "Moloch::processProposal - failed to send processing reward to msg.sender"
         );
 
-        // return deposit to proposer (subtract processing reward)
+        // DONE return deposit to proposer (subtract processing reward)
         require(
             approvedToken.transfer(proposal.proposer, proposalDeposit.sub(processingReward)),
             "Moloch::processProposal - failed to return proposal deposit to proposer"
