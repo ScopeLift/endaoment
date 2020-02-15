@@ -10,7 +10,7 @@ contract Moloch {
     /***************
     GLOBAL CONSTANTS
     ***************/
-  uint256 public periodDuration; // default = 17280 = 4.8 hours in seconds (5 periods per day)
+    uint256 public periodDuration; // default = 17280 = 4.8 hours in seconds (5 periods per day)
     uint256 public votingPeriodLength; // default = 35 periods (7 days)
     uint256 public gracePeriodLength; // default = 35 periods (7 days)
     uint256 public abortWindow; // default = 5 periods (1 day)
@@ -63,6 +63,7 @@ contract Moloch {
     struct Proposal {
         address proposer; // the member who submitted the proposal
         address applicant; // the applicant who wishes to become a member - this key will be used for withdrawals
+        bool isRecipientProposal;
         uint256 sharesRequested; // the # of shares the applicant is requesting
         uint256 startingPeriod; // the period in which voting can start for this proposal
         uint256 yesVotes; // the total number of YES votes for this proposal
@@ -71,20 +72,6 @@ contract Moloch {
         bool didPass; // true only if the proposal passed
         bool aborted; // true only if applicant calls "abort" fn before end of voting period
         uint256 tokenTribute; // amount of tokens offered as tribute
-        string details; // proposal details - could be IPFS hash, plaintext, or JSON
-        uint256 maxTotalSharesAtYesVote; // the maximum # of total shares encountered at a yes vote on this proposal
-        mapping (address => Vote) votesByMember; // the votes on this proposal by each member
-    }
-
-    struct RecipientProposal {
-        address proposer; // the member who submitted the proposal
-        address recipient; // the recipient who will receive the endaoment interest
-        uint256 startingPeriod; // the period in which voting can start for this proposal
-        uint256 yesVotes; // the total number of YES votes for this proposal
-        uint256 noVotes; // the total number of NO votes for this proposal
-        bool processed; // true only if the proposal has been processed
-        bool didPass; // true only if the proposal passed
-        bool aborted; // true only if recipient calls "abort" fn before end of voting period
         string details; // proposal details - could be IPFS hash, plaintext, or JSON
         uint256 maxTotalSharesAtYesVote; // the maximum # of total shares encountered at a yes vote on this proposal
         mapping (address => Vote) votesByMember; // the votes on this proposal by each member
@@ -194,6 +181,7 @@ contract Moloch {
         Proposal memory proposal = Proposal({
             proposer: memberAddress,
             applicant: applicant,
+            isRecipientProposal: false,
             sharesRequested: sharesRequested,
             startingPeriod: startingPeriod,
             yesVotes: 0,
@@ -211,6 +199,52 @@ contract Moloch {
 
         uint256 proposalIndex = proposalQueue.length.sub(1);
         emit SubmitProposal(proposalIndex, msg.sender, memberAddress, applicant, tokenTribute, sharesRequested);
+    }
+
+    function submitRecipientProposal(
+        address recipient,
+        string memory details
+    )
+        public
+        onlyDelegate
+    {
+        require(recipient != address(0), "Moloch::submitRecipientProposal - recipient cannot be 0");
+
+        address memberAddress = memberAddressByDelegateKey[msg.sender];
+
+        // collect proposal deposit from proposer and store it in the Moloch until the proposal is processed
+        require(approvedToken.transferFrom(msg.sender, address(this), proposalDeposit), "Moloch::submitProposal - proposal deposit token transfer failed");
+
+        // compute startingPeriod for proposal
+        uint256 startingPeriod = max(
+            getCurrentPeriod(),
+            proposalQueue.length == 0 ? 0 : proposalQueue[proposalQueue.length.sub(1)].startingPeriod
+        ).add(1);
+
+        // create proposal ...
+        Proposal memory proposal = Proposal({
+            proposer: memberAddress,
+            applicant: recipient,
+            isRecipientProposal: true,
+            sharesRequested: 0,
+            startingPeriod: startingPeriod,
+            yesVotes: 0,
+            noVotes: 0,
+            processed: false,
+            didPass: false,
+            aborted: false,
+            tokenTribute: 0,
+            details: details,
+            maxTotalSharesAtYesVote: 0
+        });
+
+        // ... and append it to the queue
+        proposalQueue.push(proposal);
+
+        uint256 proposalIndex = proposalQueue.length.sub(1);
+        uint256 tokenTribute = 0;
+        uint256 sharesRequested = 0;
+        emit SubmitProposal(proposalIndex, msg.sender, memberAddress, recipient, tokenTribute, sharesRequested);
     }
 
     function submitVote(uint256 proposalIndex, uint8 uintVote) public onlyDelegate {
