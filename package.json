@@ -8,12 +8,6 @@
     "pre-push": "cd client && npm run pre-push",
     "pre-commit": "cd client && npm run pre-commit"
   },
-  "husky": {
-    "hooks": {
-      "pre-push": "npm run pre-push",
-      "pre-commit": "npm run pre-commit"
-    }
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/OpenZeppelin/starter-kit"
