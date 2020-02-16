@@ -12,8 +12,8 @@ module.exports = function(deployer) {
           35, // uint256 _votingPeriodLength -- 35 periods?
           35, // uint256 _gracePeriodLength -- 35 periods?
           5, // uint256 _abortWindow -- 5 periods?
-          100, // uint256 _proposalDeposit -- 100?
+          "100000000000000000000", // uint256 _proposalDeposit -- 100 Dai
           3, // uint256 _dilutionBound -- 3
-          1 // uint256 _processingReward -- 1?
-        ) 
+          "1000000000000000000" // uint256 _processingReward -- 1 Dai
+        )
 };

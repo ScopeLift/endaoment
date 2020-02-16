@@ -32,8 +32,14 @@ export default ({ accounts }) => (
 
     <div className="section">
       Proposal 1:{" "}
-      <ContractData contract="Moloch" method="proposalQueue" methodArgs={[1]} />
+      <ContractData contract="Moloch" method="proposalQueue" methodArgs={[0]} />
     </div>
+
+    <div className="section">
+      Lookup Member:{" "}
+      <ContractData contract="Moloch" method="members" methodArgs={[accounts[0]]} />
+    </div>
+
 
     <div className="section">
       Current Period:{" "}
@@ -41,8 +47,13 @@ export default ({ accounts }) => (
     </div>
 
     <div className="section">
-      Process Proposal:
+      Process Recipient Proposal:
       <ContractForm contract="Moloch" method="processRecipientProposal" />
+    </div>
+
+    <div className="section">
+      Process Membership Proposal:
+      <ContractForm contract="Moloch" method="processProposal" />
     </div>
 
     <div className="section">
