@@ -64,6 +64,7 @@ contract("RToken", accounts => {
         {
             const result = await createCompoundAllocationStrategy(toWad(.1));
             cToken = result.cToken;
+            console.log('cToken address: ', cToken.address);
             compoundAS = result.compoundAS;
         }
 
