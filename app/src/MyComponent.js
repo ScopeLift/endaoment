@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from 'react';
 import {
   AccountData,
   ContractData,
@@ -7,9 +7,15 @@ import {
 
 import { Container, Row, Col, Card, ListGroup, ListGroupItem } from 'react-bootstrap';
 
-import logo from "./logo.png";
+class MyComponent extends Component {
 
-export default ({ accounts }) => (
+  constructor(props, context) {
+    super(props);
+  }
+
+  render() {
+
+    return (
   <div className="App">
 
     <Container>
@@ -20,7 +26,7 @@ export default ({ accounts }) => (
               Your Account
             </Card.Header>
             <Card.Body>
-              {accounts[0]}
+              {this.props.accounts[0]}
             </Card.Body>
           </Card>
         </Col>
@@ -78,4 +84,8 @@ export default ({ accounts }) => (
       <ContractForm contract="Moloch" method="submitRecipientProposal" />
     </div>
   </div>
-);
+    );
+  }
+}
+
+export default MyComponent;
