@@ -28,7 +28,7 @@ contract Moloch {
     uint256 constant MAX_VOTING_PERIOD_LENGTH = 10**18; // maximum length of voting period
     uint256 constant MAX_GRACE_PERIOD_LENGTH = 10**18; // maximum length of grace period
     uint256 constant MAX_DILUTION_BOUND = 10**18; // maximum dilution bound
-    uint256 constant MAX_NUMBER_OF_SHARES = 10**18; // maximum number of shares that can be minted
+    uint256 constant MAX_NUMBER_OF_SHARES = uint256(-1); // maximum number of shares that can be minted
 
     /***************
     EVENTS
