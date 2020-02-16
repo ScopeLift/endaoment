@@ -4,7 +4,7 @@ import Moloch from "./contracts/Moloch.json";
 const options = {
   web3: {
     block: false,
-    customProvider: new Web3("ws://localhost:8545"),
+    //customProvider: new Web3("ws://localhost:8545"),
   },
   contracts: [Moloch],
   events: {

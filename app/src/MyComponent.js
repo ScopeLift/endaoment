@@ -16,11 +16,28 @@ export default ({ accounts }) => (
     </div>
 
     <div className="section">
-      <h2>Active Account</h2>
-      <AccountData accountIndex={0} units="ether" precision={3} />
+      Active Account{" "}
+      {accounts[0]}
     </div>
 
-    Total Shares:
-    <ContractData contract="Moloch" method="totalShares" />
+    <div className="section">
+      Total Shares:{" "}
+      <ContractData contract="Moloch" method="totalShares" />
+    </div>
+
+    <div className="section">
+      Current Recipient:{" "}
+      <ContractData contract="Moloch" method="recipient" />
+    </div>
+
+    <div className="section">
+      Membership Proposal:
+      <ContractForm contract="Moloch" method="submitProposal" />
+    </div>
+
+    <div className="section">
+      Recipient Proposal:
+      <ContractForm contract="Moloch" method="submitRecipientProposal" />
+    </div>
   </div>
 );
