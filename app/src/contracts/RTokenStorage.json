@@ -477,14 +477,14 @@
     "absolutePath": "/Users/bendi/Development/endaoment/contracts/RTokenStorage.sol",
     "exportedSymbols": {
       "RTokenStorage": [
-        11971
+        11980
       ]
     },
-    "id": 11972,
+    "id": 11981,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 11916,
+        "id": 11925,
         "literals": [
           "solidity",
           ">=",
@@ -498,7 +498,7 @@
         "src": "202:32:25"
       },
       {
-        "id": 11917,
+        "id": 11926,
         "literals": [
           "experimental",
           "ABIEncoderV2"
@@ -509,14 +509,14 @@
       {
         "absolutePath": "/Users/bendi/Development/endaoment/contracts/RTokenStructs.sol",
         "file": "./RTokenStructs.sol",
-        "id": 11919,
+        "id": 11928,
         "nodeType": "ImportDirective",
-        "scope": 11972,
-        "sourceUnit": 12036,
+        "scope": 11981,
+        "sourceUnit": 12045,
         "src": "270:50:25",
         "symbolAliases": [
           {
-            "foreign": 11918,
+            "foreign": 11927,
             "local": null
           }
         ],
@@ -525,14 +525,14 @@
       {
         "absolutePath": "/Users/bendi/Development/endaoment/contracts/IRToken.sol",
         "file": "./IRToken.sol",
-        "id": 11921,
+        "id": 11930,
         "nodeType": "ImportDirective",
-        "scope": 11972,
-        "sourceUnit": 6603,
+        "scope": 11981,
+        "sourceUnit": 6611,
         "src": "321:37:25",
         "symbolAliases": [
           {
-            "foreign": 11920,
+            "foreign": 11929,
             "local": null
           }
         ],
@@ -541,14 +541,14 @@
       {
         "absolutePath": "/Users/bendi/Development/endaoment/contracts/IAllocationStrategy.sol",
         "file": "./IAllocationStrategy.sol",
-        "id": 11923,
+        "id": 11932,
         "nodeType": "ImportDirective",
-        "scope": 11972,
-        "sourceUnit": 6346,
+        "scope": 11981,
+        "sourceUnit": 6354,
         "src": "359:62:25",
         "symbolAliases": [
           {
-            "foreign": 11922,
+            "foreign": 11931,
             "local": null
           }
         ],
@@ -560,17 +560,17 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 11924,
+              "id": 11933,
               "name": "RTokenStructs",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 12035,
+              "referencedDeclaration": 12044,
               "src": "449:13:25",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_RTokenStructs_$12035",
+                "typeIdentifier": "t_contract$_RTokenStructs_$12044",
                 "typeString": "contract RTokenStructs"
               }
             },
-            "id": 11925,
+            "id": 11934,
             "nodeType": "InheritanceSpecifier",
             "src": "449:13:25"
           },
@@ -578,43 +578,43 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 11926,
+              "id": 11935,
               "name": "IERC20",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 14571,
+              "referencedDeclaration": 14580,
               "src": "464:6:25",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_IERC20_$14571",
+                "typeIdentifier": "t_contract$_IERC20_$14580",
                 "typeString": "contract IERC20"
               }
             },
-            "id": 11927,
+            "id": 11936,
             "nodeType": "InheritanceSpecifier",
             "src": "464:6:25"
           }
         ],
         "contractDependencies": [
-          12035,
-          14571
+          12044,
+          14580
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 11971,
+        "id": 11980,
         "linearizedBaseContracts": [
-          11971,
-          14571,
-          12035
+          11980,
+          14580,
+          12044
         ],
         "name": "RTokenStorage",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 11929,
+            "id": 11938,
             "name": "_owner",
             "nodeType": "VariableDeclaration",
-            "scope": 11971,
+            "scope": 11980,
             "src": "656:21:25",
             "stateVariable": true,
             "storageLocation": "default",
@@ -623,7 +623,7 @@
               "typeString": "address"
             },
             "typeName": {
-              "id": 11928,
+              "id": 11937,
               "name": "address",
               "nodeType": "ElementaryTypeName",
               "src": "656:7:25",
@@ -638,10 +638,10 @@
           },
           {
             "constant": false,
-            "id": 11931,
+            "id": 11940,
             "name": "initialized",
             "nodeType": "VariableDeclaration",
-            "scope": 11971,
+            "scope": 11980,
             "src": "683:23:25",
             "stateVariable": true,
             "storageLocation": "default",
@@ -650,7 +650,7 @@
               "typeString": "bool"
             },
             "typeName": {
-              "id": 11930,
+              "id": 11939,
               "name": "bool",
               "nodeType": "ElementaryTypeName",
               "src": "683:4:25",
@@ -664,10 +664,10 @@
           },
           {
             "constant": false,
-            "id": 11933,
+            "id": 11942,
             "name": "_guardCounter",
             "nodeType": "VariableDeclaration",
-            "scope": 11971,
+            "scope": 11980,
             "src": "784:28:25",
             "stateVariable": true,
             "storageLocation": "default",
@@ -676,7 +676,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 11932,
+              "id": 11941,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
               "src": "784:7:25",
@@ -690,10 +690,10 @@
           },
           {
             "constant": false,
-            "id": 11935,
+            "id": 11944,
             "name": "name",
             "nodeType": "VariableDeclaration",
-            "scope": 11971,
+            "scope": 11980,
             "src": "882:18:25",
             "stateVariable": true,
             "storageLocation": "default",
@@ -702,7 +702,7 @@
               "typeString": "string"
             },
             "typeName": {
-              "id": 11934,
+              "id": 11943,
               "name": "string",
               "nodeType": "ElementaryTypeName",
               "src": "882:6:25",
@@ -716,10 +716,10 @@
           },
           {
             "constant": false,
-            "id": 11937,
+            "id": 11946,
             "name": "symbol",
             "nodeType": "VariableDeclaration",
-            "scope": 11971,
+            "scope": 11980,
             "src": "972:20:25",
             "stateVariable": true,
             "storageLocation": "default",
@@ -728,7 +728,7 @@
               "typeString": "string"
             },
             "typeName": {
-              "id": 11936,
+              "id": 11945,
               "name": "string",
               "nodeType": "ElementaryTypeName",
               "src": "972:6:25",
@@ -742,10 +742,10 @@
           },
           {
             "constant": false,
-            "id": 11939,
+            "id": 11948,
             "name": "decimals",
             "nodeType": "VariableDeclaration",
-            "scope": 11971,
+            "scope": 11980,
             "src": "1066:23:25",
             "stateVariable": true,
             "storageLocation": "default",
@@ -754,7 +754,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 11938,
+              "id": 11947,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
               "src": "1066:7:25",
@@ -768,10 +768,10 @@
           },
           {
             "constant": false,
-            "id": 11941,
+            "id": 11950,
             "name": "totalSupply",
             "nodeType": "VariableDeclaration",
-            "scope": 11971,
+            "scope": 11980,
             "src": "1164:26:25",
             "stateVariable": true,
             "storageLocation": "default",
@@ -780,7 +780,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 11940,
+              "id": 11949,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
               "src": "1164:7:25",
@@ -794,26 +794,26 @@
           },
           {
             "constant": false,
-            "id": 11943,
+            "id": 11952,
             "name": "ias",
             "nodeType": "VariableDeclaration",
-            "scope": 11971,
+            "scope": 11980,
             "src": "1233:30:25",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_contract$_IAllocationStrategy_$6345",
+              "typeIdentifier": "t_contract$_IAllocationStrategy_$6353",
               "typeString": "contract IAllocationStrategy"
             },
             "typeName": {
               "contractScope": null,
-              "id": 11942,
+              "id": 11951,
               "name": "IAllocationStrategy",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 6345,
+              "referencedDeclaration": 6353,
               "src": "1233:19:25",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_IAllocationStrategy_$6345",
+                "typeIdentifier": "t_contract$_IAllocationStrategy_$6353",
                 "typeString": "contract IAllocationStrategy"
               }
             },
@@ -822,26 +822,26 @@
           },
           {
             "constant": false,
-            "id": 11945,
+            "id": 11954,
             "name": "token",
             "nodeType": "VariableDeclaration",
-            "scope": 11971,
+            "scope": 11980,
             "src": "1299:19:25",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_contract$_IERC20_$14571",
+              "typeIdentifier": "t_contract$_IERC20_$14580",
               "typeString": "contract IERC20"
             },
             "typeName": {
               "contractScope": null,
-              "id": 11944,
+              "id": 11953,
               "name": "IERC20",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 14571,
+              "referencedDeclaration": 14580,
               "src": "1299:6:25",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_IERC20_$14571",
+                "typeIdentifier": "t_contract$_IERC20_$14580",
                 "typeString": "contract IERC20"
               }
             },
@@ -850,10 +850,10 @@
           },
           {
             "constant": false,
-            "id": 11947,
+            "id": 11956,
             "name": "savingAssetOrignalAmount",
             "nodeType": "VariableDeclaration",
-            "scope": 11971,
+            "scope": 11980,
             "src": "1435:39:25",
             "stateVariable": true,
             "storageLocation": "default",
@@ -862,7 +862,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 11946,
+              "id": 11955,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
               "src": "1435:7:25",
@@ -876,10 +876,10 @@
           },
           {
             "constant": false,
-            "id": 11949,
+            "id": 11958,
             "name": "savingAssetConversionRate",
             "nodeType": "VariableDeclaration",
-            "scope": 11971,
+            "scope": 11980,
             "src": "1550:40:25",
             "stateVariable": true,
             "storageLocation": "default",
@@ -888,7 +888,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 11948,
+              "id": 11957,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
               "src": "1550:7:25",
@@ -902,10 +902,10 @@
           },
           {
             "constant": false,
-            "id": 11955,
+            "id": 11964,
             "name": "transferAllowances",
             "nodeType": "VariableDeclaration",
-            "scope": 11971,
+            "scope": 11980,
             "src": "1661:73:25",
             "stateVariable": true,
             "storageLocation": "default",
@@ -914,9 +914,9 @@
               "typeString": "mapping(address => mapping(address => uint256))"
             },
             "typeName": {
-              "id": 11954,
+              "id": 11963,
               "keyType": {
-                "id": 11950,
+                "id": 11959,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "1669:7:25",
@@ -932,9 +932,9 @@
                 "typeString": "mapping(address => mapping(address => uint256))"
               },
               "valueType": {
-                "id": 11953,
+                "id": 11962,
                 "keyType": {
-                  "id": 11951,
+                  "id": 11960,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
                   "src": "1688:7:25",
@@ -950,7 +950,7 @@
                   "typeString": "mapping(address => uint256)"
                 },
                 "valueType": {
-                  "id": 11952,
+                  "id": 11961,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "1699:7:25",
@@ -966,36 +966,36 @@
           },
           {
             "constant": false,
-            "id": 11958,
+            "id": 11967,
             "name": "hats",
             "nodeType": "VariableDeclaration",
-            "scope": 11971,
+            "scope": 11980,
             "src": "1762:19:25",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_array$_t_struct$_Hat_$12019_storage_$dyn_storage",
+              "typeIdentifier": "t_array$_t_struct$_Hat_$12028_storage_$dyn_storage",
               "typeString": "struct RTokenStructs.Hat[]"
             },
             "typeName": {
               "baseType": {
                 "contractScope": null,
-                "id": 11956,
+                "id": 11965,
                 "name": "Hat",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 12019,
+                "referencedDeclaration": 12028,
                 "src": "1762:3:25",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_Hat_$12019_storage_ptr",
+                  "typeIdentifier": "t_struct$_Hat_$12028_storage_ptr",
                   "typeString": "struct RTokenStructs.Hat"
                 }
               },
-              "id": 11957,
+              "id": 11966,
               "length": null,
               "nodeType": "ArrayTypeName",
               "src": "1762:5:25",
               "typeDescriptions": {
-                "typeIdentifier": "t_array$_t_struct$_Hat_$12019_storage_$dyn_storage_ptr",
+                "typeIdentifier": "t_array$_t_struct$_Hat_$12028_storage_$dyn_storage_ptr",
                 "typeString": "struct RTokenStructs.Hat[]"
               }
             },
@@ -1004,21 +1004,21 @@
           },
           {
             "constant": false,
-            "id": 11962,
+            "id": 11971,
             "name": "accounts",
             "nodeType": "VariableDeclaration",
-            "scope": 11971,
+            "scope": 11980,
             "src": "1816:43:25",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Account_$12034_storage_$",
+              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Account_$12043_storage_$",
               "typeString": "mapping(address => struct RTokenStructs.Account)"
             },
             "typeName": {
-              "id": 11961,
+              "id": 11970,
               "keyType": {
-                "id": 11959,
+                "id": 11968,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "1824:7:25",
@@ -1030,18 +1030,18 @@
               "nodeType": "Mapping",
               "src": "1816:27:25",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Account_$12034_storage_$",
+                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Account_$12043_storage_$",
                 "typeString": "mapping(address => struct RTokenStructs.Account)"
               },
               "valueType": {
                 "contractScope": null,
-                "id": 11960,
+                "id": 11969,
                 "name": "Account",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 12034,
+                "referencedDeclaration": 12043,
                 "src": "1835:7:25",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_Account_$12034_storage_ptr",
+                  "typeIdentifier": "t_struct$_Account_$12043_storage_ptr",
                   "typeString": "struct RTokenStructs.Account"
                 }
               }
@@ -1051,21 +1051,21 @@
           },
           {
             "constant": false,
-            "id": 11966,
+            "id": 11975,
             "name": "accountStats",
             "nodeType": "VariableDeclaration",
-            "scope": 11971,
+            "scope": 11980,
             "src": "1899:58:25",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_AccountStatsStored_$11998_storage_$",
+              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_AccountStatsStored_$12007_storage_$",
               "typeString": "mapping(address => struct RTokenStructs.AccountStatsStored)"
             },
             "typeName": {
-              "id": 11965,
+              "id": 11974,
               "keyType": {
-                "id": 11963,
+                "id": 11972,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "1907:7:25",
@@ -1077,18 +1077,18 @@
               "nodeType": "Mapping",
               "src": "1899:38:25",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_AccountStatsStored_$11998_storage_$",
+                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_AccountStatsStored_$12007_storage_$",
                 "typeString": "mapping(address => struct RTokenStructs.AccountStatsStored)"
               },
               "valueType": {
                 "contractScope": null,
-                "id": 11964,
+                "id": 11973,
                 "name": "AccountStatsStored",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 11998,
+                "referencedDeclaration": 12007,
                 "src": "1918:18:25",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_AccountStatsStored_$11998_storage_ptr",
+                  "typeIdentifier": "t_struct$_AccountStatsStored_$12007_storage_ptr",
                   "typeString": "struct RTokenStructs.AccountStatsStored"
                 }
               }
@@ -1098,21 +1098,21 @@
           },
           {
             "constant": false,
-            "id": 11970,
+            "id": 11979,
             "name": "hatStats",
             "nodeType": "VariableDeclaration",
-            "scope": 11971,
+            "scope": 11980,
             "src": "1993:50:25",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_HatStatsStored_$12012_storage_$",
+              "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_HatStatsStored_$12021_storage_$",
               "typeString": "mapping(uint256 => struct RTokenStructs.HatStatsStored)"
             },
             "typeName": {
-              "id": 11969,
+              "id": 11978,
               "keyType": {
-                "id": 11967,
+                "id": 11976,
                 "name": "uint256",
                 "nodeType": "ElementaryTypeName",
                 "src": "2001:7:25",
@@ -1124,18 +1124,18 @@
               "nodeType": "Mapping",
               "src": "1993:34:25",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_HatStatsStored_$12012_storage_$",
+                "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_HatStatsStored_$12021_storage_$",
                 "typeString": "mapping(uint256 => struct RTokenStructs.HatStatsStored)"
               },
               "valueType": {
                 "contractScope": null,
-                "id": 11968,
+                "id": 11977,
                 "name": "HatStatsStored",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 12012,
+                "referencedDeclaration": 12021,
                 "src": "2012:14:25",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_HatStatsStored_$12012_storage_ptr",
+                  "typeIdentifier": "t_struct$_HatStatsStored_$12021_storage_ptr",
                   "typeString": "struct RTokenStructs.HatStatsStored"
                 }
               }
@@ -1144,7 +1144,7 @@
             "visibility": "public"
           }
         ],
-        "scope": 11972,
+        "scope": 11981,
         "src": "423:1623:25"
       }
     ],
@@ -1154,14 +1154,14 @@
     "absolutePath": "/Users/bendi/Development/endaoment/contracts/RTokenStorage.sol",
     "exportedSymbols": {
       "RTokenStorage": [
-        11971
+        11980
       ]
     },
-    "id": 11972,
+    "id": 11981,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 11916,
+        "id": 11925,
         "literals": [
           "solidity",
           ">=",
@@ -1175,7 +1175,7 @@
         "src": "202:32:25"
       },
       {
-        "id": 11917,
+        "id": 11926,
         "literals": [
           "experimental",
           "ABIEncoderV2"
@@ -1186,14 +1186,14 @@
       {
         "absolutePath": "/Users/bendi/Development/endaoment/contracts/RTokenStructs.sol",
         "file": "./RTokenStructs.sol",
-        "id": 11919,
+        "id": 11928,
         "nodeType": "ImportDirective",
-        "scope": 11972,
-        "sourceUnit": 12036,
+        "scope": 11981,
+        "sourceUnit": 12045,
         "src": "270:50:25",
         "symbolAliases": [
           {
-            "foreign": 11918,
+            "foreign": 11927,
             "local": null
           }
         ],
@@ -1202,14 +1202,14 @@
       {
         "absolutePath": "/Users/bendi/Development/endaoment/contracts/IRToken.sol",
         "file": "./IRToken.sol",
-        "id": 11921,
+        "id": 11930,
         "nodeType": "ImportDirective",
-        "scope": 11972,
-        "sourceUnit": 6603,
+        "scope": 11981,
+        "sourceUnit": 6611,
         "src": "321:37:25",
         "symbolAliases": [
           {
-            "foreign": 11920,
+            "foreign": 11929,
             "local": null
           }
         ],
@@ -1218,14 +1218,14 @@
       {
         "absolutePath": "/Users/bendi/Development/endaoment/contracts/IAllocationStrategy.sol",
         "file": "./IAllocationStrategy.sol",
-        "id": 11923,
+        "id": 11932,
         "nodeType": "ImportDirective",
-        "scope": 11972,
-        "sourceUnit": 6346,
+        "scope": 11981,
+        "sourceUnit": 6354,
         "src": "359:62:25",
         "symbolAliases": [
           {
-            "foreign": 11922,
+            "foreign": 11931,
             "local": null
           }
         ],
@@ -1237,17 +1237,17 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 11924,
+              "id": 11933,
               "name": "RTokenStructs",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 12035,
+              "referencedDeclaration": 12044,
               "src": "449:13:25",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_RTokenStructs_$12035",
+                "typeIdentifier": "t_contract$_RTokenStructs_$12044",
                 "typeString": "contract RTokenStructs"
               }
             },
-            "id": 11925,
+            "id": 11934,
             "nodeType": "InheritanceSpecifier",
             "src": "449:13:25"
           },
@@ -1255,43 +1255,43 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 11926,
+              "id": 11935,
               "name": "IERC20",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 14571,
+              "referencedDeclaration": 14580,
               "src": "464:6:25",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_IERC20_$14571",
+                "typeIdentifier": "t_contract$_IERC20_$14580",
                 "typeString": "contract IERC20"
               }
             },
-            "id": 11927,
+            "id": 11936,
             "nodeType": "InheritanceSpecifier",
             "src": "464:6:25"
           }
         ],
         "contractDependencies": [
-          12035,
-          14571
+          12044,
+          14580
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 11971,
+        "id": 11980,
         "linearizedBaseContracts": [
-          11971,
-          14571,
-          12035
+          11980,
+          14580,
+          12044
         ],
         "name": "RTokenStorage",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 11929,
+            "id": 11938,
             "name": "_owner",
             "nodeType": "VariableDeclaration",
-            "scope": 11971,
+            "scope": 11980,
             "src": "656:21:25",
             "stateVariable": true,
             "storageLocation": "default",
@@ -1300,7 +1300,7 @@
               "typeString": "address"
             },
             "typeName": {
-              "id": 11928,
+              "id": 11937,
               "name": "address",
               "nodeType": "ElementaryTypeName",
               "src": "656:7:25",
@@ -1315,10 +1315,10 @@
           },
           {
             "constant": false,
-            "id": 11931,
+            "id": 11940,
             "name": "initialized",
             "nodeType": "VariableDeclaration",
-            "scope": 11971,
+            "scope": 11980,
             "src": "683:23:25",
             "stateVariable": true,
             "storageLocation": "default",
@@ -1327,7 +1327,7 @@
               "typeString": "bool"
             },
             "typeName": {
-              "id": 11930,
+              "id": 11939,
               "name": "bool",
               "nodeType": "ElementaryTypeName",
               "src": "683:4:25",
@@ -1341,10 +1341,10 @@
           },
           {
             "constant": false,
-            "id": 11933,
+            "id": 11942,
             "name": "_guardCounter",
             "nodeType": "VariableDeclaration",
-            "scope": 11971,
+            "scope": 11980,
             "src": "784:28:25",
             "stateVariable": true,
             "storageLocation": "default",
@@ -1353,7 +1353,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 11932,
+              "id": 11941,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
               "src": "784:7:25",
@@ -1367,10 +1367,10 @@
           },
           {
             "constant": false,
-            "id": 11935,
+            "id": 11944,
             "name": "name",
             "nodeType": "VariableDeclaration",
-            "scope": 11971,
+            "scope": 11980,
             "src": "882:18:25",
             "stateVariable": true,
             "storageLocation": "default",
@@ -1379,7 +1379,7 @@
               "typeString": "string"
             },
             "typeName": {
-              "id": 11934,
+              "id": 11943,
               "name": "string",
               "nodeType": "ElementaryTypeName",
               "src": "882:6:25",
@@ -1393,10 +1393,10 @@
           },
           {
             "constant": false,
-            "id": 11937,
+            "id": 11946,
             "name": "symbol",
             "nodeType": "VariableDeclaration",
-            "scope": 11971,
+            "scope": 11980,
             "src": "972:20:25",
             "stateVariable": true,
             "storageLocation": "default",
@@ -1405,7 +1405,7 @@
               "typeString": "string"
             },
             "typeName": {
-              "id": 11936,
+              "id": 11945,
               "name": "string",
               "nodeType": "ElementaryTypeName",
               "src": "972:6:25",
@@ -1419,10 +1419,10 @@
           },
           {
             "constant": false,
-            "id": 11939,
+            "id": 11948,
             "name": "decimals",
             "nodeType": "VariableDeclaration",
-            "scope": 11971,
+            "scope": 11980,
             "src": "1066:23:25",
             "stateVariable": true,
             "storageLocation": "default",
@@ -1431,7 +1431,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 11938,
+              "id": 11947,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
               "src": "1066:7:25",
@@ -1445,10 +1445,10 @@
           },
           {
             "constant": false,
-            "id": 11941,
+            "id": 11950,
             "name": "totalSupply",
             "nodeType": "VariableDeclaration",
-            "scope": 11971,
+            "scope": 11980,
             "src": "1164:26:25",
             "stateVariable": true,
             "storageLocation": "default",
@@ -1457,7 +1457,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 11940,
+              "id": 11949,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
               "src": "1164:7:25",
@@ -1471,26 +1471,26 @@
           },
           {
             "constant": false,
-            "id": 11943,
+            "id": 11952,
             "name": "ias",
             "nodeType": "VariableDeclaration",
-            "scope": 11971,
+            "scope": 11980,
             "src": "1233:30:25",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_contract$_IAllocationStrategy_$6345",
+              "typeIdentifier": "t_contract$_IAllocationStrategy_$6353",
               "typeString": "contract IAllocationStrategy"
             },
             "typeName": {
               "contractScope": null,
-              "id": 11942,
+              "id": 11951,
               "name": "IAllocationStrategy",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 6345,
+              "referencedDeclaration": 6353,
               "src": "1233:19:25",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_IAllocationStrategy_$6345",
+                "typeIdentifier": "t_contract$_IAllocationStrategy_$6353",
                 "typeString": "contract IAllocationStrategy"
               }
             },
@@ -1499,26 +1499,26 @@
           },
           {
             "constant": false,
-            "id": 11945,
+            "id": 11954,
             "name": "token",
             "nodeType": "VariableDeclaration",
-            "scope": 11971,
+            "scope": 11980,
             "src": "1299:19:25",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_contract$_IERC20_$14571",
+              "typeIdentifier": "t_contract$_IERC20_$14580",
               "typeString": "contract IERC20"
             },
             "typeName": {
               "contractScope": null,
-              "id": 11944,
+              "id": 11953,
               "name": "IERC20",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 14571,
+              "referencedDeclaration": 14580,
               "src": "1299:6:25",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_IERC20_$14571",
+                "typeIdentifier": "t_contract$_IERC20_$14580",
                 "typeString": "contract IERC20"
               }
             },
@@ -1527,10 +1527,10 @@
           },
           {
             "constant": false,
-            "id": 11947,
+            "id": 11956,
             "name": "savingAssetOrignalAmount",
             "nodeType": "VariableDeclaration",
-            "scope": 11971,
+            "scope": 11980,
             "src": "1435:39:25",
             "stateVariable": true,
             "storageLocation": "default",
@@ -1539,7 +1539,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 11946,
+              "id": 11955,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
               "src": "1435:7:25",
@@ -1553,10 +1553,10 @@
           },
           {
             "constant": false,
-            "id": 11949,
+            "id": 11958,
             "name": "savingAssetConversionRate",
             "nodeType": "VariableDeclaration",
-            "scope": 11971,
+            "scope": 11980,
             "src": "1550:40:25",
             "stateVariable": true,
             "storageLocation": "default",
@@ -1565,7 +1565,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 11948,
+              "id": 11957,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
               "src": "1550:7:25",
@@ -1579,10 +1579,10 @@
           },
           {
             "constant": false,
-            "id": 11955,
+            "id": 11964,
             "name": "transferAllowances",
             "nodeType": "VariableDeclaration",
-            "scope": 11971,
+            "scope": 11980,
             "src": "1661:73:25",
             "stateVariable": true,
             "storageLocation": "default",
@@ -1591,9 +1591,9 @@
               "typeString": "mapping(address => mapping(address => uint256))"
             },
             "typeName": {
-              "id": 11954,
+              "id": 11963,
               "keyType": {
-                "id": 11950,
+                "id": 11959,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "1669:7:25",
@@ -1609,9 +1609,9 @@
                 "typeString": "mapping(address => mapping(address => uint256))"
               },
               "valueType": {
-                "id": 11953,
+                "id": 11962,
                 "keyType": {
-                  "id": 11951,
+                  "id": 11960,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
                   "src": "1688:7:25",
@@ -1627,7 +1627,7 @@
                   "typeString": "mapping(address => uint256)"
                 },
                 "valueType": {
-                  "id": 11952,
+                  "id": 11961,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "1699:7:25",
@@ -1643,36 +1643,36 @@
           },
           {
             "constant": false,
-            "id": 11958,
+            "id": 11967,
             "name": "hats",
             "nodeType": "VariableDeclaration",
-            "scope": 11971,
+            "scope": 11980,
             "src": "1762:19:25",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_array$_t_struct$_Hat_$12019_storage_$dyn_storage",
+              "typeIdentifier": "t_array$_t_struct$_Hat_$12028_storage_$dyn_storage",
               "typeString": "struct RTokenStructs.Hat[]"
             },
             "typeName": {
               "baseType": {
                 "contractScope": null,
-                "id": 11956,
+                "id": 11965,
                 "name": "Hat",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 12019,
+                "referencedDeclaration": 12028,
                 "src": "1762:3:25",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_Hat_$12019_storage_ptr",
+                  "typeIdentifier": "t_struct$_Hat_$12028_storage_ptr",
                   "typeString": "struct RTokenStructs.Hat"
                 }
               },
-              "id": 11957,
+              "id": 11966,
               "length": null,
               "nodeType": "ArrayTypeName",
               "src": "1762:5:25",
               "typeDescriptions": {
-                "typeIdentifier": "t_array$_t_struct$_Hat_$12019_storage_$dyn_storage_ptr",
+                "typeIdentifier": "t_array$_t_struct$_Hat_$12028_storage_$dyn_storage_ptr",
                 "typeString": "struct RTokenStructs.Hat[]"
               }
             },
@@ -1681,21 +1681,21 @@
           },
           {
             "constant": false,
-            "id": 11962,
+            "id": 11971,
             "name": "accounts",
             "nodeType": "VariableDeclaration",
-            "scope": 11971,
+            "scope": 11980,
             "src": "1816:43:25",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Account_$12034_storage_$",
+              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Account_$12043_storage_$",
               "typeString": "mapping(address => struct RTokenStructs.Account)"
             },
             "typeName": {
-              "id": 11961,
+              "id": 11970,
               "keyType": {
-                "id": 11959,
+                "id": 11968,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "1824:7:25",
@@ -1707,18 +1707,18 @@
               "nodeType": "Mapping",
               "src": "1816:27:25",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Account_$12034_storage_$",
+                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Account_$12043_storage_$",
                 "typeString": "mapping(address => struct RTokenStructs.Account)"
               },
               "valueType": {
                 "contractScope": null,
-                "id": 11960,
+                "id": 11969,
                 "name": "Account",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 12034,
+                "referencedDeclaration": 12043,
                 "src": "1835:7:25",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_Account_$12034_storage_ptr",
+                  "typeIdentifier": "t_struct$_Account_$12043_storage_ptr",
                   "typeString": "struct RTokenStructs.Account"
                 }
               }
@@ -1728,21 +1728,21 @@
           },
           {
             "constant": false,
-            "id": 11966,
+            "id": 11975,
             "name": "accountStats",
             "nodeType": "VariableDeclaration",
-            "scope": 11971,
+            "scope": 11980,
             "src": "1899:58:25",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_AccountStatsStored_$11998_storage_$",
+              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_AccountStatsStored_$12007_storage_$",
               "typeString": "mapping(address => struct RTokenStructs.AccountStatsStored)"
             },
             "typeName": {
-              "id": 11965,
+              "id": 11974,
               "keyType": {
-                "id": 11963,
+                "id": 11972,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "1907:7:25",
@@ -1754,18 +1754,18 @@
               "nodeType": "Mapping",
               "src": "1899:38:25",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_AccountStatsStored_$11998_storage_$",
+                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_AccountStatsStored_$12007_storage_$",
                 "typeString": "mapping(address => struct RTokenStructs.AccountStatsStored)"
               },
               "valueType": {
                 "contractScope": null,
-                "id": 11964,
+                "id": 11973,
                 "name": "AccountStatsStored",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 11998,
+                "referencedDeclaration": 12007,
                 "src": "1918:18:25",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_AccountStatsStored_$11998_storage_ptr",
+                  "typeIdentifier": "t_struct$_AccountStatsStored_$12007_storage_ptr",
                   "typeString": "struct RTokenStructs.AccountStatsStored"
                 }
               }
@@ -1775,21 +1775,21 @@
           },
           {
             "constant": false,
-            "id": 11970,
+            "id": 11979,
             "name": "hatStats",
             "nodeType": "VariableDeclaration",
-            "scope": 11971,
+            "scope": 11980,
             "src": "1993:50:25",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_HatStatsStored_$12012_storage_$",
+              "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_HatStatsStored_$12021_storage_$",
               "typeString": "mapping(uint256 => struct RTokenStructs.HatStatsStored)"
             },
             "typeName": {
-              "id": 11969,
+              "id": 11978,
               "keyType": {
-                "id": 11967,
+                "id": 11976,
                 "name": "uint256",
                 "nodeType": "ElementaryTypeName",
                 "src": "2001:7:25",
@@ -1801,18 +1801,18 @@
               "nodeType": "Mapping",
               "src": "1993:34:25",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_HatStatsStored_$12012_storage_$",
+                "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_HatStatsStored_$12021_storage_$",
                 "typeString": "mapping(uint256 => struct RTokenStructs.HatStatsStored)"
               },
               "valueType": {
                 "contractScope": null,
-                "id": 11968,
+                "id": 11977,
                 "name": "HatStatsStored",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 12012,
+                "referencedDeclaration": 12021,
                 "src": "2012:14:25",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_HatStatsStored_$12012_storage_ptr",
+                  "typeIdentifier": "t_struct$_HatStatsStored_$12021_storage_ptr",
                   "typeString": "struct RTokenStructs.HatStatsStored"
                 }
               }
@@ -1821,7 +1821,7 @@
             "visibility": "public"
           }
         ],
-        "scope": 11972,
+        "scope": 11981,
         "src": "423:1623:25"
       }
     ],
@@ -1833,7 +1833,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.23",
-  "updatedAt": "2020-02-16T09:30:40.284Z",
+  "updatedAt": "2020-02-16T11:38:49.950Z",
   "devdoc": {
     "methods": {
       "allowance(address,address)": {

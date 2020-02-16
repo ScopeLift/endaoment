@@ -5718,7 +5718,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.23",
-  "updatedAt": "2020-02-16T09:30:40.173Z",
+  "updatedAt": "2020-02-16T11:38:49.782Z",
   "devdoc": {
     "methods": {
       "isComptroller()": {

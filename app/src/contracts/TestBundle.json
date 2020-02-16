@@ -12,14 +12,14 @@
     "absolutePath": "/Users/bendi/Development/endaoment/contracts/test/TestBundle.sol",
     "exportedSymbols": {
       "TestBundle": [
-        13087
+        13096
       ]
     },
-    "id": 13088,
+    "id": 13097,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 13083,
+        "id": 13092,
         "literals": [
           "solidity",
           "^",
@@ -32,10 +32,10 @@
       {
         "absolutePath": "@openzeppelin/contracts/token/ERC20/ERC20Mintable.sol",
         "file": "@openzeppelin/contracts/token/ERC20/ERC20Mintable.sol",
-        "id": 13084,
+        "id": 13093,
         "nodeType": "ImportDirective",
-        "scope": 13088,
-        "sourceUnit": 14503,
+        "scope": 13097,
+        "sourceUnit": 14512,
         "src": "101:63:32",
         "symbolAliases": [],
         "unitAlias": ""
@@ -43,14 +43,14 @@
       {
         "absolutePath": "/Users/bendi/Development/endaoment/compound/contracts/CErc20.sol",
         "file": "../../compound/contracts/CErc20.sol",
-        "id": 13086,
+        "id": 13095,
         "nodeType": "ImportDirective",
-        "scope": 13088,
+        "scope": 13097,
         "sourceUnit": 278,
         "src": "165:59:32",
         "symbolAliases": [
           {
-            "foreign": 13085,
+            "foreign": 13094,
             "local": null
           }
         ],
@@ -62,14 +62,14 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 13087,
+        "id": 13096,
         "linearizedBaseContracts": [
-          13087
+          13096
         ],
         "name": "TestBundle",
         "nodeType": "ContractDefinition",
         "nodes": [],
-        "scope": 13088,
+        "scope": 13097,
         "src": "226:22:32"
       }
     ],
@@ -79,14 +79,14 @@
     "absolutePath": "/Users/bendi/Development/endaoment/contracts/test/TestBundle.sol",
     "exportedSymbols": {
       "TestBundle": [
-        13087
+        13096
       ]
     },
-    "id": 13088,
+    "id": 13097,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 13083,
+        "id": 13092,
         "literals": [
           "solidity",
           "^",
@@ -99,10 +99,10 @@
       {
         "absolutePath": "@openzeppelin/contracts/token/ERC20/ERC20Mintable.sol",
         "file": "@openzeppelin/contracts/token/ERC20/ERC20Mintable.sol",
-        "id": 13084,
+        "id": 13093,
         "nodeType": "ImportDirective",
-        "scope": 13088,
-        "sourceUnit": 14503,
+        "scope": 13097,
+        "sourceUnit": 14512,
         "src": "101:63:32",
         "symbolAliases": [],
         "unitAlias": ""
@@ -110,14 +110,14 @@
       {
         "absolutePath": "/Users/bendi/Development/endaoment/compound/contracts/CErc20.sol",
         "file": "../../compound/contracts/CErc20.sol",
-        "id": 13086,
+        "id": 13095,
         "nodeType": "ImportDirective",
-        "scope": 13088,
+        "scope": 13097,
         "sourceUnit": 278,
         "src": "165:59:32",
         "symbolAliases": [
           {
-            "foreign": 13085,
+            "foreign": 13094,
             "local": null
           }
         ],
@@ -129,14 +129,14 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 13087,
+        "id": 13096,
         "linearizedBaseContracts": [
-          13087
+          13096
         ],
         "name": "TestBundle",
         "nodeType": "ContractDefinition",
         "nodes": [],
-        "scope": 13088,
+        "scope": 13097,
         "src": "226:22:32"
       }
     ],
@@ -148,7 +148,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.23",
-  "updatedAt": "2020-02-16T09:30:40.302Z",
+  "updatedAt": "2020-02-16T11:38:49.985Z",
   "devdoc": {
     "methods": {}
   },

@@ -477,14 +477,14 @@
     "absolutePath": "/Users/bendi/Development/endaoment/contracts/LibraryLock.sol",
     "exportedSymbols": {
       "LibraryLock": [
-        6876
+        6884
       ]
     },
-    "id": 6877,
+    "id": 6885,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 6852,
+        "id": 6860,
         "literals": [
           "solidity",
           "^",
@@ -497,14 +497,14 @@
       {
         "absolutePath": "/Users/bendi/Development/endaoment/contracts/RTokenStorage.sol",
         "file": "./RTokenStorage.sol",
-        "id": 6854,
+        "id": 6862,
         "nodeType": "ImportDirective",
-        "scope": 6877,
-        "sourceUnit": 11972,
+        "scope": 6885,
+        "sourceUnit": 11981,
         "src": "25:50:17",
         "symbolAliases": [
           {
-            "foreign": 6853,
+            "foreign": 6861,
             "local": null
           }
         ],
@@ -516,42 +516,42 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 6855,
+              "id": 6863,
               "name": "RTokenStorage",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 11971,
+              "referencedDeclaration": 11980,
               "src": "101:13:17",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_RTokenStorage_$11971",
+                "typeIdentifier": "t_contract$_RTokenStorage_$11980",
                 "typeString": "contract RTokenStorage"
               }
             },
-            "id": 6856,
+            "id": 6864,
             "nodeType": "InheritanceSpecifier",
             "src": "101:13:17"
           }
         ],
         "contractDependencies": [
-          11971,
-          12035,
-          14571
+          11980,
+          12044,
+          14580
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 6876,
+        "id": 6884,
         "linearizedBaseContracts": [
-          6876,
-          11971,
-          14571,
-          12035
+          6884,
+          11980,
+          14580,
+          12044
         ],
         "name": "LibraryLock",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "body": {
-              "id": 6866,
+              "id": 6874,
               "nodeType": "Block",
               "src": "261:145:17",
               "statements": [
@@ -565,18 +565,18 @@
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
                         },
-                        "id": 6861,
+                        "id": 6869,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
                         "lValueRequested": false,
                         "leftExpression": {
                           "argumentTypes": null,
-                          "id": 6859,
+                          "id": 6867,
                           "name": "initialized",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 11931,
+                          "referencedDeclaration": 11940,
                           "src": "292:11:17",
                           "typeDescriptions": {
                             "typeIdentifier": "t_bool",
@@ -588,7 +588,7 @@
                         "rightExpression": {
                           "argumentTypes": null,
                           "hexValue": "74727565",
-                          "id": 6860,
+                          "id": 6868,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -612,7 +612,7 @@
                       {
                         "argumentTypes": null,
                         "hexValue": "546865206c696272617279206973206c6f636b65642e204e6f20646972656374202763616c6c2720697320616c6c6f7765642e",
-                        "id": 6862,
+                        "id": 6870,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -639,21 +639,21 @@
                           "typeString": "literal_string \"The library is locked. No direct 'call' is allowed.\""
                         }
                       ],
-                      "id": 6858,
+                      "id": 6866,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        14658,
-                        14659
+                        14667,
+                        14668
                       ],
-                      "referencedDeclaration": 14659,
+                      "referencedDeclaration": 14668,
                       "src": "271:7:17",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
                         "typeString": "function (bool,string memory) pure"
                       }
                     },
-                    "id": 6863,
+                    "id": 6871,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -667,23 +667,23 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 6864,
+                  "id": 6872,
                   "nodeType": "ExpressionStatement",
                   "src": "271:117:17"
                 },
                 {
-                  "id": 6865,
+                  "id": 6873,
                   "nodeType": "PlaceholderStatement",
                   "src": "398:1:17"
                 }
               ]
             },
             "documentation": null,
-            "id": 6867,
+            "id": 6875,
             "name": "delegatedOnly",
             "nodeType": "ModifierDefinition",
             "parameters": {
-              "id": 6857,
+              "id": 6865,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "258:2:17"
@@ -693,25 +693,25 @@
           },
           {
             "body": {
-              "id": 6874,
+              "id": 6882,
               "nodeType": "Block",
               "src": "442:35:17",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 6872,
+                    "id": 6880,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 6870,
+                      "id": 6878,
                       "name": "initialized",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 11931,
+                      "referencedDeclaration": 11940,
                       "src": "452:11:17",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bool",
@@ -723,7 +723,7 @@
                     "rightHandSide": {
                       "argumentTypes": null,
                       "hexValue": "74727565",
-                      "id": 6871,
+                      "id": 6879,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -744,39 +744,39 @@
                       "typeString": "bool"
                     }
                   },
-                  "id": 6873,
+                  "id": 6881,
                   "nodeType": "ExpressionStatement",
                   "src": "452:18:17"
                 }
               ]
             },
             "documentation": null,
-            "id": 6875,
+            "id": 6883,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "initialize",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 6868,
+              "id": 6876,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "430:2:17"
             },
             "returnParameters": {
-              "id": 6869,
+              "id": 6877,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "442:0:17"
             },
-            "scope": 6876,
+            "scope": 6884,
             "src": "411:66:17",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "internal"
           }
         ],
-        "scope": 6877,
+        "scope": 6885,
         "src": "77:402:17"
       }
     ],
@@ -786,14 +786,14 @@
     "absolutePath": "/Users/bendi/Development/endaoment/contracts/LibraryLock.sol",
     "exportedSymbols": {
       "LibraryLock": [
-        6876
+        6884
       ]
     },
-    "id": 6877,
+    "id": 6885,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 6852,
+        "id": 6860,
         "literals": [
           "solidity",
           "^",
@@ -806,14 +806,14 @@
       {
         "absolutePath": "/Users/bendi/Development/endaoment/contracts/RTokenStorage.sol",
         "file": "./RTokenStorage.sol",
-        "id": 6854,
+        "id": 6862,
         "nodeType": "ImportDirective",
-        "scope": 6877,
-        "sourceUnit": 11972,
+        "scope": 6885,
+        "sourceUnit": 11981,
         "src": "25:50:17",
         "symbolAliases": [
           {
-            "foreign": 6853,
+            "foreign": 6861,
             "local": null
           }
         ],
@@ -825,42 +825,42 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 6855,
+              "id": 6863,
               "name": "RTokenStorage",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 11971,
+              "referencedDeclaration": 11980,
               "src": "101:13:17",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_RTokenStorage_$11971",
+                "typeIdentifier": "t_contract$_RTokenStorage_$11980",
                 "typeString": "contract RTokenStorage"
               }
             },
-            "id": 6856,
+            "id": 6864,
             "nodeType": "InheritanceSpecifier",
             "src": "101:13:17"
           }
         ],
         "contractDependencies": [
-          11971,
-          12035,
-          14571
+          11980,
+          12044,
+          14580
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 6876,
+        "id": 6884,
         "linearizedBaseContracts": [
-          6876,
-          11971,
-          14571,
-          12035
+          6884,
+          11980,
+          14580,
+          12044
         ],
         "name": "LibraryLock",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "body": {
-              "id": 6866,
+              "id": 6874,
               "nodeType": "Block",
               "src": "261:145:17",
               "statements": [
@@ -874,18 +874,18 @@
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
                         },
-                        "id": 6861,
+                        "id": 6869,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
                         "lValueRequested": false,
                         "leftExpression": {
                           "argumentTypes": null,
-                          "id": 6859,
+                          "id": 6867,
                           "name": "initialized",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 11931,
+                          "referencedDeclaration": 11940,
                           "src": "292:11:17",
                           "typeDescriptions": {
                             "typeIdentifier": "t_bool",
@@ -897,7 +897,7 @@
                         "rightExpression": {
                           "argumentTypes": null,
                           "hexValue": "74727565",
-                          "id": 6860,
+                          "id": 6868,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -921,7 +921,7 @@
                       {
                         "argumentTypes": null,
                         "hexValue": "546865206c696272617279206973206c6f636b65642e204e6f20646972656374202763616c6c2720697320616c6c6f7765642e",
-                        "id": 6862,
+                        "id": 6870,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -948,21 +948,21 @@
                           "typeString": "literal_string \"The library is locked. No direct 'call' is allowed.\""
                         }
                       ],
-                      "id": 6858,
+                      "id": 6866,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        14658,
-                        14659
+                        14667,
+                        14668
                       ],
-                      "referencedDeclaration": 14659,
+                      "referencedDeclaration": 14668,
                       "src": "271:7:17",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
                         "typeString": "function (bool,string memory) pure"
                       }
                     },
-                    "id": 6863,
+                    "id": 6871,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -976,23 +976,23 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 6864,
+                  "id": 6872,
                   "nodeType": "ExpressionStatement",
                   "src": "271:117:17"
                 },
                 {
-                  "id": 6865,
+                  "id": 6873,
                   "nodeType": "PlaceholderStatement",
                   "src": "398:1:17"
                 }
               ]
             },
             "documentation": null,
-            "id": 6867,
+            "id": 6875,
             "name": "delegatedOnly",
             "nodeType": "ModifierDefinition",
             "parameters": {
-              "id": 6857,
+              "id": 6865,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "258:2:17"
@@ -1002,25 +1002,25 @@
           },
           {
             "body": {
-              "id": 6874,
+              "id": 6882,
               "nodeType": "Block",
               "src": "442:35:17",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 6872,
+                    "id": 6880,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 6870,
+                      "id": 6878,
                       "name": "initialized",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 11931,
+                      "referencedDeclaration": 11940,
                       "src": "452:11:17",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bool",
@@ -1032,7 +1032,7 @@
                     "rightHandSide": {
                       "argumentTypes": null,
                       "hexValue": "74727565",
-                      "id": 6871,
+                      "id": 6879,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -1053,39 +1053,39 @@
                       "typeString": "bool"
                     }
                   },
-                  "id": 6873,
+                  "id": 6881,
                   "nodeType": "ExpressionStatement",
                   "src": "452:18:17"
                 }
               ]
             },
             "documentation": null,
-            "id": 6875,
+            "id": 6883,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "initialize",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 6868,
+              "id": 6876,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "430:2:17"
             },
             "returnParameters": {
-              "id": 6869,
+              "id": 6877,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "442:0:17"
             },
-            "scope": 6876,
+            "scope": 6884,
             "src": "411:66:17",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "internal"
           }
         ],
-        "scope": 6877,
+        "scope": 6885,
         "src": "77:402:17"
       }
     ],
@@ -1097,7 +1097,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.23",
-  "updatedAt": "2020-02-16T09:30:40.208Z",
+  "updatedAt": "2020-02-16T11:38:49.838Z",
   "devdoc": {
     "methods": {
       "allowance(address,address)": {

@@ -1476,14 +1476,14 @@
     "absolutePath": "/Users/bendi/Development/endaoment/contracts/tokens/rDAI.sol",
     "exportedSymbols": {
       "rDAI": [
-        13121
+        13130
       ]
     },
-    "id": 13122,
+    "id": 13131,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 13099,
+        "id": 13108,
         "literals": [
           "solidity",
           ">=",
@@ -1497,7 +1497,7 @@
         "src": "202:32:34"
       },
       {
-        "id": 13100,
+        "id": 13109,
         "literals": [
           "experimental",
           "ABIEncoderV2"
@@ -1508,18 +1508,18 @@
       {
         "absolutePath": "/Users/bendi/Development/endaoment/contracts/RToken.sol",
         "file": "../RToken.sol",
-        "id": 13103,
+        "id": 13112,
         "nodeType": "ImportDirective",
-        "scope": 13122,
-        "sourceUnit": 11915,
+        "scope": 13131,
+        "sourceUnit": 11924,
         "src": "270:60:34",
         "symbolAliases": [
           {
-            "foreign": 13101,
+            "foreign": 13110,
             "local": null
           },
           {
-            "foreign": 13102,
+            "foreign": 13111,
             "local": null
           }
         ],
@@ -1531,56 +1531,56 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 13104,
+              "id": 13113,
               "name": "RToken",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 11914,
+              "referencedDeclaration": 11923,
               "src": "415:6:34",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_RToken_$11914",
+                "typeIdentifier": "t_contract$_RToken_$11923",
                 "typeString": "contract RToken"
               }
             },
-            "id": 13105,
+            "id": 13114,
             "nodeType": "InheritanceSpecifier",
             "src": "415:6:34"
           }
         ],
         "contractDependencies": [
-          6602,
-          6647,
-          6876,
-          8603,
-          9232,
-          11914,
-          11971,
-          12035,
-          12125,
-          14571
+          6610,
+          6655,
+          6884,
+          8612,
+          9241,
+          11923,
+          11980,
+          12044,
+          12134,
+          14580
         ],
         "contractKind": "contract",
         "documentation": "@notice RToken instantiation for rSAI (Redeemable SAI)",
         "fullyImplemented": true,
-        "id": 13121,
+        "id": 13130,
         "linearizedBaseContracts": [
-          13121,
-          11914,
-          12125,
-          6876,
-          9232,
-          8603,
-          11971,
-          6647,
-          6602,
-          14571,
-          12035
+          13130,
+          11923,
+          12134,
+          6884,
+          9241,
+          8612,
+          11980,
+          6655,
+          6610,
+          14580,
+          12044
         ],
         "name": "rDAI",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "body": {
-              "id": 13119,
+              "id": 13128,
               "nodeType": "Block",
               "src": "508:120:34",
               "statements": [
@@ -1590,21 +1590,21 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 13113,
+                        "id": 13122,
                         "name": "allocationStrategy",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 13107,
+                        "referencedDeclaration": 13116,
                         "src": "536:18:34",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_IAllocationStrategy_$6345",
+                          "typeIdentifier": "t_contract$_IAllocationStrategy_$6353",
                           "typeString": "contract IAllocationStrategy"
                         }
                       },
                       {
                         "argumentTypes": null,
                         "hexValue": "52656465656d61626c6520444149",
-                        "id": 13114,
+                        "id": 13123,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -1622,7 +1622,7 @@
                       {
                         "argumentTypes": null,
                         "hexValue": "72444149",
-                        "id": 13115,
+                        "id": 13124,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -1640,7 +1640,7 @@
                       {
                         "argumentTypes": null,
                         "hexValue": "3138",
-                        "id": 13116,
+                        "id": 13125,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -1659,7 +1659,7 @@
                     "expression": {
                       "argumentTypes": [
                         {
-                          "typeIdentifier": "t_contract$_IAllocationStrategy_$6345",
+                          "typeIdentifier": "t_contract$_IAllocationStrategy_$6353",
                           "typeString": "contract IAllocationStrategy"
                         },
                         {
@@ -1677,32 +1677,32 @@
                       ],
                       "expression": {
                         "argumentTypes": null,
-                        "id": 13110,
+                        "id": 13119,
                         "name": "RToken",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 11914,
+                        "referencedDeclaration": 11923,
                         "src": "518:6:34",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_contract$_RToken_$11914_$",
+                          "typeIdentifier": "t_type$_t_contract$_RToken_$11923_$",
                           "typeString": "type(contract RToken)"
                         }
                       },
-                      "id": 13112,
+                      "id": 13121,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "initialize",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 9416,
+                      "referencedDeclaration": 9425,
                       "src": "518:17:34",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_internal_nonpayable$_t_contract$_IAllocationStrategy_$6345_$_t_string_memory_ptr_$_t_string_memory_ptr_$_t_uint256_$returns$__$",
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_contract$_IAllocationStrategy_$6353_$_t_string_memory_ptr_$_t_string_memory_ptr_$_t_uint256_$returns$__$",
                         "typeString": "function (contract IAllocationStrategy,string memory,string memory,uint256)"
                       }
                     },
-                    "id": 13117,
+                    "id": 13126,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1716,45 +1716,45 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 13118,
+                  "id": 13127,
                   "nodeType": "ExpressionStatement",
                   "src": "518:103:34"
                 }
               ]
             },
             "documentation": null,
-            "id": 13120,
+            "id": 13129,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "initialize",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 13108,
+              "id": 13117,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 13107,
+                  "id": 13116,
                   "name": "allocationStrategy",
                   "nodeType": "VariableDeclaration",
-                  "scope": 13120,
+                  "scope": 13129,
                   "src": "459:38:34",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_IAllocationStrategy_$6345",
+                    "typeIdentifier": "t_contract$_IAllocationStrategy_$6353",
                     "typeString": "contract IAllocationStrategy"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 13106,
+                    "id": 13115,
                     "name": "IAllocationStrategy",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 6345,
+                    "referencedDeclaration": 6353,
                     "src": "459:19:34",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_IAllocationStrategy_$6345",
+                      "typeIdentifier": "t_contract$_IAllocationStrategy_$6353",
                       "typeString": "contract IAllocationStrategy"
                     }
                   },
@@ -1765,19 +1765,19 @@
               "src": "449:49:34"
             },
             "returnParameters": {
-              "id": 13109,
+              "id": 13118,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "508:0:34"
             },
-            "scope": 13121,
+            "scope": 13130,
             "src": "429:199:34",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "external"
           }
         ],
-        "scope": 13122,
+        "scope": 13131,
         "src": "398:233:34"
       }
     ],
@@ -1787,14 +1787,14 @@
     "absolutePath": "/Users/bendi/Development/endaoment/contracts/tokens/rDAI.sol",
     "exportedSymbols": {
       "rDAI": [
-        13121
+        13130
       ]
     },
-    "id": 13122,
+    "id": 13131,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 13099,
+        "id": 13108,
         "literals": [
           "solidity",
           ">=",
@@ -1808,7 +1808,7 @@
         "src": "202:32:34"
       },
       {
-        "id": 13100,
+        "id": 13109,
         "literals": [
           "experimental",
           "ABIEncoderV2"
@@ -1819,18 +1819,18 @@
       {
         "absolutePath": "/Users/bendi/Development/endaoment/contracts/RToken.sol",
         "file": "../RToken.sol",
-        "id": 13103,
+        "id": 13112,
         "nodeType": "ImportDirective",
-        "scope": 13122,
-        "sourceUnit": 11915,
+        "scope": 13131,
+        "sourceUnit": 11924,
         "src": "270:60:34",
         "symbolAliases": [
           {
-            "foreign": 13101,
+            "foreign": 13110,
             "local": null
           },
           {
-            "foreign": 13102,
+            "foreign": 13111,
             "local": null
           }
         ],
@@ -1842,56 +1842,56 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 13104,
+              "id": 13113,
               "name": "RToken",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 11914,
+              "referencedDeclaration": 11923,
               "src": "415:6:34",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_RToken_$11914",
+                "typeIdentifier": "t_contract$_RToken_$11923",
                 "typeString": "contract RToken"
               }
             },
-            "id": 13105,
+            "id": 13114,
             "nodeType": "InheritanceSpecifier",
             "src": "415:6:34"
           }
         ],
         "contractDependencies": [
-          6602,
-          6647,
-          6876,
-          8603,
-          9232,
-          11914,
-          11971,
-          12035,
-          12125,
-          14571
+          6610,
+          6655,
+          6884,
+          8612,
+          9241,
+          11923,
+          11980,
+          12044,
+          12134,
+          14580
         ],
         "contractKind": "contract",
         "documentation": "@notice RToken instantiation for rSAI (Redeemable SAI)",
         "fullyImplemented": true,
-        "id": 13121,
+        "id": 13130,
         "linearizedBaseContracts": [
-          13121,
-          11914,
-          12125,
-          6876,
-          9232,
-          8603,
-          11971,
-          6647,
-          6602,
-          14571,
-          12035
+          13130,
+          11923,
+          12134,
+          6884,
+          9241,
+          8612,
+          11980,
+          6655,
+          6610,
+          14580,
+          12044
         ],
         "name": "rDAI",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "body": {
-              "id": 13119,
+              "id": 13128,
               "nodeType": "Block",
               "src": "508:120:34",
               "statements": [
@@ -1901,21 +1901,21 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 13113,
+                        "id": 13122,
                         "name": "allocationStrategy",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 13107,
+                        "referencedDeclaration": 13116,
                         "src": "536:18:34",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_IAllocationStrategy_$6345",
+                          "typeIdentifier": "t_contract$_IAllocationStrategy_$6353",
                           "typeString": "contract IAllocationStrategy"
                         }
                       },
                       {
                         "argumentTypes": null,
                         "hexValue": "52656465656d61626c6520444149",
-                        "id": 13114,
+                        "id": 13123,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -1933,7 +1933,7 @@
                       {
                         "argumentTypes": null,
                         "hexValue": "72444149",
-                        "id": 13115,
+                        "id": 13124,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -1951,7 +1951,7 @@
                       {
                         "argumentTypes": null,
                         "hexValue": "3138",
-                        "id": 13116,
+                        "id": 13125,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -1970,7 +1970,7 @@
                     "expression": {
                       "argumentTypes": [
                         {
-                          "typeIdentifier": "t_contract$_IAllocationStrategy_$6345",
+                          "typeIdentifier": "t_contract$_IAllocationStrategy_$6353",
                           "typeString": "contract IAllocationStrategy"
                         },
                         {
@@ -1988,32 +1988,32 @@
                       ],
                       "expression": {
                         "argumentTypes": null,
-                        "id": 13110,
+                        "id": 13119,
                         "name": "RToken",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 11914,
+                        "referencedDeclaration": 11923,
                         "src": "518:6:34",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_contract$_RToken_$11914_$",
+                          "typeIdentifier": "t_type$_t_contract$_RToken_$11923_$",
                           "typeString": "type(contract RToken)"
                         }
                       },
-                      "id": 13112,
+                      "id": 13121,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "initialize",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 9416,
+                      "referencedDeclaration": 9425,
                       "src": "518:17:34",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_internal_nonpayable$_t_contract$_IAllocationStrategy_$6345_$_t_string_memory_ptr_$_t_string_memory_ptr_$_t_uint256_$returns$__$",
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_contract$_IAllocationStrategy_$6353_$_t_string_memory_ptr_$_t_string_memory_ptr_$_t_uint256_$returns$__$",
                         "typeString": "function (contract IAllocationStrategy,string memory,string memory,uint256)"
                       }
                     },
-                    "id": 13117,
+                    "id": 13126,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2027,45 +2027,45 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 13118,
+                  "id": 13127,
                   "nodeType": "ExpressionStatement",
                   "src": "518:103:34"
                 }
               ]
             },
             "documentation": null,
-            "id": 13120,
+            "id": 13129,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "initialize",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 13108,
+              "id": 13117,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 13107,
+                  "id": 13116,
                   "name": "allocationStrategy",
                   "nodeType": "VariableDeclaration",
-                  "scope": 13120,
+                  "scope": 13129,
                   "src": "459:38:34",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_IAllocationStrategy_$6345",
+                    "typeIdentifier": "t_contract$_IAllocationStrategy_$6353",
                     "typeString": "contract IAllocationStrategy"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 13106,
+                    "id": 13115,
                     "name": "IAllocationStrategy",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 6345,
+                    "referencedDeclaration": 6353,
                     "src": "459:19:34",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_IAllocationStrategy_$6345",
+                      "typeIdentifier": "t_contract$_IAllocationStrategy_$6353",
                       "typeString": "contract IAllocationStrategy"
                     }
                   },
@@ -2076,19 +2076,19 @@
               "src": "449:49:34"
             },
             "returnParameters": {
-              "id": 13109,
+              "id": 13118,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "508:0:34"
             },
-            "scope": 13121,
+            "scope": 13130,
             "src": "429:199:34",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "external"
           }
         ],
-        "scope": 13122,
+        "scope": 13131,
         "src": "398:233:34"
       }
     ],
@@ -2100,7 +2100,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.23",
-  "updatedAt": "2020-02-16T09:30:40.303Z",
+  "updatedAt": "2020-02-16T11:38:49.988Z",
   "devdoc": {
     "methods": {
       "changeAllocationStrategy(address)": {

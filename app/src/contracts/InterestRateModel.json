@@ -574,7 +574,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.23",
-  "updatedAt": "2020-02-16T09:30:40.191Z",
+  "updatedAt": "2020-02-16T11:38:49.811Z",
   "devdoc": {
     "author": "Compound",
     "details": "These functions are specifically not marked `pure` as implementations of this     contract may read from storage variables.",

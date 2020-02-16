@@ -977,14 +977,14 @@
     "absolutePath": "/Users/bendi/Development/endaoment/contracts/IRToken.sol",
     "exportedSymbols": {
       "IRToken": [
-        6602
+        6610
       ]
     },
-    "id": 6603,
+    "id": 6611,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 6347,
+        "id": 6355,
         "literals": [
           "solidity",
           ">=",
@@ -998,7 +998,7 @@
         "src": "202:32:14"
       },
       {
-        "id": 6348,
+        "id": 6356,
         "literals": [
           "experimental",
           "ABIEncoderV2"
@@ -1009,14 +1009,14 @@
       {
         "absolutePath": "/Users/bendi/Development/endaoment/contracts/RTokenStructs.sol",
         "file": "./RTokenStructs.sol",
-        "id": 6350,
+        "id": 6358,
         "nodeType": "ImportDirective",
-        "scope": 6603,
-        "sourceUnit": 12036,
+        "scope": 6611,
+        "sourceUnit": 12045,
         "src": "270:50:14",
         "symbolAliases": [
           {
-            "foreign": 6349,
+            "foreign": 6357,
             "local": null
           }
         ],
@@ -1025,14 +1025,14 @@
       {
         "absolutePath": "/Users/bendi/Development/endaoment/contracts/IAllocationStrategy.sol",
         "file": "./IAllocationStrategy.sol",
-        "id": 6352,
+        "id": 6360,
         "nodeType": "ImportDirective",
-        "scope": 6603,
-        "sourceUnit": 6346,
+        "scope": 6611,
+        "sourceUnit": 6354,
         "src": "321:62:14",
         "symbolAliases": [
           {
-            "foreign": 6351,
+            "foreign": 6359,
             "local": null
           }
         ],
@@ -1041,14 +1041,14 @@
       {
         "absolutePath": "@openzeppelin/contracts/token/ERC20/IERC20.sol",
         "file": "@openzeppelin/contracts/token/ERC20/IERC20.sol",
-        "id": 6354,
+        "id": 6362,
         "nodeType": "ImportDirective",
-        "scope": 6603,
-        "sourceUnit": 14572,
+        "scope": 6611,
+        "sourceUnit": 14581,
         "src": "384:70:14",
         "symbolAliases": [
           {
-            "foreign": 6353,
+            "foreign": 6361,
             "local": null
           }
         ],
@@ -1060,17 +1060,17 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 6355,
+              "id": 6363,
               "name": "RTokenStructs",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 12035,
+              "referencedDeclaration": 12044,
               "src": "697:13:14",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_RTokenStructs_$12035",
+                "typeIdentifier": "t_contract$_RTokenStructs_$12044",
                 "typeString": "contract RTokenStructs"
               }
             },
-            "id": 6356,
+            "id": 6364,
             "nodeType": "InheritanceSpecifier",
             "src": "697:13:14"
           },
@@ -1078,33 +1078,33 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 6357,
+              "id": 6365,
               "name": "IERC20",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 14571,
+              "referencedDeclaration": 14580,
               "src": "712:6:14",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_IERC20_$14571",
+                "typeIdentifier": "t_contract$_IERC20_$14580",
                 "typeString": "contract IERC20"
               }
             },
-            "id": 6358,
+            "id": 6366,
             "nodeType": "InheritanceSpecifier",
             "src": "712:6:14"
           }
         ],
         "contractDependencies": [
-          12035,
-          14571
+          12044,
+          14580
         ],
         "contractKind": "contract",
         "documentation": "@notice RToken interface a ERC20 interface and one can mint new tokens by\n     trasfering underlying token into the contract, configure _hats_ for\n     addresses and pay earned interest in new _rTokens_.",
         "fullyImplemented": false,
-        "id": 6602,
+        "id": 6610,
         "linearizedBaseContracts": [
-          6602,
-          14571,
-          12035
+          6610,
+          14580,
+          12044
         ],
         "name": "IRToken",
         "nodeType": "ContractDefinition",
@@ -1112,44 +1112,44 @@
           {
             "body": null,
             "documentation": "/////////////////////////////////////////////////////////////////////////\n @notice Returning the underlying token",
-            "id": 6363,
+            "id": 6371,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "token",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 6359,
+              "id": 6367,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "971:2:14"
             },
             "returnParameters": {
-              "id": 6362,
+              "id": 6370,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6361,
+                  "id": 6369,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6363,
+                  "scope": 6371,
                   "src": "992:6:14",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_IERC20_$14571",
+                    "typeIdentifier": "t_contract$_IERC20_$14580",
                     "typeString": "contract IERC20"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 6360,
+                    "id": 6368,
                     "name": "IERC20",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 14571,
+                    "referencedDeclaration": 14580,
                     "src": "992:6:14",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_IERC20_$14571",
+                      "typeIdentifier": "t_contract$_IERC20_$14580",
                       "typeString": "contract IERC20"
                     }
                   },
@@ -1159,7 +1159,7 @@
               ],
               "src": "991:8:14"
             },
-            "scope": 6602,
+            "scope": 6610,
             "src": "957:43:14",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -1168,28 +1168,28 @@
           {
             "body": null,
             "documentation": "@notice Returns the name of the token.",
-            "id": 6368,
+            "id": 6376,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "name",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 6364,
+              "id": 6372,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1081:2:14"
             },
             "returnParameters": {
-              "id": 6367,
+              "id": 6375,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6366,
+                  "id": 6374,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6368,
+                  "scope": 6376,
                   "src": "1107:13:14",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -1198,7 +1198,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 6365,
+                    "id": 6373,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "1107:6:14",
@@ -1213,7 +1213,7 @@
               ],
               "src": "1106:15:14"
             },
-            "scope": 6602,
+            "scope": 6610,
             "src": "1068:54:14",
             "stateMutability": "view",
             "superFunction": null,
@@ -1222,28 +1222,28 @@
           {
             "body": null,
             "documentation": "@notice Returns the symbol of the token, usually a shorter version of the\nname.",
-            "id": 6373,
+            "id": 6381,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "symbol",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 6369,
+              "id": 6377,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1253:2:14"
             },
             "returnParameters": {
-              "id": 6372,
+              "id": 6380,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6371,
+                  "id": 6379,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6373,
+                  "scope": 6381,
                   "src": "1279:13:14",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -1252,7 +1252,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 6370,
+                    "id": 6378,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "1279:6:14",
@@ -1267,7 +1267,7 @@
               ],
               "src": "1278:15:14"
             },
-            "scope": 6602,
+            "scope": 6610,
             "src": "1238:56:14",
             "stateMutability": "view",
             "superFunction": null,
@@ -1276,28 +1276,28 @@
           {
             "body": null,
             "documentation": "@notice Returns the number of decimals used to get its user representation.\nFor example, if `decimals` equals `2`, a balance of `505` tokens should\nbe displayed to a user as `5,05` (`505 / 10 ** 2`).\n     * Tokens usually opt for a value of 18, imitating the relationship between\nEther and Wei.\n     * NOTE: This information is only used for _display_ purposes: it in\nno way affects any of the arithmetic of the contract, including\n{IERC20-balanceOf} and {IERC20-transfer}.",
-            "id": 6378,
+            "id": 6386,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "decimals",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 6374,
+              "id": 6382,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1863:2:14"
             },
             "returnParameters": {
-              "id": 6377,
+              "id": 6385,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6376,
+                  "id": 6384,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6378,
+                  "scope": 6386,
                   "src": "1889:7:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1306,7 +1306,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 6375,
+                    "id": 6383,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1889:7:14",
@@ -1321,7 +1321,7 @@
               ],
               "src": "1888:9:14"
             },
-            "scope": 6602,
+            "scope": 6610,
             "src": "1846:52:14",
             "stateMutability": "view",
             "superFunction": null,
@@ -1330,22 +1330,22 @@
           {
             "body": null,
             "documentation": "@notice Sender supplies assets into the market and receives rTokens in exchange\n@param mintAmount The amount of the underlying asset to supply\n@return bool true=success, otherwise a failure",
-            "id": 6385,
+            "id": 6393,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "mint",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 6381,
+              "id": 6389,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6380,
+                  "id": 6388,
                   "name": "mintAmount",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6385,
+                  "scope": 6393,
                   "src": "2340:18:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1354,7 +1354,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 6379,
+                    "id": 6387,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "2340:7:14",
@@ -1370,15 +1370,15 @@
               "src": "2339:20:14"
             },
             "returnParameters": {
-              "id": 6384,
+              "id": 6392,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6383,
+                  "id": 6391,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6385,
+                  "scope": 6393,
                   "src": "2378:4:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1387,7 +1387,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 6382,
+                    "id": 6390,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "2378:4:14",
@@ -1402,7 +1402,7 @@
               ],
               "src": "2377:6:14"
             },
-            "scope": 6602,
+            "scope": 6610,
             "src": "2326:58:14",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -1411,22 +1411,22 @@
           {
             "body": null,
             "documentation": "@notice Sender supplies assets into the market and receives rTokens in exchange\n        Also setting the a selected hat for the account.\n@param hatID The id of the selected Hat\n@return bool true=success, otherwise a failure",
-            "id": 6394,
+            "id": 6402,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "mintWithSelectedHat",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 6390,
+              "id": 6398,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6387,
+                  "id": 6395,
                   "name": "mintAmount",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6394,
+                  "scope": 6402,
                   "src": "2687:18:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1435,7 +1435,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 6386,
+                    "id": 6394,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "2687:7:14",
@@ -1449,10 +1449,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 6389,
+                  "id": 6397,
                   "name": "hatID",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6394,
+                  "scope": 6402,
                   "src": "2707:13:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1461,7 +1461,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 6388,
+                    "id": 6396,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "2707:7:14",
@@ -1477,15 +1477,15 @@
               "src": "2686:35:14"
             },
             "returnParameters": {
-              "id": 6393,
+              "id": 6401,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6392,
+                  "id": 6400,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6394,
+                  "scope": 6402,
                   "src": "2756:4:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1494,7 +1494,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 6391,
+                    "id": 6399,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "2756:4:14",
@@ -1509,7 +1509,7 @@
               ],
               "src": "2755:6:14"
             },
-            "scope": 6602,
+            "scope": 6610,
             "src": "2658:104:14",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -1518,22 +1518,22 @@
           {
             "body": null,
             "documentation": "@notice Sender supplies assets into the market and receives rTokens in exchange\n        Also setting the a new hat for the account.\n@param mintAmount The amount of the underlying asset to supply\n@param proportions Relative proportions of benefits received by the recipients\n@return bool true=success, otherwise a failure",
-            "id": 6407,
+            "id": 6415,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "mintWithNewHat",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 6403,
+              "id": 6411,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6396,
+                  "id": 6404,
                   "name": "mintAmount",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6407,
+                  "scope": 6415,
                   "src": "3173:18:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1542,7 +1542,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 6395,
+                    "id": 6403,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "3173:7:14",
@@ -1556,10 +1556,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 6399,
+                  "id": 6407,
                   "name": "recipients",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6407,
+                  "scope": 6415,
                   "src": "3201:29:14",
                   "stateVariable": false,
                   "storageLocation": "calldata",
@@ -1569,7 +1569,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 6397,
+                      "id": 6405,
                       "name": "address",
                       "nodeType": "ElementaryTypeName",
                       "src": "3201:7:14",
@@ -1579,7 +1579,7 @@
                         "typeString": "address"
                       }
                     },
-                    "id": 6398,
+                    "id": 6406,
                     "length": null,
                     "nodeType": "ArrayTypeName",
                     "src": "3201:9:14",
@@ -1593,10 +1593,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 6402,
+                  "id": 6410,
                   "name": "proportions",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6407,
+                  "scope": 6415,
                   "src": "3240:29:14",
                   "stateVariable": false,
                   "storageLocation": "calldata",
@@ -1606,7 +1606,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 6400,
+                      "id": 6408,
                       "name": "uint32",
                       "nodeType": "ElementaryTypeName",
                       "src": "3240:6:14",
@@ -1615,7 +1615,7 @@
                         "typeString": "uint32"
                       }
                     },
-                    "id": 6401,
+                    "id": 6409,
                     "length": null,
                     "nodeType": "ArrayTypeName",
                     "src": "3240:8:14",
@@ -1631,15 +1631,15 @@
               "src": "3163:112:14"
             },
             "returnParameters": {
-              "id": 6406,
+              "id": 6414,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6405,
+                  "id": 6413,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6407,
+                  "scope": 6415,
                   "src": "3294:4:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1648,7 +1648,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 6404,
+                    "id": 6412,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "3294:4:14",
@@ -1663,7 +1663,7 @@
               ],
               "src": "3293:6:14"
             },
-            "scope": 6602,
+            "scope": 6610,
             "src": "3140:160:14",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -1672,22 +1672,22 @@
           {
             "body": null,
             "documentation": "@notice Moves all tokens from the caller's account to `dst`.\n@param dst The destination address.\n@return bool true=success, otherwise a failure",
-            "id": 6414,
+            "id": 6422,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "transferAll",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 6410,
+              "id": 6418,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6409,
+                  "id": 6417,
                   "name": "dst",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6414,
+                  "scope": 6422,
                   "src": "3508:11:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1696,7 +1696,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 6408,
+                    "id": 6416,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "3508:7:14",
@@ -1713,15 +1713,15 @@
               "src": "3507:13:14"
             },
             "returnParameters": {
-              "id": 6413,
+              "id": 6421,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6412,
+                  "id": 6420,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6414,
+                  "scope": 6422,
                   "src": "3539:4:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1730,7 +1730,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 6411,
+                    "id": 6419,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "3539:4:14",
@@ -1745,7 +1745,7 @@
               ],
               "src": "3538:6:14"
             },
-            "scope": 6602,
+            "scope": 6610,
             "src": "3487:58:14",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -1754,22 +1754,22 @@
           {
             "body": null,
             "documentation": "@notice Moves all tokens from `src` account to `dst`.\n@param src The source address which approved the msg.sender to spend\n@param dst The destination address.\n@return bool true=success, otherwise a failure",
-            "id": 6423,
+            "id": 6431,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "transferAllFrom",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 6419,
+              "id": 6427,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6416,
+                  "id": 6424,
                   "name": "src",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6423,
+                  "scope": 6431,
                   "src": "3826:11:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1778,7 +1778,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 6415,
+                    "id": 6423,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "3826:7:14",
@@ -1793,10 +1793,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 6418,
+                  "id": 6426,
                   "name": "dst",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6423,
+                  "scope": 6431,
                   "src": "3839:11:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1805,7 +1805,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 6417,
+                    "id": 6425,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "3839:7:14",
@@ -1822,15 +1822,15 @@
               "src": "3825:26:14"
             },
             "returnParameters": {
-              "id": 6422,
+              "id": 6430,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6421,
+                  "id": 6429,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6423,
+                  "scope": 6431,
                   "src": "3870:4:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1839,7 +1839,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 6420,
+                    "id": 6428,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "3870:4:14",
@@ -1854,7 +1854,7 @@
               ],
               "src": "3869:6:14"
             },
-            "scope": 6602,
+            "scope": 6610,
             "src": "3801:75:14",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -1863,22 +1863,22 @@
           {
             "body": null,
             "documentation": "@notice Sender redeems rTokens in exchange for the underlying asset\n@param redeemTokens The number of rTokens to redeem into underlying\n@return bool true=success, otherwise a failure",
-            "id": 6430,
+            "id": 6438,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "redeem",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 6426,
+              "id": 6434,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6425,
+                  "id": 6433,
                   "name": "redeemTokens",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6430,
+                  "scope": 6438,
                   "src": "4118:20:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1887,7 +1887,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 6424,
+                    "id": 6432,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "4118:7:14",
@@ -1903,15 +1903,15 @@
               "src": "4117:22:14"
             },
             "returnParameters": {
-              "id": 6429,
+              "id": 6437,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6428,
+                  "id": 6436,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6430,
+                  "scope": 6438,
                   "src": "4158:4:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1920,7 +1920,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 6427,
+                    "id": 6435,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "4158:4:14",
@@ -1935,7 +1935,7 @@
               ],
               "src": "4157:6:14"
             },
-            "scope": 6602,
+            "scope": 6610,
             "src": "4102:62:14",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -1944,28 +1944,28 @@
           {
             "body": null,
             "documentation": "@notice Sender redeems all rTokens in exchange for the underlying asset\n@return bool true=success, otherwise a failure",
-            "id": 6435,
+            "id": 6443,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "redeemAll",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 6431,
+              "id": 6439,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "4337:2:14"
             },
             "returnParameters": {
-              "id": 6434,
+              "id": 6442,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6433,
+                  "id": 6441,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6435,
+                  "scope": 6443,
                   "src": "4358:4:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1974,7 +1974,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 6432,
+                    "id": 6440,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "4358:4:14",
@@ -1989,7 +1989,7 @@
               ],
               "src": "4357:6:14"
             },
-            "scope": 6602,
+            "scope": 6610,
             "src": "4319:45:14",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -1998,22 +1998,22 @@
           {
             "body": null,
             "documentation": "@notice Sender redeems rTokens in exchange for the underlying asset then immediately transfer them to a differen user\n@param redeemTo Destination address to send the redeemed tokens to\n@param redeemTokens The number of rTokens to redeem into underlying\n@return bool true=success, otherwise a failure",
-            "id": 6444,
+            "id": 6452,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "redeemAndTransfer",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 6440,
+              "id": 6448,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6437,
+                  "id": 6445,
                   "name": "redeemTo",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6444,
+                  "scope": 6452,
                   "src": "4741:16:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2022,7 +2022,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 6436,
+                    "id": 6444,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "4741:7:14",
@@ -2037,10 +2037,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 6439,
+                  "id": 6447,
                   "name": "redeemTokens",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6444,
+                  "scope": 6452,
                   "src": "4759:20:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2049,7 +2049,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 6438,
+                    "id": 6446,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "4759:7:14",
@@ -2065,15 +2065,15 @@
               "src": "4740:40:14"
             },
             "returnParameters": {
-              "id": 6443,
+              "id": 6451,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6442,
+                  "id": 6450,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6444,
+                  "scope": 6452,
                   "src": "4815:4:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2082,7 +2082,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 6441,
+                    "id": 6449,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "4815:4:14",
@@ -2097,7 +2097,7 @@
               ],
               "src": "4814:6:14"
             },
-            "scope": 6602,
+            "scope": 6610,
             "src": "4714:107:14",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -2106,22 +2106,22 @@
           {
             "body": null,
             "documentation": "@notice Sender redeems all rTokens in exchange for the underlying asset then immediately transfer them to a differen user\n@param redeemTo Destination address to send the redeemed tokens to\n@return bool true=success, otherwise a failure",
-            "id": 6451,
+            "id": 6459,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "redeemAndTransferAll",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 6447,
+              "id": 6455,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6446,
+                  "id": 6454,
                   "name": "redeemTo",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6451,
+                  "scope": 6459,
                   "src": "5130:16:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2130,7 +2130,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 6445,
+                    "id": 6453,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "5130:7:14",
@@ -2147,15 +2147,15 @@
               "src": "5129:18:14"
             },
             "returnParameters": {
-              "id": 6450,
+              "id": 6458,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6449,
+                  "id": 6457,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6451,
+                  "scope": 6459,
                   "src": "5166:4:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2164,7 +2164,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 6448,
+                    "id": 6456,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "5166:4:14",
@@ -2179,7 +2179,7 @@
               ],
               "src": "5165:6:14"
             },
-            "scope": 6602,
+            "scope": 6610,
             "src": "5100:72:14",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -2188,22 +2188,22 @@
           {
             "body": null,
             "documentation": "@notice Create a new Hat\n@param recipients List of beneficial recipients\n@param proportions Relative proportions of benefits received by the recipients\n@param doChangeHat Should the hat of the `msg.sender` be switched to the new one\n@return uint256 ID of the newly creatd Hat.",
-            "id": 6464,
+            "id": 6472,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "createHat",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 6460,
+              "id": 6468,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6454,
+                  "id": 6462,
                   "name": "recipients",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6464,
+                  "scope": 6472,
                   "src": "5534:29:14",
                   "stateVariable": false,
                   "storageLocation": "calldata",
@@ -2213,7 +2213,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 6452,
+                      "id": 6460,
                       "name": "address",
                       "nodeType": "ElementaryTypeName",
                       "src": "5534:7:14",
@@ -2223,7 +2223,7 @@
                         "typeString": "address"
                       }
                     },
-                    "id": 6453,
+                    "id": 6461,
                     "length": null,
                     "nodeType": "ArrayTypeName",
                     "src": "5534:9:14",
@@ -2237,10 +2237,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 6457,
+                  "id": 6465,
                   "name": "proportions",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6464,
+                  "scope": 6472,
                   "src": "5573:29:14",
                   "stateVariable": false,
                   "storageLocation": "calldata",
@@ -2250,7 +2250,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 6455,
+                      "id": 6463,
                       "name": "uint32",
                       "nodeType": "ElementaryTypeName",
                       "src": "5573:6:14",
@@ -2259,7 +2259,7 @@
                         "typeString": "uint32"
                       }
                     },
-                    "id": 6456,
+                    "id": 6464,
                     "length": null,
                     "nodeType": "ArrayTypeName",
                     "src": "5573:8:14",
@@ -2273,10 +2273,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 6459,
+                  "id": 6467,
                   "name": "doChangeHat",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6464,
+                  "scope": 6472,
                   "src": "5612:16:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2285,7 +2285,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 6458,
+                    "id": 6466,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "5612:4:14",
@@ -2301,15 +2301,15 @@
               "src": "5524:110:14"
             },
             "returnParameters": {
-              "id": 6463,
+              "id": 6471,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6462,
+                  "id": 6470,
                   "name": "hatID",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6464,
+                  "scope": 6472,
                   "src": "5653:13:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2318,7 +2318,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 6461,
+                    "id": 6469,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "5653:7:14",
@@ -2333,7 +2333,7 @@
               ],
               "src": "5652:15:14"
             },
-            "scope": 6602,
+            "scope": 6610,
             "src": "5506:162:14",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -2342,22 +2342,22 @@
           {
             "body": null,
             "documentation": "@notice Change the hat for `msg.sender`\n@param hatID The id of the Hat\n@return bool true=success, otherwise a failure",
-            "id": 6471,
+            "id": 6479,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "changeHat",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 6467,
+              "id": 6475,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6466,
+                  "id": 6474,
                   "name": "hatID",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6471,
+                  "scope": 6479,
                   "src": "5848:13:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2366,7 +2366,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 6465,
+                    "id": 6473,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "5848:7:14",
@@ -2382,15 +2382,15 @@
               "src": "5847:15:14"
             },
             "returnParameters": {
-              "id": 6470,
+              "id": 6478,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6469,
+                  "id": 6477,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6471,
+                  "scope": 6479,
                   "src": "5881:4:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2399,7 +2399,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 6468,
+                    "id": 6476,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "5881:4:14",
@@ -2414,7 +2414,7 @@
               ],
               "src": "5880:6:14"
             },
-            "scope": 6602,
+            "scope": 6610,
             "src": "5829:58:14",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -2423,22 +2423,22 @@
           {
             "body": null,
             "documentation": "@notice pay interest to the owner\n@param owner Account owner address\n@return bool true=success, otherwise a failure\n     * Anyone can trigger the interest distribution on behalf of the recipient,\ndue to the fact that the recipient can be a contract code that has not\nimplemented the interaction with the rToken contract internally`.\n     * A interest lock-up period may apply, in order to mitigate the \"hat\ninheritance scam\".",
-            "id": 6478,
+            "id": 6486,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "payInterest",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 6474,
+              "id": 6482,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6473,
+                  "id": 6481,
                   "name": "owner",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6478,
+                  "scope": 6486,
                   "src": "6412:13:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2447,7 +2447,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 6472,
+                    "id": 6480,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "6412:7:14",
@@ -2464,15 +2464,15 @@
               "src": "6411:15:14"
             },
             "returnParameters": {
-              "id": 6477,
+              "id": 6485,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6476,
+                  "id": 6484,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6478,
+                  "scope": 6486,
                   "src": "6445:4:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2481,7 +2481,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 6475,
+                    "id": 6483,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "6445:4:14",
@@ -2496,7 +2496,7 @@
               ],
               "src": "6444:6:14"
             },
-            "scope": 6602,
+            "scope": 6610,
             "src": "6391:60:14",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -2505,28 +2505,28 @@
           {
             "body": null,
             "documentation": "@notice Get the maximum hatID in the system",
-            "id": 6483,
+            "id": 6491,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getMaximumHatID",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 6479,
+              "id": 6487,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "6738:2:14"
             },
             "returnParameters": {
-              "id": 6482,
+              "id": 6490,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6481,
+                  "id": 6489,
                   "name": "hatID",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6483,
+                  "scope": 6491,
                   "src": "6764:13:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2535,7 +2535,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 6480,
+                    "id": 6488,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "6764:7:14",
@@ -2550,7 +2550,7 @@
               ],
               "src": "6763:15:14"
             },
-            "scope": 6602,
+            "scope": 6610,
             "src": "6714:65:14",
             "stateMutability": "view",
             "superFunction": null,
@@ -2559,22 +2559,22 @@
           {
             "body": null,
             "documentation": "@notice Get the hatID of the owner and the hat structure\n@param owner Account owner address\n@return hatID Hat ID\n@return recipients Hat recipients\n@return proportions Hat recipient's relative proportions",
-            "id": 6496,
+            "id": 6504,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getHatByAddress",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 6486,
+              "id": 6494,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6485,
+                  "id": 6493,
                   "name": "owner",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6496,
+                  "scope": 6504,
                   "src": "7065:13:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2583,7 +2583,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 6484,
+                    "id": 6492,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "7065:7:14",
@@ -2600,15 +2600,15 @@
               "src": "7064:15:14"
             },
             "returnParameters": {
-              "id": 6495,
+              "id": 6503,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6488,
+                  "id": 6496,
                   "name": "hatID",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6496,
+                  "scope": 6504,
                   "src": "7140:13:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2617,7 +2617,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 6487,
+                    "id": 6495,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "7140:7:14",
@@ -2631,10 +2631,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 6491,
+                  "id": 6499,
                   "name": "recipients",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6496,
+                  "scope": 6504,
                   "src": "7167:27:14",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -2644,7 +2644,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 6489,
+                      "id": 6497,
                       "name": "address",
                       "nodeType": "ElementaryTypeName",
                       "src": "7167:7:14",
@@ -2654,7 +2654,7 @@
                         "typeString": "address"
                       }
                     },
-                    "id": 6490,
+                    "id": 6498,
                     "length": null,
                     "nodeType": "ArrayTypeName",
                     "src": "7167:9:14",
@@ -2668,10 +2668,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 6494,
+                  "id": 6502,
                   "name": "proportions",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6496,
+                  "scope": 6504,
                   "src": "7208:27:14",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -2681,7 +2681,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 6492,
+                      "id": 6500,
                       "name": "uint32",
                       "nodeType": "ElementaryTypeName",
                       "src": "7208:6:14",
@@ -2690,7 +2690,7 @@
                         "typeString": "uint32"
                       }
                     },
-                    "id": 6493,
+                    "id": 6501,
                     "length": null,
                     "nodeType": "ArrayTypeName",
                     "src": "7208:8:14",
@@ -2705,7 +2705,7 @@
               ],
               "src": "7126:119:14"
             },
-            "scope": 6602,
+            "scope": 6610,
             "src": "7040:206:14",
             "stateMutability": "view",
             "superFunction": null,
@@ -2714,22 +2714,22 @@
           {
             "body": null,
             "documentation": "@notice Get the hat structure\n@param hatID Hat ID\n@return recipients Hat recipients\n@return proportions Hat recipient's relative proportions",
-            "id": 6507,
+            "id": 6515,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getHatByID",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 6499,
+              "id": 6507,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6498,
+                  "id": 6506,
                   "name": "hatID",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6507,
+                  "scope": 6515,
                   "src": "7457:13:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2738,7 +2738,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 6497,
+                    "id": 6505,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "7457:7:14",
@@ -2754,15 +2754,15 @@
               "src": "7456:15:14"
             },
             "returnParameters": {
-              "id": 6506,
+              "id": 6514,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6502,
+                  "id": 6510,
                   "name": "recipients",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6507,
+                  "scope": 6515,
                   "src": "7519:27:14",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -2772,7 +2772,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 6500,
+                      "id": 6508,
                       "name": "address",
                       "nodeType": "ElementaryTypeName",
                       "src": "7519:7:14",
@@ -2782,7 +2782,7 @@
                         "typeString": "address"
                       }
                     },
-                    "id": 6501,
+                    "id": 6509,
                     "length": null,
                     "nodeType": "ArrayTypeName",
                     "src": "7519:9:14",
@@ -2796,10 +2796,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 6505,
+                  "id": 6513,
                   "name": "proportions",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6507,
+                  "scope": 6515,
                   "src": "7548:27:14",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -2809,7 +2809,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 6503,
+                      "id": 6511,
                       "name": "uint32",
                       "nodeType": "ElementaryTypeName",
                       "src": "7548:6:14",
@@ -2818,7 +2818,7 @@
                         "typeString": "uint32"
                       }
                     },
-                    "id": 6504,
+                    "id": 6512,
                     "length": null,
                     "nodeType": "ArrayTypeName",
                     "src": "7548:8:14",
@@ -2833,7 +2833,7 @@
               ],
               "src": "7518:58:14"
             },
-            "scope": 6602,
+            "scope": 6610,
             "src": "7437:140:14",
             "stateMutability": "view",
             "superFunction": null,
@@ -2842,22 +2842,22 @@
           {
             "body": null,
             "documentation": "@notice Amount of saving assets given to the recipient along with the\n        loans.\n@param owner Account owner address",
-            "id": 6514,
+            "id": 6522,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "receivedSavingsOf",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 6510,
+              "id": 6518,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6509,
+                  "id": 6517,
                   "name": "owner",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6514,
+                  "scope": 6522,
                   "src": "7767:13:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2866,7 +2866,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 6508,
+                    "id": 6516,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "7767:7:14",
@@ -2883,15 +2883,15 @@
               "src": "7766:15:14"
             },
             "returnParameters": {
-              "id": 6513,
+              "id": 6521,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6512,
+                  "id": 6520,
                   "name": "amount",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6514,
+                  "scope": 6522,
                   "src": "7829:14:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2900,7 +2900,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 6511,
+                    "id": 6519,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "7829:7:14",
@@ -2915,7 +2915,7 @@
               ],
               "src": "7828:16:14"
             },
-            "scope": 6602,
+            "scope": 6610,
             "src": "7740:105:14",
             "stateMutability": "view",
             "superFunction": null,
@@ -2924,22 +2924,22 @@
           {
             "body": null,
             "documentation": "@notice Amount of token loaned to the recipient along with the savings\n        assets.\n@param owner Account owner address\n@return amount",
-            "id": 6521,
+            "id": 6529,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "receivedLoanOf",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 6517,
+              "id": 6525,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6516,
+                  "id": 6524,
                   "name": "owner",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6521,
+                  "scope": 6529,
                   "src": "8056:13:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2948,7 +2948,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 6515,
+                    "id": 6523,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "8056:7:14",
@@ -2965,15 +2965,15 @@
               "src": "8055:15:14"
             },
             "returnParameters": {
-              "id": 6520,
+              "id": 6528,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6519,
+                  "id": 6527,
                   "name": "amount",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6521,
+                  "scope": 6529,
                   "src": "8118:14:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2982,7 +2982,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 6518,
+                    "id": 6526,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "8118:7:14",
@@ -2997,7 +2997,7 @@
               ],
               "src": "8117:16:14"
             },
-            "scope": 6602,
+            "scope": 6610,
             "src": "8032:102:14",
             "stateMutability": "view",
             "superFunction": null,
@@ -3006,22 +3006,22 @@
           {
             "body": null,
             "documentation": "@notice Get the current interest balance of the owner.\nIt is equivalent of: receivedSavings - receivedLoan - freeBalance\n@param owner Account owner address\n@return amount",
-            "id": 6528,
+            "id": 6536,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "interestPayableOf",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 6524,
+              "id": 6532,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6523,
+                  "id": 6531,
                   "name": "owner",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6528,
+                  "scope": 6536,
                   "src": "8390:13:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3030,7 +3030,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 6522,
+                    "id": 6530,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "8390:7:14",
@@ -3047,15 +3047,15 @@
               "src": "8389:15:14"
             },
             "returnParameters": {
-              "id": 6527,
+              "id": 6535,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6526,
+                  "id": 6534,
                   "name": "amount",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6528,
+                  "scope": 6536,
                   "src": "8452:14:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3064,7 +3064,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 6525,
+                    "id": 6533,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "8452:7:14",
@@ -3079,7 +3079,7 @@
               ],
               "src": "8451:16:14"
             },
-            "scope": 6602,
+            "scope": 6610,
             "src": "8363:105:14",
             "stateMutability": "view",
             "superFunction": null,
@@ -3088,44 +3088,44 @@
           {
             "body": null,
             "documentation": "@notice Get current saving strategy",
-            "id": 6533,
+            "id": 6541,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "ias",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 6529,
+              "id": 6537,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "8530:2:14"
             },
             "returnParameters": {
-              "id": 6532,
+              "id": 6540,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6531,
+                  "id": 6539,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6533,
+                  "scope": 6541,
                   "src": "8551:19:14",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_IAllocationStrategy_$6345",
+                    "typeIdentifier": "t_contract$_IAllocationStrategy_$6353",
                     "typeString": "contract IAllocationStrategy"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 6530,
+                    "id": 6538,
                     "name": "IAllocationStrategy",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 6345,
+                    "referencedDeclaration": 6353,
                     "src": "8551:19:14",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_IAllocationStrategy_$6345",
+                      "typeIdentifier": "t_contract$_IAllocationStrategy_$6353",
                       "typeString": "contract IAllocationStrategy"
                     }
                   },
@@ -3135,7 +3135,7 @@
               ],
               "src": "8550:21:14"
             },
-            "scope": 6602,
+            "scope": 6610,
             "src": "8518:54:14",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -3144,28 +3144,28 @@
           {
             "body": null,
             "documentation": "@notice Saving asset original to internal amount conversion rate.\n\n    /// @dev About the saving asset original to internal conversaioon rate:\n\n    ///      - It has 18 decimals\n      - It starts with value 1\n      - Each strategy switching results a new conversion rate\n\n    /// NOTE:\n\n    /// 1. The reason there is an exchange rate is that, each time the\n    allocation strategy is switched, the unit of the original amount gets\n    changed, it is impossible to change all the internal savings\n    accounting entries for all accounts, hence instead a conversaion rate\n    is used to simplify the process.\n 2. internalSavings == originalSavings * savingAssetConversionRate",
-            "id": 6538,
+            "id": 6546,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "savingAssetConversionRate",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 6534,
+              "id": 6542,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "9372:2:14"
             },
             "returnParameters": {
-              "id": 6537,
+              "id": 6545,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6536,
+                  "id": 6544,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6538,
+                  "scope": 6546,
                   "src": "9393:7:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3174,7 +3174,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 6535,
+                    "id": 6543,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "9393:7:14",
@@ -3189,7 +3189,7 @@
               ],
               "src": "9392:9:14"
             },
-            "scope": 6602,
+            "scope": 6610,
             "src": "9338:64:14",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -3198,28 +3198,28 @@
           {
             "body": null,
             "documentation": "@notice Get the current saving strategy contract\n@return Saving strategy address",
-            "id": 6543,
+            "id": 6551,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getCurrentSavingStrategy",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 6539,
+              "id": 6547,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "9738:2:14"
             },
             "returnParameters": {
-              "id": 6542,
+              "id": 6550,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6541,
+                  "id": 6549,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6543,
+                  "scope": 6551,
                   "src": "9764:7:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3228,7 +3228,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 6540,
+                    "id": 6548,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "9764:7:14",
@@ -3244,7 +3244,7 @@
               ],
               "src": "9763:9:14"
             },
-            "scope": 6602,
+            "scope": 6610,
             "src": "9705:68:14",
             "stateMutability": "view",
             "superFunction": null,
@@ -3253,28 +3253,28 @@
           {
             "body": null,
             "documentation": "@notice Get saving asset balance for specific saving strategy\n@return rAmount Balance in redeemable amount\n@return sOriginalAmount Balance in native amount of the strategy",
-            "id": 6550,
+            "id": 6558,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getSavingAssetBalance",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 6544,
+              "id": 6552,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "10014:2:14"
             },
             "returnParameters": {
-              "id": 6549,
+              "id": 6557,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6546,
+                  "id": 6554,
                   "name": "rAmount",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6550,
+                  "scope": 6558,
                   "src": "10064:15:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3283,7 +3283,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 6545,
+                    "id": 6553,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "10064:7:14",
@@ -3297,10 +3297,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 6548,
+                  "id": 6556,
                   "name": "sOriginalAmount",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6550,
+                  "scope": 6558,
                   "src": "10081:23:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3309,7 +3309,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 6547,
+                    "id": 6555,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "10081:7:14",
@@ -3324,7 +3324,7 @@
               ],
               "src": "10063:42:14"
             },
-            "scope": 6602,
+            "scope": 6610,
             "src": "9984:122:14",
             "stateMutability": "view",
             "superFunction": null,
@@ -3333,44 +3333,44 @@
           {
             "body": null,
             "documentation": "@notice Get global stats\n@return global stats",
-            "id": 6555,
+            "id": 6563,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getGlobalStats",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 6551,
+              "id": 6559,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "10208:2:14"
             },
             "returnParameters": {
-              "id": 6554,
+              "id": 6562,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6553,
+                  "id": 6561,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6555,
+                  "scope": 6563,
                   "src": "10234:18:14",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_GlobalStats_$11978_memory_ptr",
+                    "typeIdentifier": "t_struct$_GlobalStats_$11987_memory_ptr",
                     "typeString": "struct RTokenStructs.GlobalStats"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 6552,
+                    "id": 6560,
                     "name": "GlobalStats",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 11978,
+                    "referencedDeclaration": 11987,
                     "src": "10234:11:14",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_GlobalStats_$11978_storage_ptr",
+                      "typeIdentifier": "t_struct$_GlobalStats_$11987_storage_ptr",
                       "typeString": "struct RTokenStructs.GlobalStats"
                     }
                   },
@@ -3380,7 +3380,7 @@
               ],
               "src": "10233:20:14"
             },
-            "scope": 6602,
+            "scope": 6610,
             "src": "10185:69:14",
             "stateMutability": "view",
             "superFunction": null,
@@ -3389,22 +3389,22 @@
           {
             "body": null,
             "documentation": "@notice Get account stats\n@param owner Account owner address\n@return account stats",
-            "id": 6562,
+            "id": 6570,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getAccountStats",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 6558,
+              "id": 6566,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6557,
+                  "id": 6565,
                   "name": "owner",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6562,
+                  "scope": 6570,
                   "src": "10401:13:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3413,7 +3413,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 6556,
+                    "id": 6564,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "10401:7:14",
@@ -3430,31 +3430,31 @@
               "src": "10400:15:14"
             },
             "returnParameters": {
-              "id": 6561,
+              "id": 6569,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6560,
+                  "id": 6568,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6562,
+                  "scope": 6570,
                   "src": "10463:23:14",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_AccountStatsView_$11995_memory_ptr",
+                    "typeIdentifier": "t_struct$_AccountStatsView_$12004_memory_ptr",
                     "typeString": "struct RTokenStructs.AccountStatsView"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 6559,
+                    "id": 6567,
                     "name": "AccountStatsView",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 11995,
+                    "referencedDeclaration": 12004,
                     "src": "10463:16:14",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_AccountStatsView_$11995_storage_ptr",
+                      "typeIdentifier": "t_struct$_AccountStatsView_$12004_storage_ptr",
                       "typeString": "struct RTokenStructs.AccountStatsView"
                     }
                   },
@@ -3464,7 +3464,7 @@
               ],
               "src": "10462:25:14"
             },
-            "scope": 6602,
+            "scope": 6610,
             "src": "10376:112:14",
             "stateMutability": "view",
             "superFunction": null,
@@ -3473,22 +3473,22 @@
           {
             "body": null,
             "documentation": "@notice Get hat stats\n@param hatID Hat ID\n@return hat stats",
-            "id": 6569,
+            "id": 6577,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getHatStats",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 6565,
+              "id": 6573,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6564,
+                  "id": 6572,
                   "name": "hatID",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6569,
+                  "scope": 6577,
                   "src": "10608:13:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3497,7 +3497,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 6563,
+                    "id": 6571,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "10608:7:14",
@@ -3513,31 +3513,31 @@
               "src": "10607:15:14"
             },
             "returnParameters": {
-              "id": 6568,
+              "id": 6576,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6567,
+                  "id": 6575,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6569,
+                  "scope": 6577,
                   "src": "10670:19:14",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_HatStatsView_$12005_memory_ptr",
+                    "typeIdentifier": "t_struct$_HatStatsView_$12014_memory_ptr",
                     "typeString": "struct RTokenStructs.HatStatsView"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 6566,
+                    "id": 6574,
                     "name": "HatStatsView",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 12005,
+                    "referencedDeclaration": 12014,
                     "src": "10670:12:14",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_HatStatsView_$12005_storage_ptr",
+                      "typeIdentifier": "t_struct$_HatStatsView_$12014_storage_ptr",
                       "typeString": "struct RTokenStructs.HatStatsView"
                     }
                   },
@@ -3547,7 +3547,7 @@
               ],
               "src": "10669:21:14"
             },
-            "scope": 6602,
+            "scope": 6610,
             "src": "10587:104:14",
             "stateMutability": "view",
             "superFunction": null,
@@ -3556,20 +3556,20 @@
           {
             "anonymous": false,
             "documentation": "@notice Event emitted when loans get transferred",
-            "id": 6583,
+            "id": 6591,
             "name": "LoansTransferred",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 6582,
+              "id": 6590,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6571,
+                  "id": 6579,
                   "indexed": true,
                   "name": "owner",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6583,
+                  "scope": 6591,
                   "src": "10977:21:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3578,7 +3578,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 6570,
+                    "id": 6578,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "10977:7:14",
@@ -3593,11 +3593,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 6573,
+                  "id": 6581,
                   "indexed": true,
                   "name": "recipient",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6583,
+                  "scope": 6591,
                   "src": "11008:25:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3606,7 +3606,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 6572,
+                    "id": 6580,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "11008:7:14",
@@ -3621,11 +3621,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 6575,
+                  "id": 6583,
                   "indexed": true,
                   "name": "hatId",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6583,
+                  "scope": 6591,
                   "src": "11043:21:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3634,7 +3634,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 6574,
+                    "id": 6582,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "11043:7:14",
@@ -3648,11 +3648,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 6577,
+                  "id": 6585,
                   "indexed": false,
                   "name": "isDistribution",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6583,
+                  "scope": 6591,
                   "src": "11074:19:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3661,7 +3661,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 6576,
+                    "id": 6584,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "11074:4:14",
@@ -3675,11 +3675,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 6579,
+                  "id": 6587,
                   "indexed": false,
                   "name": "redeemableAmount",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6583,
+                  "scope": 6591,
                   "src": "11103:24:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3688,7 +3688,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 6578,
+                    "id": 6586,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "11103:7:14",
@@ -3702,11 +3702,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 6581,
+                  "id": 6589,
                   "indexed": false,
                   "name": "internalSavingsAmount",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6583,
+                  "scope": 6591,
                   "src": "11137:29:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3715,7 +3715,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 6580,
+                    "id": 6588,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "11137:7:14",
@@ -3735,20 +3735,20 @@
           {
             "anonymous": false,
             "documentation": "@notice Event emitted when interest paid",
-            "id": 6589,
+            "id": 6597,
             "name": "InterestPaid",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 6588,
+              "id": 6596,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6585,
+                  "id": 6593,
                   "indexed": true,
                   "name": "recipient",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6589,
+                  "scope": 6597,
                   "src": "11257:25:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3757,7 +3757,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 6584,
+                    "id": 6592,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "11257:7:14",
@@ -3772,11 +3772,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 6587,
+                  "id": 6595,
                   "indexed": false,
                   "name": "amount",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6589,
+                  "scope": 6597,
                   "src": "11284:14:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3785,7 +3785,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 6586,
+                    "id": 6594,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "11284:7:14",
@@ -3805,20 +3805,20 @@
           {
             "anonymous": false,
             "documentation": "@notice A new hat is created",
-            "id": 6593,
+            "id": 6601,
             "name": "HatCreated",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 6592,
+              "id": 6600,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6591,
+                  "id": 6599,
                   "indexed": true,
                   "name": "hatID",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6593,
+                  "scope": 6601,
                   "src": "11375:21:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3827,7 +3827,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 6590,
+                    "id": 6598,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "11375:7:14",
@@ -3847,20 +3847,20 @@
           {
             "anonymous": false,
             "documentation": "@notice Hat is changed for the account",
-            "id": 6601,
+            "id": 6609,
             "name": "HatChanged",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 6600,
+              "id": 6608,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6595,
+                  "id": 6603,
                   "indexed": true,
                   "name": "account",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6601,
+                  "scope": 6609,
                   "src": "11483:23:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3869,7 +3869,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 6594,
+                    "id": 6602,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "11483:7:14",
@@ -3884,11 +3884,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 6597,
+                  "id": 6605,
                   "indexed": true,
                   "name": "oldHatID",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6601,
+                  "scope": 6609,
                   "src": "11508:24:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3897,7 +3897,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 6596,
+                    "id": 6604,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "11508:7:14",
@@ -3911,11 +3911,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 6599,
+                  "id": 6607,
                   "indexed": true,
                   "name": "newHatID",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6601,
+                  "scope": 6609,
                   "src": "11534:24:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3924,7 +3924,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 6598,
+                    "id": 6606,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "11534:7:14",
@@ -3942,7 +3942,7 @@
             "src": "11466:94:14"
           }
         ],
-        "scope": 6603,
+        "scope": 6611,
         "src": "677:10885:14"
       }
     ],
@@ -3952,14 +3952,14 @@
     "absolutePath": "/Users/bendi/Development/endaoment/contracts/IRToken.sol",
     "exportedSymbols": {
       "IRToken": [
-        6602
+        6610
       ]
     },
-    "id": 6603,
+    "id": 6611,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 6347,
+        "id": 6355,
         "literals": [
           "solidity",
           ">=",
@@ -3973,7 +3973,7 @@
         "src": "202:32:14"
       },
       {
-        "id": 6348,
+        "id": 6356,
         "literals": [
           "experimental",
           "ABIEncoderV2"
@@ -3984,14 +3984,14 @@
       {
         "absolutePath": "/Users/bendi/Development/endaoment/contracts/RTokenStructs.sol",
         "file": "./RTokenStructs.sol",
-        "id": 6350,
+        "id": 6358,
         "nodeType": "ImportDirective",
-        "scope": 6603,
-        "sourceUnit": 12036,
+        "scope": 6611,
+        "sourceUnit": 12045,
         "src": "270:50:14",
         "symbolAliases": [
           {
-            "foreign": 6349,
+            "foreign": 6357,
             "local": null
           }
         ],
@@ -4000,14 +4000,14 @@
       {
         "absolutePath": "/Users/bendi/Development/endaoment/contracts/IAllocationStrategy.sol",
         "file": "./IAllocationStrategy.sol",
-        "id": 6352,
+        "id": 6360,
         "nodeType": "ImportDirective",
-        "scope": 6603,
-        "sourceUnit": 6346,
+        "scope": 6611,
+        "sourceUnit": 6354,
         "src": "321:62:14",
         "symbolAliases": [
           {
-            "foreign": 6351,
+            "foreign": 6359,
             "local": null
           }
         ],
@@ -4016,14 +4016,14 @@
       {
         "absolutePath": "@openzeppelin/contracts/token/ERC20/IERC20.sol",
         "file": "@openzeppelin/contracts/token/ERC20/IERC20.sol",
-        "id": 6354,
+        "id": 6362,
         "nodeType": "ImportDirective",
-        "scope": 6603,
-        "sourceUnit": 14572,
+        "scope": 6611,
+        "sourceUnit": 14581,
         "src": "384:70:14",
         "symbolAliases": [
           {
-            "foreign": 6353,
+            "foreign": 6361,
             "local": null
           }
         ],
@@ -4035,17 +4035,17 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 6355,
+              "id": 6363,
               "name": "RTokenStructs",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 12035,
+              "referencedDeclaration": 12044,
               "src": "697:13:14",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_RTokenStructs_$12035",
+                "typeIdentifier": "t_contract$_RTokenStructs_$12044",
                 "typeString": "contract RTokenStructs"
               }
             },
-            "id": 6356,
+            "id": 6364,
             "nodeType": "InheritanceSpecifier",
             "src": "697:13:14"
           },
@@ -4053,33 +4053,33 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 6357,
+              "id": 6365,
               "name": "IERC20",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 14571,
+              "referencedDeclaration": 14580,
               "src": "712:6:14",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_IERC20_$14571",
+                "typeIdentifier": "t_contract$_IERC20_$14580",
                 "typeString": "contract IERC20"
               }
             },
-            "id": 6358,
+            "id": 6366,
             "nodeType": "InheritanceSpecifier",
             "src": "712:6:14"
           }
         ],
         "contractDependencies": [
-          12035,
-          14571
+          12044,
+          14580
         ],
         "contractKind": "contract",
         "documentation": "@notice RToken interface a ERC20 interface and one can mint new tokens by\n     trasfering underlying token into the contract, configure _hats_ for\n     addresses and pay earned interest in new _rTokens_.",
         "fullyImplemented": false,
-        "id": 6602,
+        "id": 6610,
         "linearizedBaseContracts": [
-          6602,
-          14571,
-          12035
+          6610,
+          14580,
+          12044
         ],
         "name": "IRToken",
         "nodeType": "ContractDefinition",
@@ -4087,44 +4087,44 @@
           {
             "body": null,
             "documentation": "/////////////////////////////////////////////////////////////////////////\n @notice Returning the underlying token",
-            "id": 6363,
+            "id": 6371,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "token",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 6359,
+              "id": 6367,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "971:2:14"
             },
             "returnParameters": {
-              "id": 6362,
+              "id": 6370,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6361,
+                  "id": 6369,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6363,
+                  "scope": 6371,
                   "src": "992:6:14",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_IERC20_$14571",
+                    "typeIdentifier": "t_contract$_IERC20_$14580",
                     "typeString": "contract IERC20"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 6360,
+                    "id": 6368,
                     "name": "IERC20",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 14571,
+                    "referencedDeclaration": 14580,
                     "src": "992:6:14",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_IERC20_$14571",
+                      "typeIdentifier": "t_contract$_IERC20_$14580",
                       "typeString": "contract IERC20"
                     }
                   },
@@ -4134,7 +4134,7 @@
               ],
               "src": "991:8:14"
             },
-            "scope": 6602,
+            "scope": 6610,
             "src": "957:43:14",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -4143,28 +4143,28 @@
           {
             "body": null,
             "documentation": "@notice Returns the name of the token.",
-            "id": 6368,
+            "id": 6376,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "name",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 6364,
+              "id": 6372,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1081:2:14"
             },
             "returnParameters": {
-              "id": 6367,
+              "id": 6375,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6366,
+                  "id": 6374,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6368,
+                  "scope": 6376,
                   "src": "1107:13:14",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -4173,7 +4173,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 6365,
+                    "id": 6373,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "1107:6:14",
@@ -4188,7 +4188,7 @@
               ],
               "src": "1106:15:14"
             },
-            "scope": 6602,
+            "scope": 6610,
             "src": "1068:54:14",
             "stateMutability": "view",
             "superFunction": null,
@@ -4197,28 +4197,28 @@
           {
             "body": null,
             "documentation": "@notice Returns the symbol of the token, usually a shorter version of the\nname.",
-            "id": 6373,
+            "id": 6381,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "symbol",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 6369,
+              "id": 6377,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1253:2:14"
             },
             "returnParameters": {
-              "id": 6372,
+              "id": 6380,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6371,
+                  "id": 6379,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6373,
+                  "scope": 6381,
                   "src": "1279:13:14",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -4227,7 +4227,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 6370,
+                    "id": 6378,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "1279:6:14",
@@ -4242,7 +4242,7 @@
               ],
               "src": "1278:15:14"
             },
-            "scope": 6602,
+            "scope": 6610,
             "src": "1238:56:14",
             "stateMutability": "view",
             "superFunction": null,
@@ -4251,28 +4251,28 @@
           {
             "body": null,
             "documentation": "@notice Returns the number of decimals used to get its user representation.\nFor example, if `decimals` equals `2`, a balance of `505` tokens should\nbe displayed to a user as `5,05` (`505 / 10 ** 2`).\n     * Tokens usually opt for a value of 18, imitating the relationship between\nEther and Wei.\n     * NOTE: This information is only used for _display_ purposes: it in\nno way affects any of the arithmetic of the contract, including\n{IERC20-balanceOf} and {IERC20-transfer}.",
-            "id": 6378,
+            "id": 6386,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "decimals",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 6374,
+              "id": 6382,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1863:2:14"
             },
             "returnParameters": {
-              "id": 6377,
+              "id": 6385,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6376,
+                  "id": 6384,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6378,
+                  "scope": 6386,
                   "src": "1889:7:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -4281,7 +4281,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 6375,
+                    "id": 6383,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1889:7:14",
@@ -4296,7 +4296,7 @@
               ],
               "src": "1888:9:14"
             },
-            "scope": 6602,
+            "scope": 6610,
             "src": "1846:52:14",
             "stateMutability": "view",
             "superFunction": null,
@@ -4305,22 +4305,22 @@
           {
             "body": null,
             "documentation": "@notice Sender supplies assets into the market and receives rTokens in exchange\n@param mintAmount The amount of the underlying asset to supply\n@return bool true=success, otherwise a failure",
-            "id": 6385,
+            "id": 6393,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "mint",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 6381,
+              "id": 6389,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6380,
+                  "id": 6388,
                   "name": "mintAmount",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6385,
+                  "scope": 6393,
                   "src": "2340:18:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -4329,7 +4329,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 6379,
+                    "id": 6387,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "2340:7:14",
@@ -4345,15 +4345,15 @@
               "src": "2339:20:14"
             },
             "returnParameters": {
-              "id": 6384,
+              "id": 6392,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6383,
+                  "id": 6391,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6385,
+                  "scope": 6393,
                   "src": "2378:4:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -4362,7 +4362,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 6382,
+                    "id": 6390,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "2378:4:14",
@@ -4377,7 +4377,7 @@
               ],
               "src": "2377:6:14"
             },
-            "scope": 6602,
+            "scope": 6610,
             "src": "2326:58:14",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -4386,22 +4386,22 @@
           {
             "body": null,
             "documentation": "@notice Sender supplies assets into the market and receives rTokens in exchange\n        Also setting the a selected hat for the account.\n@param hatID The id of the selected Hat\n@return bool true=success, otherwise a failure",
-            "id": 6394,
+            "id": 6402,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "mintWithSelectedHat",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 6390,
+              "id": 6398,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6387,
+                  "id": 6395,
                   "name": "mintAmount",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6394,
+                  "scope": 6402,
                   "src": "2687:18:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -4410,7 +4410,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 6386,
+                    "id": 6394,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "2687:7:14",
@@ -4424,10 +4424,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 6389,
+                  "id": 6397,
                   "name": "hatID",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6394,
+                  "scope": 6402,
                   "src": "2707:13:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -4436,7 +4436,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 6388,
+                    "id": 6396,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "2707:7:14",
@@ -4452,15 +4452,15 @@
               "src": "2686:35:14"
             },
             "returnParameters": {
-              "id": 6393,
+              "id": 6401,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6392,
+                  "id": 6400,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6394,
+                  "scope": 6402,
                   "src": "2756:4:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -4469,7 +4469,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 6391,
+                    "id": 6399,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "2756:4:14",
@@ -4484,7 +4484,7 @@
               ],
               "src": "2755:6:14"
             },
-            "scope": 6602,
+            "scope": 6610,
             "src": "2658:104:14",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -4493,22 +4493,22 @@
           {
             "body": null,
             "documentation": "@notice Sender supplies assets into the market and receives rTokens in exchange\n        Also setting the a new hat for the account.\n@param mintAmount The amount of the underlying asset to supply\n@param proportions Relative proportions of benefits received by the recipients\n@return bool true=success, otherwise a failure",
-            "id": 6407,
+            "id": 6415,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "mintWithNewHat",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 6403,
+              "id": 6411,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6396,
+                  "id": 6404,
                   "name": "mintAmount",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6407,
+                  "scope": 6415,
                   "src": "3173:18:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -4517,7 +4517,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 6395,
+                    "id": 6403,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "3173:7:14",
@@ -4531,10 +4531,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 6399,
+                  "id": 6407,
                   "name": "recipients",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6407,
+                  "scope": 6415,
                   "src": "3201:29:14",
                   "stateVariable": false,
                   "storageLocation": "calldata",
@@ -4544,7 +4544,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 6397,
+                      "id": 6405,
                       "name": "address",
                       "nodeType": "ElementaryTypeName",
                       "src": "3201:7:14",
@@ -4554,7 +4554,7 @@
                         "typeString": "address"
                       }
                     },
-                    "id": 6398,
+                    "id": 6406,
                     "length": null,
                     "nodeType": "ArrayTypeName",
                     "src": "3201:9:14",
@@ -4568,10 +4568,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 6402,
+                  "id": 6410,
                   "name": "proportions",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6407,
+                  "scope": 6415,
                   "src": "3240:29:14",
                   "stateVariable": false,
                   "storageLocation": "calldata",
@@ -4581,7 +4581,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 6400,
+                      "id": 6408,
                       "name": "uint32",
                       "nodeType": "ElementaryTypeName",
                       "src": "3240:6:14",
@@ -4590,7 +4590,7 @@
                         "typeString": "uint32"
                       }
                     },
-                    "id": 6401,
+                    "id": 6409,
                     "length": null,
                     "nodeType": "ArrayTypeName",
                     "src": "3240:8:14",
@@ -4606,15 +4606,15 @@
               "src": "3163:112:14"
             },
             "returnParameters": {
-              "id": 6406,
+              "id": 6414,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6405,
+                  "id": 6413,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6407,
+                  "scope": 6415,
                   "src": "3294:4:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -4623,7 +4623,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 6404,
+                    "id": 6412,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "3294:4:14",
@@ -4638,7 +4638,7 @@
               ],
               "src": "3293:6:14"
             },
-            "scope": 6602,
+            "scope": 6610,
             "src": "3140:160:14",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -4647,22 +4647,22 @@
           {
             "body": null,
             "documentation": "@notice Moves all tokens from the caller's account to `dst`.\n@param dst The destination address.\n@return bool true=success, otherwise a failure",
-            "id": 6414,
+            "id": 6422,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "transferAll",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 6410,
+              "id": 6418,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6409,
+                  "id": 6417,
                   "name": "dst",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6414,
+                  "scope": 6422,
                   "src": "3508:11:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -4671,7 +4671,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 6408,
+                    "id": 6416,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "3508:7:14",
@@ -4688,15 +4688,15 @@
               "src": "3507:13:14"
             },
             "returnParameters": {
-              "id": 6413,
+              "id": 6421,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6412,
+                  "id": 6420,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6414,
+                  "scope": 6422,
                   "src": "3539:4:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -4705,7 +4705,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 6411,
+                    "id": 6419,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "3539:4:14",
@@ -4720,7 +4720,7 @@
               ],
               "src": "3538:6:14"
             },
-            "scope": 6602,
+            "scope": 6610,
             "src": "3487:58:14",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -4729,22 +4729,22 @@
           {
             "body": null,
             "documentation": "@notice Moves all tokens from `src` account to `dst`.\n@param src The source address which approved the msg.sender to spend\n@param dst The destination address.\n@return bool true=success, otherwise a failure",
-            "id": 6423,
+            "id": 6431,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "transferAllFrom",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 6419,
+              "id": 6427,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6416,
+                  "id": 6424,
                   "name": "src",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6423,
+                  "scope": 6431,
                   "src": "3826:11:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -4753,7 +4753,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 6415,
+                    "id": 6423,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "3826:7:14",
@@ -4768,10 +4768,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 6418,
+                  "id": 6426,
                   "name": "dst",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6423,
+                  "scope": 6431,
                   "src": "3839:11:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -4780,7 +4780,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 6417,
+                    "id": 6425,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "3839:7:14",
@@ -4797,15 +4797,15 @@
               "src": "3825:26:14"
             },
             "returnParameters": {
-              "id": 6422,
+              "id": 6430,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6421,
+                  "id": 6429,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6423,
+                  "scope": 6431,
                   "src": "3870:4:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -4814,7 +4814,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 6420,
+                    "id": 6428,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "3870:4:14",
@@ -4829,7 +4829,7 @@
               ],
               "src": "3869:6:14"
             },
-            "scope": 6602,
+            "scope": 6610,
             "src": "3801:75:14",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -4838,22 +4838,22 @@
           {
             "body": null,
             "documentation": "@notice Sender redeems rTokens in exchange for the underlying asset\n@param redeemTokens The number of rTokens to redeem into underlying\n@return bool true=success, otherwise a failure",
-            "id": 6430,
+            "id": 6438,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "redeem",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 6426,
+              "id": 6434,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6425,
+                  "id": 6433,
                   "name": "redeemTokens",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6430,
+                  "scope": 6438,
                   "src": "4118:20:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -4862,7 +4862,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 6424,
+                    "id": 6432,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "4118:7:14",
@@ -4878,15 +4878,15 @@
               "src": "4117:22:14"
             },
             "returnParameters": {
-              "id": 6429,
+              "id": 6437,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6428,
+                  "id": 6436,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6430,
+                  "scope": 6438,
                   "src": "4158:4:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -4895,7 +4895,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 6427,
+                    "id": 6435,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "4158:4:14",
@@ -4910,7 +4910,7 @@
               ],
               "src": "4157:6:14"
             },
-            "scope": 6602,
+            "scope": 6610,
             "src": "4102:62:14",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -4919,28 +4919,28 @@
           {
             "body": null,
             "documentation": "@notice Sender redeems all rTokens in exchange for the underlying asset\n@return bool true=success, otherwise a failure",
-            "id": 6435,
+            "id": 6443,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "redeemAll",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 6431,
+              "id": 6439,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "4337:2:14"
             },
             "returnParameters": {
-              "id": 6434,
+              "id": 6442,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6433,
+                  "id": 6441,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6435,
+                  "scope": 6443,
                   "src": "4358:4:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -4949,7 +4949,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 6432,
+                    "id": 6440,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "4358:4:14",
@@ -4964,7 +4964,7 @@
               ],
               "src": "4357:6:14"
             },
-            "scope": 6602,
+            "scope": 6610,
             "src": "4319:45:14",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -4973,22 +4973,22 @@
           {
             "body": null,
             "documentation": "@notice Sender redeems rTokens in exchange for the underlying asset then immediately transfer them to a differen user\n@param redeemTo Destination address to send the redeemed tokens to\n@param redeemTokens The number of rTokens to redeem into underlying\n@return bool true=success, otherwise a failure",
-            "id": 6444,
+            "id": 6452,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "redeemAndTransfer",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 6440,
+              "id": 6448,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6437,
+                  "id": 6445,
                   "name": "redeemTo",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6444,
+                  "scope": 6452,
                   "src": "4741:16:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -4997,7 +4997,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 6436,
+                    "id": 6444,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "4741:7:14",
@@ -5012,10 +5012,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 6439,
+                  "id": 6447,
                   "name": "redeemTokens",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6444,
+                  "scope": 6452,
                   "src": "4759:20:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -5024,7 +5024,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 6438,
+                    "id": 6446,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "4759:7:14",
@@ -5040,15 +5040,15 @@
               "src": "4740:40:14"
             },
             "returnParameters": {
-              "id": 6443,
+              "id": 6451,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6442,
+                  "id": 6450,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6444,
+                  "scope": 6452,
                   "src": "4815:4:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -5057,7 +5057,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 6441,
+                    "id": 6449,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "4815:4:14",
@@ -5072,7 +5072,7 @@
               ],
               "src": "4814:6:14"
             },
-            "scope": 6602,
+            "scope": 6610,
             "src": "4714:107:14",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -5081,22 +5081,22 @@
           {
             "body": null,
             "documentation": "@notice Sender redeems all rTokens in exchange for the underlying asset then immediately transfer them to a differen user\n@param redeemTo Destination address to send the redeemed tokens to\n@return bool true=success, otherwise a failure",
-            "id": 6451,
+            "id": 6459,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "redeemAndTransferAll",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 6447,
+              "id": 6455,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6446,
+                  "id": 6454,
                   "name": "redeemTo",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6451,
+                  "scope": 6459,
                   "src": "5130:16:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -5105,7 +5105,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 6445,
+                    "id": 6453,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "5130:7:14",
@@ -5122,15 +5122,15 @@
               "src": "5129:18:14"
             },
             "returnParameters": {
-              "id": 6450,
+              "id": 6458,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6449,
+                  "id": 6457,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6451,
+                  "scope": 6459,
                   "src": "5166:4:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -5139,7 +5139,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 6448,
+                    "id": 6456,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "5166:4:14",
@@ -5154,7 +5154,7 @@
               ],
               "src": "5165:6:14"
             },
-            "scope": 6602,
+            "scope": 6610,
             "src": "5100:72:14",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -5163,22 +5163,22 @@
           {
             "body": null,
             "documentation": "@notice Create a new Hat\n@param recipients List of beneficial recipients\n@param proportions Relative proportions of benefits received by the recipients\n@param doChangeHat Should the hat of the `msg.sender` be switched to the new one\n@return uint256 ID of the newly creatd Hat.",
-            "id": 6464,
+            "id": 6472,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "createHat",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 6460,
+              "id": 6468,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6454,
+                  "id": 6462,
                   "name": "recipients",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6464,
+                  "scope": 6472,
                   "src": "5534:29:14",
                   "stateVariable": false,
                   "storageLocation": "calldata",
@@ -5188,7 +5188,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 6452,
+                      "id": 6460,
                       "name": "address",
                       "nodeType": "ElementaryTypeName",
                       "src": "5534:7:14",
@@ -5198,7 +5198,7 @@
                         "typeString": "address"
                       }
                     },
-                    "id": 6453,
+                    "id": 6461,
                     "length": null,
                     "nodeType": "ArrayTypeName",
                     "src": "5534:9:14",
@@ -5212,10 +5212,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 6457,
+                  "id": 6465,
                   "name": "proportions",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6464,
+                  "scope": 6472,
                   "src": "5573:29:14",
                   "stateVariable": false,
                   "storageLocation": "calldata",
@@ -5225,7 +5225,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 6455,
+                      "id": 6463,
                       "name": "uint32",
                       "nodeType": "ElementaryTypeName",
                       "src": "5573:6:14",
@@ -5234,7 +5234,7 @@
                         "typeString": "uint32"
                       }
                     },
-                    "id": 6456,
+                    "id": 6464,
                     "length": null,
                     "nodeType": "ArrayTypeName",
                     "src": "5573:8:14",
@@ -5248,10 +5248,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 6459,
+                  "id": 6467,
                   "name": "doChangeHat",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6464,
+                  "scope": 6472,
                   "src": "5612:16:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -5260,7 +5260,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 6458,
+                    "id": 6466,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "5612:4:14",
@@ -5276,15 +5276,15 @@
               "src": "5524:110:14"
             },
             "returnParameters": {
-              "id": 6463,
+              "id": 6471,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6462,
+                  "id": 6470,
                   "name": "hatID",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6464,
+                  "scope": 6472,
                   "src": "5653:13:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -5293,7 +5293,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 6461,
+                    "id": 6469,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "5653:7:14",
@@ -5308,7 +5308,7 @@
               ],
               "src": "5652:15:14"
             },
-            "scope": 6602,
+            "scope": 6610,
             "src": "5506:162:14",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -5317,22 +5317,22 @@
           {
             "body": null,
             "documentation": "@notice Change the hat for `msg.sender`\n@param hatID The id of the Hat\n@return bool true=success, otherwise a failure",
-            "id": 6471,
+            "id": 6479,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "changeHat",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 6467,
+              "id": 6475,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6466,
+                  "id": 6474,
                   "name": "hatID",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6471,
+                  "scope": 6479,
                   "src": "5848:13:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -5341,7 +5341,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 6465,
+                    "id": 6473,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "5848:7:14",
@@ -5357,15 +5357,15 @@
               "src": "5847:15:14"
             },
             "returnParameters": {
-              "id": 6470,
+              "id": 6478,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6469,
+                  "id": 6477,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6471,
+                  "scope": 6479,
                   "src": "5881:4:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -5374,7 +5374,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 6468,
+                    "id": 6476,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "5881:4:14",
@@ -5389,7 +5389,7 @@
               ],
               "src": "5880:6:14"
             },
-            "scope": 6602,
+            "scope": 6610,
             "src": "5829:58:14",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -5398,22 +5398,22 @@
           {
             "body": null,
             "documentation": "@notice pay interest to the owner\n@param owner Account owner address\n@return bool true=success, otherwise a failure\n     * Anyone can trigger the interest distribution on behalf of the recipient,\ndue to the fact that the recipient can be a contract code that has not\nimplemented the interaction with the rToken contract internally`.\n     * A interest lock-up period may apply, in order to mitigate the \"hat\ninheritance scam\".",
-            "id": 6478,
+            "id": 6486,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "payInterest",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 6474,
+              "id": 6482,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6473,
+                  "id": 6481,
                   "name": "owner",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6478,
+                  "scope": 6486,
                   "src": "6412:13:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -5422,7 +5422,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 6472,
+                    "id": 6480,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "6412:7:14",
@@ -5439,15 +5439,15 @@
               "src": "6411:15:14"
             },
             "returnParameters": {
-              "id": 6477,
+              "id": 6485,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6476,
+                  "id": 6484,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6478,
+                  "scope": 6486,
                   "src": "6445:4:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -5456,7 +5456,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 6475,
+                    "id": 6483,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "6445:4:14",
@@ -5471,7 +5471,7 @@
               ],
               "src": "6444:6:14"
             },
-            "scope": 6602,
+            "scope": 6610,
             "src": "6391:60:14",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -5480,28 +5480,28 @@
           {
             "body": null,
             "documentation": "@notice Get the maximum hatID in the system",
-            "id": 6483,
+            "id": 6491,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getMaximumHatID",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 6479,
+              "id": 6487,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "6738:2:14"
             },
             "returnParameters": {
-              "id": 6482,
+              "id": 6490,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6481,
+                  "id": 6489,
                   "name": "hatID",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6483,
+                  "scope": 6491,
                   "src": "6764:13:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -5510,7 +5510,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 6480,
+                    "id": 6488,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "6764:7:14",
@@ -5525,7 +5525,7 @@
               ],
               "src": "6763:15:14"
             },
-            "scope": 6602,
+            "scope": 6610,
             "src": "6714:65:14",
             "stateMutability": "view",
             "superFunction": null,
@@ -5534,22 +5534,22 @@
           {
             "body": null,
             "documentation": "@notice Get the hatID of the owner and the hat structure\n@param owner Account owner address\n@return hatID Hat ID\n@return recipients Hat recipients\n@return proportions Hat recipient's relative proportions",
-            "id": 6496,
+            "id": 6504,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getHatByAddress",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 6486,
+              "id": 6494,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6485,
+                  "id": 6493,
                   "name": "owner",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6496,
+                  "scope": 6504,
                   "src": "7065:13:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -5558,7 +5558,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 6484,
+                    "id": 6492,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "7065:7:14",
@@ -5575,15 +5575,15 @@
               "src": "7064:15:14"
             },
             "returnParameters": {
-              "id": 6495,
+              "id": 6503,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6488,
+                  "id": 6496,
                   "name": "hatID",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6496,
+                  "scope": 6504,
                   "src": "7140:13:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -5592,7 +5592,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 6487,
+                    "id": 6495,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "7140:7:14",
@@ -5606,10 +5606,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 6491,
+                  "id": 6499,
                   "name": "recipients",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6496,
+                  "scope": 6504,
                   "src": "7167:27:14",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -5619,7 +5619,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 6489,
+                      "id": 6497,
                       "name": "address",
                       "nodeType": "ElementaryTypeName",
                       "src": "7167:7:14",
@@ -5629,7 +5629,7 @@
                         "typeString": "address"
                       }
                     },
-                    "id": 6490,
+                    "id": 6498,
                     "length": null,
                     "nodeType": "ArrayTypeName",
                     "src": "7167:9:14",
@@ -5643,10 +5643,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 6494,
+                  "id": 6502,
                   "name": "proportions",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6496,
+                  "scope": 6504,
                   "src": "7208:27:14",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -5656,7 +5656,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 6492,
+                      "id": 6500,
                       "name": "uint32",
                       "nodeType": "ElementaryTypeName",
                       "src": "7208:6:14",
@@ -5665,7 +5665,7 @@
                         "typeString": "uint32"
                       }
                     },
-                    "id": 6493,
+                    "id": 6501,
                     "length": null,
                     "nodeType": "ArrayTypeName",
                     "src": "7208:8:14",
@@ -5680,7 +5680,7 @@
               ],
               "src": "7126:119:14"
             },
-            "scope": 6602,
+            "scope": 6610,
             "src": "7040:206:14",
             "stateMutability": "view",
             "superFunction": null,
@@ -5689,22 +5689,22 @@
           {
             "body": null,
             "documentation": "@notice Get the hat structure\n@param hatID Hat ID\n@return recipients Hat recipients\n@return proportions Hat recipient's relative proportions",
-            "id": 6507,
+            "id": 6515,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getHatByID",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 6499,
+              "id": 6507,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6498,
+                  "id": 6506,
                   "name": "hatID",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6507,
+                  "scope": 6515,
                   "src": "7457:13:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -5713,7 +5713,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 6497,
+                    "id": 6505,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "7457:7:14",
@@ -5729,15 +5729,15 @@
               "src": "7456:15:14"
             },
             "returnParameters": {
-              "id": 6506,
+              "id": 6514,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6502,
+                  "id": 6510,
                   "name": "recipients",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6507,
+                  "scope": 6515,
                   "src": "7519:27:14",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -5747,7 +5747,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 6500,
+                      "id": 6508,
                       "name": "address",
                       "nodeType": "ElementaryTypeName",
                       "src": "7519:7:14",
@@ -5757,7 +5757,7 @@
                         "typeString": "address"
                       }
                     },
-                    "id": 6501,
+                    "id": 6509,
                     "length": null,
                     "nodeType": "ArrayTypeName",
                     "src": "7519:9:14",
@@ -5771,10 +5771,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 6505,
+                  "id": 6513,
                   "name": "proportions",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6507,
+                  "scope": 6515,
                   "src": "7548:27:14",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -5784,7 +5784,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 6503,
+                      "id": 6511,
                       "name": "uint32",
                       "nodeType": "ElementaryTypeName",
                       "src": "7548:6:14",
@@ -5793,7 +5793,7 @@
                         "typeString": "uint32"
                       }
                     },
-                    "id": 6504,
+                    "id": 6512,
                     "length": null,
                     "nodeType": "ArrayTypeName",
                     "src": "7548:8:14",
@@ -5808,7 +5808,7 @@
               ],
               "src": "7518:58:14"
             },
-            "scope": 6602,
+            "scope": 6610,
             "src": "7437:140:14",
             "stateMutability": "view",
             "superFunction": null,
@@ -5817,22 +5817,22 @@
           {
             "body": null,
             "documentation": "@notice Amount of saving assets given to the recipient along with the\n        loans.\n@param owner Account owner address",
-            "id": 6514,
+            "id": 6522,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "receivedSavingsOf",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 6510,
+              "id": 6518,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6509,
+                  "id": 6517,
                   "name": "owner",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6514,
+                  "scope": 6522,
                   "src": "7767:13:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -5841,7 +5841,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 6508,
+                    "id": 6516,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "7767:7:14",
@@ -5858,15 +5858,15 @@
               "src": "7766:15:14"
             },
             "returnParameters": {
-              "id": 6513,
+              "id": 6521,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6512,
+                  "id": 6520,
                   "name": "amount",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6514,
+                  "scope": 6522,
                   "src": "7829:14:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -5875,7 +5875,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 6511,
+                    "id": 6519,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "7829:7:14",
@@ -5890,7 +5890,7 @@
               ],
               "src": "7828:16:14"
             },
-            "scope": 6602,
+            "scope": 6610,
             "src": "7740:105:14",
             "stateMutability": "view",
             "superFunction": null,
@@ -5899,22 +5899,22 @@
           {
             "body": null,
             "documentation": "@notice Amount of token loaned to the recipient along with the savings\n        assets.\n@param owner Account owner address\n@return amount",
-            "id": 6521,
+            "id": 6529,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "receivedLoanOf",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 6517,
+              "id": 6525,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6516,
+                  "id": 6524,
                   "name": "owner",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6521,
+                  "scope": 6529,
                   "src": "8056:13:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -5923,7 +5923,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 6515,
+                    "id": 6523,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "8056:7:14",
@@ -5940,15 +5940,15 @@
               "src": "8055:15:14"
             },
             "returnParameters": {
-              "id": 6520,
+              "id": 6528,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6519,
+                  "id": 6527,
                   "name": "amount",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6521,
+                  "scope": 6529,
                   "src": "8118:14:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -5957,7 +5957,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 6518,
+                    "id": 6526,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "8118:7:14",
@@ -5972,7 +5972,7 @@
               ],
               "src": "8117:16:14"
             },
-            "scope": 6602,
+            "scope": 6610,
             "src": "8032:102:14",
             "stateMutability": "view",
             "superFunction": null,
@@ -5981,22 +5981,22 @@
           {
             "body": null,
             "documentation": "@notice Get the current interest balance of the owner.\nIt is equivalent of: receivedSavings - receivedLoan - freeBalance\n@param owner Account owner address\n@return amount",
-            "id": 6528,
+            "id": 6536,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "interestPayableOf",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 6524,
+              "id": 6532,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6523,
+                  "id": 6531,
                   "name": "owner",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6528,
+                  "scope": 6536,
                   "src": "8390:13:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -6005,7 +6005,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 6522,
+                    "id": 6530,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "8390:7:14",
@@ -6022,15 +6022,15 @@
               "src": "8389:15:14"
             },
             "returnParameters": {
-              "id": 6527,
+              "id": 6535,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6526,
+                  "id": 6534,
                   "name": "amount",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6528,
+                  "scope": 6536,
                   "src": "8452:14:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -6039,7 +6039,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 6525,
+                    "id": 6533,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "8452:7:14",
@@ -6054,7 +6054,7 @@
               ],
               "src": "8451:16:14"
             },
-            "scope": 6602,
+            "scope": 6610,
             "src": "8363:105:14",
             "stateMutability": "view",
             "superFunction": null,
@@ -6063,44 +6063,44 @@
           {
             "body": null,
             "documentation": "@notice Get current saving strategy",
-            "id": 6533,
+            "id": 6541,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "ias",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 6529,
+              "id": 6537,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "8530:2:14"
             },
             "returnParameters": {
-              "id": 6532,
+              "id": 6540,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6531,
+                  "id": 6539,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6533,
+                  "scope": 6541,
                   "src": "8551:19:14",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_IAllocationStrategy_$6345",
+                    "typeIdentifier": "t_contract$_IAllocationStrategy_$6353",
                     "typeString": "contract IAllocationStrategy"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 6530,
+                    "id": 6538,
                     "name": "IAllocationStrategy",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 6345,
+                    "referencedDeclaration": 6353,
                     "src": "8551:19:14",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_IAllocationStrategy_$6345",
+                      "typeIdentifier": "t_contract$_IAllocationStrategy_$6353",
                       "typeString": "contract IAllocationStrategy"
                     }
                   },
@@ -6110,7 +6110,7 @@
               ],
               "src": "8550:21:14"
             },
-            "scope": 6602,
+            "scope": 6610,
             "src": "8518:54:14",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -6119,28 +6119,28 @@
           {
             "body": null,
             "documentation": "@notice Saving asset original to internal amount conversion rate.\n\n    /// @dev About the saving asset original to internal conversaioon rate:\n\n    ///      - It has 18 decimals\n      - It starts with value 1\n      - Each strategy switching results a new conversion rate\n\n    /// NOTE:\n\n    /// 1. The reason there is an exchange rate is that, each time the\n    allocation strategy is switched, the unit of the original amount gets\n    changed, it is impossible to change all the internal savings\n    accounting entries for all accounts, hence instead a conversaion rate\n    is used to simplify the process.\n 2. internalSavings == originalSavings * savingAssetConversionRate",
-            "id": 6538,
+            "id": 6546,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "savingAssetConversionRate",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 6534,
+              "id": 6542,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "9372:2:14"
             },
             "returnParameters": {
-              "id": 6537,
+              "id": 6545,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6536,
+                  "id": 6544,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6538,
+                  "scope": 6546,
                   "src": "9393:7:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -6149,7 +6149,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 6535,
+                    "id": 6543,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "9393:7:14",
@@ -6164,7 +6164,7 @@
               ],
               "src": "9392:9:14"
             },
-            "scope": 6602,
+            "scope": 6610,
             "src": "9338:64:14",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -6173,28 +6173,28 @@
           {
             "body": null,
             "documentation": "@notice Get the current saving strategy contract\n@return Saving strategy address",
-            "id": 6543,
+            "id": 6551,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getCurrentSavingStrategy",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 6539,
+              "id": 6547,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "9738:2:14"
             },
             "returnParameters": {
-              "id": 6542,
+              "id": 6550,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6541,
+                  "id": 6549,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6543,
+                  "scope": 6551,
                   "src": "9764:7:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -6203,7 +6203,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 6540,
+                    "id": 6548,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "9764:7:14",
@@ -6219,7 +6219,7 @@
               ],
               "src": "9763:9:14"
             },
-            "scope": 6602,
+            "scope": 6610,
             "src": "9705:68:14",
             "stateMutability": "view",
             "superFunction": null,
@@ -6228,28 +6228,28 @@
           {
             "body": null,
             "documentation": "@notice Get saving asset balance for specific saving strategy\n@return rAmount Balance in redeemable amount\n@return sOriginalAmount Balance in native amount of the strategy",
-            "id": 6550,
+            "id": 6558,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getSavingAssetBalance",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 6544,
+              "id": 6552,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "10014:2:14"
             },
             "returnParameters": {
-              "id": 6549,
+              "id": 6557,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6546,
+                  "id": 6554,
                   "name": "rAmount",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6550,
+                  "scope": 6558,
                   "src": "10064:15:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -6258,7 +6258,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 6545,
+                    "id": 6553,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "10064:7:14",
@@ -6272,10 +6272,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 6548,
+                  "id": 6556,
                   "name": "sOriginalAmount",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6550,
+                  "scope": 6558,
                   "src": "10081:23:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -6284,7 +6284,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 6547,
+                    "id": 6555,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "10081:7:14",
@@ -6299,7 +6299,7 @@
               ],
               "src": "10063:42:14"
             },
-            "scope": 6602,
+            "scope": 6610,
             "src": "9984:122:14",
             "stateMutability": "view",
             "superFunction": null,
@@ -6308,44 +6308,44 @@
           {
             "body": null,
             "documentation": "@notice Get global stats\n@return global stats",
-            "id": 6555,
+            "id": 6563,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getGlobalStats",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 6551,
+              "id": 6559,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "10208:2:14"
             },
             "returnParameters": {
-              "id": 6554,
+              "id": 6562,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6553,
+                  "id": 6561,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6555,
+                  "scope": 6563,
                   "src": "10234:18:14",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_GlobalStats_$11978_memory_ptr",
+                    "typeIdentifier": "t_struct$_GlobalStats_$11987_memory_ptr",
                     "typeString": "struct RTokenStructs.GlobalStats"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 6552,
+                    "id": 6560,
                     "name": "GlobalStats",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 11978,
+                    "referencedDeclaration": 11987,
                     "src": "10234:11:14",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_GlobalStats_$11978_storage_ptr",
+                      "typeIdentifier": "t_struct$_GlobalStats_$11987_storage_ptr",
                       "typeString": "struct RTokenStructs.GlobalStats"
                     }
                   },
@@ -6355,7 +6355,7 @@
               ],
               "src": "10233:20:14"
             },
-            "scope": 6602,
+            "scope": 6610,
             "src": "10185:69:14",
             "stateMutability": "view",
             "superFunction": null,
@@ -6364,22 +6364,22 @@
           {
             "body": null,
             "documentation": "@notice Get account stats\n@param owner Account owner address\n@return account stats",
-            "id": 6562,
+            "id": 6570,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getAccountStats",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 6558,
+              "id": 6566,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6557,
+                  "id": 6565,
                   "name": "owner",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6562,
+                  "scope": 6570,
                   "src": "10401:13:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -6388,7 +6388,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 6556,
+                    "id": 6564,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "10401:7:14",
@@ -6405,31 +6405,31 @@
               "src": "10400:15:14"
             },
             "returnParameters": {
-              "id": 6561,
+              "id": 6569,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6560,
+                  "id": 6568,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6562,
+                  "scope": 6570,
                   "src": "10463:23:14",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_AccountStatsView_$11995_memory_ptr",
+                    "typeIdentifier": "t_struct$_AccountStatsView_$12004_memory_ptr",
                     "typeString": "struct RTokenStructs.AccountStatsView"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 6559,
+                    "id": 6567,
                     "name": "AccountStatsView",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 11995,
+                    "referencedDeclaration": 12004,
                     "src": "10463:16:14",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_AccountStatsView_$11995_storage_ptr",
+                      "typeIdentifier": "t_struct$_AccountStatsView_$12004_storage_ptr",
                       "typeString": "struct RTokenStructs.AccountStatsView"
                     }
                   },
@@ -6439,7 +6439,7 @@
               ],
               "src": "10462:25:14"
             },
-            "scope": 6602,
+            "scope": 6610,
             "src": "10376:112:14",
             "stateMutability": "view",
             "superFunction": null,
@@ -6448,22 +6448,22 @@
           {
             "body": null,
             "documentation": "@notice Get hat stats\n@param hatID Hat ID\n@return hat stats",
-            "id": 6569,
+            "id": 6577,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getHatStats",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 6565,
+              "id": 6573,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6564,
+                  "id": 6572,
                   "name": "hatID",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6569,
+                  "scope": 6577,
                   "src": "10608:13:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -6472,7 +6472,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 6563,
+                    "id": 6571,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "10608:7:14",
@@ -6488,31 +6488,31 @@
               "src": "10607:15:14"
             },
             "returnParameters": {
-              "id": 6568,
+              "id": 6576,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6567,
+                  "id": 6575,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6569,
+                  "scope": 6577,
                   "src": "10670:19:14",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_HatStatsView_$12005_memory_ptr",
+                    "typeIdentifier": "t_struct$_HatStatsView_$12014_memory_ptr",
                     "typeString": "struct RTokenStructs.HatStatsView"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 6566,
+                    "id": 6574,
                     "name": "HatStatsView",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 12005,
+                    "referencedDeclaration": 12014,
                     "src": "10670:12:14",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_HatStatsView_$12005_storage_ptr",
+                      "typeIdentifier": "t_struct$_HatStatsView_$12014_storage_ptr",
                       "typeString": "struct RTokenStructs.HatStatsView"
                     }
                   },
@@ -6522,7 +6522,7 @@
               ],
               "src": "10669:21:14"
             },
-            "scope": 6602,
+            "scope": 6610,
             "src": "10587:104:14",
             "stateMutability": "view",
             "superFunction": null,
@@ -6531,20 +6531,20 @@
           {
             "anonymous": false,
             "documentation": "@notice Event emitted when loans get transferred",
-            "id": 6583,
+            "id": 6591,
             "name": "LoansTransferred",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 6582,
+              "id": 6590,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6571,
+                  "id": 6579,
                   "indexed": true,
                   "name": "owner",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6583,
+                  "scope": 6591,
                   "src": "10977:21:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -6553,7 +6553,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 6570,
+                    "id": 6578,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "10977:7:14",
@@ -6568,11 +6568,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 6573,
+                  "id": 6581,
                   "indexed": true,
                   "name": "recipient",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6583,
+                  "scope": 6591,
                   "src": "11008:25:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -6581,7 +6581,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 6572,
+                    "id": 6580,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "11008:7:14",
@@ -6596,11 +6596,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 6575,
+                  "id": 6583,
                   "indexed": true,
                   "name": "hatId",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6583,
+                  "scope": 6591,
                   "src": "11043:21:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -6609,7 +6609,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 6574,
+                    "id": 6582,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "11043:7:14",
@@ -6623,11 +6623,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 6577,
+                  "id": 6585,
                   "indexed": false,
                   "name": "isDistribution",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6583,
+                  "scope": 6591,
                   "src": "11074:19:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -6636,7 +6636,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 6576,
+                    "id": 6584,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "11074:4:14",
@@ -6650,11 +6650,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 6579,
+                  "id": 6587,
                   "indexed": false,
                   "name": "redeemableAmount",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6583,
+                  "scope": 6591,
                   "src": "11103:24:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -6663,7 +6663,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 6578,
+                    "id": 6586,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "11103:7:14",
@@ -6677,11 +6677,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 6581,
+                  "id": 6589,
                   "indexed": false,
                   "name": "internalSavingsAmount",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6583,
+                  "scope": 6591,
                   "src": "11137:29:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -6690,7 +6690,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 6580,
+                    "id": 6588,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "11137:7:14",
@@ -6710,20 +6710,20 @@
           {
             "anonymous": false,
             "documentation": "@notice Event emitted when interest paid",
-            "id": 6589,
+            "id": 6597,
             "name": "InterestPaid",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 6588,
+              "id": 6596,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6585,
+                  "id": 6593,
                   "indexed": true,
                   "name": "recipient",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6589,
+                  "scope": 6597,
                   "src": "11257:25:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -6732,7 +6732,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 6584,
+                    "id": 6592,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "11257:7:14",
@@ -6747,11 +6747,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 6587,
+                  "id": 6595,
                   "indexed": false,
                   "name": "amount",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6589,
+                  "scope": 6597,
                   "src": "11284:14:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -6760,7 +6760,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 6586,
+                    "id": 6594,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "11284:7:14",
@@ -6780,20 +6780,20 @@
           {
             "anonymous": false,
             "documentation": "@notice A new hat is created",
-            "id": 6593,
+            "id": 6601,
             "name": "HatCreated",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 6592,
+              "id": 6600,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6591,
+                  "id": 6599,
                   "indexed": true,
                   "name": "hatID",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6593,
+                  "scope": 6601,
                   "src": "11375:21:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -6802,7 +6802,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 6590,
+                    "id": 6598,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "11375:7:14",
@@ -6822,20 +6822,20 @@
           {
             "anonymous": false,
             "documentation": "@notice Hat is changed for the account",
-            "id": 6601,
+            "id": 6609,
             "name": "HatChanged",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 6600,
+              "id": 6608,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6595,
+                  "id": 6603,
                   "indexed": true,
                   "name": "account",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6601,
+                  "scope": 6609,
                   "src": "11483:23:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -6844,7 +6844,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 6594,
+                    "id": 6602,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "11483:7:14",
@@ -6859,11 +6859,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 6597,
+                  "id": 6605,
                   "indexed": true,
                   "name": "oldHatID",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6601,
+                  "scope": 6609,
                   "src": "11508:24:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -6872,7 +6872,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 6596,
+                    "id": 6604,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "11508:7:14",
@@ -6886,11 +6886,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 6599,
+                  "id": 6607,
                   "indexed": true,
                   "name": "newHatID",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6601,
+                  "scope": 6609,
                   "src": "11534:24:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -6899,7 +6899,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 6598,
+                    "id": 6606,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "11534:7:14",
@@ -6917,7 +6917,7 @@
             "src": "11466:94:14"
           }
         ],
-        "scope": 6603,
+        "scope": 6611,
         "src": "677:10885:14"
       }
     ],
@@ -6929,7 +6929,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.23",
-  "updatedAt": "2020-02-16T09:30:40.201Z",
+  "updatedAt": "2020-02-16T11:38:49.829Z",
   "devdoc": {
     "methods": {
       "allowance(address,address)": {

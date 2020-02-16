@@ -1470,14 +1470,14 @@
     "absolutePath": "/Users/bendi/Development/endaoment/contracts/tokens/rSAI.sol",
     "exportedSymbols": {
       "rSAI": [
-        13143
+        13152
       ]
     },
-    "id": 13144,
+    "id": 13153,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 13123,
+        "id": 13132,
         "literals": [
           "solidity",
           ">=",
@@ -1491,7 +1491,7 @@
         "src": "202:32:35"
       },
       {
-        "id": 13124,
+        "id": 13133,
         "literals": [
           "experimental",
           "ABIEncoderV2"
@@ -1502,14 +1502,14 @@
       {
         "absolutePath": "/Users/bendi/Development/endaoment/contracts/RToken.sol",
         "file": "../RToken.sol",
-        "id": 13126,
+        "id": 13135,
         "nodeType": "ImportDirective",
-        "scope": 13144,
-        "sourceUnit": 11915,
+        "scope": 13153,
+        "sourceUnit": 11924,
         "src": "270:39:35",
         "symbolAliases": [
           {
-            "foreign": 13125,
+            "foreign": 13134,
             "local": null
           }
         ],
@@ -1521,74 +1521,74 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 13127,
+              "id": 13136,
               "name": "RToken",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 11914,
+              "referencedDeclaration": 11923,
               "src": "394:6:35",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_RToken_$11914",
+                "typeIdentifier": "t_contract$_RToken_$11923",
                 "typeString": "contract RToken"
               }
             },
-            "id": 13128,
+            "id": 13137,
             "nodeType": "InheritanceSpecifier",
             "src": "394:6:35"
           }
         ],
         "contractDependencies": [
-          6602,
-          6647,
-          6876,
-          8603,
-          9232,
-          11914,
-          11971,
-          12035,
-          12125,
-          14571
+          6610,
+          6655,
+          6884,
+          8612,
+          9241,
+          11923,
+          11980,
+          12044,
+          12134,
+          14580
         ],
         "contractKind": "contract",
         "documentation": "@notice RToken instantiation for rSAI (Redeemable SAI)",
         "fullyImplemented": true,
-        "id": 13143,
+        "id": 13152,
         "linearizedBaseContracts": [
-          13143,
-          11914,
-          12125,
-          6876,
-          9232,
-          8603,
-          11971,
-          6647,
-          6602,
-          14571,
-          12035
+          13152,
+          11923,
+          12134,
+          6884,
+          9241,
+          8612,
+          11980,
+          6655,
+          6610,
+          14580,
+          12044
         ],
         "name": "rSAI",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "body": {
-              "id": 13141,
+              "id": 13150,
               "nodeType": "Block",
               "src": "470:65:35",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 13135,
+                    "id": 13144,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 13133,
+                      "id": 13142,
                       "name": "name",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 11935,
+                      "referencedDeclaration": 11944,
                       "src": "480:4:35",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_storage",
@@ -1600,7 +1600,7 @@
                     "rightHandSide": {
                       "argumentTypes": null,
                       "hexValue": "52656465656d61626c6520534149",
-                      "id": 13134,
+                      "id": 13143,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -1621,25 +1621,25 @@
                       "typeString": "string storage ref"
                     }
                   },
-                  "id": 13136,
+                  "id": 13145,
                   "nodeType": "ExpressionStatement",
                   "src": "480:23:35"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 13139,
+                    "id": 13148,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 13137,
+                      "id": 13146,
                       "name": "symbol",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 11937,
+                      "referencedDeclaration": 11946,
                       "src": "513:6:35",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_storage",
@@ -1651,7 +1651,7 @@
                     "rightHandSide": {
                       "argumentTypes": null,
                       "hexValue": "72534149",
-                      "id": 13138,
+                      "id": 13147,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -1672,27 +1672,27 @@
                       "typeString": "string storage ref"
                     }
                   },
-                  "id": 13140,
+                  "id": 13149,
                   "nodeType": "ExpressionStatement",
                   "src": "513:15:35"
                 }
               ]
             },
             "documentation": null,
-            "id": 13142,
+            "id": 13151,
             "implemented": true,
             "kind": "function",
             "modifiers": [
               {
                 "arguments": null,
-                "id": 13131,
+                "id": 13140,
                 "modifierName": {
                   "argumentTypes": null,
-                  "id": 13130,
+                  "id": 13139,
                   "name": "onlyOwner",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 8536,
+                  "referencedDeclaration": 8545,
                   "src": "460:9:35",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$__$",
@@ -1706,25 +1706,25 @@
             "name": "updateTokenInfo",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 13129,
+              "id": 13138,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "432:2:35"
             },
             "returnParameters": {
-              "id": 13132,
+              "id": 13141,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "470:0:35"
             },
-            "scope": 13143,
+            "scope": 13152,
             "src": "408:127:35",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "external"
           }
         ],
-        "scope": 13144,
+        "scope": 13153,
         "src": "377:161:35"
       }
     ],
@@ -1734,14 +1734,14 @@
     "absolutePath": "/Users/bendi/Development/endaoment/contracts/tokens/rSAI.sol",
     "exportedSymbols": {
       "rSAI": [
-        13143
+        13152
       ]
     },
-    "id": 13144,
+    "id": 13153,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 13123,
+        "id": 13132,
         "literals": [
           "solidity",
           ">=",
@@ -1755,7 +1755,7 @@
         "src": "202:32:35"
       },
       {
-        "id": 13124,
+        "id": 13133,
         "literals": [
           "experimental",
           "ABIEncoderV2"
@@ -1766,14 +1766,14 @@
       {
         "absolutePath": "/Users/bendi/Development/endaoment/contracts/RToken.sol",
         "file": "../RToken.sol",
-        "id": 13126,
+        "id": 13135,
         "nodeType": "ImportDirective",
-        "scope": 13144,
-        "sourceUnit": 11915,
+        "scope": 13153,
+        "sourceUnit": 11924,
         "src": "270:39:35",
         "symbolAliases": [
           {
-            "foreign": 13125,
+            "foreign": 13134,
             "local": null
           }
         ],
@@ -1785,74 +1785,74 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 13127,
+              "id": 13136,
               "name": "RToken",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 11914,
+              "referencedDeclaration": 11923,
               "src": "394:6:35",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_RToken_$11914",
+                "typeIdentifier": "t_contract$_RToken_$11923",
                 "typeString": "contract RToken"
               }
             },
-            "id": 13128,
+            "id": 13137,
             "nodeType": "InheritanceSpecifier",
             "src": "394:6:35"
           }
         ],
         "contractDependencies": [
-          6602,
-          6647,
-          6876,
-          8603,
-          9232,
-          11914,
-          11971,
-          12035,
-          12125,
-          14571
+          6610,
+          6655,
+          6884,
+          8612,
+          9241,
+          11923,
+          11980,
+          12044,
+          12134,
+          14580
         ],
         "contractKind": "contract",
         "documentation": "@notice RToken instantiation for rSAI (Redeemable SAI)",
         "fullyImplemented": true,
-        "id": 13143,
+        "id": 13152,
         "linearizedBaseContracts": [
-          13143,
-          11914,
-          12125,
-          6876,
-          9232,
-          8603,
-          11971,
-          6647,
-          6602,
-          14571,
-          12035
+          13152,
+          11923,
+          12134,
+          6884,
+          9241,
+          8612,
+          11980,
+          6655,
+          6610,
+          14580,
+          12044
         ],
         "name": "rSAI",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "body": {
-              "id": 13141,
+              "id": 13150,
               "nodeType": "Block",
               "src": "470:65:35",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 13135,
+                    "id": 13144,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 13133,
+                      "id": 13142,
                       "name": "name",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 11935,
+                      "referencedDeclaration": 11944,
                       "src": "480:4:35",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_storage",
@@ -1864,7 +1864,7 @@
                     "rightHandSide": {
                       "argumentTypes": null,
                       "hexValue": "52656465656d61626c6520534149",
-                      "id": 13134,
+                      "id": 13143,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -1885,25 +1885,25 @@
                       "typeString": "string storage ref"
                     }
                   },
-                  "id": 13136,
+                  "id": 13145,
                   "nodeType": "ExpressionStatement",
                   "src": "480:23:35"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 13139,
+                    "id": 13148,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 13137,
+                      "id": 13146,
                       "name": "symbol",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 11937,
+                      "referencedDeclaration": 11946,
                       "src": "513:6:35",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_storage",
@@ -1915,7 +1915,7 @@
                     "rightHandSide": {
                       "argumentTypes": null,
                       "hexValue": "72534149",
-                      "id": 13138,
+                      "id": 13147,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -1936,27 +1936,27 @@
                       "typeString": "string storage ref"
                     }
                   },
-                  "id": 13140,
+                  "id": 13149,
                   "nodeType": "ExpressionStatement",
                   "src": "513:15:35"
                 }
               ]
             },
             "documentation": null,
-            "id": 13142,
+            "id": 13151,
             "implemented": true,
             "kind": "function",
             "modifiers": [
               {
                 "arguments": null,
-                "id": 13131,
+                "id": 13140,
                 "modifierName": {
                   "argumentTypes": null,
-                  "id": 13130,
+                  "id": 13139,
                   "name": "onlyOwner",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 8536,
+                  "referencedDeclaration": 8545,
                   "src": "460:9:35",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$__$",
@@ -1970,25 +1970,25 @@
             "name": "updateTokenInfo",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 13129,
+              "id": 13138,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "432:2:35"
             },
             "returnParameters": {
-              "id": 13132,
+              "id": 13141,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "470:0:35"
             },
-            "scope": 13143,
+            "scope": 13152,
             "src": "408:127:35",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "external"
           }
         ],
-        "scope": 13144,
+        "scope": 13153,
         "src": "377:161:35"
       }
     ],
@@ -2000,7 +2000,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.23",
-  "updatedAt": "2020-02-16T09:30:40.305Z",
+  "updatedAt": "2020-02-16T11:38:49.997Z",
   "devdoc": {
     "methods": {
       "changeAllocationStrategy(address)": {

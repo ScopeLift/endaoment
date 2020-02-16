@@ -3114,7 +3114,7 @@
                             "name": "this",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 14689,
+                            "referencedDeclaration": 14698,
                             "src": "5047:4:0",
                             "typeDescriptions": {
                               "typeIdentifier": "t_contract$_CErc20_$277",
@@ -3394,7 +3394,7 @@
                               "name": "this",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 14689,
+                              "referencedDeclaration": 14698,
                               "src": "5478:4:0",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_contract$_CErc20_$277",
@@ -4003,7 +4003,7 @@
                             "name": "this",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 14689,
+                            "referencedDeclaration": 14698,
                             "src": "6627:4:0",
                             "typeDescriptions": {
                               "typeIdentifier": "t_contract$_CErc20_$277",
@@ -6640,7 +6640,7 @@
                             "name": "this",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 14689,
+                            "referencedDeclaration": 14698,
                             "src": "5047:4:0",
                             "typeDescriptions": {
                               "typeIdentifier": "t_contract$_CErc20_$277",
@@ -6920,7 +6920,7 @@
                               "name": "this",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 14689,
+                              "referencedDeclaration": 14698,
                               "src": "5478:4:0",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_contract$_CErc20_$277",
@@ -7529,7 +7529,7 @@
                             "name": "this",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 14689,
+                            "referencedDeclaration": 14698,
                             "src": "6627:4:0",
                             "typeDescriptions": {
                               "typeIdentifier": "t_contract$_CErc20_$277",
@@ -8371,7 +8371,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.23",
-  "updatedAt": "2020-02-16T09:30:40.116Z",
+  "updatedAt": "2020-02-16T11:38:49.599Z",
   "devdoc": {
     "author": "Compound",
     "methods": {

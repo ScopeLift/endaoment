@@ -1756,7 +1756,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.23",
-  "updatedAt": "2020-02-16T09:30:40.179Z",
+  "updatedAt": "2020-02-16T11:38:49.788Z",
   "devdoc": {
     "details": "Version of ERC20 with no return values for `transfer` and `transferFrom` See https://medium.com/coinmonks/missing-return-value-bug-at-least-130-tokens-affected-d67bf08521ca",
     "methods": {

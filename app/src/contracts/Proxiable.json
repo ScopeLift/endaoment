@@ -28,14 +28,14 @@
     "absolutePath": "/Users/bendi/Development/endaoment/contracts/Proxiable.sol",
     "exportedSymbols": {
       "Proxiable": [
-        9232
+        9241
       ]
     },
-    "id": 9233,
+    "id": 9242,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 9203,
+        "id": 9212,
         "literals": [
           "solidity",
           "^",
@@ -51,16 +51,16 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 9232,
+        "id": 9241,
         "linearizedBaseContracts": [
-          9232
+          9241
         ],
         "name": "Proxiable",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "body": {
-              "id": 9222,
+              "id": 9231,
               "nodeType": "Block",
               "src": "236:457:22",
               "statements": [
@@ -74,7 +74,7 @@
                           "typeIdentifier": "t_bytes32",
                           "typeString": "bytes32"
                         },
-                        "id": 9217,
+                        "id": 9226,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -85,7 +85,7 @@
                             {
                               "argumentTypes": null,
                               "hexValue": "307863356631366630666363363339666134386136393437383336643938353066353034373938353233626638633961336138376435383736636636323262636637",
-                              "id": 9210,
+                              "id": 9219,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": true,
@@ -108,7 +108,7 @@
                                 "typeString": "int_const 8953...(69 digits omitted)...7783"
                               }
                             ],
-                            "id": 9209,
+                            "id": 9218,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
@@ -121,7 +121,7 @@
                             },
                             "typeName": "bytes32"
                           },
-                          "id": 9211,
+                          "id": 9220,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -147,11 +147,11 @@
                               "arguments": [
                                 {
                                   "argumentTypes": null,
-                                  "id": 9213,
+                                  "id": 9222,
                                   "name": "newAddress",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
-                                  "referencedDeclaration": 9205,
+                                  "referencedDeclaration": 9214,
                                   "src": "410:10:22",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_address",
@@ -166,18 +166,18 @@
                                     "typeString": "address"
                                   }
                                 ],
-                                "id": 9212,
+                                "id": 9221,
                                 "name": "Proxiable",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 9232,
+                                "referencedDeclaration": 9241,
                                 "src": "400:9:22",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_type$_t_contract$_Proxiable_$9232_$",
+                                  "typeIdentifier": "t_type$_t_contract$_Proxiable_$9241_$",
                                   "typeString": "type(contract Proxiable)"
                                 }
                               },
-                              "id": 9214,
+                              "id": 9223,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": false,
@@ -187,25 +187,25 @@
                               "nodeType": "FunctionCall",
                               "src": "400:21:22",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_contract$_Proxiable_$9232",
+                                "typeIdentifier": "t_contract$_Proxiable_$9241",
                                 "typeString": "contract Proxiable"
                               }
                             },
-                            "id": 9215,
+                            "id": 9224,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": false,
                             "lValueRequested": false,
                             "memberName": "proxiableUUID",
                             "nodeType": "MemberAccess",
-                            "referencedDeclaration": 9231,
+                            "referencedDeclaration": 9240,
                             "src": "400:35:22",
                             "typeDescriptions": {
                               "typeIdentifier": "t_function_external_pure$__$returns$_t_bytes32_$",
                               "typeString": "function () pure external returns (bytes32)"
                             }
                           },
-                          "id": 9216,
+                          "id": 9225,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -228,7 +228,7 @@
                       {
                         "argumentTypes": null,
                         "hexValue": "4e6f7420636f6d70617469626c65",
-                        "id": 9218,
+                        "id": 9227,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -255,21 +255,21 @@
                           "typeString": "literal_string \"Not compatible\""
                         }
                       ],
-                      "id": 9208,
+                      "id": 9217,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        14658,
-                        14659
+                        14667,
+                        14668
                       ],
-                      "referencedDeclaration": 14659,
+                      "referencedDeclaration": 14668,
                       "src": "246:7:22",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
                         "typeString": "function (bool,string memory) pure"
                       }
                     },
-                    "id": 9219,
+                    "id": 9228,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -283,7 +283,7 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 9220,
+                  "id": 9229,
                   "nodeType": "ExpressionStatement",
                   "src": "246:231:22"
                 },
@@ -291,7 +291,7 @@
                   "externalReferences": [
                     {
                       "newAddress": {
-                        "declaration": 9205,
+                        "declaration": 9214,
                         "isOffset": false,
                         "isSlot": false,
                         "src": "653:10:22",
@@ -299,7 +299,7 @@
                       }
                     }
                   ],
-                  "id": 9221,
+                  "id": 9230,
                   "nodeType": "InlineAssembly",
                   "operations": "{\n    sstore(0xc5f16f0fcc639fa48a6947836d9850f504798523bf8c9a3a87d5876cf622bcf7, newAddress)\n}",
                   "src": "487:200:22"
@@ -307,22 +307,22 @@
               ]
             },
             "documentation": null,
-            "id": 9223,
+            "id": 9232,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "updateCodeAddress",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 9206,
+              "id": 9215,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 9205,
+                  "id": 9214,
                   "name": "newAddress",
                   "nodeType": "VariableDeclaration",
-                  "scope": 9223,
+                  "scope": 9232,
                   "src": "207:18:22",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -331,7 +331,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 9204,
+                    "id": 9213,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "207:7:22",
@@ -348,12 +348,12 @@
               "src": "206:20:22"
             },
             "returnParameters": {
-              "id": 9207,
+              "id": 9216,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "236:0:22"
             },
-            "scope": 9232,
+            "scope": 9241,
             "src": "180:513:22",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -361,7 +361,7 @@
           },
           {
             "body": {
-              "id": 9230,
+              "id": 9239,
               "nodeType": "Block",
               "src": "753:102:22",
               "statements": [
@@ -369,7 +369,7 @@
                   "expression": {
                     "argumentTypes": null,
                     "hexValue": "307863356631366630666363363339666134386136393437383336643938353066353034373938353233626638633961336138376435383736636636323262636637",
-                    "id": 9228,
+                    "id": 9237,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": true,
@@ -384,36 +384,36 @@
                     },
                     "value": "0xc5f16f0fcc639fa48a6947836d9850f504798523bf8c9a3a87d5876cf622bcf7"
                   },
-                  "functionReturnParameters": 9227,
-                  "id": 9229,
+                  "functionReturnParameters": 9236,
+                  "id": 9238,
                   "nodeType": "Return",
                   "src": "763:85:22"
                 }
               ]
             },
             "documentation": null,
-            "id": 9231,
+            "id": 9240,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "proxiableUUID",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 9224,
+              "id": 9233,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "720:2:22"
             },
             "returnParameters": {
-              "id": 9227,
+              "id": 9236,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 9226,
+                  "id": 9235,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 9231,
+                  "scope": 9240,
                   "src": "744:7:22",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -422,7 +422,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 9225,
+                    "id": 9234,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "744:7:22",
@@ -437,14 +437,14 @@
               ],
               "src": "743:9:22"
             },
-            "scope": 9232,
+            "scope": 9241,
             "src": "698:157:22",
             "stateMutability": "pure",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 9233,
+        "scope": 9242,
         "src": "25:832:22"
       }
     ],
@@ -454,14 +454,14 @@
     "absolutePath": "/Users/bendi/Development/endaoment/contracts/Proxiable.sol",
     "exportedSymbols": {
       "Proxiable": [
-        9232
+        9241
       ]
     },
-    "id": 9233,
+    "id": 9242,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 9203,
+        "id": 9212,
         "literals": [
           "solidity",
           "^",
@@ -477,16 +477,16 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 9232,
+        "id": 9241,
         "linearizedBaseContracts": [
-          9232
+          9241
         ],
         "name": "Proxiable",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "body": {
-              "id": 9222,
+              "id": 9231,
               "nodeType": "Block",
               "src": "236:457:22",
               "statements": [
@@ -500,7 +500,7 @@
                           "typeIdentifier": "t_bytes32",
                           "typeString": "bytes32"
                         },
-                        "id": 9217,
+                        "id": 9226,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -511,7 +511,7 @@
                             {
                               "argumentTypes": null,
                               "hexValue": "307863356631366630666363363339666134386136393437383336643938353066353034373938353233626638633961336138376435383736636636323262636637",
-                              "id": 9210,
+                              "id": 9219,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": true,
@@ -534,7 +534,7 @@
                                 "typeString": "int_const 8953...(69 digits omitted)...7783"
                               }
                             ],
-                            "id": 9209,
+                            "id": 9218,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
@@ -547,7 +547,7 @@
                             },
                             "typeName": "bytes32"
                           },
-                          "id": 9211,
+                          "id": 9220,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -573,11 +573,11 @@
                               "arguments": [
                                 {
                                   "argumentTypes": null,
-                                  "id": 9213,
+                                  "id": 9222,
                                   "name": "newAddress",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
-                                  "referencedDeclaration": 9205,
+                                  "referencedDeclaration": 9214,
                                   "src": "410:10:22",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_address",
@@ -592,18 +592,18 @@
                                     "typeString": "address"
                                   }
                                 ],
-                                "id": 9212,
+                                "id": 9221,
                                 "name": "Proxiable",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 9232,
+                                "referencedDeclaration": 9241,
                                 "src": "400:9:22",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_type$_t_contract$_Proxiable_$9232_$",
+                                  "typeIdentifier": "t_type$_t_contract$_Proxiable_$9241_$",
                                   "typeString": "type(contract Proxiable)"
                                 }
                               },
-                              "id": 9214,
+                              "id": 9223,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": false,
@@ -613,25 +613,25 @@
                               "nodeType": "FunctionCall",
                               "src": "400:21:22",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_contract$_Proxiable_$9232",
+                                "typeIdentifier": "t_contract$_Proxiable_$9241",
                                 "typeString": "contract Proxiable"
                               }
                             },
-                            "id": 9215,
+                            "id": 9224,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": false,
                             "lValueRequested": false,
                             "memberName": "proxiableUUID",
                             "nodeType": "MemberAccess",
-                            "referencedDeclaration": 9231,
+                            "referencedDeclaration": 9240,
                             "src": "400:35:22",
                             "typeDescriptions": {
                               "typeIdentifier": "t_function_external_pure$__$returns$_t_bytes32_$",
                               "typeString": "function () pure external returns (bytes32)"
                             }
                           },
-                          "id": 9216,
+                          "id": 9225,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -654,7 +654,7 @@
                       {
                         "argumentTypes": null,
                         "hexValue": "4e6f7420636f6d70617469626c65",
-                        "id": 9218,
+                        "id": 9227,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -681,21 +681,21 @@
                           "typeString": "literal_string \"Not compatible\""
                         }
                       ],
-                      "id": 9208,
+                      "id": 9217,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        14658,
-                        14659
+                        14667,
+                        14668
                       ],
-                      "referencedDeclaration": 14659,
+                      "referencedDeclaration": 14668,
                       "src": "246:7:22",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
                         "typeString": "function (bool,string memory) pure"
                       }
                     },
-                    "id": 9219,
+                    "id": 9228,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -709,7 +709,7 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 9220,
+                  "id": 9229,
                   "nodeType": "ExpressionStatement",
                   "src": "246:231:22"
                 },
@@ -717,7 +717,7 @@
                   "externalReferences": [
                     {
                       "newAddress": {
-                        "declaration": 9205,
+                        "declaration": 9214,
                         "isOffset": false,
                         "isSlot": false,
                         "src": "653:10:22",
@@ -725,7 +725,7 @@
                       }
                     }
                   ],
-                  "id": 9221,
+                  "id": 9230,
                   "nodeType": "InlineAssembly",
                   "operations": "{\n    sstore(0xc5f16f0fcc639fa48a6947836d9850f504798523bf8c9a3a87d5876cf622bcf7, newAddress)\n}",
                   "src": "487:200:22"
@@ -733,22 +733,22 @@
               ]
             },
             "documentation": null,
-            "id": 9223,
+            "id": 9232,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "updateCodeAddress",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 9206,
+              "id": 9215,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 9205,
+                  "id": 9214,
                   "name": "newAddress",
                   "nodeType": "VariableDeclaration",
-                  "scope": 9223,
+                  "scope": 9232,
                   "src": "207:18:22",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -757,7 +757,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 9204,
+                    "id": 9213,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "207:7:22",
@@ -774,12 +774,12 @@
               "src": "206:20:22"
             },
             "returnParameters": {
-              "id": 9207,
+              "id": 9216,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "236:0:22"
             },
-            "scope": 9232,
+            "scope": 9241,
             "src": "180:513:22",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -787,7 +787,7 @@
           },
           {
             "body": {
-              "id": 9230,
+              "id": 9239,
               "nodeType": "Block",
               "src": "753:102:22",
               "statements": [
@@ -795,7 +795,7 @@
                   "expression": {
                     "argumentTypes": null,
                     "hexValue": "307863356631366630666363363339666134386136393437383336643938353066353034373938353233626638633961336138376435383736636636323262636637",
-                    "id": 9228,
+                    "id": 9237,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": true,
@@ -810,36 +810,36 @@
                     },
                     "value": "0xc5f16f0fcc639fa48a6947836d9850f504798523bf8c9a3a87d5876cf622bcf7"
                   },
-                  "functionReturnParameters": 9227,
-                  "id": 9229,
+                  "functionReturnParameters": 9236,
+                  "id": 9238,
                   "nodeType": "Return",
                   "src": "763:85:22"
                 }
               ]
             },
             "documentation": null,
-            "id": 9231,
+            "id": 9240,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "proxiableUUID",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 9224,
+              "id": 9233,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "720:2:22"
             },
             "returnParameters": {
-              "id": 9227,
+              "id": 9236,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 9226,
+                  "id": 9235,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 9231,
+                  "scope": 9240,
                   "src": "744:7:22",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -848,7 +848,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 9225,
+                    "id": 9234,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "744:7:22",
@@ -863,14 +863,14 @@
               ],
               "src": "743:9:22"
             },
-            "scope": 9232,
+            "scope": 9241,
             "src": "698:157:22",
             "stateMutability": "pure",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 9233,
+        "scope": 9242,
         "src": "25:832:22"
       }
     ],
@@ -882,7 +882,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.23",
-  "updatedAt": "2020-02-16T09:30:40.250Z",
+  "updatedAt": "2020-02-16T11:38:49.897Z",
   "devdoc": {
     "methods": {}
   },

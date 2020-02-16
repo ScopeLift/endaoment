@@ -33,14 +33,14 @@
     "absolutePath": "/Users/bendi/Development/endaoment/contracts/test/TestDaiFaucet.sol",
     "exportedSymbols": {
       "TestDaiFaucet": [
-        13097
+        13106
       ]
     },
-    "id": 13098,
+    "id": 13107,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 13089,
+        "id": 13098,
         "literals": [
           "solidity",
           "^",
@@ -56,9 +56,9 @@
         "contractKind": "contract",
         "documentation": "@dev Some testnet DAI use this interface to mint test DAIs",
         "fullyImplemented": false,
-        "id": 13097,
+        "id": 13106,
         "linearizedBaseContracts": [
-          13097
+          13106
         ],
         "name": "TestDaiFaucet",
         "nodeType": "ContractDefinition",
@@ -66,22 +66,22 @@
           {
             "body": null,
             "documentation": null,
-            "id": 13096,
+            "id": 13105,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "allocateTo",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 13094,
+              "id": 13103,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 13091,
+                  "id": 13100,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 13096,
+                  "scope": 13105,
                   "src": "144:7:33",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -90,7 +90,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 13090,
+                    "id": 13099,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "144:7:33",
@@ -105,10 +105,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 13093,
+                  "id": 13102,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 13096,
+                  "scope": 13105,
                   "src": "153:7:33",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -117,7 +117,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 13092,
+                    "id": 13101,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "153:7:33",
@@ -133,19 +133,19 @@
               "src": "143:18:33"
             },
             "returnParameters": {
-              "id": 13095,
+              "id": 13104,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "176:0:33"
             },
-            "scope": 13097,
+            "scope": 13106,
             "src": "124:53:33",
             "stateMutability": "payable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 13098,
+        "scope": 13107,
         "src": "95:84:33"
       }
     ],
@@ -155,14 +155,14 @@
     "absolutePath": "/Users/bendi/Development/endaoment/contracts/test/TestDaiFaucet.sol",
     "exportedSymbols": {
       "TestDaiFaucet": [
-        13097
+        13106
       ]
     },
-    "id": 13098,
+    "id": 13107,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 13089,
+        "id": 13098,
         "literals": [
           "solidity",
           "^",
@@ -178,9 +178,9 @@
         "contractKind": "contract",
         "documentation": "@dev Some testnet DAI use this interface to mint test DAIs",
         "fullyImplemented": false,
-        "id": 13097,
+        "id": 13106,
         "linearizedBaseContracts": [
-          13097
+          13106
         ],
         "name": "TestDaiFaucet",
         "nodeType": "ContractDefinition",
@@ -188,22 +188,22 @@
           {
             "body": null,
             "documentation": null,
-            "id": 13096,
+            "id": 13105,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "allocateTo",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 13094,
+              "id": 13103,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 13091,
+                  "id": 13100,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 13096,
+                  "scope": 13105,
                   "src": "144:7:33",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -212,7 +212,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 13090,
+                    "id": 13099,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "144:7:33",
@@ -227,10 +227,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 13093,
+                  "id": 13102,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 13096,
+                  "scope": 13105,
                   "src": "153:7:33",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -239,7 +239,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 13092,
+                    "id": 13101,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "153:7:33",
@@ -255,19 +255,19 @@
               "src": "143:18:33"
             },
             "returnParameters": {
-              "id": 13095,
+              "id": 13104,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "176:0:33"
             },
-            "scope": 13097,
+            "scope": 13106,
             "src": "124:53:33",
             "stateMutability": "payable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 13098,
+        "scope": 13107,
         "src": "95:84:33"
       }
     ],
@@ -279,7 +279,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.23",
-  "updatedAt": "2020-02-16T09:30:40.303Z",
+  "updatedAt": "2020-02-16T11:38:49.986Z",
   "devdoc": {
     "details": "Some testnet DAI use this interface to mint test DAIs",
     "methods": {}
