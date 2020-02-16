@@ -23,6 +23,7 @@ class MyComponent extends Component {
       newMemberAddressInput: "",
       newMemberTributeInput: "",
       newMemberDetailsInput: "",
+      selectedProposalIndex: 0,
     }
 
     this.handleNewRecipientAddressInputChange = this.handleNewRecipientAddressInputChange.bind(this);
@@ -33,6 +34,7 @@ class MyComponent extends Component {
     this.handleNewMemberTributeInputChange = this.handleNewMemberTributeInputChange.bind(this);
     this.handleNewMemberDetailsInputChange = this.handleNewMemberDetailsInputChange.bind(this);
     this.handleNewMemberSubmit = this.handleNewMemberSubmit.bind(this);
+    this.handleProposalChange = this.handleProposalChange.bind(this);
   }
 
   // HANDLERS
@@ -88,6 +90,14 @@ class MyComponent extends Component {
 
     let weiDaiTribute = this.utils.toWei(this.state.newMemberTributeInput, "ether");
     this.moloch.methods.submitProposal.cacheSend(this.state.newMemberAddressInput, weiDaiTribute, weiDaiTribute, this.state.newMemberDetailsInput);
+  }
+
+  handleProposalChange(event) {
+    event.preventDefault();
+
+    this.setState({
+      selectedProposalIndex: event.currentTarget.value,
+    });
   }
 
   // RENDER
@@ -184,6 +194,26 @@ class MyComponent extends Component {
               <Button variant="primary" onClick={this.handleNewMemberSubmit}>Submit</Button>
             </Form.Group>
           </Form>
+        </Col>
+      </Row>
+
+      <Row className="mt-4">
+        <Col>
+          <Form>
+            <Form.Group>
+            <Form.Label>Proposal</Form.Label>
+            <Form.Control as="select" onChange={this.handleProposalChange}>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </Form.Control>
+            </Form.Group>
+          </Form>
+        </Col>
+        <Col>
+        <ContractData contract="Moloch" method="proposalQueue" methodArgs={[this.state.selectedProposalIndex]} />
         </Col>
       </Row>
     </Container>
