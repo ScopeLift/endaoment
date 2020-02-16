@@ -4,6 +4,8 @@ import {
   ContractData,
   ContractForm,
 } from "@drizzle/react-components";
+import PropTypes from 'prop-types'
+
 
 import { Container, Row, Col, Card, ListGroup, ListGroupItem, Form, Button } from 'react-bootstrap';
 
@@ -12,6 +14,8 @@ class MyComponent extends Component {
   constructor(props, context) {
     super(props);
 
+    this.moloch = context.drizzle.contracts.Moloch
+
     this.state = {
       newRecipientAddressInput: "",
       newRecipientDetailsInput: "",
@@ -19,6 +23,7 @@ class MyComponent extends Component {
 
     this.handleNewRecipientAddressInputChange = this.handleNewRecipientAddressInputChange.bind(this);
     this.handleNewRecipientDetailsInputChange = this.handleNewRecipientDetailsInputChange.bind(this);
+    this.handleNewRecipientSubmit = this.handleNewRecipientSubmit.bind(this);
   }
 
   // HANDLERS
@@ -37,6 +42,12 @@ class MyComponent extends Component {
     this.setState({
       newRecipientDetailsInput: event.currentTarget.value,
     });
+  }
+
+  handleNewRecipientSubmit(event) {
+    event.preventDefault();
+
+    this.moloch.methods.submitRecipientProposal.cacheSend(this.state.newRecipientAddressInput, this.state.newRecipientDetailsInput);
   }
 
   // RENDER
@@ -96,7 +107,7 @@ class MyComponent extends Component {
             </Form.Group>
 
             <Form.Group>
-              <Button variant="primary">Submit</Button>
+              <Button variant="primary" onClick={this.handleNewRecipientSubmit}>Submit</Button>
             </Form.Group>
           </Form>
         </Col>
@@ -141,5 +152,10 @@ class MyComponent extends Component {
     );
   }
 }
+
+MyComponent.contextTypes = {
+  drizzle: PropTypes.object,
+};
+
 
 export default MyComponent;
