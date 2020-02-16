@@ -5,7 +5,7 @@ import {
   ContractForm,
 } from "@drizzle/react-components";
 
-import { Container, Row, Col, Card } from 'react-bootstrap';
+import { Container, Row, Col, Card, ListGroup, ListGroupItem } from 'react-bootstrap';
 
 import logo from "./logo.png";
 
@@ -25,38 +25,33 @@ export default ({ accounts }) => (
           </Card>
         </Col>
       </Row>
+
+      <Row className="mt-4">
+        <Col>
+          <Card>
+            <Card.Header>
+              DAO Stats
+            </Card.Header>
+            <ListGroup className="list-group-flush">
+              <ListGroupItem>Total Shares: <ContractData contract="Moloch" method="totalShares" /></ListGroupItem>
+              <ListGroupItem>Current Period: <ContractData contract="Moloch" method="getCurrentPeriod" /></ListGroupItem>
+              <ListGroupItem>Current Grant Recipient: <ContractData contract="Moloch" method="recipient" /></ListGroupItem>
+              <ListGroupItem>Number Of Proposals: <ContractData contract="Moloch" method="getProposalQueueLength" /></ListGroupItem>
+            </ListGroup>
+          </Card>
+        </Col>
+      </Row>
     </Container>
-
-    <div className="section">
-      Active Account{" "}
-      {accounts[0]}
-    </div>
-
-    <div className="section">
-      Total Shares:{" "}
-      <ContractData contract="Moloch" method="totalShares" />
-    </div>
-
-    <div className="section">
-      Current Recipient:{" "}
-      <ContractData contract="Moloch" method="recipient" />
-    </div>
 
     {/* <div className="section">
       Proposal 1:{" "}
       <ContractData contract="Moloch" method="proposalQueue" methodArgs={[0]} />
     </div> */}
 
-    <div className="section">
+    {/* <div className="section">
       Lookup Member:{" "}
       <ContractData contract="Moloch" method="members" methodArgs={[accounts[0]]} />
-    </div>
-
-
-    <div className="section">
-      Current Period:{" "}
-      <ContractData contract="Moloch" method="getCurrentPeriod" />
-    </div>
+    </div> */}
 
     <div className="section">
       Process Recipient Proposal:
