@@ -15,6 +15,7 @@ class MyComponent extends Component {
     super(props);
 
     this.moloch = context.drizzle.contracts.Moloch
+    this.utils = context.drizzle.web3.utils;
 
     this.state = {
       newRecipientAddressInput: "",
@@ -85,7 +86,8 @@ class MyComponent extends Component {
   handleNewMemberSubmit(event) {
     event.preventDefault();
 
-    //this.moloch.methods.submitRecipientProposal.cacheSend(this.state.newRecipientAddressInput, this.state.newRecipientDetailsInput);
+    let weiDaiTribute = this.utils.toWei(this.state.newMemberTributeInput, "ether");
+    this.moloch.methods.submitProposal.cacheSend(this.state.newMemberAddressInput, weiDaiTribute, weiDaiTribute, this.state.newMemberDetailsInput);
   }
 
   // RENDER
@@ -187,8 +189,14 @@ class MyComponent extends Component {
     </Container>
 
     {/* <div className="section">
-      Proposal 1:{" "}
+      Proposal 0:{" "}
       <ContractData contract="Moloch" method="proposalQueue" methodArgs={[0]} />
+    </div>
+
+
+    <div className="section">
+      Proposal 1:{" "}
+      <ContractData contract="Moloch" method="proposalQueue" methodArgs={[1]} />
     </div> */}
 
     {/* <div className="section">
