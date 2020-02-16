@@ -6,7 +6,7 @@ const { web3tx, toWad, wad4human } = require("@decentral.ee/web3-test-helpers");
 let nBlocks = 100;
 let cToken;
 
-async function doBingeBorrowing(nBlocks = 100, account) {
+async function doBingeBorrowing(nBlocks = 100, accounts) {
   // this process should generate 0.0001% * nBlocks amount of tokens worth of interest
   // when nBlocks = 100, it is 0.001
 
@@ -19,22 +19,18 @@ async function doBingeBorrowing(nBlocks = 100, account) {
           name: "Borrow"
       }]
   })(borrowAmount, {
-      from: account
+      from: accounts[1]
   });
-  await waitForInterest(nBlocks);
-  console.log(`After binge borrowing: 1 cToken = ${wad4human(await cToken.exchangeRateStored.call())} Token`);
-}
-
-async function waitForInterest(nBlocks = 100) {
   console.log(`Wait for ${nBlocks} blocks...`);
   while(--nBlocks) await time.advanceBlock();
-  await web3tx(cToken.accrueInterest, "cToken.accrueInterest")({ from: admin });
+  await web3tx(cToken.accrueInterest, "cToken.accrueInterest")({ from: accounts[0] });
+  console.log(`After binge borrowing: 1 cToken = ${wad4human(await cToken.exchangeRateStored.call())} Token`);
 }
 
 contract("Skip Time", accounts => {
   before(async () => {
     cToken = await CErc20.at(cTokenAddress);
-    await doBingeBorrowing(nBlocks, accounts[1])
+    await doBingeBorrowing(nBlocks, accounts)
   });
 
   it("accrue interest works", async () => {});
