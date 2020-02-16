@@ -5,7 +5,7 @@ import {
   ContractForm,
 } from "@drizzle/react-components";
 
-import { Container, Row, Col, Card, ListGroup, ListGroupItem } from 'react-bootstrap';
+import { Container, Row, Col, Card, ListGroup, ListGroupItem, Form, Button } from 'react-bootstrap';
 
 class MyComponent extends Component {
 
@@ -45,6 +45,27 @@ class MyComponent extends Component {
               <ListGroupItem>Number Of Proposals: <ContractData contract="Moloch" method="getProposalQueueLength" /></ListGroupItem>
             </ListGroup>
           </Card>
+        </Col>
+      </Row>
+
+      <Row className="mt-4">
+        <Col>
+          <h3>Propose Recipient Change</h3>
+          <Form>
+            <Form.Group>
+              <Form.Label>New Recipient</Form.Label>
+              <Form.Control type="input" placeholder="address" />
+            </Form.Group>
+
+            <Form.Group>
+              <Form.Label>Proposal Details</Form.Label>
+              <Form.Control type="input" />
+            </Form.Group>
+
+            <Form.Group>
+              <Button variant="primary">Submit</Button>
+            </Form.Group>
+          </Form>
         </Col>
       </Row>
     </Container>
