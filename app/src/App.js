@@ -3,6 +3,7 @@ import { DrizzleProvider } from "@drizzle/react-plugin";
 import { LoadingContainer } from "@drizzle/react-components";
 
 import "./App.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import drizzleOptions from "./drizzleOptions";
 import MyContainer from "./MyContainer";

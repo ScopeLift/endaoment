@@ -5,15 +5,27 @@ import {
   ContractForm,
 } from "@drizzle/react-components";
 
+import { Container, Row, Col, Card } from 'react-bootstrap';
+
 import logo from "./logo.png";
 
 export default ({ accounts }) => (
   <div className="App">
-    <div>
-      <img src={logo} alt="drizzle-logo" />
-      <h1>Drizzle Examples</h1>
-      <p>Examples of how to get started with Drizzle in various situations.</p>
-    </div>
+
+    <Container>
+      <Row>
+        <Col>
+          <Card>
+            <Card.Header>
+              Your Account
+            </Card.Header>
+            <Card.Body>
+              {accounts[0]}
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
+    </Container>
 
     <div className="section">
       Active Account{" "}
@@ -30,10 +42,10 @@ export default ({ accounts }) => (
       <ContractData contract="Moloch" method="recipient" />
     </div>
 
-    <div className="section">
+    {/* <div className="section">
       Proposal 1:{" "}
       <ContractData contract="Moloch" method="proposalQueue" methodArgs={[0]} />
-    </div>
+    </div> */}
 
     <div className="section">
       Lookup Member:{" "}
