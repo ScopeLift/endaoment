@@ -7,7 +7,7 @@ import {
 import PropTypes from 'prop-types'
 
 
-import { Container, Row, Col, Card, ListGroup, ListGroupItem, Form, Button } from 'react-bootstrap';
+import { Container, Row, Col, Card, ListGroup, ListGroupItem, Form, Button, ButtonToolbar } from 'react-bootstrap';
 
 class MyComponent extends Component {
 
@@ -35,6 +35,11 @@ class MyComponent extends Component {
     this.handleNewMemberDetailsInputChange = this.handleNewMemberDetailsInputChange.bind(this);
     this.handleNewMemberSubmit = this.handleNewMemberSubmit.bind(this);
     this.handleProposalChange = this.handleProposalChange.bind(this);
+
+    this.handleVoteYesClicked = this.handleVoteYesClicked.bind(this);
+    this.handleVoteNoClicked = this.handleVoteNoClicked.bind(this);
+    this.handleProcessMembership = this.handleProcessMembership.bind(this);
+    this.handleProcessRecipient = this.handleProcessRecipient.bind(this);
   }
 
   // HANDLERS
@@ -98,6 +103,26 @@ class MyComponent extends Component {
     this.setState({
       selectedProposalIndex: event.currentTarget.value,
     });
+  }
+
+  handleVoteYesClicked(event) {
+    event.preventDefault();
+    this.moloch.methods.submitVote.cacheSend(this.state.selectedProposalIndex, "1");
+  }
+
+  handleVoteNoClicked(event) {
+    event.preventDefault();
+    this.moloch.methods.submitVote.cacheSend(this.state.selectedProposalIndex, "2");
+  }
+
+  handleProcessMembership(event) {
+    event.preventDefault();
+    this.moloch.methods.processProposal.cacheSend(this.state.selectedProposalIndex);
+  }
+
+  handleProcessRecipient(event){
+    event.preventDefault();
+    this.moloch.methods.processRecipientProposal.cacheSend(this.state.selectedProposalIndex);
   }
 
   // RENDER
@@ -203,16 +228,28 @@ class MyComponent extends Component {
         <Col>
           <Form>
             <Form.Group>
-            <Form.Control as="select" onChange={this.handleProposalChange}>
-              <option>None</option>
-              <option>0</option>
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </Form.Control>
+              <Form.Control as="select" onChange={this.handleProposalChange}>
+                <option>None</option>
+                <option>0</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </Form.Control>
             </Form.Group>
+            { "None" !== this.state.selectedProposalIndex &&
+              <ButtonToolbar>
+                <Button variant="success" onClick={this.handleVoteYesClicked}>Vote YES</Button>
+                <Button className="ml-2" variant="danger" onClick={this.handleVoteNoClicked}>Vote NO</Button>
+              </ButtonToolbar>
+            }
+            { "None" !== this.state.selectedProposalIndex &&
+              <ButtonToolbar className="mt-2">
+                <Button variant="outline-secondary" onClick={this.handleProcessMembership}>Process Membership</Button>
+                <Button className="ml-2" variant="outline-secondary" onClick={this.handleProcessRecipient}>Process Recipient</Button>
+              </ButtonToolbar>
+            }
           </Form>
         </Col>
         <Col>
@@ -225,36 +262,6 @@ class MyComponent extends Component {
         </Col>
       </Row>
     </Container>
-
-    {/* <div className="section">
-      Lookup Member:{" "}
-      <ContractData contract="Moloch" method="members" methodArgs={[accounts[0]]} />
-    </div> */}
-
-    <div className="section">
-      Process Recipient Proposal:
-      <ContractForm contract="Moloch" method="processRecipientProposal" />
-    </div>
-
-    <div className="section">
-      Process Membership Proposal:
-      <ContractForm contract="Moloch" method="processProposal" />
-    </div>
-
-    <div className="section">
-      Proposal Vote:
-      <ContractForm contract="Moloch" method="submitVote" />
-    </div>
-
-    <div className="section">
-      Membership Proposal:
-      <ContractForm contract="Moloch" method="submitProposal" />
-    </div>
-
-    <div className="section">
-      Recipient Proposal:
-      <ContractForm contract="Moloch" method="submitRecipientProposal" />
-    </div>
   </div>
     );
   }
