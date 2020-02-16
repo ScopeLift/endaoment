@@ -27,11 +27,11 @@ async function doBingeBorrowing(nBlocks = 100, accounts) {
   console.log(`After binge borrowing: 1 cToken = ${wad4human(await cToken.exchangeRateStored.call())} Token`);
 }
 
-contract("Skip Time", accounts => {
+contract("Accrue interest", accounts => {
   before(async () => {
     cToken = await CErc20.at(cTokenAddress);
     await doBingeBorrowing(nBlocks, accounts)
   });
 
-  it("accrue interest works", async () => {});
+  it("accrue interest complete", async () => {});
 });

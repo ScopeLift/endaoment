@@ -17,5 +17,5 @@ contract("Skip Blocks", accounts => {
     await advanceBlockNumber(100)
   })
 
-  it("block skips work", async () => {})
+  it("skip blocks complete", async () => {})
 })
