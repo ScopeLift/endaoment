@@ -4,7 +4,8 @@
   "description": "OpenZeppelin kit containing React, & OpenZeppelin SDK",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "ganache": "source .env && ganache-cli -d -i 999 --gasLimit 0x989680 -f https://mainnet.infura.io/v3/$INFURA_ID"
   },
   "repository": {
     "type": "git",
