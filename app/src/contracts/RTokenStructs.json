@@ -1,15 +1,15 @@
 {
   "contractName": "RTokenStructs",
   "abi": [],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/bendi/Development/endaoment/contracts/RTokenStructs.sol\":\"RTokenStructs\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/bendi/Development/endaoment/contracts/RTokenStructs.sol\":{\"keccak256\":\"0xdc1de84ec16a412aa27b3e8a533c2f01cdcf7e6b36a7c5c131a52570fdc8c20d\",\"urls\":[\"bzz-raw://d84a76da099afe22a9798500d732aa72ee00c8a46c0cb29f7b41beca8fe87dfd\",\"dweb:/ipfs/QmZp8Q9DmKePaLBHZngzKYFZsrS4i6ZDmC2pWYefDHcTxt\"]}},\"version\":1}",
-  "bytecode": "0x6080604052348015600f57600080fd5b50603e80601d6000396000f3fe6080604052600080fdfea265627a7a72315820b72d1b5900d1c4efd121ab3892404f0e99e66890211e00de42649dfccf601a5464736f6c63430005100032",
-  "deployedBytecode": "0x6080604052600080fdfea265627a7a72315820b72d1b5900d1c4efd121ab3892404f0e99e66890211e00de42649dfccf601a5464736f6c63430005100032",
+  "metadata": "{\"compiler\":{\"version\":\"0.5.12+commit.7709ece9\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/mds/Documents/eth-denver/hackathon/endaoment/contracts/RTokenStructs.sol\":\"RTokenStructs\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/mds/Documents/eth-denver/hackathon/endaoment/contracts/RTokenStructs.sol\":{\"keccak256\":\"0xdc1de84ec16a412aa27b3e8a533c2f01cdcf7e6b36a7c5c131a52570fdc8c20d\",\"urls\":[\"bzz-raw://d84a76da099afe22a9798500d732aa72ee00c8a46c0cb29f7b41beca8fe87dfd\",\"dweb:/ipfs/QmZp8Q9DmKePaLBHZngzKYFZsrS4i6ZDmC2pWYefDHcTxt\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50603e80601d6000396000f3fe6080604052600080fdfea265627a7a72315820775bc38e63f8ca5aedcdf6cd94f6b78f7bd3229e4eace53be3e86a783f02155164736f6c634300050c0032",
+  "deployedBytecode": "0x6080604052600080fdfea265627a7a72315820775bc38e63f8ca5aedcdf6cd94f6b78f7bd3229e4eace53be3e86a783f02155164736f6c634300050c0032",
   "sourceMap": "25:3998:5:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;25:3998:5;;;;;;;",
   "deployedSourceMap": "25:3998:5:-;;;;;",
   "source": "pragma solidity ^0.5.0;\n\ncontract RTokenStructs {\n\n    /**\n     * @notice Global stats\n     */\n    struct GlobalStats {\n        /// @notice Total redeemable tokens supply\n        uint256 totalSupply;\n        /// @notice Total saving assets in redeemable amount\n        uint256 totalSavingsAmount;\n    }\n\n    /**\n     * @notice Account stats stored\n     */\n    struct AccountStatsView {\n        /// @notice Current hat ID\n        uint256 hatID;\n        /// @notice Current redeemable amount\n        uint256 rAmount;\n        /// @notice Interest portion of the rAmount\n        uint256 rInterest;\n        /// @notice Current loaned debt amount\n        uint256 lDebt;\n        /// @notice Current internal savings amount\n        uint256 sInternalAmount;\n        /// @notice Interest payable\n        uint256 rInterestPayable;\n        /// @notice Cumulative interest generated for the account\n        uint256 cumulativeInterest;\n        /// @notice Loans lent to the recipients\n        uint256 lRecipientsSum;\n    }\n\n    /**\n     * @notice Account stats stored\n     */\n    struct AccountStatsStored {\n        /// @notice Cumulative interest generated for the account\n        uint256 cumulativeInterest;\n    }\n\n    /**\n     * @notice Hat stats view\n     */\n    struct HatStatsView {\n        /// @notice Number of addresses has the hat\n        uint256 useCount;\n        /// @notice Total net loans distributed through the hat\n        uint256 totalLoans;\n        /// @notice Total net savings distributed through the hat\n        uint256 totalSavings;\n    }\n\n    /**\n     * @notice Hat stats stored\n     */\n    struct HatStatsStored {\n        /// @notice Number of addresses has the hat\n        uint256 useCount;\n        /// @notice Total net loans distributed through the hat\n        uint256 totalLoans;\n        /// @notice Total net savings distributed through the hat\n        uint256 totalInternalSavings;\n    }\n\n    /**\n     * @notice Hat structure describes who are the recipients of the interest\n     *\n     * To be a valid hat structure:\n     *   - at least one recipient\n     *   - recipients.length == proportions.length\n     *   - each value in proportions should be greater than 0\n     */\n    struct Hat {\n        address[] recipients;\n        uint32[] proportions;\n    }\n\n    /// @dev Account structure\n    struct Account {\n        /// @notice Current selected hat ID of the account\n        uint256 hatID;\n        /// @notice Current balance of the account (non realtime)\n        uint256 rAmount;\n        /// @notice Interest rate portion of the rAmount\n        uint256 rInterest;\n        /// @notice Debt in redeemable amount lent to recipients\n        //          In case of self-hat, external debt is optimized to not to\n        //          be stored in lRecipients\n        mapping(address => uint256) lRecipients;\n        /// @notice Received loan.\n        ///         Debt in redeemable amount owed to the lenders distributed\n        ///         through one or more hats.\n        uint256 lDebt;\n        /// @notice Savings internal accounting amount.\n        ///         Debt is sold to buy savings\n        uint256 sInternalAmount;\n    }\n\n    /**\n     * Additional Definitions:\n     *\n     *   - rGross = sInternalToR(sInternalAmount)\n     *   - lRecipientsSum = sum(lRecipients)\n     *   - interestPayable = rGross - lDebt - rInterest\n     *   - realtimeBalance = rAmount + interestPayable\n     *\n     *   - rAmount aka. tokenBalance\n     *   - rGross aka. receivedSavings\n     *   - lDebt aka. receivedLoan\n     *\n     * Account Invariants:\n     *\n     *   - rAmount = lRecipientsSum + rInterest [with rounding errors]\n     *\n     * Global Invariants:\n     *\n     * - globalStats.totalSupply = sum(account.tokenBalance)\n     * - globalStats.totalSavingsAmount = sum(account.receivedSavings) [with rounding errors]\n     * - sum(hatStats.totalLoans) = sum(account.receivedLoan)\n     * - sum(hatStats.totalSavings) = sum(account.receivedSavings + cumulativeInterest - rInterest) [with rounding errors]\n     *\n     */\n}",
-  "sourcePath": "/Users/bendi/Development/endaoment/contracts/RTokenStructs.sol",
+  "sourcePath": "/Users/mds/Documents/eth-denver/hackathon/endaoment/contracts/RTokenStructs.sol",
   "ast": {
-    "absolutePath": "/Users/bendi/Development/endaoment/contracts/RTokenStructs.sol",
+    "absolutePath": "/Users/mds/Documents/eth-denver/hackathon/endaoment/contracts/RTokenStructs.sol",
     "exportedSymbols": {
       "RTokenStructs": [
         2690
@@ -817,7 +817,7 @@
     "src": "0:4023:5"
   },
   "legacyAST": {
-    "absolutePath": "/Users/bendi/Development/endaoment/contracts/RTokenStructs.sol",
+    "absolutePath": "/Users/mds/Documents/eth-denver/hackathon/endaoment/contracts/RTokenStructs.sol",
     "exportedSymbols": {
       "RTokenStructs": [
         2690
@@ -1626,11 +1626,11 @@
   },
   "compiler": {
     "name": "solc",
-    "version": "0.5.16+commit.9c3226ce.Emscripten.clang"
+    "version": "0.5.12+commit.7709ece9.Emscripten.clang"
   },
   "networks": {},
-  "schemaVersion": "3.0.23",
-  "updatedAt": "2020-02-16T00:42:59.174Z",
+  "schemaVersion": "3.0.19",
+  "updatedAt": "2020-02-16T02:55:58.671Z",
   "devdoc": {
     "methods": {}
   },

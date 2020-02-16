@@ -24,7 +24,7 @@ async function getDaiBalance(address) {
   return await daiContract.methods.balanceOf(address).call();
 }
 
-contract.skip("Setup", accounts => {
+contract("Setup", accounts => {
   before(async () => {
     // Initialize accounts with Dai
     await sendDai(daiHolder, summoner, web3.utils.toWei("10000", "ether"));

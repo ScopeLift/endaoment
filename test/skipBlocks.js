@@ -12,7 +12,7 @@ async function advanceBlockNumber(amount) {
   console.log('end block: ', endBlock);
 }
 
-contract.skip("Skip Blocks", accounts => {
+contract("Skip Blocks", accounts => {
   before(async () => {
     await advanceBlockNumber(100)
   })
