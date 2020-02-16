@@ -402,8 +402,8 @@ contract Moloch {
 
             // call guild bank function to handle interest changes
             address _newRecipient = proposal.applicant;
+            guildBank.updateRecipient(recipient, _newRecipient, totalShares);
             recipient = _newRecipient;
-            guildBank.updateRecipient(_newRecipient, totalShares);
 
         // PROPOSAL FAILED OR ABORTED
         }

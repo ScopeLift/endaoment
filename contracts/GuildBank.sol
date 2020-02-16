@@ -28,9 +28,11 @@ contract GuildBank is Ownable {
         changeHat(address(this));
     }
 
-    function updateRecipient(address _newRecipient, uint256 _totalShares) public onlyOwner {
+    function updateRecipient(address _oldRecipient, address _newRecipient, uint256 _totalShares) public onlyOwner {
+        // Pay out interest
+        rToken.payInterest(_oldRecipient);
+
         // Create new hat and assign it to this contract
-        // This causes previous interest to be paid out to the previous recipient
         changeHat(_newRecipient);
 
         // If previous recipient was this contract, send extra interest to new recipient
