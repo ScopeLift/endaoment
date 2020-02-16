@@ -4,41 +4,46 @@
   "description": "OpenZeppelin kit containing React, & OpenZeppelin SDK",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "ganache": "source .env && ganache-cli -d -i 999 --gasLimit 0x989680 -f https://mainnet.infura.io/v3/$INFURA_ID -u 0x3a9F7C8cA36C42d7035E87C3304eE5cBd353a532"
+    "ganache": "source .env && ganache-cli -d --gasLimit 0x989680",
+    "build": "run-s build:*",
+    "build:truffle-compile": "rm -f build/contracts/*;truffle compile",
+    "test": "run-s lint:* test:*",
+    "test:contracts": "truffle test test/contracts.js",
+    "test:package": "mocha test/package.test.js",
+    "test-coverage": "truffle run coverage --file test/contracts.js",
+    "dev": "nodemon -e sol,js -i build -x 'npm run test 2>&1'",
+    "proxify": "truffle-flattener contracts/RToken.sol > flat.ignore.sol && sol-proxy create flat.ignore.sol",
+    "lint": "run-s lint:*",
+    "lint:js": "eslint . --max-warnings=0 --report-unused-disable-directives && echo '✔  Your .js files look good.'",
+    "lint:sol": "solhint contracts/*.sol && echo '✔  Your .sol files look good.'"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/OpenZeppelin/starter-kit"
-  },
-  "keywords": [
-    "openzeppelin",
-    "truffle",
-    "react",
-    "dapp",
-    "infura",
-    "metamask",
-    "web3",
-    "ganache",
-    "web3js",
-    "ethereum"
-  ],
-  "author": "Ramon Recuero <ramon@dapis.io>, Igor Yalovoy <to@ylv.io>",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/OpenZeppelin/starter-kit/issues"
-  },
-  "homepage": "https://github.com/OpenZeppelin/starter-kit/blob/stable/README.md",
   "dependencies": {
+    "@openzeppelin/contracts": "2.4.0",
     "@openzeppelin/contracts-ethereum-package": "^2.4.0",
     "dotenv": "^8.2.0",
     "truffle-hdwallet-provider": "^1.0.17"
+  },
+  "peerDependencies": {
+    "@truffle/contract": "^4.1.5"
   },
   "devDependencies": {
     "@openzeppelin/cli": "^2.6.0",
     "@openzeppelin/test-helpers": "^0.5.4",
     "chai": "^4.2.0",
     "husky": "^3.1.0",
-    "openzeppelin-test-helpers": "^0.5.1"
+    "openzeppelin-test-helpers": "^0.5.1",
+    "@truffle/contract": "^4.1.5",
+    "@decentral.ee/web3-test-helpers": "0.2.4",
+    "dotenv": "8.2.0",
+    "sol-proxy": "0.1.2",
+    "solhint": "2.3.0",
+    "solidity-coverage": "0.7.1",
+    "truffle": "5.1.9",
+    "truffle-flattener": "1.4.2",
+    "truffle-plugin-verify": "0.3.8",
+    "@truffle/hdwallet-provider": "1.0.29",
+    "eslint": "6.8.0",
+    "npm-run-all": "4.1.5"
   }
 }
