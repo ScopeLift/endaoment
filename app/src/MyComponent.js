@@ -11,7 +11,35 @@ class MyComponent extends Component {
 
   constructor(props, context) {
     super(props);
+
+    this.state = {
+      newRecipientAddressInput: "",
+      newRecipientDetailsInput: "",
+    }
+
+    this.handleNewRecipientAddressInputChange = this.handleNewRecipientAddressInputChange.bind(this);
+    this.handleNewRecipientDetailsInputChange = this.handleNewRecipientDetailsInputChange.bind(this);
   }
+
+  // HANDLERS
+
+  handleNewRecipientAddressInputChange(event) {
+    event.preventDefault();
+
+    this.setState({
+      newRecipientAddressInput: event.currentTarget.value,
+    });
+  }
+
+  handleNewRecipientDetailsInputChange(event) {
+    event.preventDefault();
+
+    this.setState({
+      newRecipientDetailsInput: event.currentTarget.value,
+    });
+  }
+
+  // RENDER
 
   render() {
 
@@ -54,12 +82,17 @@ class MyComponent extends Component {
           <Form>
             <Form.Group>
               <Form.Label>New Recipient</Form.Label>
-              <Form.Control type="input" placeholder="address" />
+              <Form.Control type="input"
+                            placeholder="address"
+                            value={this.state.newRecipientAddressInput}
+                            onChange={this.handleNewRecipientAddressInputChange} />
             </Form.Group>
 
             <Form.Group>
               <Form.Label>Proposal Details</Form.Label>
-              <Form.Control type="input" />
+              <Form.Control type="input"
+                            value={this.state.newRecipientDetailsInput}
+                            onChange={this.handleNewRecipientDetailsInputChange} />
             </Form.Group>
 
             <Form.Group>
