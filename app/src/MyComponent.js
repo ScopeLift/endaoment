@@ -23,7 +23,7 @@ class MyComponent extends Component {
       newMemberAddressInput: "",
       newMemberTributeInput: "",
       newMemberDetailsInput: "",
-      selectedProposalIndex: 0,
+      selectedProposalIndex: "None",
     }
 
     this.handleNewRecipientAddressInputChange = this.handleNewRecipientAddressInputChange.bind(this);
@@ -131,6 +131,7 @@ class MyComponent extends Component {
               <ListGroupItem>Total Shares: <ContractData contract="Moloch" method="totalShares" /></ListGroupItem>
               <ListGroupItem>Current Period: <ContractData contract="Moloch" method="getCurrentPeriod" /></ListGroupItem>
               <ListGroupItem>Current Grant Recipient: <ContractData contract="Moloch" method="recipient" /></ListGroupItem>
+              <ListGroupItem>Bank Address: <ContractData contract="Moloch" method="guildBank" /></ListGroupItem>
               <ListGroupItem>Number Of Proposals: <ContractData contract="Moloch" method="getProposalQueueLength" /></ListGroupItem>
             </ListGroup>
           </Card>
@@ -197,12 +198,14 @@ class MyComponent extends Component {
         </Col>
       </Row>
 
+      <h3>Proposals</h3>
       <Row className="mt-4">
         <Col>
           <Form>
             <Form.Group>
-            <Form.Label>Proposal</Form.Label>
             <Form.Control as="select" onChange={this.handleProposalChange}>
+              <option>None</option>
+              <option>0</option>
               <option>1</option>
               <option>2</option>
               <option>3</option>
@@ -213,26 +216,15 @@ class MyComponent extends Component {
           </Form>
         </Col>
         <Col>
-        <ContractData contract="Moloch" method="proposalQueue" methodArgs={[this.state.selectedProposalIndex]} />
+          <Card>
+            <Card.Header>Proposal Data</Card.Header>
+            <Card.Body>
+              { "None" !== this.state.selectedProposalIndex && <ContractData contract="Moloch" method="proposalQueue" methodArgs={[this.state.selectedProposalIndex]} />}
+            </Card.Body>
+          </Card>
         </Col>
       </Row>
     </Container>
-
-    {/* <div className="section">
-      Proposal 0:{" "}
-      <ContractData contract="Moloch" method="proposalQueue" methodArgs={[0]} />
-    </div> */}
-
-
-    <div className="section">
-      Proposal 2:{" "}
-      <ContractData contract="Moloch" method="proposalQueue" methodArgs={[2]} />
-    </div>
-
-    <div className="section">
-     Guildbank Addr{" "}
-      <ContractData contract="Moloch" method="guildBank" />
-    </div>
 
     {/* <div className="section">
       Lookup Member:{" "}
