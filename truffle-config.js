@@ -30,4 +30,10 @@ module.exports = {
     rinkeby: configNetwok('rinkeby', 4),
     main: configNetwok('mainnet', 1),
   },
+  solc: {
+    optimizer: {
+        enabled: true,
+        runs: 200
+    }
+  },
 };
