@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "ganache": "source .env && ganache-cli -d -i 999 --gasLimit 0x989680 -f https://mainnet.infura.io/v3/$INFURA_ID"
+    "ganache": "source .env && ganache-cli -d -i 999 --gasLimit 0x989680 -f https://mainnet.infura.io/v3/$INFURA_ID -u 0x3a9F7C8cA36C42d7035E87C3304eE5cBd353a532"
   },
   "repository": {
     "type": "git",
@@ -36,6 +36,7 @@
   },
   "devDependencies": {
     "@openzeppelin/cli": "^2.6.0",
+    "@openzeppelin/test-helpers": "^0.5.4",
     "chai": "^4.2.0",
     "husky": "^3.1.0",
     "openzeppelin-test-helpers": "^0.5.1"
