@@ -191,13 +191,18 @@ class MyComponent extends Component {
     {/* <div className="section">
       Proposal 0:{" "}
       <ContractData contract="Moloch" method="proposalQueue" methodArgs={[0]} />
-    </div>
+    </div> */}
 
 
     <div className="section">
-      Proposal 1:{" "}
-      <ContractData contract="Moloch" method="proposalQueue" methodArgs={[1]} />
-    </div> */}
+      Proposal 2:{" "}
+      <ContractData contract="Moloch" method="proposalQueue" methodArgs={[2]} />
+    </div>
+
+    <div className="section">
+     Guildbank Addr{" "}
+      <ContractData contract="Moloch" method="guildBank" />
+    </div>
 
     {/* <div className="section">
       Lookup Member:{" "}

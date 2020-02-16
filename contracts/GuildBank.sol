@@ -22,7 +22,7 @@ contract GuildBank is Ownable {
         rToken = IRTokenOurs(_rTokenAddress);
 
         // Approve rDAI contract to spend our Dai
-        rToken.approve(_rTokenAddress, uint256(-1));
+        approvedToken.approve(_rTokenAddress, uint256(-1));
 
         // Set hat to point to this contract
         changeHat(address(this));
