@@ -19,11 +19,19 @@ class MyComponent extends Component {
     this.state = {
       newRecipientAddressInput: "",
       newRecipientDetailsInput: "",
+      newMemberAddressInput: "",
+      newMemberTributeInput: "",
+      newMemberDetailsInput: "",
     }
 
     this.handleNewRecipientAddressInputChange = this.handleNewRecipientAddressInputChange.bind(this);
     this.handleNewRecipientDetailsInputChange = this.handleNewRecipientDetailsInputChange.bind(this);
     this.handleNewRecipientSubmit = this.handleNewRecipientSubmit.bind(this);
+
+    this.handleNewMemberAddressInputChange = this.handleNewMemberAddressInputChange.bind(this);
+    this.handleNewMemberTributeInputChange = this.handleNewMemberTributeInputChange.bind(this);
+    this.handleNewMemberDetailsInputChange = this.handleNewMemberDetailsInputChange.bind(this);
+    this.handleNewMemberSubmit = this.handleNewMemberSubmit.bind(this);
   }
 
   // HANDLERS
@@ -48,6 +56,36 @@ class MyComponent extends Component {
     event.preventDefault();
 
     this.moloch.methods.submitRecipientProposal.cacheSend(this.state.newRecipientAddressInput, this.state.newRecipientDetailsInput);
+  }
+
+  handleNewMemberAddressInputChange(event) {
+    event.preventDefault();
+
+    this.setState({
+      newMemberAddressInput: event.currentTarget.value,
+    });
+  }
+
+  handleNewMemberTributeInputChange(event) {
+    event.preventDefault();
+
+    this.setState({
+      newMemberTributeInput: event.currentTarget.value,
+    });
+  }
+
+  handleNewMemberDetailsInputChange(event) {
+    event.preventDefault();
+
+    this.setState({
+      newMemberDetailsInput: event.currentTarget.value,
+    });
+  }
+
+  handleNewMemberSubmit(event) {
+    event.preventDefault();
+
+    //this.moloch.methods.submitRecipientProposal.cacheSend(this.state.newRecipientAddressInput, this.state.newRecipientDetailsInput);
   }
 
   // RENDER
@@ -88,7 +126,7 @@ class MyComponent extends Component {
       </Row>
 
       <Row className="mt-4">
-        <Col>
+        <Col xs="6">
           <h3>Propose Recipient Change</h3>
           <Form>
             <Form.Group>
@@ -102,12 +140,46 @@ class MyComponent extends Component {
             <Form.Group>
               <Form.Label>Proposal Details</Form.Label>
               <Form.Control type="input"
+                            placeholder="details"
                             value={this.state.newRecipientDetailsInput}
                             onChange={this.handleNewRecipientDetailsInputChange} />
             </Form.Group>
 
             <Form.Group>
               <Button variant="primary" onClick={this.handleNewRecipientSubmit}>Submit</Button>
+            </Form.Group>
+          </Form>
+        </Col>
+
+        <Col xs="6">
+          <h3>Propose New Member</h3>
+          <Form>
+            <Form.Group>
+              <Form.Label>New Member</Form.Label>
+              <Form.Control type="input"
+                            placeholder="address"
+                            value={this.state.newMemberAddressInput}
+                            onChange={this.handleNewMemberAddressInputChange} />
+            </Form.Group>
+
+            <Form.Group>
+              <Form.Label>Tribute Amount</Form.Label>
+              <Form.Control type="number"
+                            placeholder="amount"
+                            value={this.state.newMemberTributeInput}
+                            onChange={this.handleNewMemberTributeInputChange} />
+            </Form.Group>
+
+            <Form.Group>
+              <Form.Label>Proposal Details</Form.Label>
+              <Form.Control type="input"
+                            placeholder="details"
+                            value={this.state.newMemberDetailsInput}
+                            onChange={this.handleNewMemberDetailsInputChange} />
+            </Form.Group>
+
+            <Form.Group>
+              <Button variant="primary" onClick={this.handleNewMemberSubmit}>Submit</Button>
             </Form.Group>
           </Form>
         </Col>
