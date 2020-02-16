@@ -1,9 +1,6 @@
-pragma solidity >=0.5.10 <0.6.0;
+pragma solidity ^0.5.0;
 
-/**
- * @notice RToken storage structures
- */
-contract RTokenStructs {
+contract RTokenStructsOurs {
 
     /**
      * @notice Global stats

@@ -3,24 +3,23 @@ pragma solidity ^0.5.0;
 import "@openzeppelin/contracts-ethereum-package/contracts/ownership/Ownable.sol";
 import "@openzeppelin/contracts-ethereum-package/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts-ethereum-package/contracts/math/SafeMath.sol";
-import "./IRToken.sol";
+import "./IRTokenOurs.sol";
 
 contract GuildBank is Ownable {
     using SafeMath for uint256;
 
     IERC20 public approvedToken; // approved token contract reference
-    IRToken public rToken;
+    IRTokenOurs public rToken;
 
     event Withdrawal(address indexed receiver, uint256 amount);
 
-    constructor(address approvedTokenAddress) public {
+    constructor(address approvedTokenAddress, address _rTokenAddress) public {
         // TODO -- pass rToken address as a constructor arguemet
         // and lookup token() value to get approvedTokenAddress
         approvedToken = IERC20(approvedTokenAddress);
         Ownable.initialize(msg.sender);
 
-        address _rTokenAddress = address(0x261b45D85cCFeAbb11F022eBa346ee8D1cd488c0);
-        rToken = IRToken(_rTokenAddress);
+        rToken = IRTokenOurs(_rTokenAddress);
 
         // Approve rDAI contract to spend our Dai
         rToken.approve(_rTokenAddress, uint256(-1));
