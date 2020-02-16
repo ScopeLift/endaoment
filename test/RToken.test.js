@@ -112,6 +112,7 @@ contract("RToken", accounts => {
           rTokenAddress,
           { from: admin });
         const molochAddress = molochDeploy.address
+        console.log("Moloch Address: " + molochAddress);
         moloch = await Moloch.at(molochAddress)
 
         console.log('mint dai...');

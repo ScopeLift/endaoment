@@ -1,0 +1,290 @@
+{
+  "contractName": "TestDaiFaucet",
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "allocateTo",
+      "outputs": [],
+      "payable": true,
+      "stateMutability": "payable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":false,\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"allocateTo\",\"outputs\":[],\"payable\":true,\"stateMutability\":\"payable\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"Some testnet DAI use this interface to mint test DAIs\",\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/bendi/Development/endaoment/contracts/test/TestDaiFaucet.sol\":\"TestDaiFaucet\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/bendi/Development/endaoment/contracts/test/TestDaiFaucet.sol\":{\"keccak256\":\"0x8907b0bb69d182df242f63f2038998f6c70aa64f69eeba27ca326a495f157847\",\"urls\":[\"bzz-raw://5c3ae5374d8fb8720ec176dcdee94931d4b80b4e756f7bb739c794379d8a86ea\",\"dweb:/ipfs/QmS5mkoEwdWiRo16wPeC4pnYxCuSUmuwf8BCffxeNNCk1b\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "pragma solidity ^0.5.0;\n\n/**\n * @dev Some testnet DAI use this interface to mint test DAIs\n */\ncontract TestDaiFaucet {\n    function allocateTo(address, uint256) public payable;\n}\n",
+  "sourcePath": "/Users/bendi/Development/endaoment/contracts/test/TestDaiFaucet.sol",
+  "ast": {
+    "absolutePath": "/Users/bendi/Development/endaoment/contracts/test/TestDaiFaucet.sol",
+    "exportedSymbols": {
+      "TestDaiFaucet": [
+        13097
+      ]
+    },
+    "id": 13098,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 13089,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:33"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": "@dev Some testnet DAI use this interface to mint test DAIs",
+        "fullyImplemented": false,
+        "id": 13097,
+        "linearizedBaseContracts": [
+          13097
+        ],
+        "name": "TestDaiFaucet",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": null,
+            "documentation": null,
+            "id": 13096,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "allocateTo",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 13094,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 13091,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 13096,
+                  "src": "144:7:33",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 13090,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "144:7:33",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 13093,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 13096,
+                  "src": "153:7:33",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 13092,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "153:7:33",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "143:18:33"
+            },
+            "returnParameters": {
+              "id": 13095,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "176:0:33"
+            },
+            "scope": 13097,
+            "src": "124:53:33",
+            "stateMutability": "payable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 13098,
+        "src": "95:84:33"
+      }
+    ],
+    "src": "0:180:33"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/bendi/Development/endaoment/contracts/test/TestDaiFaucet.sol",
+    "exportedSymbols": {
+      "TestDaiFaucet": [
+        13097
+      ]
+    },
+    "id": 13098,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 13089,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:33"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": "@dev Some testnet DAI use this interface to mint test DAIs",
+        "fullyImplemented": false,
+        "id": 13097,
+        "linearizedBaseContracts": [
+          13097
+        ],
+        "name": "TestDaiFaucet",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": null,
+            "documentation": null,
+            "id": 13096,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "allocateTo",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 13094,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 13091,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 13096,
+                  "src": "144:7:33",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 13090,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "144:7:33",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 13093,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 13096,
+                  "src": "153:7:33",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 13092,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "153:7:33",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "143:18:33"
+            },
+            "returnParameters": {
+              "id": 13095,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "176:0:33"
+            },
+            "scope": 13097,
+            "src": "124:53:33",
+            "stateMutability": "payable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 13098,
+        "src": "95:84:33"
+      }
+    ],
+    "src": "0:180:33"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.16+commit.9c3226ce.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.0.23",
+  "updatedAt": "2020-02-16T09:30:40.303Z",
+  "devdoc": {
+    "details": "Some testnet DAI use this interface to mint test DAIs",
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}

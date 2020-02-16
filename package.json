@@ -4,7 +4,7 @@
   "description": "OpenZeppelin kit containing React, & OpenZeppelin SDK",
   "main": "index.js",
   "scripts": {
-    "ganache": "source .env && ganache-cli -d --gasLimit 0x989680",
+    "ganache": "source .env && ganache-cli -d --gasLimit 0x989680 -i 999",
     "build": "run-s build:*",
     "build:truffle-compile": "rm -f build/contracts/*;truffle compile",
     "test": "run-s lint:* test:*",
@@ -15,7 +15,8 @@
     "proxify": "truffle-flattener contracts/RToken.sol > flat.ignore.sol && sol-proxy create flat.ignore.sol",
     "lint": "run-s lint:*",
     "lint:js": "eslint . --max-warnings=0 --report-unused-disable-directives && echo '✔  Your .js files look good.'",
-    "lint:sol": "solhint contracts/*.sol && echo '✔  Your .sol files look good.'"
+    "lint:sol": "solhint contracts/*.sol && echo '✔  Your .sol files look good.'",
+    "app-setup": "rm -rfv app/src/contracts/ && cp -r build/contracts/ app/src/contracts/"
   },
   "license": "MIT",
   "dependencies": {
