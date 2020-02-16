@@ -14,11 +14,11 @@ contract("RToken", accounts => {
     const ZERO_ADDRESS = "0x0000000000000000000000000000000000000000";
 
     const admin = accounts[0];
-    const bingeBorrower = accounts[1];
-    const customer1 = accounts[2];
-    const customer2 = accounts[3];
-    const customer3 = accounts[4];
-    const customer4 = accounts[5];
+    const bingeBorrower = accounts[8];
+    const customer1 = accounts[1];
+    const customer2 = accounts[2];
+    const customer3 = accounts[3];
+    const customer4 = accounts[4];
     let token;
     let cToken;
     let compoundAS;
@@ -125,9 +125,8 @@ contract("RToken", accounts => {
         await web3tx(token.approve, "token.approve maxUint -> account0")(molochAddress, MAX_UINT256, { from: accounts[0] });
         await web3tx(token.approve, "token.approve maxUint -> account1")(molochAddress, MAX_UINT256, { from: accounts[1] });
         await web3tx(token.approve, "token.approve maxUint -> account2")(molochAddress, MAX_UINT256, { from: accounts[2] });
-        // await token.approve(molochAddress, MAX_UINT256); //.send({from: accounts[0]});
-        // await token.approve(molochAddress, MAX_UINT256); //.send({from: accounts[1]});
-        // await token.approve(molochAddress, MAX_UINT256); //.send({from: accounts[2]});
+
+        await doBingeBorrowing(100);
 
     });
 
