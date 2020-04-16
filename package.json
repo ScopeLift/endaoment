@@ -1,50 +1,19 @@
 {
-  "name": "starter-kit",
+  "name": "endaoment",
   "version": "1.0.0",
-  "description": "OpenZeppelin kit containing React, & OpenZeppelin SDK",
+  "description": "A no-loss grant system that redirects interest earned on deposits to a selected recipient.",
   "main": "index.js",
   "scripts": {
-    "ganache": "source .env && ganache-cli -d --gasLimit 0x989680 -i 999",
-    "build": "run-s build:*",
-    "build:truffle-compile": "rm -f build/contracts/*;truffle compile",
-    "test": "run-s lint:* test:*",
-    "test:contracts": "truffle test test/contracts.js",
-    "test:package": "mocha test/package.test.js",
-    "test-coverage": "truffle run coverage --file test/contracts.js",
-    "dev": "nodemon -e sol,js -i build -x 'npm run test 2>&1'",
-    "proxify": "truffle-flattener contracts/RToken.sol > flat.ignore.sol && sol-proxy create flat.ignore.sol",
-    "lint": "run-s lint:*",
-    "lint:js": "eslint . --max-warnings=0 --report-unused-disable-directives && echo '✔  Your .js files look good.'",
-    "lint:sol": "solhint contracts/*.sol && echo '✔  Your .sol files look good.'",
-    "app-setup": "rm -rfv app/src/contracts/ && cp -r build/contracts/ app/src/contracts/"
+    "test": "npx truffle test"
   },
-  "license": "MIT",
   "dependencies": {
-    "@openzeppelin/contracts": "2.4.0",
-    "@openzeppelin/contracts-ethereum-package": "^2.4.0",
     "dotenv": "^8.2.0",
+    "truffle": "^5.1.21",
     "truffle-hdwallet-provider": "^1.0.17"
   },
-  "peerDependencies": {
-    "@truffle/contract": "^4.1.5"
-  },
   "devDependencies": {
-    "@openzeppelin/cli": "^2.6.0",
-    "@openzeppelin/test-helpers": "^0.5.4",
+    "@openzeppelin/cli": "^2.8.0",
     "chai": "^4.2.0",
-    "husky": "^3.1.0",
-    "openzeppelin-test-helpers": "^0.5.1",
-    "@truffle/contract": "^4.1.5",
-    "@decentral.ee/web3-test-helpers": "0.2.4",
-    "dotenv": "8.2.0",
-    "sol-proxy": "0.1.2",
-    "solhint": "2.3.0",
-    "solidity-coverage": "0.7.1",
-    "truffle": "5.1.9",
-    "truffle-flattener": "1.4.2",
-    "truffle-plugin-verify": "0.3.8",
-    "@truffle/hdwallet-provider": "1.0.29",
-    "eslint": "6.8.0",
-    "npm-run-all": "4.1.5"
+    "openzeppelin-test-helpers": "^0.5.1"
   }
 }
