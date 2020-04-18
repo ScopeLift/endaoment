@@ -17,7 +17,7 @@
 .body-italic { font-family: 'bodyItalic'; }
 
 @font-face { font-family: body; src: url(./fonts/Merriweather-Regular.ttf); }
-.body { font-family: 'body'; }
+.body, div, p { font-family: 'body'; }
 
 // Color classes
 .primary { color: $primary; }
@@ -30,8 +30,16 @@
 h1, h2, h3, h4, h5, h6 { margin-bottom: 0; }
 h4 { margin-top: 0; }
 
+.page-header {
+  color: $primary;
+  font-family: 'headerBlack';
+  text-align: center;
+}
+
 
 // ======================================== OTHER ========================================
+.center { margin: 0 auto; }
+
 .body--light {
   .dark-toggle { color: $dark; }
 

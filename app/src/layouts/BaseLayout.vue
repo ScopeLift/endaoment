@@ -6,33 +6,49 @@
       style="color: #000000; background-color: rgba(0,0,0,0)"
     >
       <div class="row justify-between items-center">
-        <!-- Logo and app name -->
+        <!-- Left half -->
         <div class="col-auto">
-          <div
-            class="row justify-start items-center"
-            style="cursor: pointer;"
-            @click="$router.push({ name: 'home' });"
-          >
-            <img
-              alt="Endaoment logo"
-              class="q-mx-md"
-              src="statics/app-logo-128x128.png"
-              style="max-width: 50px;"
+          <!-- Logo and app name -->
+          <div>
+            <div
+              class="row justify-start items-center"
             >
-            <div class="header-black text-h5 dark-toggle">
-              Endaoment
+              <img
+                alt="Endaoment logo"
+                class="cursor-pointer q-ml-md"
+                src="statics/app-logo-128x128.png"
+                style="max-width: 50px;"
+                @click="$router.push({ name: 'home' });"
+              >
+              <div
+                class="cursor-pointer header-black dark-toggle q-pl-md"
+                style="font-size: 2rem"
+                @click="$router.push({ name: 'home' });"
+              >
+                Endaoment
+              </div>
+              <div class="q-ml-xl" />
+              <router-link
+                :to="{name: 'join'}"
+                active-class="page-active"
+                class="page dark-toggle"
+              >
+                Find Causes
+              </router-link>
+              <router-link
+                :to="{name: 'about'}"
+                active-class="page-active"
+                class="page dark-toggle"
+              >
+                About
+              </router-link>
             </div>
           </div>
         </div>
+        <!-- Right half -->
         <!-- User info and settings -->
         <div class="col-auto">
-          <div
-            v-if="userAddress"
-            class="text-caption dark-toggle q-mr-md"
-          >
-            Account: {{ userAddress }}
-          </div>
-          <div class="row justify-end q-mt-xs">
+          <div class="row justify-end items-center q-mt-xs">
             <q-icon
               v-if="!$q.dark.isActive"
               class="col-auto dark-toggle"
@@ -47,6 +63,22 @@
               style="cursor: pointer;"
               @click="toggleNightMode()"
             />
+            <div class="q-mx-md" />
+            <div
+              v-if="userAddress"
+              class="text-caption dark-toggle q-mr-md"
+            >
+              Account: {{ userAddress }}
+            </div>
+            <div
+              v-else
+              class="q-mr-md"
+            >
+              <q-btn
+                color="primary"
+                label="Sign in"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -110,3 +142,16 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+.page, .page-active {
+  font-family: 'header';
+  font-size: 1rem;
+  margin: 0.3rem 1rem 0 1rem;
+  text-decoration: none;
+}
+
+.page-active {
+  font-family: 'headerBlack'
+}
+</style>
