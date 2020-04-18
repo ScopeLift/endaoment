@@ -1,1 +1,59 @@
-// app global css in SCSS form
+// ======================================== FONTS ========================================
+// Headers
+@font-face { font-family: headerBlack; src: url(./fonts/FiraSans-Black.ttf); }
+.header-black { font-family: 'headerBlack'; }
+
+@font-face { font-family: headerBold; src: url(./fonts/FiraSans-Bold.ttf); }
+.header-bold { font-family: 'headerBold'; }
+
+@font-face { font-family: header; src: url(./fonts/FiraSans-Regular.ttf); }
+.header { font-family: 'header'; }
+
+// Body
+@font-face { font-family: bodyBold; src: url(./fonts/Merriweather-Bold.ttf); }
+.body-bold { font-family: 'bodyBold'; }
+
+@font-face { font-family: bodyItalic; src: url(./fonts/Merriweather-Italic.ttf); }
+.body-italic { font-family: 'bodyItalic'; }
+
+@font-face { font-family: body; src: url(./fonts/Merriweather-Regular.ttf); }
+.body { font-family: 'body'; }
+
+// Color classes
+.primary { color: $primary; }
+.secondary { color: $secondary; }
+.accent { color: $accent; }
+.primary2 { color: $primary2; }
+.secondary2 { color: $secondary2; }
+.accent2 { color: $accent2; }
+
+h1, h2, h3, h4, h5, h6 { margin-bottom: 0; }
+h4 { margin-top: 0; }
+
+
+// ======================================== OTHER ========================================
+.body--light {
+  .dark-toggle { color: $dark; }
+
+  .hyperlink {
+    color: $primary;
+    text-decoration: underline;
+    cursor: pointer;
+    // Without this, the underline extends into the space for some reason
+    // solution source: https://stackoverflow.com/questions/23182904/css-underline-text-but-ignore-the-spaces
+    display: inline-block;
+  }
+}
+
+.body--dark {
+  .dark-toggle { color: $light; }
+
+  .hyperlink {
+    color: $primary;
+    text-decoration: underline;
+    cursor: pointer;
+    // Without this, the underline extends into the space for some reason
+    // solution source: https://stackoverflow.com/questions/23182904/css-underline-text-but-ignore-the-spaces
+    display: inline-block;
+  }
+}
