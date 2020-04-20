@@ -1,26 +1,15 @@
-# Endaoment (endaoment)
+# Endaoment
 
 A no-loss grant system that redirects interest earned on deposits to a selected recipient.
 
-## Install the dependencies
-```bash
-npm install
-```
+## Development
 
-### Start the app in development mode (hot-code reloading, error reporting, etc.)
-```bash
-quasar dev
-```
+1. Create a file called `.env` with the following content:
 
-### Lint the files
-```bash
-npm run lint
-```
+    ```bash
+    export BLOCKNATIVE_API_KEY=yourBlocknativeApiKey
+    export INFURA_ID=yourInfuraId
+    ```
 
-### Build the app for production
-```bash
-quasar build
-```
-
-### Customize the configuration
-See [Configuring quasar.conf.js](https://quasar.dev/quasar-cli/quasar-conf-js).
+2. Install packages with `npm install`.
+3. Run the app with `npm run dev`.
