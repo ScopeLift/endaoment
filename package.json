@@ -4,7 +4,7 @@
   "description": "A no-loss grant system that redirects interest earned on deposits to a selected recipient.",
   "main": "index.js",
   "scripts": {
-    "test": "truffle test",
+    "test": "oz compile && mocha --exit --timeout 10000 test/*-test.js",
     "compile": "oz compile"
   },
   "dependencies": {
@@ -15,7 +15,9 @@
   },
   "devDependencies": {
     "@openzeppelin/cli": "^2.8.0",
+    "@openzeppelin/test-environment": "^0.1.4",
     "chai": "^4.2.0",
+    "mocha": "^7.1.1",
     "openzeppelin-test-helpers": "^0.5.1"
   }
 }
