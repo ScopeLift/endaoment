@@ -1,22 +1,22 @@
 // ======================================== FONTS ========================================
 // Headers
-@font-face { font-family: headerBlack; src: url(./fonts/FiraSans-Black.ttf); }
+@font-face { font-family: headerBlack; src: url(./fonts/Merriweather-Black.ttf); }
 .header-black { font-family: 'headerBlack'; }
 
-@font-face { font-family: headerBold; src: url(./fonts/FiraSans-Bold.ttf); }
+@font-face { font-family: headerBold; src: url(./fonts/Merriweather-Bold.ttf); }
 .header-bold { font-family: 'headerBold'; }
 
-@font-face { font-family: header; src: url(./fonts/FiraSans-Regular.ttf); }
+@font-face { font-family: header; src: url(./fonts/Merriweather-Regular.ttf); }
 .header { font-family: 'header'; }
 
 // Body
-@font-face { font-family: bodyBold; src: url(./fonts/Merriweather-Bold.ttf); }
+@font-face { font-family: bodyBold; src: url(./fonts/FiraSans-Bold.ttf); }
 .body-bold { font-family: 'bodyBold'; }
 
-@font-face { font-family: bodyItalic; src: url(./fonts/Merriweather-Italic.ttf); }
+@font-face { font-family: bodyItalic; src: url(./fonts/FiraSans-Italic.ttf); }
 .body-italic { font-family: 'bodyItalic'; }
 
-@font-face { font-family: body; src: url(./fonts/Merriweather-Regular.ttf); }
+@font-face { font-family: body; src: url(./fonts/FiraSans-Regular.ttf); }
 .body, div, p { font-family: 'body'; }
 
 // Color classes

@@ -8,12 +8,14 @@
   "author": "mds <17163988+mds1@users.noreply.github.com>",
   "private": true,
   "scripts": {
-    "dev": "npx quasar dev",
+    "dev": "source .env && npx quasar dev",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore ./",
     "test": "echo \"No test specified\" && exit 0"
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0",
+    "bnc-notify": "^1.1.2",
+    "bnc-onboard": "^1.7.5",
     "ethers": "^4.0.46",
     "quasar": "^1.0.0"
   },

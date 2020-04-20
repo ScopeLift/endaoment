@@ -29,7 +29,7 @@
               </div>
               <div class="q-ml-xl" />
               <router-link
-                :to="{name: 'join'}"
+                :to="{name: 'causes'}"
                 active-class="page-active"
                 class="page dark-toggle"
               >
@@ -48,6 +48,12 @@
         <!-- Right half -->
         <!-- User info and settings -->
         <div class="col-auto">
+          <div
+            v-if="userAddress"
+            class="text-caption dark-toggle q-mr-md"
+          >
+            Account: {{ userAddress }}
+          </div>
           <div class="row justify-end items-center q-mt-xs">
             <q-icon
               v-if="!$q.dark.isActive"
@@ -65,19 +71,10 @@
             />
             <div class="q-mx-md" />
             <div
-              v-if="userAddress"
-              class="text-caption dark-toggle q-mr-md"
-            >
-              Account: {{ userAddress }}
-            </div>
-            <div
-              v-else
+              v-if="!userAddress"
               class="q-mr-md"
             >
-              <q-btn
-                color="primary"
-                label="Sign in"
-              />
+              <connect-wallet label="Sign in" />
             </div>
           </div>
         </div>
@@ -123,13 +120,18 @@
 
 <script>
 import { mapState } from 'vuex';
+import ConnectWallet from 'components/ConnectWallet';
 
 export default {
   name: 'BaseLayout',
 
+  components: {
+    ConnectWallet,
+  },
+
   computed: {
     ...mapState({
-      userAddress: (state) => state.user.address,
+      userAddress: (state) => state.user.userAddress,
     }),
   },
 
@@ -145,13 +147,13 @@ export default {
 
 <style lang="scss">
 .page, .page-active {
-  font-family: 'header';
+  font-family: 'body';
   font-size: 1rem;
   margin: 0.3rem 1rem 0 1rem;
   text-decoration: none;
 }
 
 .page-active {
-  font-family: 'headerBlack'
+  font-family: 'bodyBold'
 }
 </style>

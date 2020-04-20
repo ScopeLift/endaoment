@@ -9,7 +9,7 @@
 // https://quasar.dev/quasar-cli/quasar-conf-js
 
 
-module.exports = function (/* ctx */) {
+module.exports = function (ctx) { // eslint-disable-line func-names
   return {
     // app boot file (/src/boot)
     // --> boot files are part of "main.js"
@@ -87,10 +87,19 @@ module.exports = function (/* ctx */) {
           loader: 'eslint-loader',
           exclude: /node_modules/,
           options: {
-            formatter: require('eslint').CLIEngine.getFormatter('stylish'),
+            formatter: require('eslint').CLIEngine.getFormatter('stylish'), // eslint-disable-line global-require
           },
         });
       },
+      env: ctx.dev
+        ? { // so on dev we'll have these environment variables
+          BLOCKNATIVE_API_KEY: JSON.stringify(process.env.BLOCKNATIVE_API_KEY),
+          INFURA_ID: JSON.stringify(process.env.INFURA_ID),
+        }
+        : { // and on build (production) we'll have these:
+          BLOCKNATIVE_API_KEY: JSON.stringify(process.env.BLOCKNATIVE_API_KEY),
+          INFURA_ID: JSON.stringify(process.env.INFURA_ID),
+        },
     },
 
     // Full list of options: https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-devServer
