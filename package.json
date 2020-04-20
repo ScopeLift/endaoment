@@ -4,9 +4,11 @@
   "description": "A no-loss grant system that redirects interest earned on deposits to a selected recipient.",
   "main": "index.js",
   "scripts": {
-    "test": "npx truffle test"
+    "test": "truffle test",
+    "compile": "oz compile"
   },
   "dependencies": {
+    "@openzeppelin/contracts-ethereum-package": "^2.5.0",
     "dotenv": "^8.2.0",
     "truffle": "^5.1.21",
     "truffle-hdwallet-provider": "^1.0.17"
