@@ -1,6 +1,9 @@
+require('dotenv').config();
+const infura_key = process.env.INFURA_ID;
+
 module.exports = {
     node: {
-      fork: 'https://mainnet.infura.io/v3/d6760e62b67f4937ba1ea2691046f06d',
+      fork: `https://mainnet.infura.io/v3/${infura_key}`,
       unlocked_accounts: [],
     },
   };
