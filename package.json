@@ -4,8 +4,8 @@
   "description": "A no-loss grant system that redirects interest earned on deposits to a selected recipient.",
   "main": "index.js",
   "scripts": {
-    "test": "oz compile && mocha --exit --timeout 10000 test/*-test.js",
-    "compile": "oz compile"
+    "test": "source .env && npx oz compile && mocha --exit --timeout 0 test/*-test.js",
+    "compile": "npx oz compile"
   },
   "dependencies": {
     "@openzeppelin/contracts-ethereum-package": "^2.5.0",
