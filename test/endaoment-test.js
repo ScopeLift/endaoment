@@ -3,6 +3,7 @@ const { accounts, contract, web3 } = require('@openzeppelin/test-environment');
 const { time, expectEvent, expectRevert } = require('@openzeppelin/test-helpers');
 const { expect } = require('chai');
 const Moloch = contract.fromArtifact('Moloch');
+const GuildBank = contract.fromArtifact('GuildBank');
 const { toWeiDai, stealDai, approveDai } = require('./helpers');
 
 const PERIOD_DURATION = 17280;
@@ -32,6 +33,9 @@ describe('Moloch', () => {
             "Donate funds to selected organizations helping with COVID-19 relief",
             {from: summoner}
         );
+
+        const guildBankAddr = await this.instance.guildBank();
+        this.guildBank = await GuildBank.at(guildBankAddr);
 
         await stealDai(1000, summoner);
         await stealDai(20000, member1);
