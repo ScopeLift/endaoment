@@ -127,7 +127,7 @@ contract MolochPool {
 
         while (i < toIndex) {
 
-            (, applicant, sharesRequested, , , , processed, didPass, aborted, tokenTribute, , maxTotalSharesAtYesVote) = moloch.proposalQueue(i);
+            (, applicant, sharesRequested, , , , processed, didPass, aborted, tokenTribute, , maxTotalSharesAtYesVote, , ) = moloch.proposalQueue(i);
 
             if (!processed) { break; }
 

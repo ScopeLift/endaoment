@@ -34,8 +34,10 @@ contract Moloch {
     EVENTS
     ***************/
     event SubmitProposal(uint256 proposalIndex, address indexed delegateKey, address indexed memberAddress, address indexed applicant, uint256 tokenTribute, uint256 sharesRequested);
+    event SubmitGrantProposal(uint256 proposalIndex, address indexed delegateKey, address indexed memberAddress, address indexed applicant, uint256 tokenGrant, uint256 grantDuration);
     event SubmitVote(uint256 indexed proposalIndex, address indexed delegateKey, address indexed memberAddress, uint8 uintVote);
     event ProcessProposal(uint256 indexed proposalIndex, address indexed applicant, address indexed memberAddress, uint256 tokenTribute, uint256 sharesRequested, bool didPass);
+    event ProcessGrantProposal(uint256 indexed proposalIndex, address indexed applicant, address indexed memberAddress, uint256 tokenGrant, uint256 grantDuration, bool didPass);
     event Ragequit(address indexed memberAddress, uint256 sharesToBurn);
     event Abort(uint256 indexed proposalIndex, address applicantAddress);
     event UpdateDelegateKey(address indexed memberAddress, address newDelegateKey);
@@ -53,6 +55,12 @@ contract Moloch {
         No
     }
 
+    enum ProposalKind {
+        Membership,
+        Grant,
+        Revocation
+    }
+
     struct Member {
         address delegateKey; // the key responsible for submitting proposals and voting - defaults to member address unless updated
         uint256 shares; // the # of shares assigned to this member
@@ -62,7 +70,7 @@ contract Moloch {
 
     struct Proposal {
         address proposer; // the member who submitted the proposal
-        address applicant; // the applicant who wishes to become a member - this key will be used for withdrawals
+        address applicant; // the applicant who wishes to become a member or receive a grant - this key will be used for withdrawals
         uint256 sharesRequested; // the # of shares the applicant is requesting
         uint256 startingPeriod; // the period in which voting can start for this proposal
         uint256 yesVotes; // the total number of YES votes for this proposal
@@ -70,10 +78,12 @@ contract Moloch {
         bool processed; // true only if the proposal has been processed
         bool didPass; // true only if the proposal passed
         bool aborted; // true only if applicant calls "abort" fn before end of voting period
-        uint256 tokenTribute; // amount of tokens offered as tribute
+        uint256 tokenTribute; // amount of tokens offered as tribute or given as grant
         string details; // proposal details - could be IPFS hash, plaintext, or JSON
         uint256 maxTotalSharesAtYesVote; // the maximum # of total shares encountered at a yes vote on this proposal
         mapping (address => Vote) votesByMember; // the votes on this proposal by each member
+        ProposalKind kind; // the kind of proposal
+        uint256 grantDuration; // how long the grant toknes will be streamed
     }
 
     mapping (address => Member) public members;
@@ -191,7 +201,9 @@ contract Moloch {
             aborted: false,
             tokenTribute: tokenTribute,
             details: details,
-            maxTotalSharesAtYesVote: 0
+            maxTotalSharesAtYesVote: 0,
+            kind: ProposalKind.Membership,
+            grantDuration: 0
         });
 
         // ... and append it to the queue
@@ -199,6 +211,53 @@ contract Moloch {
 
         uint256 proposalIndex = proposalQueue.length.sub(1);
         emit SubmitProposal(proposalIndex, msg.sender, memberAddress, applicant, tokenTribute, sharesRequested);
+    }
+
+    function submitGrantProposal(
+        address applicant,
+        uint256 tokenGrant,
+        uint256 grantDuration,
+        string memory details
+    )
+        public
+        onlyDelegate
+    {
+        require(applicant != address(0), "Moloch::submitProposal - applicant cannot be 0");
+
+        address memberAddress = memberAddressByDelegateKey[msg.sender];
+
+        // collect proposal deposit from proposer and store it in the Moloch until the proposal is processed
+        require(approvedToken.transferFrom(msg.sender, address(this), proposalDeposit), "Moloch::submitProposal - proposal deposit token transfer failed");
+
+        // compute startingPeriod for proposal
+        uint256 startingPeriod = max(
+            getCurrentPeriod(),
+            proposalQueue.length == 0 ? 0 : proposalQueue[proposalQueue.length.sub(1)].startingPeriod
+        ).add(1);
+
+        // create proposal ...
+        Proposal memory proposal = Proposal({
+            proposer: memberAddress,
+            applicant: applicant,
+            sharesRequested: 0,
+            startingPeriod: startingPeriod,
+            yesVotes: 0,
+            noVotes: 0,
+            processed: false,
+            didPass: false,
+            aborted: false,
+            tokenTribute: tokenGrant,
+            details: details,
+            maxTotalSharesAtYesVote: 0,
+            kind: ProposalKind.Grant,
+            grantDuration: grantDuration
+        });
+
+        // ... and append it to the queue
+        proposalQueue.push(proposal);
+
+        uint256 proposalIndex = proposalQueue.length.sub(1);
+        emit SubmitGrantProposal(proposalIndex, msg.sender, memberAddress, applicant, tokenGrant, grantDuration);
     }
 
     function submitVote(uint256 proposalIndex, uint8 uintVote) public onlyDelegate {
@@ -248,6 +307,7 @@ contract Moloch {
         require(getCurrentPeriod() >= proposal.startingPeriod.add(votingPeriodLength).add(gracePeriodLength), "Moloch::processProposal - proposal is not ready to be processed");
         require(proposal.processed == false, "Moloch::processProposal - proposal has already been processed");
         require(proposalIndex == 0 || proposalQueue[proposalIndex.sub(1)].processed, "Moloch::processProposal - previous proposal must be processed");
+        require(proposal.kind == ProposalKind.Membership, "Endaoment::processProposal - not a membership proposal");
 
         proposal.processed = true;
         totalSharesRequested = totalSharesRequested.sub(proposal.sharesRequested);
@@ -318,6 +378,59 @@ contract Moloch {
             proposal.proposer,
             proposal.tokenTribute,
             proposal.sharesRequested,
+            didPass
+        );
+    }
+
+    function processGrantProposal(uint256 proposalIndex) public {
+        require(proposalIndex < proposalQueue.length, "Moloch::processProposal - proposal does not exist");
+        Proposal storage proposal = proposalQueue[proposalIndex];
+
+        require(getCurrentPeriod() >= proposal.startingPeriod.add(votingPeriodLength).add(gracePeriodLength), "Moloch::processProposal - proposal is not ready to be processed");
+        require(proposal.processed == false, "Moloch::processProposal - proposal has already been processed");
+        require(proposalIndex == 0 || proposalQueue[proposalIndex.sub(1)].processed, "Moloch::processProposal - previous proposal must be processed");
+        require(proposal.kind == ProposalKind.Grant, "Endaoment::processGrantProposal - not a grant proposal");
+
+        proposal.processed = true;
+
+        bool didPass = proposal.yesVotes > proposal.noVotes;
+
+        // PROPOSAL PASSED
+        if (didPass && !proposal.aborted) {
+
+            proposal.didPass = true;
+
+            // TODO: Call guildbank funciton to start the stream!
+
+            // transfer tokens to guild bank
+            // require(
+            //     approvedToken.transfer(address(guildBank), proposal.tokenTribute),
+            //     "Moloch::processProposal - token transfer to guild bank failed"
+            // );
+
+        // PROPOSAL FAILED OR ABORTED
+        } else {
+            // TODO: anything?
+        }
+
+        // send msg.sender the processingReward
+        require(
+            approvedToken.transfer(msg.sender, processingReward),
+            "Moloch::processProposal - failed to send processing reward to msg.sender"
+        );
+
+        // return deposit to proposer (subtract processing reward)
+        require(
+            approvedToken.transfer(proposal.proposer, proposalDeposit.sub(processingReward)),
+            "Moloch::processProposal - failed to return proposal deposit to proposer"
+        );
+
+        emit ProcessProposal(
+            proposalIndex,
+            proposal.applicant,
+            proposal.proposer,
+            proposal.tokenTribute,
+            proposal.grantDuration,
             didPass
         );
     }
