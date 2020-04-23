@@ -16,6 +16,8 @@ describe('Moloch', () => {
             "100000000000000000000", // uint256 _proposalDeposit -- 100 Dai
             3, // uint256 _dilutionBound -- 3
             "1000000000000000000", // uint256 _processingReward -- 1 Dai
+            "COVID-19 Relief",
+            "Donate funds to selected organizations helping with COVID-19 relief",
             {from: summoner});
     });
 

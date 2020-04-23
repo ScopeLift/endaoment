@@ -5,5 +5,6 @@ module.exports = {
     node: {
       fork: `https://mainnet.infura.io/v3/${infura_key}`,
       unlocked_accounts: [],
+      allowUnlimitedContractSize: true, // TODO remove the need for this
     },
   };
