@@ -407,6 +407,7 @@ contract Moloch {
         if (didPass && !proposal.aborted && hasFunds) {
 
             proposal.didPass = true;
+            guildBank.initiateStream(proposal.applicant, proposal.tokenTribute, proposal.grantDuration);
 
             // TODO: Call guildbank funciton to start the stream!
 

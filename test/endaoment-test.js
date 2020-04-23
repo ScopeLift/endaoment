@@ -84,7 +84,12 @@ describe('Moloch', () => {
     });
 
     it('should allow a grant proposal from the guildbank', async () => {
-        await this.instance.submitGrantProposal(grantee1, toWeiDai(1000), GrantDuration, "grantee1", {from: member2});
+        const desiredAmount = new web3.utils.BN(toWeiDai(1000));
+        const duration = new web3.utils.BN(GrantDuration);
+        const remainder = desiredAmount.mod(duration);
+        const divisibleAmount = desiredAmount.sub(remainder);
+
+        await this.instance.submitGrantProposal(grantee1, divisibleAmount, GrantDuration, "grantee1", {from: member2});
         const proposal = await this.instance.proposalQueue(2);
         expect(proposal.details).to.equal('grantee1');
     });
