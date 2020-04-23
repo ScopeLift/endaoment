@@ -213,6 +213,12 @@ contract Moloch {
         emit SubmitProposal(proposalIndex, msg.sender, memberAddress, applicant, tokenTribute, sharesRequested);
     }
 
+    //
+    // when users may ragequit.
+    // Call guildbank functions
+    // Test proposals work and emit expected events
+    // Integrate w/ Sablier and start a stream
+
     function submitGrantProposal(
         address applicant,
         uint256 tokenGrant,
@@ -223,6 +229,7 @@ contract Moloch {
         onlyDelegate
     {
         require(applicant != address(0), "Moloch::submitProposal - applicant cannot be 0");
+        require(tokenGrant <= approvedToken.balanceOf(address(guildBank)), "Endaoment::submitGrantProposal - grant is greater than treasury");
 
         address memberAddress = memberAddressByDelegateKey[msg.sender];
 
@@ -394,9 +401,10 @@ contract Moloch {
         proposal.processed = true;
 
         bool didPass = proposal.yesVotes > proposal.noVotes;
+        bool hasFunds = (proposal.tokenTribute < approvedToken.balanceOf(address(guildBank)));
 
         // PROPOSAL PASSED
-        if (didPass && !proposal.aborted) {
+        if (didPass && !proposal.aborted && hasFunds) {
 
             proposal.didPass = true;
 

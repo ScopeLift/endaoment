@@ -1,6 +1,6 @@
 require('dotenv').config();
 const { accounts, contract, web3 } = require('@openzeppelin/test-environment');
-const { time } = require('@openzeppelin/test-helpers');
+const { time, expectEvent, expectRevert } = require('@openzeppelin/test-helpers');
 const { expect } = require('chai');
 const Moloch = contract.fromArtifact('Moloch');
 const { toWeiDai, stealDai, approveDai } = require('./helpers');
@@ -12,8 +12,10 @@ const ABORT_WINDOW = 5;
 const VOTING_DURATION = VOTING_PERIODS * PERIOD_DURATION;
 const GRACE_DURATION = GRACE_PERIODS * PERIOD_DURATION;
 
+const GrantDuration = 30*24*60*60;
+
 describe('Moloch', () => {
-    const [ summoner, member1, member2 ] = accounts;
+    const [ summoner, member1, member2, grantee1 ] = accounts;
 
     before(async () => {
         this.instance = await Moloch.new(
@@ -72,4 +74,38 @@ describe('Moloch', () => {
         const memberInfo = await this.instance.members(member2);
         expect(memberInfo.shares.toString()).to.equal('3000');
     });
+
+    it('should not allow a grant proposal for more than guildbank owns', async () => {
+        await expectRevert(
+                this.instance.submitGrantProposal(grantee1, toWeiDai(10000),
+                                        30*24*60*60, "grantee1", {from: member2}),
+                "Endaoment::submitGrantProposal - grant is greater than treasury"
+            );
+    });
+
+    it('should allow a grant proposal from the guildbank', async () => {
+        await this.instance.submitGrantProposal(grantee1, toWeiDai(1000), GrantDuration, "grantee1", {from: member2});
+        const proposal = await this.instance.proposalQueue(2);
+        expect(proposal.details).to.equal('grantee1');
+    });
+
+    it('should allow memebers to vote on a grant proposal', async () => {
+        await time.increase(PERIOD_DURATION);
+
+        await this.instance.submitVote(2, 2, {from: member1});
+        await this.instance.submitVote(2, 1, {from: member2});
+
+        const proposal = await this.instance.proposalQueue(2);
+
+        expect(proposal.yesVotes.toString()).to.equal('3000');
+        expect(proposal.noVotes.toString()).to.equal('2000');
+    });
+
+    it('should process a successful grant proposal', async () => {
+        await time.increase(VOTING_DURATION + GRACE_DURATION);
+
+        await this.instance.processGrantProposal(2, {from: grantee1});
+    });
+
+    // TODO: Test proposal fails if ragequitters deplete required funds
 });
