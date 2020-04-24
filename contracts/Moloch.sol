@@ -10,7 +10,7 @@ contract Moloch {
     /***************
     GLOBAL CONSTANTS
     ***************/
-  uint256 public periodDuration; // default = 17280 = 4.8 hours in seconds (5 periods per day)
+    uint256 public periodDuration; // default = 17280 = 4.8 hours in seconds (5 periods per day)
     uint256 public votingPeriodLength; // default = 35 periods (7 days)
     uint256 public gracePeriodLength; // default = 35 periods (7 days)
     uint256 public abortWindow; // default = 5 periods (1 day)
@@ -35,9 +35,11 @@ contract Moloch {
     ***************/
     event SubmitProposal(uint256 proposalIndex, address indexed delegateKey, address indexed memberAddress, address indexed applicant, uint256 tokenTribute, uint256 sharesRequested);
     event SubmitGrantProposal(uint256 proposalIndex, address indexed delegateKey, address indexed memberAddress, address indexed applicant, uint256 tokenGrant, uint256 grantDuration);
+    event SubmitRevocationProposal(uint256 proposalIndex, address indexed delegateKey, address indexed memberAddress, uint256 grantIndex);
     event SubmitVote(uint256 indexed proposalIndex, address indexed delegateKey, address indexed memberAddress, uint8 uintVote);
     event ProcessProposal(uint256 indexed proposalIndex, address indexed applicant, address indexed memberAddress, uint256 tokenTribute, uint256 sharesRequested, bool didPass);
     event ProcessGrantProposal(uint256 indexed proposalIndex, address indexed applicant, address indexed memberAddress, uint256 tokenGrant, uint256 grantDuration, bool didPass);
+    event ProcessRevocationProposal(uint256 indexed proposalIndex, address indexed memberAddress, uint256 grantIndex, bool didPass);
     event Ragequit(address indexed memberAddress, uint256 sharesToBurn);
     event Abort(uint256 indexed proposalIndex, address applicantAddress);
     event UpdateDelegateKey(address indexed memberAddress, address newDelegateKey);
@@ -73,6 +75,7 @@ contract Moloch {
         uint256 proposalIndex; // Position of this Grant in the proposal queue
         uint256 startDate; // When stream actually began
         uint256 endDate; // When stream will/did end
+        bool wasRevoked;
     }
 
     struct Proposal {
@@ -90,7 +93,7 @@ contract Moloch {
         uint256 maxTotalSharesAtYesVote; // the maximum # of total shares encountered at a yes vote on this proposal
         mapping (address => Vote) votesByMember; // the votes on this proposal by each member
         ProposalKind kind; // the kind of proposal
-        uint256 grantDuration; // how long the grant toknes will be streamed
+        uint256 grantMeta; // The grant duration for Grant proposals; the grant index for Revocation proposals
     }
 
     mapping (address => Member) public members;
@@ -211,7 +214,7 @@ contract Moloch {
             details: details,
             maxTotalSharesAtYesVote: 0,
             kind: ProposalKind.Membership,
-            grantDuration: 0
+            grantMeta: 0
         });
 
         // ... and append it to the queue
@@ -265,7 +268,7 @@ contract Moloch {
             details: details,
             maxTotalSharesAtYesVote: 0,
             kind: ProposalKind.Grant,
-            grantDuration: grantDuration
+            grantMeta: grantDuration
         });
 
         // ... and append it to the queue
@@ -273,6 +276,60 @@ contract Moloch {
 
         uint256 proposalIndex = proposalQueue.length.sub(1);
         emit SubmitGrantProposal(proposalIndex, msg.sender, memberAddress, applicant, tokenGrant, grantDuration);
+    }
+
+    function submitRevocationProposal(
+        uint256 grantIndex,
+        string memory details
+    )
+        public
+        onlyDelegate
+    {
+        Grant storage grant = grants[grantIndex];
+
+        uint256 proposalProcessDate = block.timestamp
+                                            .add(periodDuration) // until voting starts
+                                            .add(votingPeriodLength.mul(periodDuration)) // voting ends
+                                            .add(gracePeriodLength.mul(periodDuration))  // grace end
+                                            .add(periodDuration.mul(2)); // cushion
+
+        // Ensure grant is not completed & exists at index (if index is invalid, endDate will be 0 & this fails)
+        require(grant.endDate > proposalProcessDate, "Endaoment::submitRevocationProposal - grant distribution too close to completion");
+
+        address memberAddress = memberAddressByDelegateKey[msg.sender];
+
+        // collect proposal deposit from proposer and store it in the Moloch until the proposal is processed
+        require(approvedToken.transferFrom(msg.sender, address(this), proposalDeposit), "Moloch::submitProposal - proposal deposit token transfer failed");
+
+        // compute startingPeriod for proposal
+        uint256 startingPeriod = max(
+            getCurrentPeriod(),
+            proposalQueue.length == 0 ? 0 : proposalQueue[proposalQueue.length.sub(1)].startingPeriod
+        ).add(1);
+
+        // create proposal ...
+        Proposal memory proposal = Proposal({
+            proposer: memberAddress,
+            applicant: address(0),
+            sharesRequested: 0,
+            startingPeriod: startingPeriod,
+            yesVotes: 0,
+            noVotes: 0,
+            processed: false,
+            didPass: false,
+            aborted: false,
+            tokenTribute: 0,
+            details: details,
+            maxTotalSharesAtYesVote: 0,
+            kind: ProposalKind.Revocation,
+            grantMeta: grantIndex
+        });
+
+        // ... and append it to the queue
+        proposalQueue.push(proposal);
+
+        uint256 proposalIndex = proposalQueue.length.sub(1);
+        emit SubmitRevocationProposal(proposalIndex, msg.sender, memberAddress, grantIndex);
     }
 
     function submitVote(uint256 proposalIndex, uint8 uintVote) public onlyDelegate {
@@ -417,14 +474,15 @@ contract Moloch {
             proposal.didPass = true;
 
             uint256 start = block.timestamp;
-            uint256 end = block.timestamp + proposal.grantDuration;
+            uint256 end = block.timestamp.add(proposal.grantMeta);
             uint256 streamId = guildBank.initiateStream(proposal.applicant, proposal.tokenTribute,  start, end);
 
             Grant memory grant = Grant({
                 streamId: streamId,
                 proposalIndex: proposalIndex,
                 startDate: start,
-                endDate: end
+                endDate: end,
+                wasRevoked: false
             });
 
             grants.push(grant);
@@ -446,12 +504,60 @@ contract Moloch {
             "Moloch::processProposal - failed to return proposal deposit to proposer"
         );
 
-        emit ProcessProposal(
+        emit ProcessGrantProposal(
             proposalIndex,
             proposal.applicant,
             proposal.proposer,
             proposal.tokenTribute,
-            proposal.grantDuration,
+            proposal.grantMeta,
+            didPass
+        );
+    }
+
+    function processRevocationProposal(uint256 proposalIndex) public {
+        require(proposalIndex < proposalQueue.length, "Moloch::processProposal - proposal does not exist");
+        Proposal storage proposal = proposalQueue[proposalIndex];
+
+        require(getCurrentPeriod() >= proposal.startingPeriod.add(votingPeriodLength).add(gracePeriodLength), "Moloch::processProposal - proposal is not ready to be processed");
+        require(proposal.processed == false, "Moloch::processProposal - proposal has already been processed");
+        require(proposalIndex == 0 || proposalQueue[proposalIndex.sub(1)].processed, "Moloch::processProposal - previous proposal must be processed");
+        require(proposal.kind == ProposalKind.Revocation, "Endaoment::processRevocationProposal - not a grant proposal");
+
+        proposal.processed = true;
+
+        bool didPass = proposal.yesVotes > proposal.noVotes;
+
+        // PROPOSAL PASSED
+        if (didPass && !proposal.aborted) {
+
+            proposal.didPass = true;
+
+            Grant storage grant = grants[proposal.grantMeta];
+            grant.wasRevoked = true;
+
+            guildBank.revokeStream(grant.streamId);
+
+        // PROPOSAL FAILED OR ABORTED
+        } else {
+            // TODO: anything?
+        }
+
+        // send msg.sender the processingReward
+        require(
+            approvedToken.transfer(msg.sender, processingReward),
+            "Moloch::processProposal - failed to send processing reward to msg.sender"
+        );
+
+        // return deposit to proposer (subtract processing reward)
+        require(
+            approvedToken.transfer(proposal.proposer, proposalDeposit.sub(processingReward)),
+            "Moloch::processProposal - failed to return proposal deposit to proposer"
+        );
+
+        emit ProcessRevocationProposal(
+            proposalIndex,
+            proposal.proposer,
+            proposal.grantMeta,
             didPass
         );
     }
