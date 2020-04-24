@@ -5,6 +5,7 @@ import "@openzeppelin/contracts-ethereum-package/contracts/math/SafeMath.sol";
 
 interface ISablier {
     function createStream(address recipient, uint256 deposit, address tokenAddress, uint256 startTime, uint256 stopTime) external returns (uint256);
+    function cancelStream(uint256 streamId) external returns (bool);
 }
 
 contract GuildBank {
@@ -29,8 +30,12 @@ contract GuildBank {
         return approvedToken.transfer(receiver, amount);
     }
 
-    function initiateStream(address grantee, uint256 amount, uint256 duration) public onlyOwner {
-        sablier.createStream(grantee, amount, address(approvedToken), block.timestamp, block.timestamp + duration);
+    function initiateStream(address grantee, uint256 amount, uint256 startDate, uint256 endDate) public onlyOwner returns (uint256) {
+        return sablier.createStream(grantee, amount, address(approvedToken), startDate, endDate);
+    }
+
+    function revokeStream(uint256 streamId) public onlyOwner {
+        sablier.cancelStream(streamId);
     }
 
     modifier onlyOwner() {

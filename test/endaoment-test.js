@@ -114,6 +114,9 @@ describe('Moloch', () => {
         await time.increase(VOTING_DURATION + GRACE_DURATION);
 
         await this.instance.processGrantProposal(2, {from: grantee1});
+        const grant = await this.instance.grants(0);
+
+        expect(grant.proposalIndex.toString()).to.equal('2');
     });
 
     // TODO: Test proposal fails if ragequitters deplete required funds

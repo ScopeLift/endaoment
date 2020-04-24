@@ -68,6 +68,13 @@ contract Moloch {
         uint256 highestIndexYesVote; // highest proposal index # on which the member voted YES
     }
 
+    struct Grant {
+        uint256 streamId; // Sablier Stream ID of the grant
+        uint256 proposalIndex; // Position of this Grant in the proposal queue
+        uint256 startDate; // When stream actually began
+        uint256 endDate; // When stream will/did end
+    }
+
     struct Proposal {
         address proposer; // the member who submitted the proposal
         address applicant; // the applicant who wishes to become a member or receive a grant - this key will be used for withdrawals
@@ -89,6 +96,7 @@ contract Moloch {
     mapping (address => Member) public members;
     mapping (address => address) public memberAddressByDelegateKey;
     Proposal[] public proposalQueue;
+    Grant[] public grants;
 
     /********
     MODIFIERS
@@ -407,15 +415,19 @@ contract Moloch {
         if (didPass && !proposal.aborted && hasFunds) {
 
             proposal.didPass = true;
-            guildBank.initiateStream(proposal.applicant, proposal.tokenTribute, proposal.grantDuration);
 
-            // TODO: Call guildbank funciton to start the stream!
+            uint256 start = block.timestamp;
+            uint256 end = block.timestamp + proposal.grantDuration;
+            uint256 streamId = guildBank.initiateStream(proposal.applicant, proposal.tokenTribute,  start, end);
 
-            // transfer tokens to guild bank
-            // require(
-            //     approvedToken.transfer(address(guildBank), proposal.tokenTribute),
-            //     "Moloch::processProposal - token transfer to guild bank failed"
-            // );
+            Grant memory grant = Grant({
+                streamId: streamId,
+                proposalIndex: proposalIndex,
+                startDate: start,
+                endDate: end
+            });
+
+            grants.push(grant);
 
         // PROPOSAL FAILED OR ABORTED
         } else {
