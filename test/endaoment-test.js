@@ -4,7 +4,7 @@ const { time, expectEvent, expectRevert } = require('@openzeppelin/test-helpers'
 const { expect } = require('chai');
 const Moloch = contract.fromArtifact('Moloch');
 const GuildBank = contract.fromArtifact('GuildBank');
-const { toWeiDai, stealDai, approveDai } = require('./helpers');
+const { toWeiDai, stealDai, approveDai, daiBalance } = require('./helpers');
 
 const PERIOD_DURATION = 17280;
 const VOTING_PERIODS = 35;
@@ -119,5 +119,37 @@ describe('Moloch', () => {
         expect(grant.proposalIndex.toString()).to.equal('2');
     });
 
-    // TODO: Test proposal fails if ragequitters deplete required funds
+    it('should allow a revocation proposal', async () => {
+        await this.instance.submitRevocationProposal(0, "revoke grantee1", {from: summoner});
+        const proposal = await this.instance.proposalQueue(3);
+        expect(proposal.details).to.equal("revoke grantee1");
+    });
+
+    it('should allow members to vote on a revocation proposal', async () => {
+        await time.increase(PERIOD_DURATION);
+
+        await this.instance.submitVote(3, 2, {from: member1});
+        await this.instance.submitVote(3, 1, {from: member2});
+
+        const proposal = await this.instance.proposalQueue(3);
+
+        expect(proposal.yesVotes.toString()).to.equal('3000');
+        expect(proposal.noVotes.toString()).to.equal('2000');
+    });
+
+    it('should process a successful revocation proposal', async () => {
+        await  time.increase(VOTING_DURATION + GRACE_DURATION);
+
+        const initialGuildBalance = await daiBalance(this.guildBank.address);
+
+        await this.instance.processRevocationProposal(3, {from: summoner});
+
+        const grant = await this.instance.grants(0);
+        const postGuildBalance = await daiBalance(this.guildBank.address);
+
+        expect(grant.wasRevoked).to.be.true;
+        expect(postGuildBalance.gt(initialGuildBalance)).to.be.true;
+    });
+
+    // TODO: Test grant proposal fails if ragequitters deplete required funds
 });
