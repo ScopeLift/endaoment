@@ -470,7 +470,6 @@ contract Moloch {
 
         // PROPOSAL PASSED
         if (didPass && !proposal.aborted && hasFunds) {
-
             proposal.didPass = true;
 
             uint256 start = block.timestamp;
@@ -486,10 +485,6 @@ contract Moloch {
             });
 
             grants.push(grant);
-
-        // PROPOSAL FAILED OR ABORTED
-        } else {
-            // TODO: anything?
         }
 
         // send msg.sender the processingReward
@@ -529,17 +524,12 @@ contract Moloch {
 
         // PROPOSAL PASSED
         if (didPass && !proposal.aborted) {
-
             proposal.didPass = true;
 
             Grant storage grant = grants[proposal.grantMeta];
             grant.wasRevoked = true;
 
             guildBank.revokeStream(grant.streamId);
-
-        // PROPOSAL FAILED OR ABORTED
-        } else {
-            // TODO: anything?
         }
 
         // send msg.sender the processingReward
