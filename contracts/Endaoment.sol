@@ -4,7 +4,7 @@ import "@openzeppelin/contracts-ethereum-package/contracts/math/SafeMath.sol";
 import "@openzeppelin/contracts-ethereum-package/contracts/token/ERC20/IERC20.sol";
 import "./GuildBank.sol";
 
-contract Moloch {
+contract Endaoment {
     using SafeMath for uint256;
 
     /***************
@@ -105,12 +105,12 @@ contract Moloch {
     MODIFIERS
     ********/
     modifier onlyMember {
-        require(members[msg.sender].shares > 0, "Moloch::onlyMember - not a member");
+        require(members[msg.sender].shares > 0, "Endaoment::onlyMember - not a member");
         _;
     }
 
     modifier onlyDelegate {
-        require(members[memberAddressByDelegateKey[msg.sender]].shares > 0, "Moloch::onlyDelegate - not a delegate");
+        require(members[memberAddressByDelegateKey[msg.sender]].shares > 0, "Endaoment::onlyDelegate - not a delegate");
         _;
     }
 
@@ -130,17 +130,17 @@ contract Moloch {
         string memory _name,
         string memory _description
     ) public {
-        require(summoner != address(0), "Moloch::constructor - summoner cannot be 0");
-        require(_approvedToken != address(0), "Moloch::constructor - _approvedToken cannot be 0");
-        require(_periodDuration > 0, "Moloch::constructor - _periodDuration cannot be 0");
-        require(_votingPeriodLength > 0, "Moloch::constructor - _votingPeriodLength cannot be 0");
-        require(_votingPeriodLength <= MAX_VOTING_PERIOD_LENGTH, "Moloch::constructor - _votingPeriodLength exceeds limit");
-        require(_gracePeriodLength <= MAX_GRACE_PERIOD_LENGTH, "Moloch::constructor - _gracePeriodLength exceeds limit");
-        require(_abortWindow > 0, "Moloch::constructor - _abortWindow cannot be 0");
-        require(_abortWindow <= _votingPeriodLength, "Moloch::constructor - _abortWindow must be smaller than or equal to _votingPeriodLength");
-        require(_dilutionBound > 0, "Moloch::constructor - _dilutionBound cannot be 0");
-        require(_dilutionBound <= MAX_DILUTION_BOUND, "Moloch::constructor - _dilutionBound exceeds limit");
-        require(_proposalDeposit >= _processingReward, "Moloch::constructor - _proposalDeposit cannot be smaller than _processingReward");
+        require(summoner != address(0), "Endaoment::constructor - summoner cannot be 0");
+        require(_approvedToken != address(0), "Endaoment::constructor - _approvedToken cannot be 0");
+        require(_periodDuration > 0, "Endaoment::constructor - _periodDuration cannot be 0");
+        require(_votingPeriodLength > 0, "Endaoment::constructor - _votingPeriodLength cannot be 0");
+        require(_votingPeriodLength <= MAX_VOTING_PERIOD_LENGTH, "Endaoment::constructor - _votingPeriodLength exceeds limit");
+        require(_gracePeriodLength <= MAX_GRACE_PERIOD_LENGTH, "Endaoment::constructor - _gracePeriodLength exceeds limit");
+        require(_abortWindow > 0, "Endaoment::constructor - _abortWindow cannot be 0");
+        require(_abortWindow <= _votingPeriodLength, "Endaoment::constructor - _abortWindow must be smaller than or equal to _votingPeriodLength");
+        require(_dilutionBound > 0, "Endaoment::constructor - _dilutionBound cannot be 0");
+        require(_dilutionBound <= MAX_DILUTION_BOUND, "Endaoment::constructor - _dilutionBound exceeds limit");
+        require(_proposalDeposit >= _processingReward, "Endaoment::constructor - _proposalDeposit cannot be smaller than _processingReward");
 
         approvedToken = IERC20(_approvedToken);
 
@@ -176,22 +176,22 @@ contract Moloch {
         public
         onlyDelegate
     {
-        require(applicant != address(0), "Moloch::submitProposal - applicant cannot be 0");
+        require(applicant != address(0), "Endaoment::submitProposal - applicant cannot be 0");
 
         // Make sure we won't run into overflows when doing calculations with shares.
         // Note that totalShares + totalSharesRequested + sharesRequested is an upper bound
         // on the number of shares that can exist until this proposal has been processed.
-        require(totalShares.add(totalSharesRequested).add(sharesRequested) <= MAX_NUMBER_OF_SHARES, "Moloch::submitProposal - too many shares requested");
+        require(totalShares.add(totalSharesRequested).add(sharesRequested) <= MAX_NUMBER_OF_SHARES, "Endaoment::submitProposal - too many shares requested");
 
         totalSharesRequested = totalSharesRequested.add(sharesRequested);
 
         address memberAddress = memberAddressByDelegateKey[msg.sender];
 
-        // collect proposal deposit from proposer and store it in the Moloch until the proposal is processed
-        require(approvedToken.transferFrom(msg.sender, address(this), proposalDeposit), "Moloch::submitProposal - proposal deposit token transfer failed");
+        // collect proposal deposit from proposer and store it in the Endaoment until the proposal is processed
+        require(approvedToken.transferFrom(msg.sender, address(this), proposalDeposit), "Endaoment::submitProposal - proposal deposit token transfer failed");
 
-        // collect tribute from applicant and store it in the Moloch until the proposal is processed
-        require(approvedToken.transferFrom(applicant, address(this), tokenTribute), "Moloch::submitProposal - tribute token transfer failed");
+        // collect tribute from applicant and store it in the Endaoment until the proposal is processed
+        require(approvedToken.transferFrom(applicant, address(this), tokenTribute), "Endaoment::submitProposal - tribute token transfer failed");
 
         // compute startingPeriod for proposal
         uint256 startingPeriod = max(
@@ -239,13 +239,13 @@ contract Moloch {
         public
         onlyDelegate
     {
-        require(applicant != address(0), "Moloch::submitProposal - applicant cannot be 0");
+        require(applicant != address(0), "Endaoment::submitProposal - applicant cannot be 0");
         require(tokenGrant <= approvedToken.balanceOf(address(guildBank)), "Endaoment::submitGrantProposal - grant is greater than treasury");
 
         address memberAddress = memberAddressByDelegateKey[msg.sender];
 
-        // collect proposal deposit from proposer and store it in the Moloch until the proposal is processed
-        require(approvedToken.transferFrom(msg.sender, address(this), proposalDeposit), "Moloch::submitProposal - proposal deposit token transfer failed");
+        // collect proposal deposit from proposer and store it in the Endaoment until the proposal is processed
+        require(approvedToken.transferFrom(msg.sender, address(this), proposalDeposit), "Endaoment::submitProposal - proposal deposit token transfer failed");
 
         // compute startingPeriod for proposal
         uint256 startingPeriod = max(
@@ -298,8 +298,8 @@ contract Moloch {
 
         address memberAddress = memberAddressByDelegateKey[msg.sender];
 
-        // collect proposal deposit from proposer and store it in the Moloch until the proposal is processed
-        require(approvedToken.transferFrom(msg.sender, address(this), proposalDeposit), "Moloch::submitProposal - proposal deposit token transfer failed");
+        // collect proposal deposit from proposer and store it in the Endaoment until the proposal is processed
+        require(approvedToken.transferFrom(msg.sender, address(this), proposalDeposit), "Endaoment::submitProposal - proposal deposit token transfer failed");
 
         // compute startingPeriod for proposal
         uint256 startingPeriod = max(
@@ -336,17 +336,17 @@ contract Moloch {
         address memberAddress = memberAddressByDelegateKey[msg.sender];
         Member storage member = members[memberAddress];
 
-        require(proposalIndex < proposalQueue.length, "Moloch::submitVote - proposal does not exist");
+        require(proposalIndex < proposalQueue.length, "Endaoment::submitVote - proposal does not exist");
         Proposal storage proposal = proposalQueue[proposalIndex];
 
-        require(uintVote < 3, "Moloch::submitVote - uintVote must be less than 3");
+        require(uintVote < 3, "Endaoment::submitVote - uintVote must be less than 3");
         Vote vote = Vote(uintVote);
 
-        require(getCurrentPeriod() >= proposal.startingPeriod, "Moloch::submitVote - voting period has not started");
-        require(!hasVotingPeriodExpired(proposal.startingPeriod), "Moloch::submitVote - proposal voting period has expired");
-        require(proposal.votesByMember[memberAddress] == Vote.Null, "Moloch::submitVote - member has already voted on this proposal");
-        require(vote == Vote.Yes || vote == Vote.No, "Moloch::submitVote - vote must be either Yes or No");
-        require(!proposal.aborted, "Moloch::submitVote - proposal has been aborted");
+        require(getCurrentPeriod() >= proposal.startingPeriod, "Endaoment::submitVote - voting period has not started");
+        require(!hasVotingPeriodExpired(proposal.startingPeriod), "Endaoment::submitVote - proposal voting period has expired");
+        require(proposal.votesByMember[memberAddress] == Vote.Null, "Endaoment::submitVote - member has already voted on this proposal");
+        require(vote == Vote.Yes || vote == Vote.No, "Endaoment::submitVote - vote must be either Yes or No");
+        require(!proposal.aborted, "Endaoment::submitVote - proposal has been aborted");
 
         // store vote
         proposal.votesByMember[memberAddress] = vote;
@@ -373,12 +373,12 @@ contract Moloch {
     }
 
     function processProposal(uint256 proposalIndex) public {
-        require(proposalIndex < proposalQueue.length, "Moloch::processProposal - proposal does not exist");
+        require(proposalIndex < proposalQueue.length, "Endaoment::processProposal - proposal does not exist");
         Proposal storage proposal = proposalQueue[proposalIndex];
 
-        require(getCurrentPeriod() >= proposal.startingPeriod.add(votingPeriodLength).add(gracePeriodLength), "Moloch::processProposal - proposal is not ready to be processed");
-        require(proposal.processed == false, "Moloch::processProposal - proposal has already been processed");
-        require(proposalIndex == 0 || proposalQueue[proposalIndex.sub(1)].processed, "Moloch::processProposal - previous proposal must be processed");
+        require(getCurrentPeriod() >= proposal.startingPeriod.add(votingPeriodLength).add(gracePeriodLength), "Endaoment::processProposal - proposal is not ready to be processed");
+        require(proposal.processed == false, "Endaoment::processProposal - proposal has already been processed");
+        require(proposalIndex == 0 || proposalQueue[proposalIndex.sub(1)].processed, "Endaoment::processProposal - previous proposal must be processed");
         require(proposal.kind == ProposalKind.Membership, "Endaoment::processProposal - not a membership proposal");
 
         proposal.processed = true;
@@ -420,7 +420,7 @@ contract Moloch {
             // transfer tokens to guild bank
             require(
                 approvedToken.transfer(address(guildBank), proposal.tokenTribute),
-                "Moloch::processProposal - token transfer to guild bank failed"
+                "Endaoment::processProposal - token transfer to guild bank failed"
             );
 
         // PROPOSAL FAILED OR ABORTED
@@ -428,20 +428,20 @@ contract Moloch {
             // return all tokens to the applicant
             require(
                 approvedToken.transfer(proposal.applicant, proposal.tokenTribute),
-                "Moloch::processProposal - failing vote token transfer failed"
+                "Endaoment::processProposal - failing vote token transfer failed"
             );
         }
 
         // send msg.sender the processingReward
         require(
             approvedToken.transfer(msg.sender, processingReward),
-            "Moloch::processProposal - failed to send processing reward to msg.sender"
+            "Endaoment::processProposal - failed to send processing reward to msg.sender"
         );
 
         // return deposit to proposer (subtract processing reward)
         require(
             approvedToken.transfer(proposal.proposer, proposalDeposit.sub(processingReward)),
-            "Moloch::processProposal - failed to return proposal deposit to proposer"
+            "Endaoment::processProposal - failed to return proposal deposit to proposer"
         );
 
         emit ProcessProposal(
@@ -455,12 +455,12 @@ contract Moloch {
     }
 
     function processGrantProposal(uint256 proposalIndex) public {
-        require(proposalIndex < proposalQueue.length, "Moloch::processProposal - proposal does not exist");
+        require(proposalIndex < proposalQueue.length, "Endaoment::processProposal - proposal does not exist");
         Proposal storage proposal = proposalQueue[proposalIndex];
 
-        require(getCurrentPeriod() >= proposal.startingPeriod.add(votingPeriodLength).add(gracePeriodLength), "Moloch::processProposal - proposal is not ready to be processed");
-        require(proposal.processed == false, "Moloch::processProposal - proposal has already been processed");
-        require(proposalIndex == 0 || proposalQueue[proposalIndex.sub(1)].processed, "Moloch::processProposal - previous proposal must be processed");
+        require(getCurrentPeriod() >= proposal.startingPeriod.add(votingPeriodLength).add(gracePeriodLength), "Endaoment::processProposal - proposal is not ready to be processed");
+        require(proposal.processed == false, "Endaoment::processProposal - proposal has already been processed");
+        require(proposalIndex == 0 || proposalQueue[proposalIndex.sub(1)].processed, "Endaoment::processProposal - previous proposal must be processed");
         require(proposal.kind == ProposalKind.Grant, "Endaoment::processGrantProposal - not a grant proposal");
 
         proposal.processed = true;
@@ -490,13 +490,13 @@ contract Moloch {
         // send msg.sender the processingReward
         require(
             approvedToken.transfer(msg.sender, processingReward),
-            "Moloch::processProposal - failed to send processing reward to msg.sender"
+            "Endaoment::processProposal - failed to send processing reward to msg.sender"
         );
 
         // return deposit to proposer (subtract processing reward)
         require(
             approvedToken.transfer(proposal.proposer, proposalDeposit.sub(processingReward)),
-            "Moloch::processProposal - failed to return proposal deposit to proposer"
+            "Endaoment::processProposal - failed to return proposal deposit to proposer"
         );
 
         emit ProcessGrantProposal(
@@ -510,12 +510,12 @@ contract Moloch {
     }
 
     function processRevocationProposal(uint256 proposalIndex) public {
-        require(proposalIndex < proposalQueue.length, "Moloch::processProposal - proposal does not exist");
+        require(proposalIndex < proposalQueue.length, "Endaoment::processProposal - proposal does not exist");
         Proposal storage proposal = proposalQueue[proposalIndex];
 
-        require(getCurrentPeriod() >= proposal.startingPeriod.add(votingPeriodLength).add(gracePeriodLength), "Moloch::processProposal - proposal is not ready to be processed");
-        require(proposal.processed == false, "Moloch::processProposal - proposal has already been processed");
-        require(proposalIndex == 0 || proposalQueue[proposalIndex.sub(1)].processed, "Moloch::processProposal - previous proposal must be processed");
+        require(getCurrentPeriod() >= proposal.startingPeriod.add(votingPeriodLength).add(gracePeriodLength), "Endaoment::processProposal - proposal is not ready to be processed");
+        require(proposal.processed == false, "Endaoment::processProposal - proposal has already been processed");
+        require(proposalIndex == 0 || proposalQueue[proposalIndex.sub(1)].processed, "Endaoment::processProposal - previous proposal must be processed");
         require(proposal.kind == ProposalKind.Revocation, "Endaoment::processRevocationProposal - not a grant proposal");
 
         proposal.processed = true;
@@ -535,13 +535,13 @@ contract Moloch {
         // send msg.sender the processingReward
         require(
             approvedToken.transfer(msg.sender, processingReward),
-            "Moloch::processProposal - failed to send processing reward to msg.sender"
+            "Endaoment::processProposal - failed to send processing reward to msg.sender"
         );
 
         // return deposit to proposer (subtract processing reward)
         require(
             approvedToken.transfer(proposal.proposer, proposalDeposit.sub(processingReward)),
-            "Moloch::processProposal - failed to return proposal deposit to proposer"
+            "Endaoment::processProposal - failed to return proposal deposit to proposer"
         );
 
         emit ProcessRevocationProposal(
@@ -557,9 +557,9 @@ contract Moloch {
 
         Member storage member = members[msg.sender];
 
-        require(member.shares >= sharesToBurn, "Moloch::ragequit - insufficient shares");
+        require(member.shares >= sharesToBurn, "Endaoment::ragequit - insufficient shares");
 
-        require(canRagequit(member.highestIndexYesVote), "Moloch::ragequit - cant ragequit until highest index proposal member voted YES on is processed");
+        require(canRagequit(member.highestIndexYesVote), "Endaoment::ragequit - cant ragequit until highest index proposal member voted YES on is processed");
 
         // burn shares
         member.shares = member.shares.sub(sharesToBurn);
@@ -568,19 +568,19 @@ contract Moloch {
         // instruct guildBank to transfer fair share of tokens to the ragequitter
         require(
             guildBank.withdraw(msg.sender, sharesToBurn, initialTotalShares),
-            "Moloch::ragequit - withdrawal of tokens from guildBank failed"
+            "Endaoment::ragequit - withdrawal of tokens from guildBank failed"
         );
 
         emit Ragequit(msg.sender, sharesToBurn);
     }
 
     function abort(uint256 proposalIndex) public {
-        require(proposalIndex < proposalQueue.length, "Moloch::abort - proposal does not exist");
+        require(proposalIndex < proposalQueue.length, "Endaoment::abort - proposal does not exist");
         Proposal storage proposal = proposalQueue[proposalIndex];
 
-        require(msg.sender == proposal.applicant, "Moloch::abort - msg.sender must be applicant");
-        require(getCurrentPeriod() < proposal.startingPeriod.add(abortWindow), "Moloch::abort - abort window must not have passed");
-        require(!proposal.aborted, "Moloch::abort - proposal must not have already been aborted");
+        require(msg.sender == proposal.applicant, "Endaoment::abort - msg.sender must be applicant");
+        require(getCurrentPeriod() < proposal.startingPeriod.add(abortWindow), "Endaoment::abort - abort window must not have passed");
+        require(!proposal.aborted, "Endaoment::abort - proposal must not have already been aborted");
 
         uint256 tokensToAbort = proposal.tokenTribute;
         proposal.tokenTribute = 0;
@@ -589,19 +589,19 @@ contract Moloch {
         // return all tokens to the applicant
         require(
             approvedToken.transfer(proposal.applicant, tokensToAbort),
-            "Moloch::processProposal - failed to return tribute to applicant"
+            "Endaoment::processProposal - failed to return tribute to applicant"
         );
 
         emit Abort(proposalIndex, msg.sender);
     }
 
     function updateDelegateKey(address newDelegateKey) public onlyMember {
-        require(newDelegateKey != address(0), "Moloch::updateDelegateKey - newDelegateKey cannot be 0");
+        require(newDelegateKey != address(0), "Endaoment::updateDelegateKey - newDelegateKey cannot be 0");
 
         // skip checks if member is setting the delegate key to their member address
         if (newDelegateKey != msg.sender) {
-            require(!members[newDelegateKey].exists, "Moloch::updateDelegateKey - cant overwrite existing members");
-            require(!members[memberAddressByDelegateKey[newDelegateKey]].exists, "Moloch::updateDelegateKey - cant overwrite existing delegate keys");
+            require(!members[newDelegateKey].exists, "Endaoment::updateDelegateKey - cant overwrite existing members");
+            require(!members[memberAddressByDelegateKey[newDelegateKey]].exists, "Endaoment::updateDelegateKey - cant overwrite existing delegate keys");
         }
 
         Member storage member = members[msg.sender];
@@ -630,7 +630,7 @@ contract Moloch {
 
     // can only ragequit if the latest proposal you voted YES on has been processed
     function canRagequit(uint256 highestIndexYesVote) public view returns (bool) {
-        require(highestIndexYesVote < proposalQueue.length, "Moloch::canRagequit - proposal does not exist");
+        require(highestIndexYesVote < proposalQueue.length, "Endaoment::canRagequit - proposal does not exist");
         return proposalQueue[highestIndexYesVote].processed;
     }
 
@@ -639,8 +639,8 @@ contract Moloch {
     }
 
     function getMemberProposalVote(address memberAddress, uint256 proposalIndex) public view returns (Vote) {
-        require(members[memberAddress].exists, "Moloch::getMemberProposalVote - member doesn't exist");
-        require(proposalIndex < proposalQueue.length, "Moloch::getMemberProposalVote - proposal doesn't exist");
+        require(members[memberAddress].exists, "Endaoment::getMemberProposalVote - member doesn't exist");
+        require(proposalIndex < proposalQueue.length, "Endaoment::getMemberProposalVote - proposal doesn't exist");
         return proposalQueue[proposalIndex].votesByMember[memberAddress];
     }
 }

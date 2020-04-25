@@ -2,7 +2,7 @@ require('dotenv').config();
 const { accounts, contract, web3 } = require('@openzeppelin/test-environment');
 const { time, expectEvent, expectRevert } = require('@openzeppelin/test-helpers');
 const { expect } = require('chai');
-const Moloch = contract.fromArtifact('Moloch');
+const Endaoment = contract.fromArtifact('Endaoment');
 const GuildBank = contract.fromArtifact('GuildBank');
 const { toWeiDai, stealDai, approveDai, daiBalance } = require('./helpers');
 
@@ -15,11 +15,11 @@ const GRACE_DURATION = GRACE_PERIODS * PERIOD_DURATION;
 
 const GrantDuration = 30*24*60*60;
 
-describe('Moloch', () => {
+describe('Endaoment', () => {
     const [ summoner, member1, member2, grantee1 ] = accounts;
 
     before(async () => {
-        this.instance = await Moloch.new(
+        this.instance = await Endaoment.new(
             summoner,
             process.env.DAI_ADDR, // address _approvedToken (DAI address)
             PERIOD_DURATION, // uint256 _periodDuration
@@ -45,7 +45,7 @@ describe('Moloch', () => {
         await approveDai(member2, this.instance.address);
     });
 
-    it('should see the deployed Moloch contract', async () => {
+    it('should see the deployed Endaoment contract', async () => {
         expect(this.instance.address.startsWith('0x')).to.be.true;
         expect(this.instance.address.length).to.equal(42);
     });

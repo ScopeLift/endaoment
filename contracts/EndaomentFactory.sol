@@ -1,6 +1,6 @@
 pragma solidity ^0.5.0;
 
-import "./Moloch.sol";
+import "./Endaoment.sol";
 
 contract EndaomentFactory {
 
@@ -28,7 +28,7 @@ contract EndaomentFactory {
     string calldata _description
   ) external {
 
-    Moloch endaoment = new Moloch(
+    Endaoment endaoment = new Endaoment(
       summoner,
       _approvedToken,
       _periodDuration,
