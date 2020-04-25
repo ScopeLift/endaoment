@@ -1,5 +1,5 @@
 const { web3 } = require('@openzeppelin/test-environment');
-const daiAbi = require('./dai.json').abi;
+const daiAbi = require('../abi/dai.json').abi;
 
 const daiFunder = process.env.DAI_FUNDER;
 const daiAddress = process.env.DAI_ADDR;
