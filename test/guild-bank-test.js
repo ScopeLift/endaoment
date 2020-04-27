@@ -7,6 +7,7 @@ const { toWeiDai, stealDai, approveDai, daiBalance, cDaiBalance } = require('./h
 
 const daiAddr = process.env.DAI_ADDR;
 const cDaiAddr = process.env.CDAI_ADDR;
+const firtDeposit = new web3.utils.BN('1000');
 
 describe('GuildBank', () => {
     const [ owner ] = accounts;
@@ -37,11 +38,19 @@ describe('GuildBank', () => {
         const initialBalance = await cDaiBalance(this.instance.address);
         expect(initialBalance.toString()).to.equal('0');
 
-        const result = await this.instance.deposit(toWeiDai(1000), {from: owner});
-        expect(result.receipt.status).to.be.true;
-
+        await this.instance.deposit(toWeiDai(firtDeposit), {from: owner});
         const afterBalance = await cDaiBalance(this.instance.address);
 
         expect(afterBalance.gt(initialBalance)).to.be.true;
+    });
+
+    it('should allow the owner to withdraw from the GuildBank', async () => {
+        const initialBalance = await daiBalance(owner);
+        await this.instance.withdraw(owner, 1, 1, {from: owner});
+
+        const afterBalance = await daiBalance(owner);
+        const balanceDiff = afterBalance.sub(initialBalance);
+
+        expect(balanceDiff.gt(firtDeposit)).to.be.true;
     });
 });

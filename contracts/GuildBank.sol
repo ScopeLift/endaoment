@@ -9,6 +9,8 @@ interface ISablier {
 }
 
 interface ICToken {
+    function balanceOf(address) external returns (uint256);
+
     function approve(address, uint256) external returns (bool);
     function transfer(address, uint256) external returns (bool);
     function mint(uint256) external returns (uint256);
@@ -59,9 +61,19 @@ contract GuildBank {
     }
 
     function withdraw(address receiver, uint256 shares, uint256 totalShares) public onlyOwner returns (bool) {
-        uint256 amount = approvedToken.balanceOf(address(this)).mul(shares).div(totalShares);
-        emit Withdrawal(receiver, amount);
-        return approvedToken.transfer(receiver, amount);
+        // should be 0 unless someone sent token to GB
+        uint256 initialApprovedBalance = approvedToken.balanceOf(address(this));
+        uint256 amount = cToken.balanceOf(address(this)).mul(shares).div(totalShares);
+        uint256 redeemCode = cToken.redeem(amount);
+
+        if (0 != redeemCode) {
+            return false;
+        }
+
+        uint256 approvedAmount = approvedToken.balanceOf(address(this)).sub(initialApprovedBalance);
+
+        emit Withdrawal(receiver, approvedAmount);
+        return approvedToken.transfer(receiver, approvedAmount);
     }
 
     function initiateStream(address grantee, uint256 amount, uint256 startDate, uint256 endDate) public onlyOwner returns (uint256) {
