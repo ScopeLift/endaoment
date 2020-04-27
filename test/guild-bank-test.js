@@ -3,14 +3,17 @@ const { accounts, contract, web3 } = require('@openzeppelin/test-environment');
 const { time, expectEvent, expectRevert } = require('@openzeppelin/test-helpers');
 const { expect } = require('chai');
 const GuildBank = contract.fromArtifact('GuildBank');
-const { toWeiDai, stealDai, approveDai, daiBalance, cDaiBalance } = require('./helpers');
+const { toWeiDai, stealDai, approveDai, daiBalance, cDaiBalance, dai2cDai } = require('./helpers');
 
 const daiAddr = process.env.DAI_ADDR;
 const cDaiAddr = process.env.CDAI_ADDR;
-const firtDeposit = new web3.utils.BN('1000');
+const deposit = new web3.utils.BN('2000');
+const grant = new web3.utils.BN('1000');
+
+const GrantDuration = 30*24*60*60;
 
 describe('GuildBank', () => {
-    const [ owner ] = accounts;
+    const [ owner, grantee ] = accounts;
 
     before(async () => {
         this.instance = await GuildBank.new(
@@ -38,7 +41,7 @@ describe('GuildBank', () => {
         const initialBalance = await cDaiBalance(this.instance.address);
         expect(initialBalance.toString()).to.equal('0');
 
-        await this.instance.deposit(toWeiDai(firtDeposit), {from: owner});
+        await this.instance.deposit(toWeiDai(deposit), {from: owner});
         const afterBalance = await cDaiBalance(this.instance.address);
 
         expect(afterBalance.gt(initialBalance)).to.be.true;
@@ -51,6 +54,34 @@ describe('GuildBank', () => {
         const afterBalance = await daiBalance(owner);
         const balanceDiff = afterBalance.sub(initialBalance);
 
-        expect(balanceDiff.gt(firtDeposit)).to.be.true;
+        expect(balanceDiff.gt(deposit)).to.be.true;
     });
+
+    it('should allow the owner to deposit in the GuildBank again', async () => {
+        const result = await this.instance.deposit(toWeiDai(deposit), {from: owner});
+        expect(result.receipt.status).to.be.true;
+    });
+
+    it('should allow the owner to initiate a stream', async () => {
+        // Get the grant amount cDai
+        const cDaiAmount = await dai2cDai(grant);
+
+        // Calculate the divisible amount of cDai for stream
+        const desiredAmount = new web3.utils.BN(cDaiAmount);
+        const duration = new web3.utils.BN(GrantDuration);
+        const remainder = desiredAmount.mod(duration);
+        const divisibleAmount = desiredAmount.sub(remainder);
+
+        // Calculate the start date start date
+        const lastBlock = await web3.eth.getBlock('latest');
+        const startDate = lastBlock.timestamp + 1000;
+
+        // Initiate the stream
+        const result = await this.instance.initiateStream(grantee, divisibleAmount, startDate, startDate + GrantDuration, {from: owner});
+
+        expect(result.receipt.status).to.be.true;
+    });
+
+    // TODO: Get the stream id from an event emitted by GuildBank. Save it. Fast forward time and blocks.
+    // Allow the grantee to withdraw from the stream. Confirm the GuildBank is paid interest when they do.
 });

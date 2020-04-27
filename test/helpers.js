@@ -31,3 +31,15 @@ exports.cDaiBalance = async(holder) => {
     const stringBalance = await cDaiContract.methods.balanceOf(holder).call();
     return new web3.utils.BN(stringBalance);
 };
+
+exports.dai2cDai = async(amount) => {
+    const cDaiContract = new web3.eth.Contract(cDaiAbi, cDaiAddress);
+
+    const rawExchangeRate = new web3.utils.BN(await cDaiContract.methods.exchangeRateCurrent().call());
+    const scale = new web3.utils.BN(web3.utils.toWei('1', 'ether'));
+    const exchangeRate = rawExchangeRate.div(scale);
+    const daiAmount = new web3.utils.BN(this.toWeiDai(amount));
+    const cDaiAmount = daiAmount.div(exchangeRate);
+
+    return cDaiAmount.toString();
+}

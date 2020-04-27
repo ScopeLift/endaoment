@@ -4,7 +4,16 @@ import "@openzeppelin/contracts-ethereum-package/contracts/token/ERC20/IERC20.so
 import "@openzeppelin/contracts-ethereum-package/contracts/math/SafeMath.sol";
 
 interface ISablier {
-    function createStream(address recipient, uint256 deposit, address tokenAddress, uint256 startTime, uint256 stopTime) external returns (uint256);
+    function createCompoundingStream(
+        address recipient,
+        uint256 deposit,
+        address tokenAddress,
+        uint256 startTime,
+        uint256 stopTime,
+        uint256 senderSharePercentage,
+        uint256 recipientSharePercentage) external
+                                          returns (uint256);
+
     function cancelStream(uint256 streamId) external returns (bool);
 }
 
@@ -36,10 +45,10 @@ contract GuildBank {
 
         sablier = ISablier(0xA4fc358455Febe425536fd1878bE67FfDBDEC59a);
         cToken = ICToken(cTokenAddress);
-
         approvedToken = IERC20(approvedTokenAddress);
-        approvedToken.approve(address(sablier), uint256(-1));
+
         approvedToken.approve(address(cToken), uint256(-1));
+        cToken.approve(address(sablier), uint256(-1));
     }
 
     function deposit(uint256 amount) public onlyOwner returns (bool) {
@@ -76,8 +85,12 @@ contract GuildBank {
         return approvedToken.transfer(receiver, approvedAmount);
     }
 
+    // TODO: switch to cStreams
+    // Update endaoment to use deposit
+    // Some endaoment tests might fail?
+
     function initiateStream(address grantee, uint256 amount, uint256 startDate, uint256 endDate) public onlyOwner returns (uint256) {
-        return sablier.createStream(grantee, amount, address(approvedToken), startDate, endDate);
+        return sablier.createCompoundingStream(grantee, amount, address(cToken), startDate, endDate, 100, 0);
     }
 
     function revokeStream(uint256 streamId) public onlyOwner {
