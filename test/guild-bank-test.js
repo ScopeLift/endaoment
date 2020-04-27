@@ -3,7 +3,7 @@ const { accounts, contract, web3 } = require('@openzeppelin/test-environment');
 const { time, expectEvent, expectRevert } = require('@openzeppelin/test-helpers');
 const { expect } = require('chai');
 const GuildBank = contract.fromArtifact('GuildBank');
-const { toWeiDai, stealDai, approveDai, daiBalance } = require('./helpers');
+const { toWeiDai, stealDai, approveDai, daiBalance, cDaiBalance } = require('./helpers');
 
 const daiAddr = process.env.DAI_ADDR;
 const cDaiAddr = process.env.CDAI_ADDR;
@@ -31,5 +31,17 @@ describe('GuildBank', () => {
 
         expect(gbOwner).to.equal(owner);
         expect(approvedToken).to.equal(daiAddr);
+    });
+
+    it('should allow the owner to deposit to the GuildBank', async () => {
+        const initialBalance = await cDaiBalance(this.instance.address);
+        expect(initialBalance.toString()).to.equal('0');
+
+        const result = await this.instance.deposit(toWeiDai(1000), {from: owner});
+        expect(result.receipt.status).to.be.true;
+
+        const afterBalance = await cDaiBalance(this.instance.address);
+
+        expect(afterBalance.gt(initialBalance)).to.be.true;
     });
 });

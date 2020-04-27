@@ -27,6 +27,7 @@ contract GuildBank {
     ISablier public sablier;
 
     event Withdrawal(address indexed receiver, uint256 amount);
+    event Deposit(uint256 indexed amount);
 
     constructor(address approvedTokenAddress, address cTokenAddress) public {
         owner = msg.sender;
@@ -37,6 +38,24 @@ contract GuildBank {
         approvedToken = IERC20(approvedTokenAddress);
         approvedToken.approve(address(sablier), uint256(-1));
         approvedToken.approve(address(cToken), uint256(-1));
+    }
+
+    function deposit(uint256 amount) public onlyOwner returns (bool) {
+        bool transferSuccess = approvedToken.transferFrom(owner, address(this), amount);
+
+        if (!transferSuccess) {
+            return false;
+        }
+
+        uint256 mintCode = cToken.mint(amount);
+
+        if (0 == mintCode) {
+            return false;
+        }
+
+        emit Deposit(amount);
+
+        return true;
     }
 
     function withdraw(address receiver, uint256 shares, uint256 totalShares) public onlyOwner returns (bool) {
