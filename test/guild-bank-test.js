@@ -6,6 +6,7 @@ const GuildBank = contract.fromArtifact('GuildBank');
 const { toWeiDai, stealDai, approveDai, daiBalance } = require('./helpers');
 
 const daiAddr = process.env.DAI_ADDR;
+const cDaiAddr = process.env.CDAI_ADDR;
 
 describe('GuildBank', () => {
     const [ owner ] = accounts;
@@ -13,6 +14,7 @@ describe('GuildBank', () => {
     before(async () => {
         this.instance = await GuildBank.new(
             daiAddr,
+            cDaiAddr,
             {from: owner}
         );
 

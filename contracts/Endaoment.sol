@@ -144,7 +144,9 @@ contract Endaoment {
 
         approvedToken = IERC20(_approvedToken);
 
-        guildBank = new GuildBank(_approvedToken);
+        // Note: Trying to pass the cToken address into the Endaoment contructor results in
+        // solc "Stack to deep" errors. Hardcoded cDai here for now.
+        guildBank = new GuildBank(_approvedToken, 0x5d3a536E4D6DbD6114cc1Ead35777bAB948E3643);
 
         periodDuration = _periodDuration;
         votingPeriodLength = _votingPeriodLength;

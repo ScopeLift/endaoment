@@ -8,20 +8,35 @@ interface ISablier {
     function cancelStream(uint256 streamId) external returns (bool);
 }
 
+interface ICToken {
+    function approve(address, uint256) external returns (bool);
+    function transfer(address, uint256) external returns (bool);
+    function mint(uint256) external returns (uint256);
+    function exchangeRateCurrent() external returns (uint256);
+    function supplyRatePerBlock() external returns (uint256);
+    function redeem(uint) external returns (uint);
+    function redeemUnderlying(uint) external returns (uint);
+}
+
 contract GuildBank {
     using SafeMath for uint256;
 
     address public owner;
     IERC20 public approvedToken; // approved token contract reference
+    ICToken public cToken;       // equivalent cToken contract reference
     ISablier public sablier;
 
     event Withdrawal(address indexed receiver, uint256 amount);
 
-    constructor(address approvedTokenAddress) public {
+    constructor(address approvedTokenAddress, address cTokenAddress) public {
         owner = msg.sender;
-        approvedToken = IERC20(approvedTokenAddress);
+
         sablier = ISablier(0xA4fc358455Febe425536fd1878bE67FfDBDEC59a);
+        cToken = ICToken(cTokenAddress);
+
+        approvedToken = IERC20(approvedTokenAddress);
         approvedToken.approve(address(sablier), uint256(-1));
+        approvedToken.approve(address(cToken), uint256(-1));
     }
 
     function withdraw(address receiver, uint256 shares, uint256 totalShares) public onlyOwner returns (bool) {
