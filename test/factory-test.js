@@ -35,5 +35,9 @@ describe('Endaoment Factory', () => {
         const endaomentAddress = receipt.logs[0].args.endaoment;
         expect(endaomentAddress.startsWith('0x')).to.be.true;
         expect(endaomentAddress.length).to.equal(42);
-    })
+
+        const endaoments = await this.factory.getEndaoments(); // array of all deployed endaoments
+        expect(endaoments.length).to.equal(1);
+        expect(endaoments[0]).to.equal(endaomentAddress)
+    });
 });

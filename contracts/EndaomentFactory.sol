@@ -4,6 +4,8 @@ import "./Endaoment.sol";
 
 contract EndaomentFactory {
 
+  address[] endaoments;
+
   event EndaomentCreated(address indexed endaoment);
 
   constructor() public {}
@@ -42,6 +44,14 @@ contract EndaomentFactory {
       _description
     );
 
+    endaoments.push(address(endaoment));
     emit EndaomentCreated(address(endaoment));
+  }
+
+  /**
+   * @notice Returns list of all endaoments
+   */
+  function getEndaoments() external view returns (address[] memory) {
+    return endaoments;
   }
 }
