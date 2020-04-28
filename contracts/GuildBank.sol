@@ -52,7 +52,7 @@ contract GuildBank {
     }
 
     function deposit(uint256 amount) public onlyOwner returns (bool) {
-        bool transferSuccess = approvedToken.transferFrom(owner, address(this), amount);
+        bool transferSuccess = approvedToken.transferFrom(msg.sender, address(this), amount);
 
         if (!transferSuccess) {
             return false;
@@ -60,7 +60,7 @@ contract GuildBank {
 
         uint256 mintCode = cToken.mint(amount);
 
-        if (0 == mintCode) {
+        if (0 != mintCode) {
             return false;
         }
 

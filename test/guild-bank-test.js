@@ -60,6 +60,7 @@ describe('GuildBank', () => {
     it('should allow the owner to deposit in the GuildBank again', async () => {
         const result = await this.instance.deposit(toWeiDai(deposit), {from: owner});
         expect(result.receipt.status).to.be.true;
+        expectEvent(result.receipt, 'Deposit');
     });
 
     it('should allow the owner to initiate a stream', async () => {
