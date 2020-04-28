@@ -114,3 +114,4 @@ build
 .openzeppelin
 
 .vscode
+.openzeppelin/.session
