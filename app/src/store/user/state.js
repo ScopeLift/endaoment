@@ -4,5 +4,8 @@ export default function () {
     provider: undefined,
     ethersProvider: undefined,
     userAddress: undefined,
+    //
+    endaomentFactory: undefined,
+    endaoments: undefined,
   };
 }

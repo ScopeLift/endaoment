@@ -4,3 +4,8 @@ export function setWallet(state, wallet) {
   state.ethersProvider = wallet.ethersProvider;
   state.userAddress = wallet.userAddress;
 }
+
+export function setContractData(state, data) {
+  state.endaomentFactory = data.contracts.factory;
+  state.endaoments = data.endaoments;
+}
