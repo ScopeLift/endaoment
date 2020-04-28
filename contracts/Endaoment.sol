@@ -19,7 +19,8 @@ contract Endaoment {
     uint256 public processingReward; // default = 0.1 - amount of ETH to give to whoever processes a proposal
     uint256 public summoningTime; // needed to determine the current period
 
-    IERC20 public approvedToken; // approved token contract reference; default = wETH
+    IERC20 public approvedToken; // approved token contract reference; default = Dai
+    IERC20 public cToken;        // approved cToken contract reference; default = cDai
     GuildBank public guildBank; // guild bank contract reference
 
     // HARD-CODED LIMITS
@@ -143,8 +144,10 @@ contract Endaoment {
         require(_proposalDeposit >= _processingReward, "Endaoment::constructor - _proposalDeposit cannot be smaller than _processingReward");
 
         approvedToken = IERC20(_approvedToken);
+        cToken = IERC20(0x5d3a536E4D6DbD6114cc1Ead35777bAB948E3643); // Note: Trying to pass the cToken address into the Endaoment contructor results in
+                                                                     // solc "Stack to deep" errors. Hardcoded cDai here for now.
 
-        guildBank = new GuildBank(_approvedToken);
+        guildBank = new GuildBank(_approvedToken, address(cToken));
 
         periodDuration = _periodDuration;
         votingPeriodLength = _votingPeriodLength;
@@ -159,6 +162,8 @@ contract Endaoment {
         members[summoner] = Member(summoner, 1, true, 0);
         memberAddressByDelegateKey[summoner] = summoner;
         totalShares = 1;
+
+        approvedToken.approve(address(guildBank), uint256(-1));
 
         emit SummonComplete(summoner, 1);
     }
@@ -224,12 +229,6 @@ contract Endaoment {
         emit SubmitProposal(proposalIndex, msg.sender, memberAddress, applicant, tokenTribute, sharesRequested);
     }
 
-    //
-    // when users may ragequit.
-    // Call guildbank functions
-    // Test proposals work and emit expected events
-    // Integrate w/ Sablier and start a stream
-
     function submitGrantProposal(
         address applicant,
         uint256 tokenGrant,
@@ -240,7 +239,7 @@ contract Endaoment {
         onlyDelegate
     {
         require(applicant != address(0), "Endaoment::submitProposal - applicant cannot be 0");
-        require(tokenGrant <= approvedToken.balanceOf(address(guildBank)), "Endaoment::submitGrantProposal - grant is greater than treasury");
+        require(tokenGrant <= cToken.balanceOf(address(guildBank)), "Endaoment::submitGrantProposal - grant is greater than treasury");
 
         address memberAddress = memberAddressByDelegateKey[msg.sender];
 
@@ -419,7 +418,7 @@ contract Endaoment {
 
             // transfer tokens to guild bank
             require(
-                approvedToken.transfer(address(guildBank), proposal.tokenTribute),
+                guildBank.deposit(proposal.tokenTribute),
                 "Endaoment::processProposal - token transfer to guild bank failed"
             );
 
@@ -466,7 +465,7 @@ contract Endaoment {
         proposal.processed = true;
 
         bool didPass = proposal.yesVotes > proposal.noVotes;
-        bool hasFunds = (proposal.tokenTribute < approvedToken.balanceOf(address(guildBank)));
+        bool hasFunds = (proposal.tokenTribute < cToken.balanceOf(address(guildBank)));
 
         // PROPOSAL PASSED
         if (didPass && !proposal.aborted && hasFunds) {

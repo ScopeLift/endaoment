@@ -4,7 +4,7 @@ const { time, expectEvent, expectRevert } = require('@openzeppelin/test-helpers'
 const { expect } = require('chai');
 const Endaoment = contract.fromArtifact('Endaoment');
 const GuildBank = contract.fromArtifact('GuildBank');
-const { toWeiDai, stealDai, approveDai, daiBalance } = require('./helpers');
+const { toWeiDai, stealDai, approveDai, daiBalance, cDaiBalance, dai2cDai } = require('./helpers');
 
 const PERIOD_DURATION = 17280;
 const VOTING_PERIODS = 35;
@@ -88,7 +88,12 @@ describe('Endaoment', () => {
     });
 
     it('should allow a grant proposal from the guildbank', async () => {
-        const desiredAmount = new web3.utils.BN(toWeiDai(1000));
+        // Convert grant amount to cDai tokens
+        const grant = new web3.utils.BN('1000');
+        const cDaiAmount = await dai2cDai(grant);
+
+        // Calculate the divisible amount of cDai for stream
+        const desiredAmount = new web3.utils.BN(cDaiAmount);
         const duration = new web3.utils.BN(GrantDuration);
         const remainder = desiredAmount.mod(duration);
         const divisibleAmount = desiredAmount.sub(remainder);
@@ -140,12 +145,12 @@ describe('Endaoment', () => {
     it('should process a successful revocation proposal', async () => {
         await  time.increase(VOTING_DURATION + GRACE_DURATION);
 
-        const initialGuildBalance = await daiBalance(this.guildBank.address);
+        const initialGuildBalance = await cDaiBalance(this.guildBank.address);
 
         await this.instance.processRevocationProposal(3, {from: summoner});
 
         const grant = await this.instance.grants(0);
-        const postGuildBalance = await daiBalance(this.guildBank.address);
+        const postGuildBalance = await cDaiBalance(this.guildBank.address);
 
         expect(grant.wasRevoked).to.be.true;
         expect(postGuildBalance.gt(initialGuildBalance)).to.be.true;
