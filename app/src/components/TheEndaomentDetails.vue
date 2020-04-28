@@ -1,13 +1,13 @@
 <template>
   <div class="text-center q-mt-lg">
-    TODO Read data for cause with ID {{ id }} from cause contract storage.
-    We also read all proposals for this cause and show them as cards.
+    TODO Read data for endaoment with ID {{ id }} from endaoment contract storage.
+    We also read all proposals for this endaoment and show them as cards.
   </div>
 </template>
 
 <script>
 export default {
-  name: 'TheCauseDetails',
+  name: 'TheEndaomentDetails',
 
   props: {
     id: {

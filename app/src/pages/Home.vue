@@ -5,15 +5,15 @@
         Stream Donations
       </h1>
       <h4 class="body-bold q-mt-md">
-        Join your cause. Choose your amount. Start streaming.
+        Join your Endaoment. Choose your amount. Start streaming.
       </h4>
 
       <div class="row justify-center q-mb-xl">
         <div>
           <div class="q-mt-xl q-mb-md">
-            Featured Cause
+            Featured Endaoment
           </div>
-          <cause-card
+          <endaoment-card
             :id="featuredId"
             class="center"
           />
@@ -24,13 +24,13 @@
 </template>
 
 <script>
-import CauseCard from 'components/CauseCard';
+import EndaomentCard from 'components/EndaomentCard';
 
 export default {
   name: 'Home',
 
   components: {
-    CauseCard,
+    EndaomentCard,
   },
 
   data() {

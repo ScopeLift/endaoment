@@ -29,11 +29,11 @@
               </div>
               <div class="q-ml-xl" />
               <router-link
-                :to="{name: 'causes'}"
+                :to="{name: 'endaoments'}"
                 active-class="page-active"
                 class="page dark-toggle"
               >
-                Find Causes
+                Find Endaoments
               </router-link>
               <router-link
                 :to="{name: 'about'}"

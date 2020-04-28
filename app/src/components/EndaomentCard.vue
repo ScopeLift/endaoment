@@ -1,9 +1,9 @@
 <template>
   <div
     class="cursor-pointer"
-    @click="$router.push({ name: 'causeDetails', params: {id} })"
+    @click="$router.push({ name: 'endaomentDetails', params: {id} })"
   >
-    <q-card class="cause">
+    <q-card class="endaoment">
       <q-card-section>
         <h4 class="header-black accent">
           {{ title }}
@@ -25,7 +25,7 @@
 
 <script>
 export default {
-  name: 'CauseCard',
+  name: 'EndaomentCard',
 
   props: {
     id: {
@@ -40,12 +40,12 @@ export default {
   },
 
   computed: {
-    // TODO Fetch cause data based on ID
+    // TODO Fetch endaoment data based on ID
     bankSize() {
       return 1150;
     },
     description() {
-        return 'TODO this title and description should be loaded from cause contract storage. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce lorem velit, vestibulum sed dictum ac, molestie vel sapien. Mauris ac faucibus justo, a lacinia mauris. Cras aliquam tortor nec est commodo, nec convallis ligula molestie. Nunc elementum in risus nec placerat. Duis viverra, tellus quis dignissim pharetra, ipsum lectus dignissim urna, a fringilla enim lacus non velit. Aliquam vulputate lacus vitae metus varius, in interdum massa pretium. Nunc id diam urna. Cras gravida est eu justo aliquet hendrerit' // eslint-disable-line
+        return 'TODO this title and description should be loaded from endaoment contract storage. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce lorem velit, vestibulum sed dictum ac, molestie vel sapien. Mauris ac faucibus justo, a lacinia mauris. Cras aliquam tortor nec est commodo, nec convallis ligula molestie. Nunc elementum in risus nec placerat. Duis viverra, tellus quis dignissim pharetra, ipsum lectus dignissim urna, a fringilla enim lacus non velit. Aliquam vulputate lacus vitae metus varius, in interdum massa pretium. Nunc id diam urna. Cras gravida est eu justo aliquet hendrerit' // eslint-disable-line
     },
     numberOfMembers() {
       return 7;
@@ -58,7 +58,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.cause {
+.endaoment {
   max-width: 500px;
   padding: 2rem;
   text-align: left;
