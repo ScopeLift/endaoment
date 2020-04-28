@@ -85,10 +85,6 @@ contract GuildBank {
         return approvedToken.transfer(receiver, approvedAmount);
     }
 
-    // TODO: switch to cStreams
-    // Update endaoment to use deposit
-    // Some endaoment tests might fail?
-
     function initiateStream(address grantee, uint256 amount, uint256 startDate, uint256 endDate) public onlyOwner returns (uint256) {
         return sablier.createCompoundingStream(grantee, amount, address(cToken), startDate, endDate, 100, 0);
     }
