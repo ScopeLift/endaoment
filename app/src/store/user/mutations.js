@@ -9,3 +9,7 @@ export function setContractData(state, data) {
   state.endaomentFactory = data.contracts.factory;
   state.endaoments = data.endaoments;
 }
+
+export function setEndaoments(state, endaoments) {
+  state.endaoments = endaoments;
+}

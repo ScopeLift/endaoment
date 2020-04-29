@@ -55,6 +55,7 @@
 
 <script>
 import { mapState } from 'vuex';
+import helpers from 'src/mixins/helpers';
 import ConnectWallet from 'components/ConnectWallet';
 
 export default {
@@ -63,6 +64,8 @@ export default {
   components: {
     ConnectWallet,
   },
+
+  mixins: [helpers],
 
   data() {
     return {
@@ -103,6 +106,7 @@ export default {
 
     async createEndaoment() {
       const overrides = { gasLimit: 20000000 };
+      console.log('Sending transation to create new endaoment...');
       const tx = await this.factory.createEndaoment(
         String(this.userAddress),
         String(this.approvedToken),
@@ -123,6 +127,9 @@ export default {
       console.log('Waiting for transaction to be mined...');
       await tx.wait();
       console.log('Endaoment created!');
+      await this.$store.dispatch('user/getEndaoments');
+
+      this.notifyUser('positive', 'Your Endaoment has successfully been created!');
     },
   },
 };

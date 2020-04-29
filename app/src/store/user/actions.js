@@ -50,3 +50,34 @@ export async function setEthereumData({ commit }, provider) {
     userAddress,
   });
 }
+
+/**
+ * @notice Get list of all endaoments
+ */
+export async function getEndaoments({ commit, state, dispatch }) {
+  let provider = state.ethersProvider;
+  if (!provider) {
+    await dispatch('setDefaultEthereumData');
+    provider = state.ethersProvider;
+  }
+
+  const factory = new ethers.Contract(addresses.factory, abi.factory, provider);
+  const endaomentsArray = await factory.getEndaoments();
+
+  const endaoments = [];
+  for (let i = 0; i < endaomentsArray.length; i += 1) {
+    /* eslint-disable no-await-in-loop */
+    const address = endaomentsArray[i];
+    const endaoment = new ethers.Contract(address, abi.endaoment, provider);
+    endaoments.push({
+      id: i,
+      bankAddress: await endaoment.guildBank(),
+      totalShares: (await endaoment.totalShares()).toString(),
+      name: await endaoment.name(),
+      description: await endaoment.description(),
+    });
+  }
+  console.log(endaoments);
+
+  commit('setEndaoments', endaoments);
+}

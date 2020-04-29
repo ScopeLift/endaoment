@@ -18,5 +18,9 @@
 <script>
 export default {
   name: 'FindEndaoment',
+
+  async mounted() {
+    await this.$store.dispatch('user/getEndaoments');
+  },
 };
 </script>

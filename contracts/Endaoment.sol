@@ -102,6 +102,9 @@ contract Endaoment {
     Proposal[] public proposalQueue;
     Grant[] public grants;
 
+    string public name;
+    string public description;
+
     /********
     MODIFIERS
     ********/
@@ -142,6 +145,9 @@ contract Endaoment {
         require(_dilutionBound > 0, "Endaoment::constructor - _dilutionBound cannot be 0");
         require(_dilutionBound <= MAX_DILUTION_BOUND, "Endaoment::constructor - _dilutionBound exceeds limit");
         require(_proposalDeposit >= _processingReward, "Endaoment::constructor - _proposalDeposit cannot be smaller than _processingReward");
+
+        name = _name;
+        description = _description;
 
         approvedToken = IERC20(_approvedToken);
         cToken = IERC20(0x5d3a536E4D6DbD6114cc1Ead35777bAB948E3643); // Note: Trying to pass the cToken address into the Endaoment contructor results in

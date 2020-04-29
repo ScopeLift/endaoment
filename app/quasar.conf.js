@@ -57,6 +57,7 @@ module.exports = function (ctx) { // eslint-disable-line func-names
       // Quasar plugins
       plugins: [
         'LocalStorage',
+        'Notify',
       ],
     },
 
