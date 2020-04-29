@@ -21,6 +21,7 @@
 
 // Color classes
 .primary { color: $primary; }
+.primary-light { color: lighten($color: $primary, $amount: 20%); }
 .secondary { color: $secondary; }
 .accent { color: $accent; }
 .primary2 { color: $primary2; }

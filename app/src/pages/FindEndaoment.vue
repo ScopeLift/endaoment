@@ -3,17 +3,19 @@
     <h2 class="page-header q-mb-lg">
       Find Your Endaoment
     </h2>
-    <div
-      v-for="endaoment in endaoments"
-      :key="endaoment.id"
-    >
-      <endaoment-card
-        :address="endaoment.address"
-        :name="endaoment.name"
-        :description="endaoment.description"
-        :bank-address="endaoment.bankAddress"
-        :total-shares="endaoment.totalShares"
-      />
+    <div class="row justify-center" >
+      <div
+        v-for="endaoment in endaoments"
+        :key="endaoment.id"
+      >
+        <endaoment-card
+          :address="endaoment.address"
+          :name="endaoment.name"
+          :description="endaoment.description"
+          :bank-address="endaoment.bankAddress"
+          :total-shares="endaoment.totalShares"
+        />
+      </div>
     </div>
     <div class="text-center q-mt-xl">
       Don't see one you like?

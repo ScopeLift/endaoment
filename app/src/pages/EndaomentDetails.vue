@@ -1,6 +1,6 @@
 <template>
   <q-page padding>
-    <the-endaoment-details :id="$route.params.id" />
+    <the-endaoment-details :address="$route.params.address" />
   </q-page>
 </template>
 

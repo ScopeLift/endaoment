@@ -9,7 +9,7 @@
           {{ name }}
         </h4>
         <div class="text-caption text-grey">
-          Bank: {{ bankAddress }}
+          Bank Balance: $0
           <br>
           {{ totalShares }} share<span v-if="totalShares !== '1'">s</span>
         </div>
@@ -58,12 +58,12 @@ export default {
 
 <style lang="scss" scoped>
 .endaoment-div {
-  max-width: 500px;
+  max-width: 450px;
   padding: 1rem;
   text-align: left;
 }
 .endaoment {
-  max-width: 500px;
+  max-width: 450px;
   padding: 1.5rem;
   text-align: left;
 }
