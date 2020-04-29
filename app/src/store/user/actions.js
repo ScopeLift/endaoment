@@ -18,11 +18,9 @@ export async function setDefaultEthereumData({ commit }) {
   const contracts = {
     factory: new ethers.Contract(addresses.factory, abi.factory, ethersProvider),
   };
-
   const endaoments = await contracts.factory.getEndaoments();
 
   commit('setContractData', { contracts, endaoments });
-
   commit('setWallet', {
     signer: undefined,
     provider: undefined,
@@ -38,6 +36,13 @@ export async function setEthereumData({ commit }, provider) {
   const ethersProvider = new ethers.providers.Web3Provider(provider);
   const signer = ethersProvider.getSigner();
   const userAddress = await signer.getAddress();
+
+  const contracts = {
+    factory: new ethers.Contract(addresses.factory, abi.factory, signer),
+  };
+  const endaoments = await contracts.factory.getEndaoments();
+
+  commit('setContractData', { contracts, endaoments });
   commit('setWallet', {
     signer,
     provider,

@@ -8,6 +8,7 @@ const routes = [
       { name: 'endaoments', path: '/endaoments', component: () => import('pages/FindEndaoment.vue') },
       { name: 'about', path: '/about', component: () => import('pages/About.vue') },
       { name: 'endaomentDetails', path: '/endaoment/:id', component: () => import('pages/EndaomentDetails.vue') },
+      { name: 'create', path: '/create', component: () => import('pages/CreateEndaoment.vue') },
     ],
   },
 ];

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "source .env && npx oz compile && mocha --exit --timeout 0 test/*-test.js",
-    "ganache": "source .env && ganache-cli -f https://mainnet.infura.io/v3/$INFURA_ID --allowUnlimitedContractSize --gasLimit 0x989680",
+    "ganache": "source .env && ganache-cli -d -f https://mainnet.infura.io/v3/$INFURA_ID --allowUnlimitedContractSize --gasLimit 0x989680",
     "frontend": "source .env && npx oz deploy -n development EndaomentFactory",
     "compile": "npx oz compile"
   },
