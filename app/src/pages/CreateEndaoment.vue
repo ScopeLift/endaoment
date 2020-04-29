@@ -20,7 +20,7 @@
             Enter a name describing for this Endaoment
           </div>
           <q-input
-            v-model="constructor.name"
+            v-model="name"
             :rules="[ val => isValidName() || 'Name must be at least 3 characters']"
             label="Name"
             lazy-rules
@@ -31,7 +31,7 @@
             Provide details describing the mission of this Endaoment
           </div>
           <q-input
-            v-model="constructor.description"
+            v-model="description"
             :rules="[ val => isValidDescription() ||
               'Description must be at least 30 characters']"
             label="Description"
@@ -66,18 +66,16 @@ export default {
 
   data() {
     return {
-      constructor: {
-        approvedToken: '0x6B175474E89094C44Da98b954EedeAC495271d0F', // Dai
-        periodDuration: 17280, // 4.8 hours, in seconds (5 periods per day)
-        votingPeriodLength: 35, // 35 periods (7 days)
-        gracePeriodLength: 35, // 35 periods (7 days)
-        abortWindow: 5, // 5 periods (1 day)
-        proposalDeposit: '100000000000000000000', // 100 Dai deposit to submit proposal
-        dilutionBound: 3, // max multiplier a YES voter will be obligated to pay if mass ragequits
-        processingReward: '1000000000000000000', // 1 Dai given to whoever processes a proposal
-        name: undefined,
-        description: undefined,
-      },
+      approvedToken: '0x6B175474E89094C44Da98b954EedeAC495271d0F', // Dai
+      periodDuration: 17280, // 4.8 hours, in seconds (5 periods per day)
+      votingPeriodLength: 35, // 35 periods (7 days)
+      gracePeriodLength: 35, // 35 periods (7 days)
+      abortWindow: 5, // 5 periods (1 day)
+      proposalDeposit: '100000000000000000000', // 100 Dai deposit to submit proposal
+      dilutionBound: 3, // max multiplier a YES voter will be obligated to pay if mass ragequits
+      processingReward: '1000000000000000000', // 1 Dai given to whoever processes a proposal
+      name: undefined,
+      description: undefined,
     };
   },
 
@@ -94,42 +92,34 @@ export default {
 
   methods: {
     isValidName() {
-      if (!this.constructor.name) return false;
-      return this.constructor.name.length > 2;
+      if (!this.name) return false;
+      return this.name.length > 2;
     },
 
     isValidDescription() {
-      if (!this.constructor.description) return false;
-      return this.constructor.description.length > 29;
+      if (!this.description) return false;
+      return this.description.length > 29;
     },
 
     async createEndaoment() {
-      console.log(this.userAddress);
-      console.log(this.constructor.approvedToken);
-      console.log(this.constructor.periodDuration);
-      console.log(this.constructor.votingPeriodLength);
-      console.log(this.constructor.gracePeriodLength);
-      console.log(this.constructor.abortWindow);
-      console.log(this.constructor.proposalDeposit);
-      console.log(this.constructor.dilutionBound);
-      console.log(this.constructor.processingReward);
-      console.log(this.constructor.name);
-      console.log(this.constructor.description);
+      const overrides = { gasLimit: 20000000 };
       const tx = await this.factory.createEndaoment(
-        this.constructor.userAddress,
-        this.constructor.approvedToken,
-        String(this.constructor.periodDuration),
-        String(this.constructor.votingPeriodLength),
-        String(this.constructor.gracePeriodLength),
-        String(this.constructor.abortWindow),
-        this.constructor.proposalDeposit,
-        String(this.constructor.dilutionBound),
-        this.constructor.processingReward,
-        'd',
-        'w',
+        String(this.userAddress),
+        String(this.approvedToken),
+        String(this.periodDuration),
+        String(this.votingPeriodLength),
+        String(this.gracePeriodLength),
+        String(this.abortWindow),
+        String(this.proposalDeposit),
+        String(this.dilutionBound),
+        String(this.processingReward),
+        String(this.name),
+        String(this.description),
+        overrides,
       );
 
       console.log('Transaction hash: ', tx.hash);
+      console.log('Transaction: ', tx);
       console.log('Waiting for transaction to be mined...');
       await tx.wait();
       console.log('Endaoment created!');
