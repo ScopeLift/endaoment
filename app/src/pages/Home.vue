@@ -13,10 +13,9 @@
           <div class="q-mt-xl q-mb-md">
             Featured Endaoment
           </div>
-          <endaoment-card
-            :id="featuredId"
-            class="center"
-          />
+          <div>
+            TODO
+          </div>
         </div>
       </div>
     </div>
@@ -24,14 +23,14 @@
 </template>
 
 <script>
-import EndaomentCard from 'components/EndaomentCard';
+// import EndaomentCard from 'components/EndaomentCard';
 
 export default {
   name: 'Home',
 
-  components: {
-    EndaomentCard,
-  },
+  // components: {
+  //   EndaomentCard,
+  // },
 
   data() {
     return {

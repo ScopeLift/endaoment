@@ -1,8 +1,20 @@
 <template>
   <q-page padding>
-    <h2 class="page-header">
+    <h2 class="page-header q-mb-lg">
       Find Your Endaoment
     </h2>
+    <div
+      v-for="endaoment in endaoments"
+      :key="endaoment.id"
+    >
+      <endaoment-card
+        :address="endaoment.address"
+        :name="endaoment.name"
+        :description="endaoment.description"
+        :bank-address="endaoment.bankAddress"
+        :total-shares="endaoment.totalShares"
+      />
+    </div>
     <div class="text-center q-mt-xl">
       Don't see one you like?
       <router-link
@@ -16,8 +28,21 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
+import EndaomentCard from 'components/EndaomentCard';
+
 export default {
   name: 'FindEndaoment',
+
+  components: {
+    EndaomentCard,
+  },
+
+  computed: {
+    ...mapState({
+      endaoments: (state) => state.user.endaoments,
+    }),
+  },
 
   async mounted() {
     await this.$store.dispatch('user/getEndaoments');

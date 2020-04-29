@@ -71,6 +71,7 @@ export async function getEndaoments({ commit, state, dispatch }) {
     const endaoment = new ethers.Contract(address, abi.endaoment, provider);
     endaoments.push({
       id: i,
+      address,
       bankAddress: await endaoment.guildBank(),
       totalShares: (await endaoment.totalShares()).toString(),
       name: await endaoment.name(),

@@ -1,21 +1,24 @@
 <template>
   <div
-    class="cursor-pointer"
-    @click="$router.push({ name: 'endaomentDetails', params: {id} })"
+    class="cursor-pointer endaoment-div"
+    @click="$router.push({ name: 'endaomentDetails', params: {address} })"
   >
     <q-card class="endaoment">
       <q-card-section>
         <h4 class="header-black accent">
-          {{ title }}
+          {{ name }}
         </h4>
         <div class="text-caption text-grey">
-          ${{ bankSize }} pledged
+          Bank: {{ bankAddress }}
           <br>
-          {{ numberOfMembers }} member<span v-if="numberOfMembers !== 1">s</span>
+          {{ totalShares }} share<span v-if="totalShares !== '1'">s</span>
         </div>
       </q-card-section>
       <q-card-section>
-        <div class="text-justify">
+        <div
+          v-if="description"
+          class="text-justify"
+        >
           {{ description.slice(0,280) }}...
         </div>
       </q-card-section>
@@ -28,39 +31,40 @@ export default {
   name: 'EndaomentCard',
 
   props: {
-    id: {
-      require: true,
-      type: Number,
-      default: undefined,
+    address: {
+      type: String,
+      required: true,
+    },
+    bankAddress: {
+      type: String,
+      required: true,
+    },
+    description: {
+      type: String,
+      required: true,
+    },
+    name: {
+      type: String,
+      required: true,
+    },
+    totalShares: {
+      type: String,
+      required: true,
     },
   },
 
-  data() {
-    return {};
-  },
-
-  computed: {
-    // TODO Fetch endaoment data based on ID
-    bankSize() {
-      return 1150;
-    },
-    description() {
-        return 'TODO this title and description should be loaded from endaoment contract storage. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce lorem velit, vestibulum sed dictum ac, molestie vel sapien. Mauris ac faucibus justo, a lacinia mauris. Cras aliquam tortor nec est commodo, nec convallis ligula molestie. Nunc elementum in risus nec placerat. Duis viverra, tellus quis dignissim pharetra, ipsum lectus dignissim urna, a fringilla enim lacus non velit. Aliquam vulputate lacus vitae metus varius, in interdum massa pretium. Nunc id diam urna. Cras gravida est eu justo aliquet hendrerit' // eslint-disable-line
-    },
-    numberOfMembers() {
-      return 7;
-    },
-    title() {
-      return 'COVID-19 Relief';
-    },
-  },
 };
 </script>
 
 <style lang="scss" scoped>
+.endaoment-div {
+  max-width: 500px;
+  padding: 1rem;
+  text-align: left;
+}
 .endaoment {
   max-width: 500px;
-  padding: 2rem;
+  padding: 1.5rem;
   text-align: left;
 }
 </style>
