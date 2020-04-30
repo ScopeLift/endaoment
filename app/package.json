@@ -10,7 +10,8 @@
   "scripts": {
     "dev": "source .env && npx quasar dev",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore ./",
-    "test": "echo \"No test specified\" && exit 0"
+    "test": "echo \"No test specified\" && exit 0",
+    "build": "source .env && npx quasar build && firebase deploy"
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0",

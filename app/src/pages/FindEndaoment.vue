@@ -3,7 +3,10 @@
     <h2 class="page-header q-mb-lg">
       Find Your Endaoment
     </h2>
-    <div class="row justify-center">
+    <div
+      v-if="endaoments"
+      class="row justify-center"
+    >
       <div
         v-for="endaoment in endaoments"
         :key="endaoment.id"

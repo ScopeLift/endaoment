@@ -64,7 +64,7 @@ export default {
         const onboard = Onboard({
           walletSelect: { wallets },
           dappId: process.env.BLOCKNATIVE_API_KEY,
-          networkId: 1,
+          networkId: 42,
           darkMode: this.$q.dark.isActive,
           subscriptions: {
             wallet: (wallet) => { provider = wallet.provider; },

@@ -150,11 +150,11 @@
             outline
           />
           <div class="text-caption q-mt-lg">
-            Enter the the number of shared requested
+            Enter the the number of shares requested
           </div>
           <q-input
             v-model="grantDuration"
-            label="Duration"
+            label="Number of Shares"
             outline
           />
           <div class="text-caption q-mt-lg">
@@ -181,6 +181,7 @@
 <script>
 import { mapState } from 'vuex';
 import { ethers } from 'ethers';
+import helpers from 'src/mixins/helpers';
 
 const { utils } = ethers;
 
@@ -195,6 +196,8 @@ const abi = {
 
 export default {
   name: 'TheEndaomentDetails',
+
+  mixins: [helpers],
 
   props: {
     address: {
@@ -262,6 +265,7 @@ export default {
 
   methods: {
     async onGrantSubmit() {
+      console.log('Submitting grant proposal...');
       const endaoment = new ethers.Contract(this.address, abi.endaoment, this.signer);
       await endaoment.submitGrantProposal(
         this.applicant,
@@ -269,8 +273,11 @@ export default {
         this.grantDuration,
         this.details,
       );
+      this.notifyUser('positive', 'Proposal successfully submitted!');
+      console.log('Proposal submitted!');
     },
     async onMemberSubmit() {
+      console.log('Submitting member proposal...');
       const endaoment = new ethers.Contract(this.address, abi.endaoment, this.signer);
       await endaoment.submitGrantProposal(
         this.applicant,
@@ -278,6 +285,8 @@ export default {
         this.grantDuration,
         this.details,
       );
+      this.notifyUser('positive', 'Proposal successfully submitted!');
+      console.log('Proposal submitted!');
     },
   },
 };

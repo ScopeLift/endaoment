@@ -1,5 +1,18 @@
 .env
 
+# Firebase --------------------------------------------------------------------
+.idea
+**/node_modules/*
+**/.firebaserc
+firebase.json
+firebase-debug.log
+*/npm-debug.log
+lerna-debug.log
+*~
+service-account-credentials.json
+**/package-lock.json
+hosting*.cache
+
 # VSCode ----------------------------------------------------------------------
 .vscode
 .vscode/*
