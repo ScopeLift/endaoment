@@ -54,6 +54,7 @@
           :disabled="!isMember"
           label="New Member"
           outline
+          @click="isAddingMember = !isAddingMember; isCreatingGrant = false "
         />
         <q-btn
           class="q-mb-xl q-mx-sm"
@@ -61,7 +62,7 @@
           :disabled="!isMember"
           label="New Grant"
           outline
-          @click="isCreatingGrant = !isCreatingGrant;"
+          @click="isCreatingGrant = !isCreatingGrant; isAddingMember = false "
         />
         <q-btn
           class="q-mb-xl q-mx-sm"
@@ -118,7 +119,58 @@
             class="full-width q-my-xl"
             color="primary"
             label="Submit Grant Proposal"
-            @click="onSubmit"
+            @click="onGrantSubmit"
+          />
+        </q-form>
+      </div>
+      <!-- NEW MEMBER PROPOSAL -->
+      <div
+        v-if="isAddingMember"
+        class="q-mb-xl"
+        style="max-width: 400; margin:0 auto;"
+      >
+        <div class="header-bold accent text-h5 text-bold q-mb-md">
+          Add Member Proposal
+        </div>
+        <q-form class="text-left">
+          <div class="text-caption">
+            Enter the address of the applicant
+          </div>
+          <q-input
+            v-model="applicant"
+            label="Recipient"
+            outline
+          />
+          <div class="text-caption q-mt-lg">
+            Enter the amount of Dai applicant will contribute
+          </div>
+          <q-input
+            v-model="tokenGrant"
+            label="Amount"
+            outline
+          />
+          <div class="text-caption q-mt-lg">
+            Enter the the number of shared requested
+          </div>
+          <q-input
+            v-model="grantDuration"
+            label="Duration"
+            outline
+          />
+          <div class="text-caption q-mt-lg">
+            Enter any relevant details that will help members vote
+          </div>
+          <q-input
+            v-model="details"
+            label="Description"
+            outline
+            type="textarea"
+          />
+          <q-btn
+            class="full-width q-my-xl"
+            color="primary"
+            label="Submit Member Proposal"
+            @click="onMemberSubmit"
           />
         </q-form>
       </div>
@@ -162,6 +214,7 @@ export default {
       description: undefined,
       //
       isCreatingGrant: undefined,
+      isAddingMember: undefined,
       //
       applicant: undefined,
       tokenGrant: undefined,
@@ -191,10 +244,12 @@ export default {
   async mounted() {
     this.isLoading = true;
     this.endaoment = new ethers.Contract(this.address, abi.endaoment, this.provider);
-    const dai = new ethers.Contract(addresses.dai, abi.dai, this.provider);
+    const cdai = new ethers.Contract(addresses.cdai, abi.cdai, this.provider);
     this.numberOfProposals = await this.endaoment.getProposalQueueLength();
     this.bankAddress = await this.endaoment.guildBank();
-    this.bankBalance = parseInt(utils.formatEther(await dai.balanceOf(this.bankAddress)), 10);
+    this.bankBalance = parseInt(
+      utils.formatUnits(await cdai.balanceOf(this.bankAddress), 8), 10,
+    );
     this.name = await this.endaoment.name();
     this.description = await this.endaoment.description();
     if (this.userAddress) {
@@ -204,7 +259,16 @@ export default {
   },
 
   methods: {
-    async onSubmit() {
+    async onGrantSubmit() {
+      const endaoment = new ethers.Contract(this.address, abi.endaoment, this.signer);
+      await endaoment.submitGrantProposal(
+        this.applicant,
+        this.tokenGrant,
+        this.grantDuration,
+        this.details,
+      );
+    },
+    async onMemberSubmit() {
       const endaoment = new ethers.Contract(this.address, abi.endaoment, this.signer);
       await endaoment.submitGrantProposal(
         this.applicant,

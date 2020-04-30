@@ -44,6 +44,7 @@
             color="primary"
             class="full-width q-my-xl"
             :disabled="!isFormValid"
+            :loading="isLoading"
             label="Create Endaoment"
             @click="createEndaoment"
           />
@@ -58,6 +59,8 @@ import { mapState } from 'vuex';
 import helpers from 'src/mixins/helpers';
 import ConnectWallet from 'components/ConnectWallet';
 
+const addresses = require('../../../addresses.json');
+
 export default {
   name: 'CreateEndaoment',
 
@@ -69,7 +72,7 @@ export default {
 
   data() {
     return {
-      approvedToken: '0x6B175474E89094C44Da98b954EedeAC495271d0F', // Dai
+      approvedToken: addresses.dai, // Dai
       periodDuration: 17280, // 4.8 hours, in seconds (5 periods per day)
       votingPeriodLength: 35, // 35 periods (7 days)
       gracePeriodLength: 35, // 35 periods (7 days)
@@ -79,6 +82,8 @@ export default {
       processingReward: '1000000000000000000', // 1 Dai given to whoever processes a proposal
       name: undefined,
       description: undefined,
+      //
+      isLoading: undefined,
     };
   },
 
@@ -86,6 +91,7 @@ export default {
     ...mapState({
       userAddress: (state) => state.user.userAddress,
       factory: (state) => state.user.endaomentFactory,
+      endaoments: (state) => state.user.endaoments,
     }),
 
     isFormValid() {
@@ -105,7 +111,8 @@ export default {
     },
 
     async createEndaoment() {
-      const overrides = { gasLimit: 20000000 };
+      this.isLoading = true;
+      const overrides = { gasLimit: 6000000 };
       console.log('Sending transation to create new endaoment...');
       const tx = await this.factory.createEndaoment(
         String(this.userAddress),
@@ -129,7 +136,11 @@ export default {
       console.log('Endaoment created!');
       await this.$store.dispatch('user/getEndaoments');
 
+      // Redirect to newest endaoment
       this.notifyUser('positive', 'Your Endaoment has successfully been created!');
+      const { address } = this.endaoments[this.endaoments.length - 1];
+      this.$router.push({ name: 'endaomentDetails', params: { address } });
+      this.isLoading = false;
     },
   },
 };

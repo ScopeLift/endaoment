@@ -29,7 +29,7 @@
           <div class="q-mt-xl q-mb-md">
             Featured Endaoment
           </div>
-          <div>
+          <div v-if="endaoments.length > 0">
             <endaoment-card
               :address="endaoments[0].address"
               :name="endaoments[0].name"
@@ -38,6 +38,9 @@
               :bank-balance="endaoments[0].bankBalance"
               :total-shares="endaoments[0].totalShares"
             />
+          </div>
+          <div v-else>
+            Coming soon...
           </div>
         </div>
       </div>

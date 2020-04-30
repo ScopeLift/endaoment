@@ -23,14 +23,6 @@ contract Endaoment {
     IERC20 public cToken;        // approved cToken contract reference; default = cDai
     GuildBank public guildBank; // guild bank contract reference
 
-    // HARD-CODED LIMITS
-    // These numbers are quite arbitrary; they are small enough to avoid overflows when doing calculations
-    // with periods or shares, yet big enough to not limit reasonable use cases.
-    uint256 constant MAX_VOTING_PERIOD_LENGTH = 10**18; // maximum length of voting period
-    uint256 constant MAX_GRACE_PERIOD_LENGTH = 10**18; // maximum length of grace period
-    uint256 constant MAX_DILUTION_BOUND = 10**18; // maximum dilution bound
-    uint256 constant MAX_NUMBER_OF_SHARES = 10**18; // maximum number of shares that can be minted
-
     /***************
     EVENTS
     ***************/
@@ -104,20 +96,6 @@ contract Endaoment {
 
     string public name;
     string public description;
-
-    /********
-    MODIFIERS
-    ********/
-    modifier onlyMember {
-        require(members[msg.sender].shares > 0, "Endaoment::onlyMember - not a member");
-        _;
-    }
-
-    modifier onlyDelegate {
-        require(members[memberAddressByDelegateKey[msg.sender]].shares > 0, "Endaoment::onlyDelegate - not a delegate");
-        _;
-    }
-
     /********
     FUNCTIONS
     ********/
@@ -134,23 +112,11 @@ contract Endaoment {
         string memory _name,
         string memory _description
     ) public {
-        require(summoner != address(0), "Endaoment::constructor - summoner cannot be 0");
-        require(_approvedToken != address(0), "Endaoment::constructor - _approvedToken cannot be 0");
-        require(_periodDuration > 0, "Endaoment::constructor - _periodDuration cannot be 0");
-        require(_votingPeriodLength > 0, "Endaoment::constructor - _votingPeriodLength cannot be 0");
-        require(_votingPeriodLength <= MAX_VOTING_PERIOD_LENGTH, "Endaoment::constructor - _votingPeriodLength exceeds limit");
-        require(_gracePeriodLength <= MAX_GRACE_PERIOD_LENGTH, "Endaoment::constructor - _gracePeriodLength exceeds limit");
-        require(_abortWindow > 0, "Endaoment::constructor - _abortWindow cannot be 0");
-        require(_abortWindow <= _votingPeriodLength, "Endaoment::constructor - _abortWindow must be smaller than or equal to _votingPeriodLength");
-        require(_dilutionBound > 0, "Endaoment::constructor - _dilutionBound cannot be 0");
-        require(_dilutionBound <= MAX_DILUTION_BOUND, "Endaoment::constructor - _dilutionBound exceeds limit");
-        require(_proposalDeposit >= _processingReward, "Endaoment::constructor - _proposalDeposit cannot be smaller than _processingReward");
-
         name = _name;
         description = _description;
 
         approvedToken = IERC20(_approvedToken);
-        cToken = IERC20(0x5d3a536E4D6DbD6114cc1Ead35777bAB948E3643); // Note: Trying to pass the cToken address into the Endaoment contructor results in
+        cToken = IERC20(0xe7bc397DBd069fC7d0109C0636d06888bb50668c); // Note: Trying to pass the cToken address into the Endaoment contructor results in
                                                                      // solc "Stack to deep" errors. Hardcoded cDai here for now.
 
         guildBank = new GuildBank(_approvedToken, address(cToken));
@@ -185,24 +151,24 @@ contract Endaoment {
         string memory details
     )
         public
-        onlyDelegate
     {
-        require(applicant != address(0), "Endaoment::submitProposal - applicant cannot be 0");
+        require(members[memberAddressByDelegateKey[msg.sender]].shares > 0, "not a delegate");
+        require(applicant != address(0), "applicant cannot be 0");
 
         // Make sure we won't run into overflows when doing calculations with shares.
         // Note that totalShares + totalSharesRequested + sharesRequested is an upper bound
         // on the number of shares that can exist until this proposal has been processed.
-        require(totalShares.add(totalSharesRequested).add(sharesRequested) <= MAX_NUMBER_OF_SHARES, "Endaoment::submitProposal - too many shares requested");
+        //require(totalShares.add(totalSharesRequested).add(sharesRequested) <= MAX_NUMBER_OF_SHARES, "Endaoment::submitProposal - too many shares requested");
 
         totalSharesRequested = totalSharesRequested.add(sharesRequested);
 
         address memberAddress = memberAddressByDelegateKey[msg.sender];
 
         // collect proposal deposit from proposer and store it in the Endaoment until the proposal is processed
-        require(approvedToken.transferFrom(msg.sender, address(this), proposalDeposit), "Endaoment::submitProposal - proposal deposit token transfer failed");
+        require(approvedToken.transferFrom(msg.sender, address(this), proposalDeposit), "proposal deposit token transfer failed");
 
         // collect tribute from applicant and store it in the Endaoment until the proposal is processed
-        require(approvedToken.transferFrom(applicant, address(this), tokenTribute), "Endaoment::submitProposal - tribute token transfer failed");
+        require(approvedToken.transferFrom(applicant, address(this), tokenTribute), "tribute token transfer failed");
 
         // compute startingPeriod for proposal
         uint256 startingPeriod = max(
@@ -242,15 +208,15 @@ contract Endaoment {
         string memory details
     )
         public
-        onlyDelegate
     {
-        require(applicant != address(0), "Endaoment::submitProposal - applicant cannot be 0");
-        require(tokenGrant <= cToken.balanceOf(address(guildBank)), "Endaoment::submitGrantProposal - grant is greater than treasury");
+        require(members[memberAddressByDelegateKey[msg.sender]].shares > 0, "not a delegate");
+        require(applicant != address(0), "applicant cannot be 0");
+        require(tokenGrant <= cToken.balanceOf(address(guildBank)), "grant is greater than treasury");
 
         address memberAddress = memberAddressByDelegateKey[msg.sender];
 
         // collect proposal deposit from proposer and store it in the Endaoment until the proposal is processed
-        require(approvedToken.transferFrom(msg.sender, address(this), proposalDeposit), "Endaoment::submitProposal - proposal deposit token transfer failed");
+        require(approvedToken.transferFrom(msg.sender, address(this), proposalDeposit), "proposal deposit token transfer failed");
 
         // compute startingPeriod for proposal
         uint256 startingPeriod = max(
@@ -288,8 +254,9 @@ contract Endaoment {
         string memory details
     )
         public
-        onlyDelegate
     {
+        require(members[memberAddressByDelegateKey[msg.sender]].shares > 0, "not a delegate");
+
         Grant storage grant = grants[grantIndex];
 
         uint256 proposalProcessDate = block.timestamp
@@ -299,12 +266,12 @@ contract Endaoment {
                                             .add(periodDuration.mul(2)); // cushion
 
         // Ensure grant is not completed & exists at index (if index is invalid, endDate will be 0 & this fails)
-        require(grant.endDate > proposalProcessDate, "Endaoment::submitRevocationProposal - grant distribution too close to completion");
+        require(grant.endDate > proposalProcessDate, " grant distribution too close to completion");
 
         address memberAddress = memberAddressByDelegateKey[msg.sender];
 
         // collect proposal deposit from proposer and store it in the Endaoment until the proposal is processed
-        require(approvedToken.transferFrom(msg.sender, address(this), proposalDeposit), "Endaoment::submitProposal - proposal deposit token transfer failed");
+        require(approvedToken.transferFrom(msg.sender, address(this), proposalDeposit), "proposal deposit token transfer failed");
 
         // compute startingPeriod for proposal
         uint256 startingPeriod = max(
@@ -337,21 +304,22 @@ contract Endaoment {
         emit SubmitRevocationProposal(proposalIndex, msg.sender, memberAddress, grantIndex);
     }
 
-    function submitVote(uint256 proposalIndex, uint8 uintVote) public onlyDelegate {
+    function submitVote(uint256 proposalIndex, uint8 uintVote) public {
+        require(members[memberAddressByDelegateKey[msg.sender]].shares > 0, "not a delegate");
         address memberAddress = memberAddressByDelegateKey[msg.sender];
         Member storage member = members[memberAddress];
 
-        require(proposalIndex < proposalQueue.length, "Endaoment::submitVote - proposal does not exist");
+        require(proposalIndex < proposalQueue.length, "proposal does not exist");
         Proposal storage proposal = proposalQueue[proposalIndex];
 
-        require(uintVote < 3, "Endaoment::submitVote - uintVote must be less than 3");
+        require(uintVote < 3, "uintVote must be less than 3");
         Vote vote = Vote(uintVote);
 
-        require(getCurrentPeriod() >= proposal.startingPeriod, "Endaoment::submitVote - voting period has not started");
-        require(!hasVotingPeriodExpired(proposal.startingPeriod), "Endaoment::submitVote - proposal voting period has expired");
-        require(proposal.votesByMember[memberAddress] == Vote.Null, "Endaoment::submitVote - member has already voted on this proposal");
-        require(vote == Vote.Yes || vote == Vote.No, "Endaoment::submitVote - vote must be either Yes or No");
-        require(!proposal.aborted, "Endaoment::submitVote - proposal has been aborted");
+        require(getCurrentPeriod() >= proposal.startingPeriod, "voting period has not started");
+        require(!hasVotingPeriodExpired(proposal.startingPeriod), "proposal voting period has expired");
+        require(proposal.votesByMember[memberAddress] == Vote.Null, "member has already voted on this proposal");
+        require(vote == Vote.Yes || vote == Vote.No, "vote must be either Yes or No");
+        require(!proposal.aborted, "proposal has been aborted");
 
         // store vote
         proposal.votesByMember[memberAddress] = vote;
@@ -378,13 +346,13 @@ contract Endaoment {
     }
 
     function processProposal(uint256 proposalIndex) public {
-        require(proposalIndex < proposalQueue.length, "Endaoment::processProposal - proposal does not exist");
+        require(proposalIndex < proposalQueue.length, "proposal does not exist");
         Proposal storage proposal = proposalQueue[proposalIndex];
 
-        require(getCurrentPeriod() >= proposal.startingPeriod.add(votingPeriodLength).add(gracePeriodLength), "Endaoment::processProposal - proposal is not ready to be processed");
-        require(proposal.processed == false, "Endaoment::processProposal - proposal has already been processed");
-        require(proposalIndex == 0 || proposalQueue[proposalIndex.sub(1)].processed, "Endaoment::processProposal - previous proposal must be processed");
-        require(proposal.kind == ProposalKind.Membership, "Endaoment::processProposal - not a membership proposal");
+        require(getCurrentPeriod() >= proposal.startingPeriod.add(votingPeriodLength).add(gracePeriodLength), "proposal is not ready to be processed");
+        require(proposal.processed == false, "proposal has already been processed");
+        require(proposalIndex == 0 || proposalQueue[proposalIndex.sub(1)].processed, "previous proposal must be processed");
+        require(proposal.kind == ProposalKind.Membership, "not a membership proposal");
 
         proposal.processed = true;
         totalSharesRequested = totalSharesRequested.sub(proposal.sharesRequested);
@@ -425,7 +393,7 @@ contract Endaoment {
             // transfer tokens to guild bank
             require(
                 guildBank.deposit(proposal.tokenTribute),
-                "Endaoment::processProposal - token transfer to guild bank failed"
+                "token transfer to guild bank failed"
             );
 
         // PROPOSAL FAILED OR ABORTED
@@ -433,20 +401,20 @@ contract Endaoment {
             // return all tokens to the applicant
             require(
                 approvedToken.transfer(proposal.applicant, proposal.tokenTribute),
-                "Endaoment::processProposal - failing vote token transfer failed"
+                "failing vote token transfer failed"
             );
         }
 
         // send msg.sender the processingReward
         require(
             approvedToken.transfer(msg.sender, processingReward),
-            "Endaoment::processProposal - failed to send processing reward to msg.sender"
+            "failed to send processing reward to msg.sender"
         );
 
         // return deposit to proposer (subtract processing reward)
         require(
             approvedToken.transfer(proposal.proposer, proposalDeposit.sub(processingReward)),
-            "Endaoment::processProposal - failed to return proposal deposit to proposer"
+            "failed to return proposal deposit to proposer"
         );
 
         emit ProcessProposal(
@@ -460,13 +428,13 @@ contract Endaoment {
     }
 
     function processGrantProposal(uint256 proposalIndex) public {
-        require(proposalIndex < proposalQueue.length, "Endaoment::processProposal - proposal does not exist");
+        require(proposalIndex < proposalQueue.length, "proposal does not exist");
         Proposal storage proposal = proposalQueue[proposalIndex];
 
-        require(getCurrentPeriod() >= proposal.startingPeriod.add(votingPeriodLength).add(gracePeriodLength), "Endaoment::processProposal - proposal is not ready to be processed");
-        require(proposal.processed == false, "Endaoment::processProposal - proposal has already been processed");
-        require(proposalIndex == 0 || proposalQueue[proposalIndex.sub(1)].processed, "Endaoment::processProposal - previous proposal must be processed");
-        require(proposal.kind == ProposalKind.Grant, "Endaoment::processGrantProposal - not a grant proposal");
+        require(getCurrentPeriod() >= proposal.startingPeriod.add(votingPeriodLength).add(gracePeriodLength), "proposal is not ready to be processed");
+        require(proposal.processed == false, "proposal has already been processed");
+        require(proposalIndex == 0 || proposalQueue[proposalIndex.sub(1)].processed, "previous proposal must be processed");
+        require(proposal.kind == ProposalKind.Grant, "not a grant proposal");
 
         proposal.processed = true;
 
@@ -495,13 +463,13 @@ contract Endaoment {
         // send msg.sender the processingReward
         require(
             approvedToken.transfer(msg.sender, processingReward),
-            "Endaoment::processProposal - failed to send processing reward to msg.sender"
+            "failed to send processing reward to msg.sender"
         );
 
         // return deposit to proposer (subtract processing reward)
         require(
             approvedToken.transfer(proposal.proposer, proposalDeposit.sub(processingReward)),
-            "Endaoment::processProposal - failed to return proposal deposit to proposer"
+            "failed to return proposal deposit to proposer"
         );
 
         emit ProcessGrantProposal(
@@ -515,13 +483,13 @@ contract Endaoment {
     }
 
     function processRevocationProposal(uint256 proposalIndex) public {
-        require(proposalIndex < proposalQueue.length, "Endaoment::processProposal - proposal does not exist");
+        require(proposalIndex < proposalQueue.length, "proposal does not exist");
         Proposal storage proposal = proposalQueue[proposalIndex];
 
-        require(getCurrentPeriod() >= proposal.startingPeriod.add(votingPeriodLength).add(gracePeriodLength), "Endaoment::processProposal - proposal is not ready to be processed");
-        require(proposal.processed == false, "Endaoment::processProposal - proposal has already been processed");
-        require(proposalIndex == 0 || proposalQueue[proposalIndex.sub(1)].processed, "Endaoment::processProposal - previous proposal must be processed");
-        require(proposal.kind == ProposalKind.Revocation, "Endaoment::processRevocationProposal - not a grant proposal");
+        require(getCurrentPeriod() >= proposal.startingPeriod.add(votingPeriodLength).add(gracePeriodLength), "proposal is not ready to be processed");
+        require(proposal.processed == false, "proposal has already been processed");
+        require(proposalIndex == 0 || proposalQueue[proposalIndex.sub(1)].processed, "previous proposal must be processed");
+        require(proposal.kind == ProposalKind.Revocation, "not a grant proposal");
 
         proposal.processed = true;
 
@@ -540,13 +508,13 @@ contract Endaoment {
         // send msg.sender the processingReward
         require(
             approvedToken.transfer(msg.sender, processingReward),
-            "Endaoment::processProposal - failed to send processing reward to msg.sender"
+            "failed to send processing reward to msg.sender"
         );
 
         // return deposit to proposer (subtract processing reward)
         require(
             approvedToken.transfer(proposal.proposer, proposalDeposit.sub(processingReward)),
-            "Endaoment::processProposal - failed to return proposal deposit to proposer"
+            "failed to return proposal deposit to proposer"
         );
 
         emit ProcessRevocationProposal(
@@ -557,14 +525,15 @@ contract Endaoment {
         );
     }
 
-    function ragequit(uint256 sharesToBurn) public onlyMember {
+    function ragequit(uint256 sharesToBurn) public {
+        require(members[msg.sender].shares > 0, "not a member");
         uint256 initialTotalShares = totalShares;
 
         Member storage member = members[msg.sender];
 
-        require(member.shares >= sharesToBurn, "Endaoment::ragequit - insufficient shares");
+        require(member.shares >= sharesToBurn, "insufficient shares");
 
-        require(canRagequit(member.highestIndexYesVote), "Endaoment::ragequit - cant ragequit until highest index proposal member voted YES on is processed");
+        require(canRagequit(member.highestIndexYesVote), "cant ragequit until highest index proposal member voted YES on is processed");
 
         // burn shares
         member.shares = member.shares.sub(sharesToBurn);
@@ -573,19 +542,19 @@ contract Endaoment {
         // instruct guildBank to transfer fair share of tokens to the ragequitter
         require(
             guildBank.withdraw(msg.sender, sharesToBurn, initialTotalShares),
-            "Endaoment::ragequit - withdrawal of tokens from guildBank failed"
+            "withdrawal of tokens from guildBank failed"
         );
 
         emit Ragequit(msg.sender, sharesToBurn);
     }
 
     function abort(uint256 proposalIndex) public {
-        require(proposalIndex < proposalQueue.length, "Endaoment::abort - proposal does not exist");
+        require(proposalIndex < proposalQueue.length, "proposal does not exist");
         Proposal storage proposal = proposalQueue[proposalIndex];
 
-        require(msg.sender == proposal.applicant, "Endaoment::abort - msg.sender must be applicant");
-        require(getCurrentPeriod() < proposal.startingPeriod.add(abortWindow), "Endaoment::abort - abort window must not have passed");
-        require(!proposal.aborted, "Endaoment::abort - proposal must not have already been aborted");
+        require(msg.sender == proposal.applicant, "msg.sender must be applicant");
+        require(getCurrentPeriod() < proposal.startingPeriod.add(abortWindow), "abort window must not have passed");
+        require(!proposal.aborted, "proposal must not have already been aborted");
 
         uint256 tokensToAbort = proposal.tokenTribute;
         proposal.tokenTribute = 0;
@@ -594,19 +563,20 @@ contract Endaoment {
         // return all tokens to the applicant
         require(
             approvedToken.transfer(proposal.applicant, tokensToAbort),
-            "Endaoment::processProposal - failed to return tribute to applicant"
+            "failed to return tribute to applicant"
         );
 
         emit Abort(proposalIndex, msg.sender);
     }
 
-    function updateDelegateKey(address newDelegateKey) public onlyMember {
-        require(newDelegateKey != address(0), "Endaoment::updateDelegateKey - newDelegateKey cannot be 0");
+    function updateDelegateKey(address newDelegateKey) public {
+        require(members[msg.sender].shares > 0, "not a member");
+        require(newDelegateKey != address(0), "newDelegateKey cannot be 0");
 
         // skip checks if member is setting the delegate key to their member address
         if (newDelegateKey != msg.sender) {
-            require(!members[newDelegateKey].exists, "Endaoment::updateDelegateKey - cant overwrite existing members");
-            require(!members[memberAddressByDelegateKey[newDelegateKey]].exists, "Endaoment::updateDelegateKey - cant overwrite existing delegate keys");
+            require(!members[newDelegateKey].exists, "cant overwrite existing members");
+            require(!members[memberAddressByDelegateKey[newDelegateKey]].exists, "cant overwrite existing delegate keys");
         }
 
         Member storage member = members[msg.sender];
@@ -635,7 +605,7 @@ contract Endaoment {
 
     // can only ragequit if the latest proposal you voted YES on has been processed
     function canRagequit(uint256 highestIndexYesVote) public view returns (bool) {
-        require(highestIndexYesVote < proposalQueue.length, "Endaoment::canRagequit - proposal does not exist");
+        require(highestIndexYesVote < proposalQueue.length, "proposal does not exist");
         return proposalQueue[highestIndexYesVote].processed;
     }
 
@@ -644,8 +614,8 @@ contract Endaoment {
     }
 
     function getMemberProposalVote(address memberAddress, uint256 proposalIndex) public view returns (Vote) {
-        require(members[memberAddress].exists, "Endaoment::getMemberProposalVote - member doesn't exist");
-        require(proposalIndex < proposalQueue.length, "Endaoment::getMemberProposalVote - proposal doesn't exist");
+        require(members[memberAddress].exists, "member doesn't exist");
+        require(proposalIndex < proposalQueue.length, "proposal doesn't exist");
         return proposalQueue[proposalIndex].votesByMember[memberAddress];
     }
 }

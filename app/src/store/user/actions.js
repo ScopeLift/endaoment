@@ -16,7 +16,7 @@ const abi = {
  * @notice Used by default when loading app
  */
 export async function setDefaultEthereumData({ commit }) {
-  const ethersProvider = new ethers.providers.JsonRpcProvider('http://localhost:8545');
+  const ethersProvider = ethers.getDefaultProvider('kovan');
 
   const contracts = {
     factory: new ethers.Contract(addresses.factory, abi.factory, ethersProvider),
@@ -65,7 +65,7 @@ export async function getEndaoments({ commit, state, dispatch }) {
   }
 
   const factory = new ethers.Contract(addresses.factory, abi.factory, provider);
-  const dai = new ethers.Contract(addresses.dai, abi.dai, provider);
+  const cdai = new ethers.Contract(addresses.cdai, abi.cdai, provider);
   const endaomentsArray = await factory.getEndaoments();
 
   const endaoments = [];
@@ -74,17 +74,22 @@ export async function getEndaoments({ commit, state, dispatch }) {
     const address = endaomentsArray[i];
     const endaoment = new ethers.Contract(address, abi.endaoment, provider);
     const bankAddress = await endaoment.guildBank();
+    const bankBalance = parseInt(
+      utils.formatUnits(await cdai.balanceOf(bankAddress), 8), 10,
+    );
+    const totalShares = (await endaoment.totalShares()).toString();
+    const name = await endaoment.name();
+    const description = await endaoment.description();
     endaoments.push({
       id: i,
       address,
       bankAddress,
-      bankBalance: parseInt(utils.formatEther(await dai.balanceOf(bankAddress)), 10),
-      totalShares: (await endaoment.totalShares()).toString(),
-      name: await endaoment.name(),
-      description: await endaoment.description(),
+      bankBalance,
+      totalShares,
+      name,
+      description,
     });
   }
-  console.log(endaoments);
 
   commit('setEndaoments', endaoments);
 }
