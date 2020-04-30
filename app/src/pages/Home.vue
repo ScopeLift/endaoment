@@ -29,7 +29,7 @@
           <div class="q-mt-xl q-mb-md">
             Featured Endaoment
           </div>
-          <div v-if="endaoments.length > 0">
+          <div v-if="endaoments && endaoments.length > 0">
             <endaoment-card
               :address="endaoments[0].address"
               :name="endaoments[0].name"

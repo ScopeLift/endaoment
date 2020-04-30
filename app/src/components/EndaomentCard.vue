@@ -36,11 +36,11 @@ export default {
       required: true,
     },
     bankAddress: {
-      type: Number,
+      type: String,
       required: true,
     },
     bankBalance: {
-      type: String,
+      type: Number,
       required: true,
     },
     description: {

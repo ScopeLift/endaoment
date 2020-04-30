@@ -190,6 +190,7 @@ const abi = {
   /* eslint-disable global-require */
   endaoment: require('../../../build/contracts/Endaoment.json').abi,
   dai: require('../../../abi/dai.json').abi,
+  cdai: require('../../../abi/cdai.json').abi,
 };
 
 export default {
@@ -243,6 +244,7 @@ export default {
 
   async mounted() {
     this.isLoading = true;
+    if (!this.provider) await this.$store.dispatch('user/setDefaultEthereumData');
     this.endaoment = new ethers.Contract(this.address, abi.endaoment, this.provider);
     const cdai = new ethers.Contract(addresses.cdai, abi.cdai, this.provider);
     this.numberOfProposals = await this.endaoment.getProposalQueueLength();

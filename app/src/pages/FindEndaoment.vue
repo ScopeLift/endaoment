@@ -13,7 +13,7 @@
           :name="endaoment.name"
           :description="endaoment.description"
           :bank-address="endaoment.bankAddress"
-          :bank-balance="endaoments[0].bankBalance"
+          :bank-balance="endaoments[endaoment.id].bankBalance"
           :total-shares="endaoment.totalShares"
         />
       </div>
