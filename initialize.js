@@ -1,3 +1,4 @@
+require('dotenv').config();
 const Web3 = require("web3");
 const { time } = require("@openzeppelin/test-helpers");
 const HDWalletProvider = require("@truffle/hdwallet-provider");
@@ -67,7 +68,7 @@ const GrantDuration = 30 * 24 * 60 * 60;
     "3",
     "1000000000000000000",
     "COVID-19 Relief Funding",
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut fermentum arcu. Maecenas rutrum turpis tortor. Donec consequat enim eros, at dictum nibh pellentesque sed. Sed nec dui ultrices, interdum erat nec, venenatis ante. Mauris erat nisi, blandit vel tristique a, aliquam vitae metus. Sed feugiat, sem sed venenatis tempor, nulla ex pulvinar justo, non tempor leo eros eget sapien. Praesent blandit mollis convallis. Aliquam erat volutpat. In hac habitasse platea dictumst. Quisque in ante lectus. Quisque nec ex a odio tristique feugiat nec consectetur sem. In et massa non nisl congue interdum. Integer varius consequat dui imperdiet tempor. Curabitur lacinia gravida metus, eget fermentum nisl laoreet mollis.",
+    "We’re responding to this crisis by doing what we’ve done for a decade: delivering cash. Each household will receive $1k, and we expect the main constraint on how many we can reach will be how much we can raise. We also plan to respond internationally, and are finalizing those details. Will share shortly. We’re beginning by targeting vulnerable households enrolled in SNAP, living in the areas hardest hit by COVID-19. This description was copied from the GiveDirectly Gitcoin grant at https://gitcoin.co/grants/561/givedirectly-covid-19-response.",
     overrides
   );
   await tx.wait();
@@ -82,7 +83,7 @@ const GrantDuration = 30 * 24 * 60 * 60;
   );
   await dai.approve(endaoments[0], MAX_UINT);
   let endaoment = new ethers.Contract(endaoments[0], endaomentAbi, signer);
-  await endaoment.submitProposal(summoner, utils.parseEther("0"), "0", "");
+  await endaoment.submitProposal(summoner, utils.parseEther("300"), "299", "Add summoner shares and tribute");
 
   console.log("Submitting vote to pass proposal...");
   await time.increase(PERIOD_DURATION);
@@ -90,7 +91,13 @@ const GrantDuration = 30 * 24 * 60 * 60;
 
   console.log('Processing proposal...');
   await time.increase(VOTING_DURATION + GRACE_DURATION);
-  await endaoment.processProposal('0');
+  await endaoment.processProposal('0', {gasLimit: 5e6});
+
+  console.log('Submitting grant proposal...');
+  await endaoment.submitGrantProposal(
+    '0x10F7Fc1F91Ba351f9C629c5947AD69bD03C05b96',
+    utils.parseEther("200"), "299", "Add summoner shares and tribute");
+
 
   // Deploy next endaoment
   console.log("Create a second endaoment...");

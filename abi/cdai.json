@@ -821,7 +821,7 @@
             }
         ],
         "payable": false,
-        "stateMutability": "nonpayable",
+        "stateMutability": "view",
         "type": "function",
         "signature": "0x3af9e669"
     },

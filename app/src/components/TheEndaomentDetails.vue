@@ -34,6 +34,9 @@
           Number of Members: 1
         </div>
         <div class="col-xs-4">
+          Number of Shares: 300
+        </div>
+        <div class="col-xs-4">
           Bank Balance: ${{ bankBalance }}
           <div class="text-caption text-grey">
             {{ bankAddress }}
@@ -174,6 +177,62 @@
           />
         </q-form>
       </div>
+      <!-- Proposals -->
+      <div class="q-mt-md q-mb-xl">
+        <div class="header-bold accent text-h5 text-bold q-mb-md">
+          Proposals
+        </div>
+
+        <div
+          v-for="proposal in proposals"
+          :key="proposal.id"
+        >
+          <q-card class="endaoment">
+            <q-card-section>
+              <!-- Proposal type -->
+              <div class="text-caption">
+                <div v-if="proposal[12]===0">Type: Membership</div>
+                <div v-else-if="proposal[12]===1">Type: New Grant</div>
+                <div v-else-if="proposal[12]===2">Type: Revoke Grant</div>
+              </div>
+              <!-- Proposal description -->
+              <div>{{ proposal[10] }}</div>
+
+              <!-- Membership Specific Stuff -->
+              <div v-if="proposal[12]===0">
+                <div>
+                  Tribute Amount: ${{ formatBigNumber(proposal[9]) }}
+                </div>
+                <div>
+                  Shares Requested: {{ formatNumber(proposal[2]) }}
+                </div>
+                <div v-if="proposal[6]">
+                  Proposal Status:
+                  <span v-if="proposal[7]">Passed!</span>
+                  <span v-else>Rejected</span>
+                </div>
+              </div>
+              <!-- OLD!!! -->
+              <h4 class="header-black accent">
+              {{ name }}
+              </h4>
+              <div class="text-caption text-grey">
+              Bank Balance: ${{ bankBalance }}
+              <br>
+              {{ totalShares }} share<span v-if="totalShares !== '1'">s</span>
+              </div>
+            </q-card-section>
+            <q-card-section>
+                <div
+                v-if="description"
+                class="text-justify"
+                >
+                {{ description.slice(0,280) }}...
+                </div>
+            </q-card-section>
+          </q-card>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -216,6 +275,7 @@ export default {
       memberData: undefined,
       name: undefined,
       description: undefined,
+      proposals: [],
       //
       isCreatingGrant: undefined,
       isAddingMember: undefined,
@@ -252,11 +312,18 @@ export default {
     const cdai = new ethers.Contract(addresses.cdai, abi.cdai, this.provider);
     this.numberOfProposals = await this.endaoment.getProposalQueueLength();
     this.bankAddress = await this.endaoment.guildBank();
-    this.bankBalance = parseInt(
-      utils.formatUnits(await cdai.balanceOf(this.bankAddress), 8), 10,
-    );
+    const cdaiBankBalance = await cdai.balanceOf(this.bankAddress);
+    const exchangeRate = await cdai.exchangeRateStored();
+    this.bankBalance = Math.round(utils.formatUnits(cdaiBankBalance.mul(exchangeRate), 36));
     this.name = await this.endaoment.name();
     this.description = await this.endaoment.description();
+    this.totalShares = await this.endaoment.totalShares();
+
+    for (let i = 0; i < this.numberOfProposals; i += 1) {
+      // eslint-disable-next-line
+      this.proposals.push(await this.endaoment.proposalQueue(String(i)));
+    }
+
     if (this.userAddress) {
       this.memberData = await this.endaoment.members(this.userAddress);
     }
@@ -264,6 +331,13 @@ export default {
   },
 
   methods: {
+    formatBigNumber(x) {
+      return Math.round(utils.formatEther(utils.bigNumberify(x).toString()));
+    },
+    formatNumber(x) {
+      return Math.round(utils.bigNumberify(x).toString());
+    },
+
     async onGrantSubmit() {
       console.log('Submitting grant proposal...');
       const endaoment = new ethers.Contract(this.address, abi.endaoment, this.signer);

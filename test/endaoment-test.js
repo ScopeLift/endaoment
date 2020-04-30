@@ -98,6 +98,9 @@ describe('Endaoment', () => {
         const remainder = desiredAmount.mod(duration);
         const divisibleAmount = desiredAmount.sub(remainder);
 
+        console.log("DURATION", duration);
+        console.log("DIVISIBLE AMOUNT", divisibleAmount);
+
         await this.instance.submitGrantProposal(grantee1, divisibleAmount, GrantDuration, "grantee1", {from: member2});
         const proposal = await this.instance.proposalQueue(2);
         expect(proposal.details).to.equal('grantee1');

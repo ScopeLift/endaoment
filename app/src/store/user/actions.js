@@ -16,7 +16,8 @@ const abi = {
  * @notice Used by default when loading app
  */
 export async function setDefaultEthereumData({ commit }) {
-  const ethersProvider = ethers.getDefaultProvider('kovan');
+  // const ethersProvider = ethers.getDefaultProvider('kovan');
+  const ethersProvider = new ethers.providers.JsonRpcProvider();
 
   const contracts = {
     factory: new ethers.Contract(addresses.factory, abi.factory, ethersProvider),
@@ -74,9 +75,9 @@ export async function getEndaoments({ commit, state, dispatch }) {
     const address = endaomentsArray[i];
     const endaoment = new ethers.Contract(address, abi.endaoment, provider);
     const bankAddress = await endaoment.guildBank();
-    const bankBalance = parseInt(
-      utils.formatUnits(await cdai.balanceOf(bankAddress), 8), 10,
-    );
+    const cdaiBankBalance = await cdai.balanceOf(bankAddress);
+    const exchangeRate = await cdai.exchangeRateStored();
+    const bankBalance = Math.round(utils.formatUnits(cdaiBankBalance.mul(exchangeRate), 36));
     const totalShares = (await endaoment.totalShares()).toString();
     const name = await endaoment.name();
     const description = await endaoment.description();
