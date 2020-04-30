@@ -34,7 +34,7 @@
           Number of Members: 1
         </div>
         <div class="col-xs-4">
-          Bank Balance: ${{ numberOfProposals }}
+          Bank Balance: ${{ bankBalance }}
           <div class="text-caption text-grey">
             {{ bankAddress }}
           </div>
@@ -61,6 +61,7 @@
           :disabled="!isMember"
           label="New Grant"
           outline
+          @click="isCreatingGrant = !isCreatingGrant;"
         />
         <q-btn
           class="q-mb-xl q-mx-sm"
@@ -70,6 +71,57 @@
           outline
         />
       </div>
+      <!-- New Grant Proposal -->
+      <div
+        v-if="isCreatingGrant"
+        class="q-mb-xl"
+        style="max-width: 400; margin:0 auto;"
+      >
+        <div class="header-bold accent text-h5 text-bold q-mb-md">
+          Create Grant Proposal
+        </div>
+        <q-form class="text-left">
+          <div class="text-caption">
+            Enter the address of the recipient
+          </div>
+          <q-input
+            v-model="applicant"
+            label="Recipient"
+            outline
+          />
+          <div class="text-caption q-mt-lg">
+            Enter the amount of Dai to give recipient
+          </div>
+          <q-input
+            v-model="tokenGrant"
+            label="Amount"
+            outline
+          />
+          <div class="text-caption q-mt-lg">
+            Enter the stream duration, in weeks
+          </div>
+          <q-input
+            v-model="grantDuration"
+            label="Duration"
+            outline
+          />
+          <div class="text-caption q-mt-lg">
+            Enter any relevant details that will help members vote
+          </div>
+          <q-input
+            v-model="details"
+            label="Description"
+            outline
+            type="textarea"
+          />
+          <q-btn
+            class="full-width q-my-xl"
+            color="primary"
+            label="Submit Grant Proposal"
+            @click="onSubmit"
+          />
+        </q-form>
+      </div>
     </div>
   </div>
 </template>
@@ -78,7 +130,15 @@
 import { mapState } from 'vuex';
 import { ethers } from 'ethers';
 
-const { abi } = require('../../../build/contracts/Endaoment.json');
+const { utils } = ethers;
+
+const addresses = require('../../../addresses.json');
+
+const abi = {
+  /* eslint-disable global-require */
+  endaoment: require('../../../build/contracts/Endaoment.json').abi,
+  dai: require('../../../abi/dai.json').abi,
+};
 
 export default {
   name: 'TheEndaomentDetails',
@@ -100,12 +160,20 @@ export default {
       memberData: undefined,
       name: undefined,
       description: undefined,
+      //
+      isCreatingGrant: undefined,
+      //
+      applicant: undefined,
+      tokenGrant: undefined,
+      grantDuration: undefined,
+      details: undefined,
     };
   },
 
   computed: {
     ...mapState({
       provider: (state) => state.user.ethersProvider,
+      signer: (state) => state.user.signer,
       userAddress: (state) => state.user.userAddress,
     }),
 
@@ -122,15 +190,29 @@ export default {
 
   async mounted() {
     this.isLoading = true;
-    this.endaoment = new ethers.Contract(this.address, abi, this.provider);
+    this.endaoment = new ethers.Contract(this.address, abi.endaoment, this.provider);
+    const dai = new ethers.Contract(addresses.dai, abi.dai, this.provider);
     this.numberOfProposals = await this.endaoment.getProposalQueueLength();
     this.bankAddress = await this.endaoment.guildBank();
+    this.bankBalance = parseInt(utils.formatEther(await dai.balanceOf(this.bankAddress)), 10);
     this.name = await this.endaoment.name();
     this.description = await this.endaoment.description();
     if (this.userAddress) {
       this.memberData = await this.endaoment.members(this.userAddress);
     }
     this.isLoading = false;
+  },
+
+  methods: {
+    async onSubmit() {
+      const endaoment = new ethers.Contract(this.address, abi.endaoment, this.signer);
+      await endaoment.submitGrantProposal(
+        this.applicant,
+        this.tokenGrant,
+        this.grantDuration,
+        this.details,
+      );
+    },
   },
 };
 </script>

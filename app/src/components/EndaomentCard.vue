@@ -9,7 +9,7 @@
           {{ name }}
         </h4>
         <div class="text-caption text-grey">
-          Bank Balance: $0
+          Bank Balance: ${{ bankBalance }}
           <br>
           {{ totalShares }} share<span v-if="totalShares !== '1'">s</span>
         </div>
@@ -36,6 +36,10 @@ export default {
       required: true,
     },
     bankAddress: {
+      type: Number,
+      required: true,
+    },
+    bankBalance: {
       type: String,
       required: true,
     },

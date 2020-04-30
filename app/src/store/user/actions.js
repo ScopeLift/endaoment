@@ -1,11 +1,14 @@
 import { ethers } from 'ethers';
 
+const { utils } = ethers;
 const addresses = require('../../../../addresses.json');
 
 const abi = {
   /* eslint-disable global-require */
   factory: require('../../../../build/contracts/EndaomentFactory.json').abi,
   endaoment: require('../../../../build/contracts/Endaoment.json').abi,
+  dai: require('../../../../abi/dai.json').abi,
+  cdai: require('../../../../abi/cdai.json').abi,
 };
 
 
@@ -62,6 +65,7 @@ export async function getEndaoments({ commit, state, dispatch }) {
   }
 
   const factory = new ethers.Contract(addresses.factory, abi.factory, provider);
+  const dai = new ethers.Contract(addresses.dai, abi.dai, provider);
   const endaomentsArray = await factory.getEndaoments();
 
   const endaoments = [];
@@ -69,10 +73,12 @@ export async function getEndaoments({ commit, state, dispatch }) {
     /* eslint-disable no-await-in-loop */
     const address = endaomentsArray[i];
     const endaoment = new ethers.Contract(address, abi.endaoment, provider);
+    const bankAddress = await endaoment.guildBank();
     endaoments.push({
       id: i,
       address,
-      bankAddress: await endaoment.guildBank(),
+      bankAddress,
+      bankBalance: parseInt(utils.formatEther(await dai.balanceOf(bankAddress)), 10),
       totalShares: (await endaoment.totalShares()).toString(),
       name: await endaoment.name(),
       description: await endaoment.description(),

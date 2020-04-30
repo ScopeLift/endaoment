@@ -35,6 +35,7 @@
               :name="endaoments[0].name"
               :description="endaoments[0].description"
               :bank-address="endaoments[0].bankAddress"
+              :bank-balance="endaoments[0].bankBalance"
               :total-shares="endaoments[0].totalShares"
             />
           </div>

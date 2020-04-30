@@ -3,7 +3,7 @@
     <h2 class="page-header q-mb-lg">
       Find Your Endaoment
     </h2>
-    <div class="row justify-center" >
+    <div class="row justify-center">
       <div
         v-for="endaoment in endaoments"
         :key="endaoment.id"
@@ -13,6 +13,7 @@
           :name="endaoment.name"
           :description="endaoment.description"
           :bank-address="endaoment.bankAddress"
+          :bank-balance="endaoments[0].bankBalance"
           :total-shares="endaoment.totalShares"
         />
       </div>
