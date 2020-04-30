@@ -199,10 +199,13 @@
                 <div v-else-if="proposal[12]===2">Revoke Grant Proposal</div>
               </div>
               <!-- Proposal description -->
-              <div class="text-bold q-mb-md" style="font-size:1.1rem;">{{ proposal[10] }}</div>
+              <div class="text-bold" style="font-size:1.1rem;">{{ proposal[10] }}</div>
 
               <!-- Membership Specific Stuff -->
               <div v-if="proposal[12]===0">
+                <div class="q-mb-md text-caption text-grey">
+                  Applicant: {{ proposal[1] }}
+                </div>
                 <div>
                   Tribute Amount: ${{ formatBigNumber(proposal[9]) }}
                 </div>
@@ -218,6 +221,9 @@
               </div>
               <!-- Grant Specific Stuff -->
               <div v-if="proposal[12]===1">
+                <div class="q-mb-md text-caption text-grey">
+                  Recipient: {{ proposal[1] }}
+                </div>
                 <div>
                   Stream Amount: ${{ cdaiToDai(proposal[9]) }}
                 </div>

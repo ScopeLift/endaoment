@@ -38,6 +38,7 @@ const GrantDuration = 30 * 24 * 60 * 60;
 (async () => {
   console.log("Getting ethers.js signer...");
   const summoner = accounts[0];
+  const member1 = accounts[1];
   const signer = await ethersProvider.getSigner();
   const daiWeb3 = new web3.eth.Contract(daiAbi, daiAddress);
   const dai = new ethers.Contract(daiAddress, daiAbi, signer);
@@ -47,7 +48,7 @@ const GrantDuration = 30 * 24 * 60 * 60;
     .transfer(summoner, utils.parseEther("10000"))
     .send({ from: exchange });
   await daiWeb3.methods
-    .transfer(accounts[1], utils.parseEther("2500"))
+    .transfer(member1, utils.parseEther("2500"))
     .send({ from: exchange });
   await daiWeb3.methods
     .transfer(accounts[2], utils.parseEther("12000"))
@@ -73,11 +74,11 @@ const GrantDuration = 30 * 24 * 60 * 60;
   );
   await tx.wait();
 
-  console.log("Get address of the endaoment...");
+  console.log("Getting address of the endaoment...");
   let endaoments = await factory.getEndaoments();
   console.log("  Address: ", endaoments[0]);
 
-  // Add summoner as member with 300 total shares shares and 300 DAI
+  // Add summoner as member with 3000 total shares shares and 3000 DAI
   console.log(
     "Submitting proposal to add summoner as member with more shares + Dai"
   );
@@ -92,6 +93,18 @@ const GrantDuration = 30 * 24 * 60 * 60;
   console.log('Processing proposal...');
   await time.increase(VOTING_DURATION + GRACE_DURATION);
   await endaoment.processProposal('0', {gasLimit: 5e6});
+
+  console.log("Submiting Proposal to add next member");
+  await daiWeb3.methods.approve(endaoments[0], MAX_UINT).send({ from: member1 });
+  await endaoment.submitProposal(member1, utils.parseEther("2500"), "2500", "Add Vitalik as member");
+
+  console.log("Submitting vote to pass proposal...");
+  await time.increase(PERIOD_DURATION);
+  await endaoment.submitVote('1', '1');
+
+  console.log('Processing proposal...');
+  await time.increase(VOTING_DURATION + GRACE_DURATION);
+  await endaoment.processProposal('1', {gasLimit: 5e6});
 
   console.log('Submitting grant proposal...');
   await endaoment.submitGrantProposal(
