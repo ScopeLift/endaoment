@@ -186,6 +186,12 @@
         </div>
 
         <div
+          v-if="numberOfProposals === 0"
+          class="text-italic text-center q-mb-xl q-pb-xl"
+        >
+          There are no proposals for this Endaoment
+        </div>
+        <div
           v-for="(proposal, index) in proposals"
           :key="proposal.id"
           class="q-ma-md"
@@ -194,12 +200,23 @@
             <q-card-section>
               <!-- Proposal type -->
               <div class="text-caption text-bold primary">
-                <div v-if="proposal[12]===0">Membership Proposal</div>
-                <div v-else-if="proposal[12]===1">New Grant Proposal</div>
-                <div v-else-if="proposal[12]===2">Revoke Grant Proposal</div>
+                <div v-if="proposal[12]===0">
+                  Membership Proposal
+                </div>
+                <div v-else-if="proposal[12]===1">
+                  New Grant Proposal
+                </div>
+                <div v-else-if="proposal[12]===2">
+                  Revoke Grant Proposal
+                </div>
               </div>
               <!-- Proposal description -->
-              <div class="text-bold" style="font-size:1.1rem;">{{ proposal[10] }}</div>
+              <div
+                class="text-bold"
+                style="font-size:1.1rem;"
+              >
+                {{ proposal[10] }}
+              </div>
 
               <!-- Membership Specific Stuff -->
               <div v-if="proposal[12]===0">
@@ -215,7 +232,10 @@
                 <div v-if="proposal[6]">
                   <br>
                   Proposal Status:
-                  <span v-if="proposal[7]" style="color:green;">Passed!</span>
+                  <span
+                    v-if="proposal[7]"
+                    style="color:green;"
+                  >Passed!</span>
                   <span v-else>Rejected</span>
                 </div>
               </div>
@@ -232,24 +252,28 @@
                 </div>
                 <div class="row justify-evenly q-mt-lg">
                   <div class="col-auto">
-                    <div class="text-caption">{{ formatNumber(proposal[4]) }} votes</div>
+                    <div class="text-caption">
+                      {{ formatNumber(proposal[4]) }} votes
+                    </div>
                     <q-btn
-                      @click="submitGrantVote(index, 1)"
                       color="primary"
                       :disabled="!isMember"
                       label="Vote Yes"
                       outline
-                      />
+                      @click="submitGrantVote(index, 1)"
+                    />
                   </div>
                   <div class="col-auto">
-                    <div class="text-caption">{{ formatNumber(proposal[5]) }} votes</div>
+                    <div class="text-caption">
+                      {{ formatNumber(proposal[5]) }} votes
+                    </div>
                     <q-btn
-                      @click="submitGrantVote(index, 2)"
                       color="primary"
                       :disabled="!isMember"
                       label="Vote No"
                       outline
-                      />
+                      @click="submitGrantVote(index, 2)"
+                    />
                   </div>
                 </div>
               </div>
@@ -310,6 +334,7 @@ export default {
       details: undefined,
       //
       exchangeRate: undefined,
+      totalShares: undefined,
     };
   },
 
@@ -355,7 +380,7 @@ export default {
       if (!this.provider) await this.$store.dispatch('user/setDefaultEthereumData');
       this.endaoment = new ethers.Contract(this.address, abi.endaoment, this.provider);
       const cdai = new ethers.Contract(addresses.cdai, abi.cdai, this.provider);
-      this.numberOfProposals = await this.endaoment.getProposalQueueLength();
+      this.numberOfProposals = Number((await this.endaoment.getProposalQueueLength()).toString());
       this.bankAddress = await this.endaoment.guildBank();
       const cdaiBankBalance = await cdai.balanceOf(this.bankAddress);
       this.exchangeRate = await cdai.exchangeRateStored();

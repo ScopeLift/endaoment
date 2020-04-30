@@ -44,9 +44,11 @@ export async function setEthereumData({ commit }, provider) {
   const contracts = {
     factory: new ethers.Contract(addresses.factory, abi.factory, signer),
   };
-  const endaoments = await contracts.factory.getEndaoments();
 
-  commit('setContractData', { contracts, endaoments });
+  commit('setContractData', contracts);
+
+  await contracts.factory.getEndaoments();
+
   commit('setWallet', {
     signer,
     provider,

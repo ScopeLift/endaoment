@@ -39,6 +39,9 @@ h4 { margin-top: 0; }
 
 
 // ======================================== OTHER ========================================
+.card-border { border: 1px solid white}
+.card-border:hover { border: 1px solid $primary }
+
 .center { margin: 0 auto; }
 
 .body--light {

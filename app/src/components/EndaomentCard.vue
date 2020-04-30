@@ -3,7 +3,7 @@
     class="cursor-pointer endaoment-div"
     @click="$router.push({ name: 'endaomentDetails', params: {address} })"
   >
-    <q-card class="endaoment">
+    <q-card class="card-border endaoment">
       <q-card-section>
         <h4 class="header-black accent">
           {{ name }}

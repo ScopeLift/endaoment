@@ -90,29 +90,33 @@
       class="q-mt-xl"
       style="color: #000000; background-color: rgba(0,0,0,0)"
     >
-      <div class="text-center text-caption dark-toggle q-my-xl">
-        Built by
-        <a
-          href="https://twitter.com/BenDiFrancesco"
-          target="_blank"
-          class="hyperlink"
-        >Ben DiFrancesco</a>
-        and
-        <a
-          href="https://twitter.com/msolomon44"
-          target="_blank"
-          class="hyperlink"
-        >Matt Solomon</a>
+      <div class="text-center dark-toggle q-my-xl">
+        <div>
+          Built by
+          <a
+            href="https://twitter.com/BenDiFrancesco"
+            target="_blank"
+            class="hyperlink"
+          >Ben DiFrancesco</a>
+          and
+          <a
+            href="https://twitter.com/msolomon44"
+            target="_blank"
+            class="hyperlink"
+          >Matt Solomon</a>
+        </div>
         <br><br>
-        Icon made by <a
-          href="https://www.flaticon.com/authors/freepik"
-          target="_blank"
-          class="hyperlink"
-        >Freepik</a> from <a
-          href="http://www.flaticon.com/"
-          target="_blank"
-          class="hyperlink"
-        >https://www.flaticon.com/</a>.
+        <div class="text-caption">
+          Icon made by <a
+            href="https://www.flaticon.com/authors/freepik"
+            target="_blank"
+            class="hyperlink"
+          >Freepik</a> from <a
+            href="http://www.flaticon.com/"
+            target="_blank"
+            class="hyperlink"
+          >https://www.flaticon.com/</a>.
+        </div>
       </div>
     </q-footer>
   </q-layout>

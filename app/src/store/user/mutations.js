@@ -5,9 +5,8 @@ export function setWallet(state, wallet) {
   state.userAddress = wallet.userAddress;
 }
 
-export function setContractData(state, data) {
-  state.endaomentFactory = data.contracts.factory;
-  state.endaoments = data.endaoments;
+export function setContractData(state, contracts) {
+  state.endaomentFactory = contracts.factory;
 }
 
 export function setEndaoments(state, endaoments) {
