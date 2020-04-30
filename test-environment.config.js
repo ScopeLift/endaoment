@@ -5,10 +5,9 @@ module.exports = {
     node: {
       fork: `https://mainnet.infura.io/v3/${infura_key}`,
       unlocked_accounts: [process.env.DAI_FUNDER],
-      allowUnlimitedContractSize: true, // TODO remove the need for this
-      gasLimit: 200e6,
+      gasLimit: 10e6,
     },
     contracts: {
-      defaultGas: 200e6,
+      defaultGas: 5e6,
     },
   };

@@ -83,7 +83,7 @@ describe('Endaoment', () => {
         await expectRevert(
                 this.instance.submitGrantProposal(grantee1, toWeiDai(10000),
                                         30*24*60*60, "grantee1", {from: member2}),
-                "Endaoment::submitGrantProposal - grant is greater than treasury"
+                "grant is greater than treasury"
             );
     });
 
