@@ -111,7 +111,7 @@ contract Endaoment {
         string memory _description
     ) public {
         approvedToken = IERC20(_approvedToken);
-        cToken = IERC20(0x5d3a536E4D6DbD6114cc1Ead35777bAB948E3643); // Note: Trying to pass the cToken address into the Endaoment contructor results in
+        cToken = IERC20(0xe7bc397DBd069fC7d0109C0636d06888bb50668c); // Note: Trying to pass the cToken address into the Endaoment contructor results in
                                                                      // solc "Stack to deep" errors. Hardcoded cDai here for now.
 
         guildBank = new GuildBank(_approvedToken, address(cToken));

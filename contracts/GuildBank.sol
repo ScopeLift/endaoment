@@ -38,7 +38,7 @@ contract GuildBank {
     constructor(address approvedTokenAddress, address cTokenAddress) public {
         owner = msg.sender;
 
-        sablier = ISablier(0xA4fc358455Febe425536fd1878bE67FfDBDEC59a);
+        sablier = ISablier(0xc04Ad234E01327b24a831e3718DBFcbE245904CC);
         cToken = ICToken(cTokenAddress);
         approvedToken = IERC20(approvedTokenAddress);
 
