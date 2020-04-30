@@ -6,7 +6,7 @@
   "scripts": {
     "test": "source .env && npx oz compile && mocha --exit --timeout 0 test/*-test.js",
     "config": "npm install -g ganache-cli && npm install && cd app && npm install && cd ..",
-    "ganache": "source .env && ganache-cli -d -f https://mainnet.infura.io/v3/$INFURA_ID --allowUnlimitedContractSize --gasLimit 0x5F5E100 --networkId 999 --unlock $DAI_FUNDER",
+    "ganache": "source .env && ganache-cli -d -f https://kovan.infura.io/v3/$INFURA_ID --allowUnlimitedContractSize --gasLimit 0x5F5E100 --networkId 999 --unlock $DAI_FUNDER",
     "initialize": "source .env && bash initialize.sh && node initialize.js",
     "setup-1": "source .env && npx oz deploy -n development EndaomentFactory",
     "compile": "npx oz compile"

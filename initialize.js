@@ -88,9 +88,9 @@ const GrantDuration = 30 * 24 * 60 * 60;
   await time.increase(PERIOD_DURATION);
   await endaoment.submitVote('0', '1');
 
-  // console.log('Processing proposal...');
-  // await time.increase(VOTING_DURATION + GRACE_DURATION);
-  // await endaoment.processProposal('0');
+  console.log('Processing proposal...');
+  await time.increase(VOTING_DURATION + GRACE_DURATION);
+  await endaoment.processProposal('0');
 
   // Deploy next endaoment
   console.log("Create a second endaoment...");
