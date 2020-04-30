@@ -44,13 +44,13 @@ const GrantDuration = 30 * 24 * 60 * 60;
 
   console.log("Funding a few users with Dai...");
   await daiWeb3.methods
-    .transfer(summoner, utils.parseEther("1000"))
+    .transfer(summoner, utils.parseEther("10000"))
     .send({ from: exchange });
   await daiWeb3.methods
-    .transfer(accounts[1], utils.parseEther("250"))
+    .transfer(accounts[1], utils.parseEther("2500"))
     .send({ from: exchange });
   await daiWeb3.methods
-    .transfer(accounts[2], utils.parseEther("1200"))
+    .transfer(accounts[2], utils.parseEther("12000"))
     .send({ from: exchange });
 
   // Deploy first endaoment and get its address
@@ -83,7 +83,7 @@ const GrantDuration = 30 * 24 * 60 * 60;
   );
   await dai.approve(endaoments[0], MAX_UINT);
   let endaoment = new ethers.Contract(endaoments[0], endaomentAbi, signer);
-  await endaoment.submitProposal(summoner, utils.parseEther("300"), "299", "Add summoner shares and tribute");
+  await endaoment.submitProposal(summoner, utils.parseEther("3000"), "2999", "Add summoner shares and tribute");
 
   console.log("Submitting vote to pass proposal...");
   await time.increase(PERIOD_DURATION);
@@ -96,7 +96,8 @@ const GrantDuration = 30 * 24 * 60 * 60;
   console.log('Submitting grant proposal...');
   await endaoment.submitGrantProposal(
     '0x10F7Fc1F91Ba351f9C629c5947AD69bD03C05b96',
-    utils.parseEther("200"), "299", "Add summoner shares and tribute");
+    "4688098560000", "2592000", "Grant To GiveDirectly");
+  await time.increase(PERIOD_DURATION);
 
 
   // Deploy next endaoment

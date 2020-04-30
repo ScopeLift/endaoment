@@ -26,7 +26,7 @@
       <div class="header-bold accent text-h5 text-bold q-mt-xl">
         Stats
       </div>
-      <div class="row justify-center text-left">
+      <div class="row justify-center text-center">
         <div class="col-xs-4">
           Proposals in Queue: {{ numberOfProposals }}
         </div>
@@ -34,10 +34,12 @@
           Number of Members: 1
         </div>
         <div class="col-xs-4">
-          Number of Shares: 300
+          Number of Shares: {{ totalShares }}
         </div>
-        <div class="col-xs-4">
-          Bank Balance: ${{ bankBalance }}
+        <div class="col-xs-6 q-mt-md">
+          <div>
+            Bank Balance: ${{ bankBalance }}
+          </div>
           <div class="text-caption text-grey">
             {{ bankAddress }}
           </div>
@@ -184,19 +186,20 @@
         </div>
 
         <div
-          v-for="proposal in proposals"
+          v-for="(proposal, index) in proposals"
           :key="proposal.id"
+          class="q-ma-md"
         >
           <q-card class="endaoment">
             <q-card-section>
               <!-- Proposal type -->
-              <div class="text-caption">
-                <div v-if="proposal[12]===0">Type: Membership</div>
-                <div v-else-if="proposal[12]===1">Type: New Grant</div>
-                <div v-else-if="proposal[12]===2">Type: Revoke Grant</div>
+              <div class="text-caption text-bold primary">
+                <div v-if="proposal[12]===0">Membership Proposal</div>
+                <div v-else-if="proposal[12]===1">New Grant Proposal</div>
+                <div v-else-if="proposal[12]===2">Revoke Grant Proposal</div>
               </div>
               <!-- Proposal description -->
-              <div>{{ proposal[10] }}</div>
+              <div class="text-bold q-mb-md" style="font-size:1.1rem;">{{ proposal[10] }}</div>
 
               <!-- Membership Specific Stuff -->
               <div v-if="proposal[12]===0">
@@ -207,28 +210,43 @@
                   Shares Requested: {{ formatNumber(proposal[2]) }}
                 </div>
                 <div v-if="proposal[6]">
+                  <br>
                   Proposal Status:
-                  <span v-if="proposal[7]">Passed!</span>
+                  <span v-if="proposal[7]" style="color:green;">Passed!</span>
                   <span v-else>Rejected</span>
                 </div>
               </div>
-              <!-- OLD!!! -->
-              <h4 class="header-black accent">
-              {{ name }}
-              </h4>
-              <div class="text-caption text-grey">
-              Bank Balance: ${{ bankBalance }}
-              <br>
-              {{ totalShares }} share<span v-if="totalShares !== '1'">s</span>
-              </div>
-            </q-card-section>
-            <q-card-section>
-                <div
-                v-if="description"
-                class="text-justify"
-                >
-                {{ description.slice(0,280) }}...
+              <!-- Grant Specific Stuff -->
+              <div v-if="proposal[12]===1">
+                <div>
+                  Stream Amount: ${{ cdaiToDai(proposal[9]) }}
                 </div>
+                <div>
+                  Stream Duration: {{ formatNumber(proposal[13] / (3600 * 24 )) }} days
+                </div>
+                <div class="row justify-evenly q-mt-lg">
+                  <div class="col-auto">
+                    <div class="text-caption">{{ formatNumber(proposal[4]) }} votes</div>
+                    <q-btn
+                      @click="submitGrantVote(index, 1)"
+                      color="primary"
+                      :disabled="!isMember"
+                      label="Vote Yes"
+                      outline
+                      />
+                  </div>
+                  <div class="col-auto">
+                    <div class="text-caption">{{ formatNumber(proposal[5]) }} votes</div>
+                    <q-btn
+                      @click="submitGrantVote(index, 2)"
+                      color="primary"
+                      :disabled="!isMember"
+                      label="Vote No"
+                      outline
+                      />
+                  </div>
+                </div>
+              </div>
             </q-card-section>
           </q-card>
         </div>
@@ -284,6 +302,8 @@ export default {
       tokenGrant: undefined,
       grantDuration: undefined,
       details: undefined,
+      //
+      exchangeRate: undefined,
     };
   },
 
@@ -307,26 +327,7 @@ export default {
 
   async mounted() {
     this.isLoading = true;
-    if (!this.provider) await this.$store.dispatch('user/setDefaultEthereumData');
-    this.endaoment = new ethers.Contract(this.address, abi.endaoment, this.provider);
-    const cdai = new ethers.Contract(addresses.cdai, abi.cdai, this.provider);
-    this.numberOfProposals = await this.endaoment.getProposalQueueLength();
-    this.bankAddress = await this.endaoment.guildBank();
-    const cdaiBankBalance = await cdai.balanceOf(this.bankAddress);
-    const exchangeRate = await cdai.exchangeRateStored();
-    this.bankBalance = Math.round(utils.formatUnits(cdaiBankBalance.mul(exchangeRate), 36));
-    this.name = await this.endaoment.name();
-    this.description = await this.endaoment.description();
-    this.totalShares = await this.endaoment.totalShares();
-
-    for (let i = 0; i < this.numberOfProposals; i += 1) {
-      // eslint-disable-next-line
-      this.proposals.push(await this.endaoment.proposalQueue(String(i)));
-    }
-
-    if (this.userAddress) {
-      this.memberData = await this.endaoment.members(this.userAddress);
-    }
+    await this.getAllData();
     this.isLoading = false;
   },
 
@@ -336,6 +337,36 @@ export default {
     },
     formatNumber(x) {
       return Math.round(utils.bigNumberify(x).toString());
+    },
+    cdaiToDai(x) {
+      const y = utils.bigNumberify(x);
+      const z = y.mul(this.exchangeRate);
+      const val = utils.formatUnits(z, 36);
+      return Math.round(val);
+    },
+
+    async getAllData() {
+      if (!this.provider) await this.$store.dispatch('user/setDefaultEthereumData');
+      this.endaoment = new ethers.Contract(this.address, abi.endaoment, this.provider);
+      const cdai = new ethers.Contract(addresses.cdai, abi.cdai, this.provider);
+      this.numberOfProposals = await this.endaoment.getProposalQueueLength();
+      this.bankAddress = await this.endaoment.guildBank();
+      const cdaiBankBalance = await cdai.balanceOf(this.bankAddress);
+      this.exchangeRate = await cdai.exchangeRateStored();
+      this.bankBalance = Math.round(utils.formatUnits(cdaiBankBalance.mul(this.exchangeRate), 36));
+      this.name = await this.endaoment.name();
+      this.description = await this.endaoment.description();
+      this.totalShares = await this.endaoment.totalShares();
+
+      this.proposals = [];
+      for (let i = 0; i < this.numberOfProposals; i += 1) {
+        // eslint-disable-next-line
+        this.proposals.push(await this.endaoment.proposalQueue(String(i)));
+      }
+
+      if (this.userAddress) {
+        this.memberData = await this.endaoment.members(this.userAddress);
+      }
     },
 
     async onGrantSubmit() {
@@ -361,6 +392,16 @@ export default {
       );
       this.notifyUser('positive', 'Proposal successfully submitted!');
       console.log('Proposal submitted!');
+    },
+
+    async submitGrantVote(index, response) {
+      console.log(index, response);
+      console.log('Submitting grant vote...');
+      const endaoment = new ethers.Contract(this.address, abi.endaoment, this.signer);
+      await endaoment.submitVote(index, response);
+      console.log('Vote submitted!');
+      await this.getAllData();
+      this.notifyUser('positive', 'Your vote was successfully submitted!');
     },
   },
 };
